@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/Ionicons'; // Make sure to install react-native-vector-icons
+import FastImage from 'react-native-fast-image';
 
 const Tab = createBottomTabNavigator();
 
@@ -58,15 +59,20 @@ const CustomTabBar = (props) => {
             onPress={onPress}
             style={[styles.tabButton]}
           >
-            <View style={[isFocused && styles.activeTab]}>
-            <Icon
-              name={isFocused ? `${route.name.toLowerCase()}-sharp` : `${route.name.toLowerCase()}-outline`}
-              size={24}
-              color={isFocused ? 'tomato' : 'gray'}
-            />
+            <View style={[styles.inActiveTab, isFocused && styles.activeTab]}>
+            <FastImage
+            style={{ width: 30, height: 30 }}
+            source={{
+                uri: 'https://unsplash.it/400/400?image=1',
+                headers: { Authorization: 'someAuthToken' },
+                priority: FastImage.priority.normal,
+            }}
+            resizeMode={FastImage.resizeMode.contain}/>
             </View>
           </TouchableOpacity>
+          <View style={styles.inActiveTab}>
           <Text style={{ color: isFocused ? 'tomato' : 'gray' }}>{route.name}</Text>
+          </View>
           </View>
         );
       })}
@@ -86,7 +92,7 @@ const BottomStack = () => {
         <Tab.Screen name="Home" component={HomeScreen} />
         <Tab.Screen name="Settings" component={SettingsScreen} />
         <Tab.Screen name="Profile" component={ProfileScreen} />
-        <Tab.Screen name="Notifications" component={NotificationsScreen} />
+        <Tab.Screen name="Messages" component={NotificationsScreen} />
       </Tab.Navigator>
   );
 };
@@ -98,26 +104,39 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   container: {
-    position: 'relative',
   },
   tabBarContainer: {
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
-    height: 60,
+    height: 80,
     backgroundColor: 'white',
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
     elevation: 5, // Optional: for shadow effect on Android
   },
   tabButton: {
-    flex: 1,
+    // flex: 1,
     alignItems: 'center',
-    padding: 10,
+    justifyContent:'center',
+    // padding: 10,
   },
+  inActiveTab: {
+    backgroundColor: 'white', // Light red background for active tab
+    borderRadius: 15,
+    // padding:10,
+    width:70,
+    justifyContent:'center',
+    alignItems:'center',
+  },
+
   activeTab: {
-    backgroundColor: 'lightcoral', // Light red background for active tab
-    borderRadius: 5,
+    backgroundColor: '#D3D3D3', // Light red background for active tab
+    borderRadius: 15,
+    // padding:10,
+    width:70,
+    justifyContent:'center',
+    alignItems:'center',
   },
 });
 
