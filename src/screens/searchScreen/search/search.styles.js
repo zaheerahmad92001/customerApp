@@ -10,26 +10,13 @@ const styles = StyleSheet.create({
       flex: 1,
       backgroundColor: '#fff',
     },
-    searchBarContainer: {
-      flexDirection: 'row',
-      alignItems: 'center',
-      justifyContent: 'space-between',
-      marginBottom: 16,
+    wrapper:{
+      marginHorizontal:wp(4), 
+      flex:1, 
+      marginTop:10,
     },
-    searchBar: {
-      flexDirection: 'row',
-      alignItems: 'center',
-      backgroundColor: colors.lightGray,
-      borderRadius: 8,
-      paddingHorizontal: 8,
-      height: 40,
-      width: wp(82),
-      borderWidth: 1,
-      borderColor:colors.gray,
-    },
-    searchIcon: {
-      marginRight:5,
-    },
+
+    
     input: {
       flex: 1,
       fontSize: RFValue(12),
@@ -51,8 +38,9 @@ const styles = StyleSheet.create({
       fontFamily: fontsFamily.thin,
     },
     recentSearchTitle: {
-      fontSize:wp(4),
-      fontFamily: fontsFamily.regular,
+      fontSize:RFValue(16),
+      fontWeight:"500",
+      fontFamily: fontsFamily.semiBold,
       color: colors.appBlack,
       marginBottom: 8,
       marginTop: 10,
@@ -71,7 +59,7 @@ const styles = StyleSheet.create({
       flexDirection: 'row',
       justifyContent: 'space-between',
       alignItems: 'center',
-      paddingVertical: 8,
+      paddingVertical:RFValue(8),
     },
     searchTextTitle: {
       fontSize: 18,
@@ -88,8 +76,8 @@ const styles = StyleSheet.create({
       marginVertical: 4, // Space above and below the line
     },
     searchText: {
-      fontSize:14,
-      fontFamily: fontsFamily.regular,
+      fontSize:RFValue(13),
+      fontFamily: fontsFamily.extraLight,
       fontWeight:'500',
       color:colors.lightBlack,
 

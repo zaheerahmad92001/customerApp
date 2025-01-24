@@ -9,11 +9,11 @@ import {
   Image,
 } from 'react-native';
 import styles from './search.styles';
-import Icon from 'react-native-vector-icons/EvilIcons';
 import images from '../../../assets/images';
 import SalonCard from '../../../components/salonCard/salonCard';
-import Header from '../../../components/appHeader';
+import Close from '../../../assets/svgs/close.svg';
 import { widthPercentageToDP } from 'react-native-responsive-screen';
+import Search from '../../../components/search';
 
 const SearchScreen = () => {
   const [recentSearches, setRecentSearches] = useState([
@@ -22,46 +22,22 @@ const SearchScreen = () => {
     'Addictive Beauty',
     "Alexandra's Salon",
   ]);
-  const [searchText, setSearchText] = useState('');
+  // const [searchText, setSearchText] = useState('');
   const [filteredSearches, setFilteredSearches] = useState(recentSearches);
-  const [isInputActive, setIsInputActive] = useState(false);
+  // const [isInputActive, setIsInputActive] = useState(false);
 
-  const handleSearch = text => {
-    setSearchText(text);
+  
 
-    if (text.trim() === '') {
-      setFilteredSearches(recentSearches);
-    } else {
-      const filtered = recentSearches.filter(item =>
-        item.toLowerCase().includes(text.toLowerCase()),
-      );
-      setFilteredSearches(filtered);
-    }
-  };
-
-  const handleAddSearch = () => {
-    if (searchText.trim() !== '' && !recentSearches.includes(searchText)) {
-      const updatedSearches = [searchText, ...recentSearches];
-      setRecentSearches(updatedSearches);
-      setFilteredSearches(updatedSearches);
-    }
-    setSearchText('');
-    setIsInputActive(false);
-  };
-
-  const handleRemoveSearch = item => {
-    const updatedSearches = recentSearches.filter(search => search !== item);
-    setRecentSearches(updatedSearches);
-    setFilteredSearches(updatedSearches);
-  };
+  
 
   const renderSearchItem = ({item}) => (
     <View style={styles.searchItem}>
       <Text style={styles.searchText}>{item}</Text>
       <TouchableOpacity
         style={styles.removeIcon}
-        onPress={() => handleRemoveSearch(item)}>
-        <Text style={styles.removeText}>×</Text>
+        // onPress={() => handleRemoveSearch(item)}
+        >
+        <Close/>
       </TouchableOpacity>
     </View>
   );
@@ -108,39 +84,12 @@ const SearchScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
       
-<View style={{marginHorizontal:widthPercentageToDP(4) , flex:1, marginTop:10,}}>
-      <View style={styles.searchBarContainer}>
-        <View style={styles.searchBar}>
-          <Icon
-            name="search"
-            size={24}
-            color="#99A0A6"
-            style={styles.searchIcon}
-          />
-          <TextInput
-            style={styles.input}
-            placeholder="Search..."
-            placeholderTextColor="#99A0A6"
-            value={searchText}
-            onChangeText={handleSearch}
-            onFocus={() => setIsInputActive(true)} // Input active
-            onBlur={() => setIsInputActive(false)} // Input inactive
-            onSubmitEditing={handleAddSearch}
-          />
-        </View>
-        <View>
-          <TouchableOpacity style={styles.button} onPress={handleAddSearch}>
-            <Image 
-            style={{width:20, height:20}}
-            resizeMode='contain'
-            source={images.candle} />
-          </TouchableOpacity>
-        </View>
-      </View>
+<View style={styles.wrapper}>
+      <Search/>
     
       {/* Horizontat Line */}
       <View style={styles.horizontalLine} />
-      {isInputActive && (
+      
         <>
           <Text style={styles.recentSearchTitle}>Recent search</Text>
           <FlatList
@@ -151,8 +100,8 @@ const SearchScreen = () => {
             nestedScrollEnabled
           />
         </>
-      )}
-      {!isInputActive && (
+      
+      
         <View style={{flex: 1}}>
           <View style={styles.searchResultView}>
             <Text style={styles.recentSearch}>
@@ -175,7 +124,7 @@ const SearchScreen = () => {
             nestedScrollEnabled
           />
         </View>
-      )}
+      
         </View>
     </SafeAreaView>
   );
