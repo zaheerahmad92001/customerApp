@@ -6,15 +6,14 @@ import {
   SafeAreaView,
   FlatList,
   TouchableOpacity,
-  StyleSheet,
   Image,
 } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
-import fontsFamily from '../../../assets/fontsFamily';
-import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
+import styles from './search.styles';
 import images from '../../../assets/images';
-import colors from '../../../assets/colors';
 import SalonCard from '../../../components/salonCard/salonCard';
+import Close from '../../../assets/svgs/close.svg';
+import { widthPercentageToDP } from 'react-native-responsive-screen';
+import Search from '../../../components/search';
 
 const SearchScreen = () => {
   const [recentSearches, setRecentSearches] = useState([
@@ -23,46 +22,22 @@ const SearchScreen = () => {
     'Addictive Beauty',
     "Alexandra's Salon",
   ]);
-  const [searchText, setSearchText] = useState('');
+  // const [searchText, setSearchText] = useState('');
   const [filteredSearches, setFilteredSearches] = useState(recentSearches);
-  const [isInputActive, setIsInputActive] = useState(false);
+  // const [isInputActive, setIsInputActive] = useState(false);
 
-  const handleSearch = text => {
-    setSearchText(text);
+  
 
-    if (text.trim() === '') {
-      setFilteredSearches(recentSearches);
-    } else {
-      const filtered = recentSearches.filter(item =>
-        item.toLowerCase().includes(text.toLowerCase()),
-      );
-      setFilteredSearches(filtered);
-    }
-  };
-
-  const handleAddSearch = () => {
-    if (searchText.trim() !== '' && !recentSearches.includes(searchText)) {
-      const updatedSearches = [searchText, ...recentSearches];
-      setRecentSearches(updatedSearches);
-      setFilteredSearches(updatedSearches);
-    }
-    setSearchText('');
-    setIsInputActive(false);
-  };
-
-  const handleRemoveSearch = item => {
-    const updatedSearches = recentSearches.filter(search => search !== item);
-    setRecentSearches(updatedSearches);
-    setFilteredSearches(updatedSearches);
-  };
+  
 
   const renderSearchItem = ({item}) => (
     <View style={styles.searchItem}>
       <Text style={styles.searchText}>{item}</Text>
       <TouchableOpacity
         style={styles.removeIcon}
-        onPress={() => handleRemoveSearch(item)}>
-        <Text style={styles.removeText}>×</Text>
+        // onPress={() => handleRemoveSearch(item)}
+        >
+        <Close/>
       </TouchableOpacity>
     </View>
   );
@@ -105,36 +80,16 @@ const SearchScreen = () => {
     />
   );
 
+
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.searchBarContainer}>
-        <View style={styles.searchBar}>
-          <Icon
-            name="search"
-            size={20}
-            color="#aaa"
-            style={styles.searchIcon}
-          />
-          <TextInput
-            style={styles.input}
-            placeholder="Search..."
-            placeholderTextColor="#aaa"
-            value={searchText}
-            onChangeText={handleSearch}
-            onFocus={() => setIsInputActive(true)} // Input active
-            onBlur={() => setIsInputActive(false)} // Input inactive
-            onSubmitEditing={handleAddSearch}
-          />
-        </View>
-        <View>
-          <TouchableOpacity style={styles.button} onPress={handleAddSearch}>
-            <Image source={images.candle} />
-          </TouchableOpacity>
-        </View>
-      </View>
+      
+<View style={styles.wrapper}>
+      <Search/>
+    
       {/* Horizontat Line */}
       <View style={styles.horizontalLine} />
-      {isInputActive && (
+      
         <>
           <Text style={styles.recentSearchTitle}>Recent search</Text>
           <FlatList
@@ -145,8 +100,8 @@ const SearchScreen = () => {
             nestedScrollEnabled
           />
         </>
-      )}
-      {!isInputActive && (
+      
+      
         <View style={{flex: 1}}>
           <View style={styles.searchResultView}>
             <Text style={styles.recentSearch}>
@@ -169,122 +124,10 @@ const SearchScreen = () => {
             nestedScrollEnabled
           />
         </View>
-      )}
+      
+        </View>
     </SafeAreaView>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 16,
-    backgroundColor: '#fff',
-  },
-  searchBarContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    marginBottom: 16,
-  },
-  searchBar: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: '#f5f5f5',
-    borderRadius: 8,
-    paddingHorizontal: 8,
-    height: 40,
-    width: '85%',
-    borderWidth: 1,
-    borderColor: '#E3E3E3',
-  },
-  searchIcon: {
-    marginRight: 8,
-  },
-  input: {
-    flex: 1,
-    fontSize: 16,
-    fontFamily: fontsFamily.thin,
-    color: '#000',
-  },
-  button: {
-    backgroundColor: 'white',
-    borderRadius: 8,
-    paddingHorizontal: 8,
-    paddingVertical: 8,
-    marginLeft: 5,
-    borderWidth: 1,
-    borderColor: '#E3E3E3',
-  },
-  buttonText: {
-    color: '#fff',
-    fontSize: 14,
-    fontFamily: fontsFamily.thin,
-  },
-  recentSearchTitle: {
-    fontSize: 18,
-    fontFamily: fontsFamily.regular,
-    color: '#000',
-    marginBottom: 8,
-    marginTop: 10,
-  },
-  recentSearch: {
-    fontSize: 18,
-    fontFamily: fontsFamily.semiBold,
-    color: '#000',
-    marginBottom: 8,
-    marginTop: 10,
-  },
-  recentSearchList: {
-    paddingTop: 8,
-  },
-  searchItem: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingVertical: 8,
-    borderBottomWidth: 1,
-    borderBottomColor: '#ddd',
-  },
-  searchTextTitle: {
-    fontSize: 18,
-    fontFamily: fontsFamily.bold,
-    color: colors.primary,
-  },
-  removeText: {
-    fontSize: 20,
-    color: '#999',
-  },
-  horizontalLine: {
-    height: 1, // Thickness of the line
-    backgroundColor: '#E3E3E3', // Line color
-    marginVertical: 4, // Space above and below the line
-  },
-  searchText: {
-    fontFamily: fontsFamily.regular,
-  },
-  searchesFound: {
-    color: colors.primary,
-    fontFamily: fontsFamily.medium,
-  },
-  searchResultView: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
-  map: {
-    color: colors.primary,
-    fontSize: 16,
-    fontFamily: fontsFamily.medium,
-  },
-  list: {
-    backgroundColor: 'white',
-    paddingBottom: 16,
-  },
-  removeIcon: {
-    width: wp(5),
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
 
 export default SearchScreen;
