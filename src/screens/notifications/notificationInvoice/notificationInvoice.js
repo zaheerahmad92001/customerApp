@@ -61,7 +61,11 @@ const NotificationInvoice = () => {
 
       {/* Reason */}
       <View style={styles.reasonContainer}>
-        <TextField label={'Reason'} placeholder={'Enter Reason'} value={"Hello"} />
+        <TextField
+          label={'Reason'}
+          placeholder={'Enter Reason'}
+          value={reason}
+        />
       </View>
     </View>
   );

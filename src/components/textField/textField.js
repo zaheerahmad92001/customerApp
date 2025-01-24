@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     height: 40,
     borderRadius: 4,
     paddingHorizontal: 8,
-    fontSize:RFValue(14),
+    fontSize:RFValue(12),
     backgroundColor: colors.inputGray,
   },
 });

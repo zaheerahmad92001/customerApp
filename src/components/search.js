@@ -5,27 +5,28 @@ import Icon from 'react-native-vector-icons/EvilIcons';
 import colors from '../assets/colors';
 import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
 import fontsFamily from "../assets/fontsFamily";
+import { recentSearches } from "../staticData";
 
 
 
 
-const Search=()=>{
+const Search=(props)=>{
+    const {setFilteredSearches ,setIsInputActive} = props
+
      const [searchText, setSearchText] = useState('');
-    //   const [filteredSearches, setFilteredSearches] = useState(recentSearches);
-      const [isInputActive, setIsInputActive] = useState(false);
 
 
       const handleSearch = text => {
         setSearchText(text);
     
-        // if (text.trim() === '') {
-        //   setFilteredSearches(recentSearches);
-        // } else {
-        //   const filtered = recentSearches.filter(item =>
-        //     item.toLowerCase().includes(text.toLowerCase()),
-        //   );
-        //   setFilteredSearches(filtered);
-        // }
+        if (text.trim() === '') {
+          setFilteredSearches(recentSearches);
+        } else {
+          const filtered = recentSearches.filter(item =>
+            item.toLowerCase().includes(text.toLowerCase()),
+          );
+          setFilteredSearches(filtered);
+        }
       };
 
     return(
@@ -92,6 +93,7 @@ const styles = StyleSheet.create({
         fontSize: 14,
         fontFamily: fontsFamily.thin,
       },
+      
 })
 
 export default Search;
