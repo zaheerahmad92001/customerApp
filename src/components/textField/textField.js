@@ -4,12 +4,12 @@ import {RFValue} from 'react-native-responsive-fontsize';
 import colors from '../../assets/colors';
 import fontsFamily from '../../assets/fontsFamily';
 
-const TextField = ({label, placeholder, ...props}) => {
+const TextField = ({label, placeholder, style, inputStyle, ...props}) => {
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, style]}>
       <Text style={styles.label}>{label}</Text>
       <TextInput
-        style={styles.input}
+        style={[styles.input, inputStyle]}
         placeholder={placeholder}
         placeholderTextColor={colors.appBlack}
         {...props}
@@ -24,16 +24,19 @@ const styles = StyleSheet.create({
   },
   label: {
     fontSize: RFValue(12),
-    color: '#666',
-    fontFamily: fontsFamily.regular,
+    color: colors.appBlack,
+    fontFamily: fontsFamily.medium,
     marginBottom: 4,
   },
   input: {
     height: 40,
     borderRadius: 4,
-    paddingHorizontal: 8,
-    fontSize:RFValue(12),
+    paddingHorizontal: 15,
+    fontSize: RFValue(12),
+    fontFamily: fontsFamily.regular,
     backgroundColor: colors.inputGray,
+    width: '100%',
+    color: colors.lightBlack,
   },
 });
 

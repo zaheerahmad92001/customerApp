@@ -5,6 +5,8 @@ import LocationMarker from '../../assets/svgs/locationMarker.svg';
 import Star from '../../assets/svgs/star.svg';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import colors from '../../assets/colors';
+import fontsFamily from '../../assets/fontsFamily';
+import {RFValue} from 'react-native-responsive-fontsize';
 
 const SalonCard = ({
   image,
@@ -15,6 +17,7 @@ const SalonCard = ({
   reviews,
   onFavorite,
   showFavoriteButton = false,
+  position,
 }) => {
   return (
     <View style={styles.cardContainer}>
@@ -43,8 +46,10 @@ const SalonCard = ({
               style={styles.favoriteButton}
               onPress={onFavorite}>
               <Heart />
-              {/* <Icon name="heart-o" size={18} color="#aaa" /> */}
             </TouchableOpacity>
+          )}
+          {!showFavoriteButton && (
+            <Text style={styles.position}>{position}</Text>
           )}
         </View>
       </View>
@@ -55,7 +60,7 @@ const SalonCard = ({
 const styles = StyleSheet.create({
   cardContainer: {
     flexDirection: 'row',
-    backgroundColor:colors.white,
+    backgroundColor: colors.white,
     borderRadius: 10,
     padding: 12,
     marginVertical: 8,
@@ -68,7 +73,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.1,
     shadowRadius: 4,
     alignItems: 'center',
-    // margin: 5,
+    margin: 5,
   },
   cardImage: {
     width: 80,
@@ -87,13 +92,13 @@ const styles = StyleSheet.create({
     marginLeft: 12,
   },
   cardTitle: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    color: '#333',
+    fontSize: RFValue(14),
+    color: colors.appBlack,
+    fontFamily: fontsFamily.semiBold,
   },
   cardLocation: {
-    fontSize: 14,
-    color: '#666',
+    fontSize: RFValue(12),
+    color: colors.appBlack,
     marginVertical: 4,
   },
   cardFooter: {
@@ -106,17 +111,18 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   ratingText: {
-    fontSize: 14,
-    color: '#333',
+    fontSize: RFValue(12),
+    color: colors.appBlack,
+    fontFamily: fontsFamily.regular,
     marginLeft: 4,
   },
   distanceText: {
-    fontSize: 14,
-    color: '#666',
+    fontSize: RFValue(12),
+    color: colors.appBlack,
   },
   favoriteButton: {
     padding: 8,
-    backgroundColor: '#f5f5f5',
+    backgroundColor: colors.inputGray,
     borderRadius: 7,
     marginLeft: 8,
   },
@@ -129,6 +135,13 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     marginTop: 2,
+  },
+  position: {
+    color: colors.success,
+    backgroundColor: colors.lightSuccess,
+    paddingHorizontal: 12,
+    borderRadius: 5,
+    fontFamily: fontsFamily.regular,
   },
 });
 
