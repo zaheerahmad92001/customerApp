@@ -72,6 +72,7 @@ const styles = StyleSheet.create({
     fontFamily: fontsFamily.semiBold,
     marginVertical: 15,
   },
+  
 });
 
 export default InvoicesDetail;
