@@ -4,6 +4,8 @@ import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
 import colors from '../../../assets/colors';
 import fontsFamily from '../../../assets/fontsFamily';
 import images from '../../../assets/images';
+import DetailRow from '../../../components/DetailRow';
+import TextField from '../../../components/textField/textField';
 
 const NotificationInvoice = () => {
   const [reason, setReason] = useState(
@@ -59,28 +61,11 @@ const NotificationInvoice = () => {
 
       {/* Reason */}
       <View style={styles.reasonContainer}>
-        <Text style={styles.reasonLabel}>Reason</Text>
-        <TextInput
-          style={styles.reasonInput}
-          value={reason}
-          onChangeText={setReason}
-          multiline={true} // Allows multiline input
-          placeholder="Enter reason here"
-        />
+        <TextField label={'Reason'} placeholder={'Enter Reason'} value={"Hello"} />
       </View>
     </View>
   );
 };
-
-const DetailRow = ({label, value, image}) => (
-  <View style={styles.detailRow}>
-    <View style={styles.invoiceRow}>
-      <Image source={image} />
-      <Text style={styles.detailLabel}>{label}</Text>
-    </View>
-    <Text style={styles.detailValue}>{value}</Text>
-  </View>
-);
 
 const styles = StyleSheet.create({
   container: {
@@ -156,24 +141,6 @@ const styles = StyleSheet.create({
     margin: 5,
     padding: 10,
   },
-  detailRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginBottom: 8,
-  },
-  detailLabel: {
-    fontSize: 14,
-    color: '#666',
-    fontFamily: fontsFamily.regular,
-    marginLeft: 5,
-  },
-  detailValue: {
-    fontSize: 14,
-    color: '#333',
-    fontFamily: fontsFamily.regular,
-    width: wp(40),
-    textAlign: 'right',
-  },
   totalPriceContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -199,19 +166,10 @@ const styles = StyleSheet.create({
     borderTopColor: '#eee',
     paddingTop: 12,
   },
-  reasonLabel: {
-    fontSize: 14,
-    color: '#666',
-    fontFamily: fontsFamily.regular,
-    marginBottom: 4,
-  },
   reasonValue: {
     fontSize: 14,
     color: '#333',
     fontFamily: fontsFamily.regular,
-  },
-  invoiceRow: {
-    flexDirection: 'row',
   },
   reasonInput: {
     fontSize: 14,

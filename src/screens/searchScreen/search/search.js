@@ -12,7 +12,7 @@ import styles from './search.styles';
 import images from '../../../assets/images';
 import SalonCard from '../../../components/salonCard/salonCard';
 import Close from '../../../assets/svgs/close.svg';
-import { widthPercentageToDP } from 'react-native-responsive-screen';
+import {widthPercentageToDP} from 'react-native-responsive-screen';
 import Search from '../../../components/search';
 
 const SearchScreen = () => {
@@ -26,18 +26,14 @@ const SearchScreen = () => {
   const [filteredSearches, setFilteredSearches] = useState(recentSearches);
   // const [isInputActive, setIsInputActive] = useState(false);
 
-  
-
-  
-
   const renderSearchItem = ({item}) => (
     <View style={styles.searchItem}>
       <Text style={styles.searchText}>{item}</Text>
       <TouchableOpacity
         style={styles.removeIcon}
         // onPress={() => handleRemoveSearch(item)}
-        >
-        <Close/>
+      >
+        <Close />
       </TouchableOpacity>
     </View>
   );
@@ -80,16 +76,14 @@ const SearchScreen = () => {
     />
   );
 
-
   return (
     <SafeAreaView style={styles.container}>
-      
-<View style={styles.wrapper}>
-      <Search/>
-    
-      {/* Horizontat Line */}
-      <View style={styles.horizontalLine} />
-      
+      <View style={styles.wrapper}>
+        <Search />
+
+        {/* Horizontat Line */}
+        <View style={styles.horizontalLine} />
+
         <>
           <Text style={styles.recentSearchTitle}>Recent search</Text>
           <FlatList
@@ -100,8 +94,7 @@ const SearchScreen = () => {
             nestedScrollEnabled
           />
         </>
-      
-      
+
         <View style={{flex: 1}}>
           <View style={styles.searchResultView}>
             <Text style={styles.recentSearch}>
@@ -124,8 +117,7 @@ const SearchScreen = () => {
             nestedScrollEnabled
           />
         </View>
-      
-        </View>
+      </View>
     </SafeAreaView>
   );
 };
