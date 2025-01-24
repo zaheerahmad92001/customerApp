@@ -11,8 +11,9 @@ const styles = StyleSheet.create({
       backgroundColor: '#fff',
     },
     wrapper:{
-      marginHorizontal:wp(4), 
+      paddingHorizontal:wp(4), 
       flex:1, 
+      backgroundColor:colors.white,
       marginTop:10,
     },
 
@@ -23,35 +24,8 @@ const styles = StyleSheet.create({
       fontFamily: fontsFamily.regular,
       color: colors.appBlack,
     },
-    button: {
-      backgroundColor: 'white',
-      borderRadius: 8,
-      paddingHorizontal: 8,
-      paddingVertical: 8,
-      marginLeft: 5,
-      borderWidth: 1,
-      borderColor: '#E3E3E3',
-    },
-    buttonText: {
-      color: '#fff',
-      fontSize: 14,
-      fontFamily: fontsFamily.thin,
-    },
-    recentSearchTitle: {
-      fontSize:RFValue(16),
-      fontWeight:"500",
-      fontFamily: fontsFamily.semiBold,
-      color: colors.appBlack,
-      marginBottom: 8,
-      marginTop: 10,
-    },
-    recentSearch: {
-      fontSize: 18,
-      fontFamily: fontsFamily.semiBold,
-      color:colors.appBlack,
-      marginBottom: 8,
-      marginTop: 10,
-    },
+    
+    
     recentSearchList: {
       paddingTop: 8,
     },
@@ -61,18 +35,14 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       paddingVertical:RFValue(8),
     },
-    searchTextTitle: {
-      fontSize: 18,
-      fontFamily: fontsFamily.bold,
-      color: colors.primary,
-    },
+    
     removeText: {
       fontSize: 20,
       color: '#999',
     },
     horizontalLine: {
       height: 1, // Thickness of the line
-      backgroundColor: '#E3E3E3', // Line color
+      backgroundColor:colors.gray, // Line color
       marginVertical: 4, // Space above and below the line
     },
     searchText: {
@@ -82,20 +52,7 @@ const styles = StyleSheet.create({
       color:colors.lightBlack,
 
     },
-    searchesFound: {
-      color: colors.primary,
-      fontFamily: fontsFamily.medium,
-    },
-    searchResultView: {
-      flexDirection: 'row',
-      alignItems: 'center',
-      justifyContent: 'space-between',
-    },
-    map: {
-      color: colors.primary,
-      fontSize: 16,
-      fontFamily: fontsFamily.medium,
-    },
+
     list: {
       backgroundColor: 'white',
       paddingBottom: 16,
