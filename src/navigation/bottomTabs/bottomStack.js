@@ -1,9 +1,11 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import FastImage from 'react-native-fast-image';
 import images from '../../assets/images';
+import SearchScreen from '../../screens/searchScreen/search/search';
+import colors from '../../assets/colors';
 
 const Tab = createBottomTabNavigator();
 
@@ -71,13 +73,13 @@ const CustomTabBar = (props) => {
                 isFocused && styles.activeTabBackground,
               ]}
             >
-              <FastImage
-                style={styles.tabIcon}
+              <Image
+                style={[styles.tabIcon, { tintColor: isFocused ? colors.primary : 'gray' }]}
                 source={TAB_ICONS[route.name]}
-                resizeMode={FastImage.resizeMode.contain}
+                // resizeMode={FastImage.resizeMode.contain}
               />
             </View>
-            <Text style={[styles.tabLabel, { color: isFocused ? 'tomato' : 'gray' }]}>
+            <Text style={[styles.tabLabel, { color: isFocused ? colors.primary : 'gray' }]}>
               {route.name}
             </Text>
           </TouchableOpacity>
@@ -95,7 +97,7 @@ const BottomStack = () => {
         headerShown: false,
       }}
     >
-      <Tab.Screen name="Home" component={HomeScreen} />
+      <Tab.Screen name="Home" component={SearchScreen} />
       <Tab.Screen name="Booking" component={SettingsScreen} />
       <Tab.Screen name="Messages" component={ProfileScreen} />
       <Tab.Screen name="More" component={NotificationsScreen} />
@@ -138,7 +140,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
   },
   activeTabBackground: {
-    backgroundColor: '#D3D3D3',
+    backgroundColor: colors.lightPrimary,
   },
   tabIcon: {
     width: 40,

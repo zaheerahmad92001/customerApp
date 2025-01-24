@@ -6,15 +6,14 @@ import {
   SafeAreaView,
   FlatList,
   TouchableOpacity,
-  StyleSheet,
   Image,
 } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
-import fontsFamily from '../../../assets/fontsFamily';
-import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
+import styles from './search.styles';
+import Icon from 'react-native-vector-icons/EvilIcons';
 import images from '../../../assets/images';
-import colors from '../../../assets/colors';
 import SalonCard from '../../../components/salonCard/salonCard';
+import Header from '../../../components/appHeader';
+import { widthPercentageToDP } from 'react-native-responsive-screen';
 
 const SearchScreen = () => {
   const [recentSearches, setRecentSearches] = useState([
@@ -105,20 +104,23 @@ const SearchScreen = () => {
     />
   );
 
+
   return (
     <SafeAreaView style={styles.container}>
+      
+<View style={{marginHorizontal:widthPercentageToDP(4) , flex:1, marginTop:10,}}>
       <View style={styles.searchBarContainer}>
         <View style={styles.searchBar}>
           <Icon
             name="search"
-            size={20}
-            color="#aaa"
+            size={24}
+            color="#99A0A6"
             style={styles.searchIcon}
           />
           <TextInput
             style={styles.input}
             placeholder="Search..."
-            placeholderTextColor="#aaa"
+            placeholderTextColor="#99A0A6"
             value={searchText}
             onChangeText={handleSearch}
             onFocus={() => setIsInputActive(true)} // Input active
@@ -128,10 +130,14 @@ const SearchScreen = () => {
         </View>
         <View>
           <TouchableOpacity style={styles.button} onPress={handleAddSearch}>
-            <Image source={images.candle} />
+            <Image 
+            style={{width:20, height:20}}
+            resizeMode='contain'
+            source={images.candle} />
           </TouchableOpacity>
         </View>
       </View>
+    
       {/* Horizontat Line */}
       <View style={styles.horizontalLine} />
       {isInputActive && (
@@ -170,121 +176,9 @@ const SearchScreen = () => {
           />
         </View>
       )}
+        </View>
     </SafeAreaView>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 16,
-    backgroundColor: '#fff',
-  },
-  searchBarContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    marginBottom: 16,
-  },
-  searchBar: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: '#f5f5f5',
-    borderRadius: 8,
-    paddingHorizontal: 8,
-    height: 40,
-    width: '85%',
-    borderWidth: 1,
-    borderColor: '#E3E3E3',
-  },
-  searchIcon: {
-    marginRight: 8,
-  },
-  input: {
-    flex: 1,
-    fontSize: 16,
-    fontFamily: fontsFamily.thin,
-    color: '#000',
-  },
-  button: {
-    backgroundColor: 'white',
-    borderRadius: 8,
-    paddingHorizontal: 8,
-    paddingVertical: 8,
-    marginLeft: 5,
-    borderWidth: 1,
-    borderColor: '#E3E3E3',
-  },
-  buttonText: {
-    color: '#fff',
-    fontSize: 14,
-    fontFamily: fontsFamily.thin,
-  },
-  recentSearchTitle: {
-    fontSize: 18,
-    fontFamily: fontsFamily.regular,
-    color: '#000',
-    marginBottom: 8,
-    marginTop: 10,
-  },
-  recentSearch: {
-    fontSize: 18,
-    fontFamily: fontsFamily.semiBold,
-    color: '#000',
-    marginBottom: 8,
-    marginTop: 10,
-  },
-  recentSearchList: {
-    paddingTop: 8,
-  },
-  searchItem: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingVertical: 8,
-    borderBottomWidth: 1,
-    borderBottomColor: '#ddd',
-  },
-  searchTextTitle: {
-    fontSize: 18,
-    fontFamily: fontsFamily.bold,
-    color: colors.primary,
-  },
-  removeText: {
-    fontSize: 20,
-    color: '#999',
-  },
-  horizontalLine: {
-    height: 1, // Thickness of the line
-    backgroundColor: '#E3E3E3', // Line color
-    marginVertical: 4, // Space above and below the line
-  },
-  searchText: {
-    fontFamily: fontsFamily.regular,
-  },
-  searchesFound: {
-    color: colors.primary,
-    fontFamily: fontsFamily.medium,
-  },
-  searchResultView: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
-  map: {
-    color: colors.primary,
-    fontSize: 16,
-    fontFamily: fontsFamily.medium,
-  },
-  list: {
-    backgroundColor: 'white',
-    paddingBottom: 16,
-  },
-  removeIcon: {
-    width: wp(5),
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
 
 export default SearchScreen;
