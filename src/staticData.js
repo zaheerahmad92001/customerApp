@@ -29,6 +29,15 @@ const menuOptions = [
   {title: 'Loyalty Points', img: images.document},
 ];
 
+const settingOptions = [
+  {title: 'Language'},
+  {title: 'Notification Settings'},
+  {title: 'Change Password'},
+  {title: 'Privacy Policy'},
+  {title: 'Terms & Conditions'},
+  {title: 'Delete Account'},
+];
+
 const supportOptions = [
   {title: 'Edit Profile', img: images.shop},
   {title: 'Favorites', img: images.service},
@@ -83,4 +92,5 @@ export {
   dummyData,
   invoices,
   languages,
+  settingOptions,
 };
