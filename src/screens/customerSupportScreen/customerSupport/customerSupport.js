@@ -87,10 +87,18 @@ const CustomerSupport = () => {
           </View>
           <Text style={styles.socialHeading}>Follow Us</Text>
           <View style={styles.socialIcons}>
-            <LinkedIn />
-            <Youtube />
-            <Facebook />
-            <Insta />
+            <TouchableOpacity>
+              <LinkedIn />
+            </TouchableOpacity>
+            <TouchableOpacity>
+              <Youtube />
+            </TouchableOpacity>
+            <TouchableOpacity>
+              <Facebook />
+            </TouchableOpacity>
+            <TouchableOpacity>
+              <Insta />
+            </TouchableOpacity>
           </View>
         </View>
       )}

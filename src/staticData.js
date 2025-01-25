@@ -109,6 +109,23 @@ const faqs = [
   },
 ];
 
+const discounts = [
+  {
+    id: '1',
+    title: '20% off on first-time booking',
+    discount: '20%',
+    validity: '24 Oct 2024',
+    remaining: '3',
+  },
+  {
+    id: '2',
+    title: '15% off on second booking',
+    discount: '15%',
+    validity: '31 Dec 2024',
+    remaining: '5',
+  },
+];
+
 export {
   recentSearches,
   mockData,
@@ -121,4 +138,5 @@ export {
   toggleItems,
   reasons,
   faqs,
+  discounts,
 };
