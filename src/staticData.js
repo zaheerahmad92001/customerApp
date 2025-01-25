@@ -82,6 +82,13 @@ const languages = [
   'French',
   'Spanish',
   'Chinese',
+]
+const toggleItems = [
+  {id: 1, label: 'Payments', isEnabled: false},
+  {id: 2, label: 'Schedule', isEnabled: false},
+  {id: 3, label: 'Cancellation', isEnabled: false},
+  {id: 4, label: 'Offers Notification', isEnabled: true},
+  {id: 5, label: 'Other Notification', isEnabled: false},
 ];
 
 export {
@@ -93,4 +100,5 @@ export {
   invoices,
   languages,
   settingOptions,
+  toggleItems,
 };
