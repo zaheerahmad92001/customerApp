@@ -66,6 +66,23 @@ const invoices = [
   },
 ];
 
+const faqs = [
+  {
+    question: 'Lorem ipsum dolor sit amet consectetur?',
+    answer:
+      'Lorem ipsum dolor sit amet consectetur. Eget turpis risus ut nullam posuere porttitor at vivamus. Proin augue morbi viverra scelerisque nunc nulla. Venenatis mattis in ultrices adipiscing. Mi purus augue donec ultricies.',
+  },
+  {
+    question: 'What is React Native?',
+    answer:
+      'React Native is an open-source framework for building mobile apps using React and JavaScript.',
+  },
+  {
+    question: 'How does state work in React?',
+    answer: 'State is a way to manage dynamic data in a React component.',
+  },
+];
+
 export {
   recentSearches,
   mockData,
@@ -73,4 +90,5 @@ export {
   supportOptions,
   dummyData,
   invoices,
+  faqs,
 };
