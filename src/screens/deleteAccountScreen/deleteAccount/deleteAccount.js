@@ -1,4 +1,10 @@
-import {Text, SafeAreaView, StyleSheet, FlatList} from 'react-native';
+import {
+  Text,
+  SafeAreaView,
+  StyleSheet,
+  FlatList,
+  TouchableOpacity,
+} from 'react-native';
 import React, {useState} from 'react';
 import {RFValue} from 'react-native-responsive-fontsize';
 import fontsFamily from '../../../assets/fontsFamily';
@@ -13,6 +19,11 @@ const DeleteAccount = () => {
 
   const handleSelect = reason => {
     setSelectedReason(reason);
+  };
+
+  const handleDeleteAccount = () => {
+    // Handle account deletion logic here
+    console.log('Account deletion confirmed for reason:', selectedReason);
   };
   return (
     <SafeAreaView style={styles.container}>
@@ -34,6 +45,13 @@ const DeleteAccount = () => {
           />
         )}
       />
+      <TouchableOpacity
+        style={styles.deleteButton}
+        onPress={handleDeleteAccount}
+        disabled={!selectedReason} // Disable the button if no reason is selected
+      >
+        <Text style={styles.deleteButtonText}>Delete Account</Text>
+      </TouchableOpacity>
     </SafeAreaView>
   );
 };
@@ -54,6 +72,19 @@ const styles = StyleSheet.create({
     color: colors.lightBlack,
     marginTop: hp(2),
     marginBottom: hp(5),
+  },
+  deleteButton: {
+    marginTop: 'auto',
+    backgroundColor: colors.primary,
+    paddingVertical: hp(1.5),
+    borderRadius: 8,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  deleteButtonText: {
+    color: colors.white,
+    fontSize: RFValue(12),
+    fontFamily: fontsFamily.bold,
   },
 });
 
