@@ -1,17 +1,21 @@
 import React from 'react';
-import { View, Text, StyleSheet, Platform, StatusBar, TouchableOpacity } from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { Dimensions } from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Platform,
+  StatusBar,
+  TouchableOpacity,
+} from 'react-native';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import {Dimensions} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import colors from '../assets/colors';
-import { widthPercentageToDP as wp } from 'react-native-responsive-screen';
+import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
 import fontsFamily from '../assets/fontsFamily';
 
-const Header = ({ title, onBackPress, showBackButton = false }) => {
-  const insets = useSafeAreaInsets();
-  const { width } = Dimensions.get('window');
-
+const Header = ({title, onBackPress, showBackButton = false}) => {
   return (
     <View style={[styles.header]}>
       {showBackButton && (
@@ -33,31 +37,32 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor:colors.white,
-    paddingHorizontal:wp(2),
-    height: Platform.OS === 'android' ? wp(12) + StatusBar.currentHeight : wp(12),
+    // backgroundColor:colors.white,
+    paddingHorizontal: wp(2),
+    height:
+      Platform.OS === 'android' ? wp(12) + StatusBar.currentHeight : wp(12),
   },
-  leftView:{
-    flexDirection:'row',
-    alignItems:'center',
+  leftView: {
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   title: {
-    fontSize:16,
+    fontSize: 16,
     fontWeight: '500',
-    fontFamily:fontsFamily.regular,
-    color:colors.appBlack,
+    fontFamily: fontsFamily.semiBold,
+    color: colors.appBlack,
     textAlign: 'center',
   },
   backButton: {
     position: 'absolute',
-    left:wp(3),
+    left: wp(3),
     justifyContent: 'center',
     alignItems: 'center',
   },
   backButtonText: {
     color: colors.appBlack,
     fontSize: 14,
-    fontFamily:fontsFamily.regular,
+    fontFamily: fontsFamily.regular,
   },
 });
 
