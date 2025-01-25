@@ -116,7 +116,6 @@ const styles = StyleSheet.create({
   },
   menuContainer: {
     marginTop: 10,
-    // backgroundColor: colors.primary,
     borderRadius: 10,
     paddingVertical: 10,
   },
