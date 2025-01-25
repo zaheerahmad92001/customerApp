@@ -13,11 +13,13 @@ import colors from '../../../assets/colors';
 import {RFValue} from 'react-native-responsive-fontsize';
 import fontsFamily from '../../../assets/fontsFamily';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import Header from '../../../components/appHeader';
 
 const Reward = () => {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={{flexGrow: 1}}>
+        <Header showTitle={false} showBackButton />
         <View style={styles.giftImageContainer}>
           <GiftBox />
         </View>
@@ -64,7 +66,8 @@ const styles = StyleSheet.create({
   },
   giftImageContainer: {
     alignSelf: 'center',
-    marginVertical: 40,
+    marginTop: hp(1),
+    marginBottom: hp(5),
   },
   headerText: {
     fontSize: RFValue(16),
