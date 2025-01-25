@@ -5,10 +5,8 @@ import {
   SafeAreaView,
   FlatList,
   TouchableOpacity,
-  Image,
 } from 'react-native';
 import styles from './search.styles';
-import images from '../../../assets/images';
 import SalonCard from '../../../components/salonCard/salonCard';
 import Close from '../../../assets/svgs/close.svg';
 import Search from '../../../components/search';
@@ -16,7 +14,6 @@ import {mockData, recentSearches} from '../../../staticData';
 import SearchResultStats from '../../../components/searchResultStats';
 
 const SearchScreen = () => {
-  // const [searchText, setSearchText] = useState('');
   const [filteredSearches, setFilteredSearches] = useState(recentSearches);
   const [isInputActive, setIsInputActive] = useState(false);
 
