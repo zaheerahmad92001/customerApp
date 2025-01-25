@@ -1,4 +1,4 @@
-import {View, Text, SafeAreaView, StyleSheet, ScrollView} from 'react-native';
+import {Text, SafeAreaView, StyleSheet, ScrollView} from 'react-native';
 import React from 'react';
 import Header from '../../../components/appHeader';
 import {RFValue} from 'react-native-responsive-fontsize';
@@ -6,12 +6,12 @@ import fontsFamily from '../../../assets/fontsFamily';
 import colors from '../../../assets/colors';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
-const PrivacyPolicy = () => {
+const TermCondition = () => {
   return (
     <SafeAreaView style={styles.container}>
-      <Header title={'Privacy Policy'} showBackButton />
+      <Header title={'Term & Conditions'} showBackButton />
       <ScrollView>
-        <Text style={styles.heading}>Privacy Policy</Text>
+        <Text style={styles.heading}>Term & Conditions</Text>
         <Text style={styles.description}>
           Lorem ipsum dolor sit amet consectetur. Eget turpis risus ut nullam
           posuere porttitor at vivamus. Proin augue morbi viverra scelerisque
@@ -69,4 +69,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default PrivacyPolicy;
+export default TermCondition;
