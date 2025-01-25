@@ -75,21 +75,14 @@ const invoices = [
   },
 ];
 
-const languages = [
-  'English',
-  'Arabic',
-  'Urdu',
-  'French',
-  'Spanish',
-  'Chinese',
-]
+const languages = ['English', 'Arabic', 'Urdu', 'French', 'Spanish', 'Chinese'];
 const toggleItems = [
   {id: 1, label: 'Payments', isEnabled: false},
   {id: 2, label: 'Schedule', isEnabled: false},
   {id: 3, label: 'Cancellation', isEnabled: false},
   {id: 4, label: 'Offers Notification', isEnabled: true},
   {id: 5, label: 'Other Notification', isEnabled: false},
-]
+];
 
 const reasons = [
   'I am no longer using my account?',
@@ -98,6 +91,22 @@ const reasons = [
   'I don,t understand how to use',
   'Privacy concerns.',
   'Other',
+];
+const faqs = [
+  {
+    question: 'Lorem ipsum dolor sit amet consectetur?',
+    answer:
+      'Lorem ipsum dolor sit amet consectetur. Eget turpis risus ut nullam posuere porttitor at vivamus. Proin augue morbi viverra scelerisque nunc nulla. Venenatis mattis in ultrices adipiscing. Mi purus augue donec ultricies.',
+  },
+  {
+    question: 'What is React Native?',
+    answer:
+      'React Native is an open-source framework for building mobile apps using React and JavaScript.',
+  },
+  {
+    question: 'How does state work in React?',
+    answer: 'State is a way to manage dynamic data in a React component.',
+  },
 ];
 
 export {
@@ -110,5 +119,6 @@ export {
   languages,
   settingOptions,
   toggleItems,
-  reasons
+  reasons,
+  faqs,
 };
