@@ -89,6 +89,15 @@ const toggleItems = [
   {id: 3, label: 'Cancellation', isEnabled: false},
   {id: 4, label: 'Offers Notification', isEnabled: true},
   {id: 5, label: 'Other Notification', isEnabled: false},
+]
+
+const reasons = [
+  'I am no longer using my account?',
+  'The services is too expensive',
+  'I want to change my phone number',
+  'I don,t understand how to use',
+  'Privacy concerns.',
+  'Other',
 ];
 
 export {
@@ -101,4 +110,5 @@ export {
   languages,
   settingOptions,
   toggleItems,
+  reasons
 };
