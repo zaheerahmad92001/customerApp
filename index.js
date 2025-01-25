@@ -5,6 +5,6 @@
 import {AppRegistry} from 'react-native';
 import App from './App';
 import {name as appName} from './app.json';
-import Faq from './src/screens/faqScreen/faq/faq';
+import CustomerSupport from './src/screens/customerSupportScreen/customerSupport/customerSupport';
 
-AppRegistry.registerComponent(appName, () => Faq);
+AppRegistry.registerComponent(appName, () => CustomerSupport);
