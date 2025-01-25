@@ -15,6 +15,7 @@ const colors = {
   lightError: 'rgba(216, 58, 60, 0.1)',
   lighterPrimary: '#F5EAEC',
   radioBorders: '#ccc',
+  borderPrimary: '#ECD5D9',
 };
 
 export default colors;

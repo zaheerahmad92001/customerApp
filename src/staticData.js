@@ -126,6 +126,24 @@ const discounts = [
   },
 ];
 
+const allPointData = [
+  {id: 1, points: 25, expiryDate: '02/12/2024'},
+  {id: 2, points: -50, expiryDate: '03/15/2024'},
+  {id: 3, points: 100, expiryDate: '04/10/2024'},
+];
+
+const earnPointData = [
+  {id: 1, points: 25, expiryDate: '02/12/2024'},
+  {id: 2, points: 50, expiryDate: '03/15/2024'},
+  {id: 3, points: 100, expiryDate: '04/10/2024'},
+];
+
+const usedPointData = [
+  {id: 1, points: -25, expiryDate: '02/12/2024'},
+  {id: 2, points: -50, expiryDate: '03/15/2024'},
+  {id: 3, points: -100, expiryDate: '04/10/2024'},
+];
+
 export {
   recentSearches,
   mockData,
@@ -139,4 +157,7 @@ export {
   reasons,
   faqs,
   discounts,
+  allPointData,
+  earnPointData,
+  usedPointData
 };
