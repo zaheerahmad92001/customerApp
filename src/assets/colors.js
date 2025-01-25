@@ -14,7 +14,7 @@ const colors = {
   error: '#D83A3C',
   lightError: 'rgba(216, 58, 60, 0.1)',
   lighterPrimary:'#F5EAEC',
-  
+
 };
 
 export default colors;
