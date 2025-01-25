@@ -5,6 +5,6 @@
 import {AppRegistry} from 'react-native';
 import App from './App';
 import {name as appName} from './app.json';
-import Language from './src/screens/languageScreen/language/language';
+import DeleteAccount from './src/screens/deleteAccountScreen/deleteAccount/deleteAccount';
 
-AppRegistry.registerComponent(appName, () => Language);
+AppRegistry.registerComponent(appName, () => DeleteAccount);

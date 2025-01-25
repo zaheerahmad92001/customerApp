@@ -66,13 +66,15 @@ const invoices = [
   },
 ];
 
-const languages = [
-  'English',
-  'Arabic',
-  'Urdu',
-  'French',
-  'Spanish',
-  'Chinese',
+const languages = ['English', 'Arabic', 'Urdu', 'French', 'Spanish', 'Chinese'];
+
+const reasons = [
+  'I am no longer using my account?',
+  'The services is too expensive',
+  'I want to change my phone number',
+  'I don,t understand how to use',
+  'Privacy concerns.',
+  'Other',
 ];
 
 export {
@@ -83,4 +85,5 @@ export {
   dummyData,
   invoices,
   languages,
+  reasons
 };
