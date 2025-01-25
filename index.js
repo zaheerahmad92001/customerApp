@@ -5,6 +5,6 @@
 import {AppRegistry} from 'react-native';
 import App from './App';
 import {name as appName} from './app.json';
-import Reward from './src/screens/rewardScreen/reward/reward';
+import Language from './src/screens/languageScreen/language/language';
 
-AppRegistry.registerComponent(appName, () => Reward);
+AppRegistry.registerComponent(appName, () => Language);

@@ -66,6 +66,15 @@ const invoices = [
   },
 ];
 
+const languages = [
+  'English',
+  'Arabic',
+  'Urdu',
+  'French',
+  'Spanish',
+  'Chinese',
+];
+
 export {
   recentSearches,
   mockData,
@@ -73,4 +82,5 @@ export {
   supportOptions,
   dummyData,
   invoices,
+  languages,
 };

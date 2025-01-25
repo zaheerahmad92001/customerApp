@@ -13,8 +13,8 @@ const colors = {
   lightSuccess: 'rgba(27, 164, 15, 0.1)',
   error: '#D83A3C',
   lightError: 'rgba(216, 58, 60, 0.1)',
-  lighterPrimary:'#F5EAEC',
-  
+  lighterPrimary: '#F5EAEC',
+  radioBorders: '#ccc',
 };
 
 export default colors;
