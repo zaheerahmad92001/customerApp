@@ -123,6 +123,9 @@ const AvailableTimeSlot = () => {
           ))}
         </View>
       </View>
+      <TouchableOpacity style={styles.continueButton}>
+        <Text style={styles.continueText}>Select & Continue</Text>
+      </TouchableOpacity>
     </SafeAreaView>
   );
 };
@@ -210,6 +213,19 @@ const styles = StyleSheet.create({
   timeText: {
     fontSize: RFValue(12),
     color: colors.lightBlack,
+  },
+  continueButton: {
+    marginTop: 'auto',
+    backgroundColor: colors.primary,
+    borderRadius: 8,
+    alignItems: 'center',
+    paddingVertical: 12,
+    paddingHorizontal: 20,
+  },
+  continueText: {
+    color: colors.white,
+    fontSize: RFValue(12),
+    fontFamily: fontsFamily.semiBold,
   },
 });
 
