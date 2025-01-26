@@ -5,6 +5,6 @@
 import {AppRegistry} from 'react-native';
 import App from './App';
 import {name as appName} from './app.json';
-import NearbyVenue from './src/screens/nearbyVenueScreen/nearbyVenue/nearbyVenue';
+import Recommended from './src/screens/recommendedScreen/recommended/recommended';
 
-AppRegistry.registerComponent(appName, () => NearbyVenue);
+AppRegistry.registerComponent(appName, () => Recommended);
