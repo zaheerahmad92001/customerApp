@@ -151,6 +151,19 @@ const usedPointData = [
   {id: 3, points: -100, expiryDate: '04/10/2024'},
 ];
 
+const serviceData = [
+  {
+    id: '1',
+    image: images.room,
+    title: 'Hair Avenue',
+    location: 'Moratuwa, Colombo',
+    date: 'Mon 21 Sep 2024',
+    service: 'Hair Cut',
+    professional: 'Marilyn Vetrovs',
+    distance: '2 km',
+  },
+];
+
 export {
   recentSearches,
   mockData,
@@ -168,4 +181,5 @@ export {
   earnPointData,
   usedPointData,
   categoriesOptions,
+  serviceData,
 };
