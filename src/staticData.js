@@ -167,5 +167,5 @@ export {
   allPointData,
   earnPointData,
   usedPointData,
-  categoriesOptions
+  categoriesOptions,
 };
