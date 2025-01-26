@@ -5,6 +5,6 @@
 import {AppRegistry} from 'react-native';
 import App from './App';
 import {name as appName} from './app.json';
-import Categories from './src/screens/categoriesScreen/categories/categories';
+import Salon from './src/screens/salonScreen/salon/salon';
 
-AppRegistry.registerComponent(appName, () => Categories);
+AppRegistry.registerComponent(appName, () => Salon);
