@@ -16,6 +16,7 @@ const colors = {
   lighterPrimary: '#F5EAEC',
   radioBorders: '#ccc',
   borderPrimary: '#ECD5D9',
+  ratedBox:'#F59E0B4D'
 };
 
 export default colors;
