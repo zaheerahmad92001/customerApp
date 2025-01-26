@@ -29,6 +29,13 @@ const menuOptions = [
   {title: 'Loyalty Points', img: images.document},
 ];
 
+const categoriesOptions = [
+  {title: 'Salon', img: images.salon},
+  {title: 'Spa', img: images.spa},
+  {title: 'Nail Art', img: images.nail},
+  {title: 'Salon & Spa', img: images.salonSpa},
+];
+
 const settingOptions = [
   {title: 'Language'},
   {title: 'Notification Settings'},
@@ -159,5 +166,6 @@ export {
   discounts,
   allPointData,
   earnPointData,
-  usedPointData
+  usedPointData,
+  categoriesOptions
 };
