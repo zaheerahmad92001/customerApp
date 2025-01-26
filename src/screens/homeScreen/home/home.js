@@ -37,6 +37,10 @@ const HomeScreen = () => {
   const [filteredSearches, setFilteredSearches] = useState(recentSearches);
   const [isInputActive, setIsInputActive] = useState(false);
 
+  const handleFavoritePress = id => {
+    console.log(`Favorite pressed for salon ID: ${id}`);
+  };
+
   const renderCategory = ({item}) => (
     <TouchableOpacity style={styles.categoryCard}>
       <Image source={item.icon} style={styles.categoryIcon} />

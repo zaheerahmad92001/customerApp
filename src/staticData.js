@@ -164,6 +164,27 @@ const serviceData = [
   },
 ];
 
+const slides = [
+  {
+    key: '1',
+    title: 'Welcome to ANAKA',
+    text: 'Your trusted salon booking app – Find the best, book with ease.',
+    image: images.room,
+  },
+  {
+    key: '2',
+    title: 'Your Beauty, Our Priority',
+    text: 'Explore top salons, book appointments, and enjoy exceptional service with ANAKA.',
+    image: images.room,
+  },
+  {
+    key: '3',
+    title: 'Elevate Your Salon Experience with ANAKA',
+    text: 'From discovery to booking, we make beauty effortless.',
+    image: images.room,
+  },
+];
+
 export {
   recentSearches,
   mockData,
@@ -182,4 +203,5 @@ export {
   usedPointData,
   categoriesOptions,
   serviceData,
+  slides,
 };

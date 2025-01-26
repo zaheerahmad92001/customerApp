@@ -19,6 +19,9 @@ import SalonCard from '../../../components/salonCard/salonCard';
 import {dummyData, mockData} from '../../../staticData';
 
 const Invoice = () => {
+  const handleFavoritePress = id => {
+    console.log(`Favorite pressed for salon ID: ${id}`);
+  };
   const renderSalonCard = ({item}) => (
     <SalonCard
       image={item.image}
