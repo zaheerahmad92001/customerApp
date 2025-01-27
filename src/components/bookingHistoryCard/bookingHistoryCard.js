@@ -4,6 +4,7 @@ import {RFValue} from 'react-native-responsive-fontsize';
 import colors from '../../assets/colors';
 import fontsFamily from '../../assets/fontsFamily';
 import Messages from '../../assets/svgs/messages.svg';
+import {SmallText} from '../Typography';
 
 const BookingHistoryCard = ({
   date,
@@ -24,7 +25,18 @@ const BookingHistoryCard = ({
           {date} - {time}
         </Text>
         <Text
-          style={[styles.status, status === 'Confirmed' && styles.confirmed]}>
+          style={[
+            styles.status,
+            status === 'Confirmed'
+              ? styles.confirmed
+              : status === 'Pending'
+              ? styles.pendingStatus
+              : status === 'Cancelled'
+              ? styles.cancelledStatus
+              : status === 'Completed'
+              ? styles.completedStatus
+              : '',
+          ]}>
           {status}
         </Text>
       </View>
@@ -37,21 +49,34 @@ const BookingHistoryCard = ({
         </View>
         <View>
           <Text style={styles.price}>{price}</Text>
-          <TouchableOpacity style={styles.icon}>
-            <Messages />
-          </TouchableOpacity>
+          {status === 'Completed' && (
+            <TouchableOpacity style={styles.completedButton}>
+              <SmallText text={'Report'} style={styles.reportText} />
+            </TouchableOpacity>
+          )}
+          {status === 'Confirmed' && (
+            <TouchableOpacity style={styles.icon}>
+              <Messages />
+            </TouchableOpacity>
+          )}
         </View>
       </View>
-      <View style={styles.actions}>
-        <TouchableOpacity style={styles.cancelButton} onPress={onCancel}>
-          <Text style={styles.cancelText}>Cancel Booking</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.rescheduleButton}
-          onPress={onReschedule}>
-          <Text style={styles.rescheduleText}>Reschedule</Text>
-        </TouchableOpacity>
-      </View>
+      {status !== 'Cancelled' && (
+        <View style={styles.actions}>
+          <TouchableOpacity style={styles.cancelButton} onPress={onCancel}>
+            <Text style={styles.cancelText}>
+              {status === 'Completed' ? 'Book Again' : 'Cancel Booking'}{' '}
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.rescheduleButton}
+            onPress={onReschedule}>
+            <Text style={styles.rescheduleText}>
+              {status === 'Completed' ? 'Leave a Review' : 'Reschedule'}
+            </Text>
+          </TouchableOpacity>
+        </View>
+      )}
     </View>
   );
 };
@@ -89,6 +114,31 @@ const styles = StyleSheet.create({
   confirmed: {
     backgroundColor: colors.confirmYellowLight,
     color: colors.confirmYellow,
+  },
+  pendingStatus: {
+    backgroundColor: colors.lightGray,
+    color: colors.appBlack,
+  },
+  cancelledStatus: {
+    backgroundColor: colors.lightError,
+    color: colors.error,
+  },
+  completedStatus: {
+    backgroundColor: colors.lightSuccess,
+    color: colors.success,
+  },
+  completedButton: {
+    backgroundColor: colors.gray,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 2,
+    paddingHorizontal: 4,
+    marginTop: 5,
+    borderRadius: 5,
+  },
+  reportText: {
+    color: colors.lightBlack,
+    fontFamily: fontsFamily.regular,
   },
   body: {
     flexDirection: 'row',
