@@ -1,4 +1,14 @@
 import images from './assets/images';
+import EditIcon from './assets/svgs/edit.svg'
+import HeartIcon from './assets/svgs/heart.svg';
+ import HistoryIcon from './assets/svgs/document.svg';
+ import Discount from './assets/svgs/discount-shape.svg';
+ import SaveCardIcon from './assets/svgs/card.svg';
+ import CallIcon from './assets/svgs/call.svg';
+ import RequestIcon from './assets/svgs/money.svg';
+ import Invoice from './assets/svgs/receipt.svg';
+ import Setting from './assets/svgs/setting.svg';
+ import Logout from './assets/svgs/logout.svg';
 
 const recentSearches = [
   'Beauty Unleashed',
@@ -20,13 +30,13 @@ const mockData = [
 ];
 
 const menuOptions = [
-  {title: 'Edit Profile', img: images.shop},
-  {title: 'Favorites', img: images.service},
-  {title: 'Booking History', img: images.document},
-  {title: 'Saved Cards', img: images.clock},
-  {title: 'Invoices', img: images.calendar},
-  {title: 'Requests & Complaints', img: images.shop},
-  {title: 'Loyalty Points', img: images.document},
+  {title: 'Edit Profile', img:EditIcon},
+  {title: 'Favorites', img: HeartIcon},
+  {title: 'Booking History', img: HistoryIcon},
+  {title: 'Saved Cards', img: SaveCardIcon},
+  {title: 'Invoices', img: Invoice},
+  {title: 'Requests & Complaints', img: RequestIcon},
+  {title: 'Loyalty Points', img: Discount},
 ];
 
 const categoriesOptions = [
@@ -46,10 +56,12 @@ const settingOptions = [
 ];
 
 const supportOptions = [
-  {title: 'Edit Profile', img: images.shop},
-  {title: 'Favorites', img: images.service},
-  {title: 'Booking History', img: images.document},
-  {title: 'Saved Cards', img: images.clock},
+  {title: 'Contact Us', img: CallIcon},
+];
+
+const accountManagement = [
+  {title: 'Account Settings', img: Setting},
+  {title: 'Logout', img: Logout},
 ];
 
 const dummyData = {
@@ -189,11 +201,12 @@ export {
   recentSearches,
   mockData,
   menuOptions,
-  supportOptions,
   dummyData,
   invoices,
   languages,
+  supportOptions,
   settingOptions,
+  accountManagement,
   toggleItems,
   reasons,
   faqs,

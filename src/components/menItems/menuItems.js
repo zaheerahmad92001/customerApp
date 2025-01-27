@@ -1,20 +1,22 @@
 import React from 'react';
 import {TouchableOpacity, View, Text, Image} from 'react-native';
 import {RFValue} from 'react-native-responsive-fontsize';
-import Icon from 'react-native-vector-icons/Entypo';
 import colors from '../../assets/colors';
 import fontsFamily from '../../assets/fontsFamily';
+import { SmallText } from '../Typography';
+import RightArrow from '../../assets/svgs/arrow-right.svg';
 
-const MenuItem = ({title, img, showImage, onPress}) => {
+
+const MenuItem = ({title, Icon, showImage, onPress}) => {
+  console.log('icon is ', Icon)
   return (
     <TouchableOpacity onPress={onPress} style={styles.menuItem}>
       <View style={styles.menuItemsTitleCard}>
-        {showImage && <Image source={img} style={styles.imageStyle} />}
-        <Text style={[styles.menuText, {marginLeft: showImage ? 5 : 0}]}>
-          {title}
-        </Text>
+        {showImage && <Icon/>}
+        {/* {showImage && <Image source={img} style={styles.imageStyle} />} */}
+        <SmallText text={title} style={styles.menuText} />
       </View>
-      <Icon name="chevron-right" size={20} color={colors.lightBlack} />
+      <RightArrow/>
     </TouchableOpacity>
   );
 };
@@ -22,10 +24,10 @@ const MenuItem = ({title, img, showImage, onPress}) => {
 const styles = {
   menuItem: {
     paddingVertical: 15,
-    paddingHorizontal: 20,
+    paddingHorizontal:10,
     marginBottom: 10,
     backgroundColor: colors.lightGray,
-    borderRadius: 8,
+    borderRadius: 10,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -40,9 +42,11 @@ const styles = {
     marginRight: 10,
   },
   menuText: {
-    fontSize: RFValue(14),
-    fontFamily: fontsFamily.regular,
+    fontSize: RFValue(13),
+    fontFamily:fontsFamily.extraLight,
+    fontWeight: '400',
     color: colors.lightBlack,
+    marginLeft:12,
   },
 };
 

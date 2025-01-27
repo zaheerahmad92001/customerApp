@@ -18,27 +18,37 @@ const MediumText = (props) => {
     const {text, style} = props
   return <Text style={[styles.mediumText,style]}>{text}</Text>;
 };
+const SmallText = (props) => {
+  const {text, style} = props
+return <Text style={[styles.smallText,style]}>{text}</Text>;
+};
 
 const styles = StyleSheet.create({
   xlText: {
-    marginTop:hp(1.3),
     fontSize: RFValue(15),
     fontFamily: fontsFamily.regular,
     fontWeight:'500',
+    color:colors.appBlack,
   },
   lText: {
     fontSize: RFValue(14),
     fontFamily: fontsFamily.regular,
     fontWeight:'500',
     textAlign: 'center',
+    color:colors.appBlack,
   },
   mediumText:{
     color:colors.appBlack,
     fontFamily:fontsFamily.extraLight,
     fontSize:RFValue(13),
     fontWeight:'500',
-    marginBottom:hp(1.3),
+  },
+  smallText:{
+    color:colors.appBlack,
+    fontFamily:fontsFamily.thin,
+    fontSize:RFValue(12),
+    fontWeight:'500',
   }
 });
 
-export { XlargeText, LargeText ,MediumText };
+export { XlargeText, LargeText ,MediumText,SmallText };

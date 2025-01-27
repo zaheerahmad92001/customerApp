@@ -44,7 +44,7 @@ const Review = () => {
           setScrollEnabled(contentHeight > screenHeight);
         }}>
         <View style={styles.wrapper}>
-          <XlargeText text="Write a Review" />
+          <XlargeText text="Write a Review" style={{ marginTop:hp(1.3)}}/>
 
           <View style={{marginHorizontal:wp(7)}}>
           <View style={styles.imageView}>
@@ -69,7 +69,7 @@ const Review = () => {
 
           <View style={styles.border}></View>
 
-          <MediumText text='Write your Review'/>
+          <MediumText text='Write your Review' style={{marginBottom:hp(1.3)}}/>
           <TextField
             placeholder={'Your review here'}
             multiline

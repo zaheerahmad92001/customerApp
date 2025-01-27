@@ -2,7 +2,6 @@
 
 import * as React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import HomeStack from './homeStack';
 import BottomStack from './bottomTabs/bottomStack';
 
 

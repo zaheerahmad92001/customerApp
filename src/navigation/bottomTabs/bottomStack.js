@@ -5,24 +5,14 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import FastImage from 'react-native-fast-image';
 import images from '../../assets/images';
 import SearchScreen from '../../screens/searchScreen/search/search';
-import ReviewScreen from '../../screens/reviewScreen/review/review'
+import ReviewScreen from '../../screens/reviewScreen/review/review';
+import ProfileScreen from '../../screens/profileScreen/profile/profile';
 import colors from '../../assets/colors';
 
 const Tab = createBottomTabNavigator();
 
 // Sample screens for the tabs
 
-const SettingsScreen = () => (
-  <View style={styles.screen}>
-    <Text>Settings Screen</Text>
-  </View>
-);
-
-const ProfileScreen = () => (
-  <View style={styles.screen}>
-    <Text>Profile Screen</Text>
-  </View>
-);
 
 const NotificationsScreen = () => (
   <View style={styles.screen}>
