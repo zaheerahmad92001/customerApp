@@ -5,16 +5,12 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import FastImage from 'react-native-fast-image';
 import images from '../../assets/images';
 import SearchScreen from '../../screens/searchScreen/search/search';
+import ReviewScreen from '../../screens/reviewScreen/review/review'
 import colors from '../../assets/colors';
 
 const Tab = createBottomTabNavigator();
 
 // Sample screens for the tabs
-const HomeScreen = () => (
-  <View style={styles.screen}>
-    <Text>Home Screen</Text>
-  </View>
-);
 
 const SettingsScreen = () => (
   <View style={styles.screen}>
@@ -98,7 +94,7 @@ const BottomStack = () => {
       }}
     >
       <Tab.Screen name="Home" component={SearchScreen} />
-      <Tab.Screen name="Booking" component={SettingsScreen} />
+      <Tab.Screen name="Booking" component={ReviewScreen} />
       <Tab.Screen name="Messages" component={ProfileScreen} />
       <Tab.Screen name="More" component={NotificationsScreen} />
     </Tab.Navigator>
