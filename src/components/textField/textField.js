@@ -7,11 +7,13 @@ import fontsFamily from '../../assets/fontsFamily';
 const TextField = ({label, placeholder, style, inputStyle, ...props}) => {
   return (
     <View style={[styles.container, style]}>
+      {label &&
       <Text style={styles.label}>{label}</Text>
+}
       <TextInput
         style={[styles.input, inputStyle]}
         placeholder={placeholder}
-        placeholderTextColor={colors.appBlack}
+        placeholderTextColor={colors.placeholderColor}
         {...props}
       />
     </View>
@@ -20,7 +22,6 @@ const TextField = ({label, placeholder, style, inputStyle, ...props}) => {
 
 const styles = StyleSheet.create({
   container: {
-    marginVertical: 8,
   },
   label: {
     fontSize: RFValue(12),
@@ -29,8 +30,8 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   input: {
-    height: 40,
-    borderRadius: 4,
+    // height: 40,
+    borderRadius:5,
     paddingHorizontal: 15,
     fontSize: RFValue(12),
     fontFamily: fontsFamily.regular,

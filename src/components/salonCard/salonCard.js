@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, Image, StyleSheet, TouchableOpacity} from 'react-native';
+import {View, Text, Image, StyleSheet, TouchableOpacity, Platform} from 'react-native';
 import Heart from '../../assets/svgs/heart.svg';
 import LocationMarker from '../../assets/svgs/locationMarker.svg';
 import Star from '../../assets/svgs/star.svg';
@@ -38,7 +38,10 @@ const SalonCard = ({
           <View style={styles.ratingContainer}>
             <Star />
             <Text style={styles.ratingText}>
-              {rating} ({reviews})
+              {rating}
+            </Text>
+            <Text style={styles.reviewText}>
+              ({reviews})
             </Text>
           </View>
           {showFavoriteButton && (
@@ -67,7 +70,7 @@ const styles = StyleSheet.create({
     borderColor: colors.gray,
     borderWidth: 0.3,
     // For Android shadow
-    elevation: 6,
+    elevation: 2,
     shadowColor: '#000',
     shadowOffset: {width: 0, height: 2},
     shadowOpacity: 0.1,
@@ -92,14 +95,18 @@ const styles = StyleSheet.create({
     marginLeft: 12,
   },
   cardTitle: {
-    fontSize: RFValue(14),
+    fontSize: RFValue(12),
     color: colors.appBlack,
     fontFamily: fontsFamily.semiBold,
+    fontWeight:'500',
   },
   cardLocation: {
     fontSize: RFValue(12),
-    color: colors.appBlack,
+    color: colors.lightBlack,
     marginVertical: 4,
+    fontFamily:fontsFamily.extraLight,
+    fontWeight:'500',
+
   },
   cardFooter: {
     flexDirection: 'row',
@@ -116,9 +123,17 @@ const styles = StyleSheet.create({
     fontFamily: fontsFamily.regular,
     marginLeft: 4,
   },
+  reviewText: {
+    fontSize: RFValue(12),
+    color: colors.lightBlack,
+    fontFamily: fontsFamily.extraLight,
+    marginLeft: 4,
+  },
   distanceText: {
     fontSize: RFValue(12),
-    color: colors.appBlack,
+    color: colors.lightBlack,
+    fontFamily: fontsFamily.extraLight,
+
   },
   favoriteButton: {
     padding: 8,
@@ -134,7 +149,6 @@ const styles = StyleSheet.create({
   locationContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginTop: 2,
   },
   position: {
     color: colors.success,
