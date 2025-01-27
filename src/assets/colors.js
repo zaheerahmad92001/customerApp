@@ -16,8 +16,10 @@ const colors = {
   error: '#D83A3C',
   lightError: 'rgba(216, 58, 60, 0.1)',
   lighterPrimary:'#F5EAEC',
-  placeholderColor:"#99A0A6",
-  
+  placeholderColor:'#99A0A6',
+  radioBorders: '#ccc',
+  borderPrimary: '#ECD5D9',
+  ratedBox:'#F59E0B4D'
 };
 
 export default colors;

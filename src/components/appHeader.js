@@ -15,7 +15,12 @@ import colors from '../assets/colors';
 import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
 import fontsFamily from '../assets/fontsFamily';
 
-const Header = ({title, onBackPress, showBackButton = false}) => {
+const Header = ({
+  title,
+  onBackPress,
+  showBackButton = false,
+  showTitle = true,
+}) => {
   return (
     <View style={[styles.header]}>
       {showBackButton && (
@@ -27,7 +32,7 @@ const Header = ({title, onBackPress, showBackButton = false}) => {
         </TouchableOpacity>
       )}
 
-      <Text style={styles.title}>{title}</Text>
+      {showTitle && <Text style={styles.title}>{title}</Text>}
     </View>
   );
 };

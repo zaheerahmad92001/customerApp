@@ -6,16 +6,15 @@ import {
   ScrollView,
   StyleSheet,
   Image,
-  TouchableOpacity,
 } from 'react-native';
 import images from '../../../assets/images';
 import {RFValue} from 'react-native-responsive-fontsize';
 import colors from '../../../assets/colors';
 import fontsFamily from '../../../assets/fontsFamily';
 import {menuOptions, supportOptions} from '../../../staticData';
-import Icon from 'react-native-vector-icons/Entypo';
 import BackArrow from '../../../assets/svgs/backArrow.svg';
 import Header from '../../../components/appHeader';
+import MenuItem from '../../../components/menItems/menuItems';
 
 const Profile = () => {
   return (
@@ -37,25 +36,25 @@ const Profile = () => {
         <Text style={styles.infoText}>Personal Information</Text>
         <View style={styles.menuContainer}>
           {menuOptions.map((option, index) => (
-            <TouchableOpacity key={index} style={styles.menuItem}>
-              <View style={styles.menuItemsTitleCard}>
-                <Image source={option.img} />
-                <Text style={styles.menuText}>{option.title}</Text>
-              </View>
-              <Icon name="chevron-right" size={20} color={colors.lightBlack} />
-            </TouchableOpacity>
+            <MenuItem
+              key={index}
+              title={option.title}
+              img={option.img}
+              showImage={true}
+              onPress={() => console.log(`${option.title} pressed`)}
+            />
           ))}
         </View>
 
         <Text style={styles.infoText}>Support</Text>
         {supportOptions.map((option, index) => (
-          <TouchableOpacity key={index} style={styles.menuItem}>
-            <View style={styles.menuItemsTitleCard}>
-              <Image source={option.img} />
-              <Text style={styles.menuText}>{option.title}</Text>
-            </View>
-            <Icon name="chevron-right" size={20} color={colors.lightBlack} />
-          </TouchableOpacity>
+          <MenuItem
+            key={index}
+            title={option.title}
+            img={option.img}
+            showImage={true}
+            onPress={() => console.log(`${option.title} pressed`)}
+          />
         ))}
       </ScrollView>
     </SafeAreaView>
@@ -116,29 +115,8 @@ const styles = StyleSheet.create({
   },
   menuContainer: {
     marginTop: 10,
-    // backgroundColor: colors.primary,
     borderRadius: 10,
     paddingVertical: 10,
-  },
-  menuItem: {
-    paddingVertical: 15,
-    paddingHorizontal: 20,
-    marginBottom: 10,
-    backgroundColor: colors.lightGray,
-    borderRadius: 8,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
-  menuItemsTitleCard: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  menuText: {
-    fontSize: RFValue(14),
-    fontFamily: fontsFamily.regular,
-    color: colors.lightBlack,
-    marginLeft: 5,
   },
 });
 
