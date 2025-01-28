@@ -1,12 +1,14 @@
 import React from 'react';
 import {View, Text, Image, StyleSheet, TouchableOpacity, Platform} from 'react-native';
 import Heart from '../../assets/svgs/heart.svg';
+import HeartFilled from '../../assets/svgs/fill-heart.svg';
 import LocationMarker from '../../assets/svgs/locationMarker.svg';
 import Star from '../../assets/svgs/star.svg';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import colors from '../../assets/colors';
 import fontsFamily from '../../assets/fontsFamily';
 import {RFValue} from 'react-native-responsive-fontsize';
+import { MediumText } from '../Typography';
 
 const SalonCard = ({
   image,
@@ -18,6 +20,7 @@ const SalonCard = ({
   onFavorite,
   showFavoriteButton = false,
   position,
+  selected = false
 }) => {
   return (
     <View style={styles.cardContainer}>
@@ -48,7 +51,7 @@ const SalonCard = ({
             <TouchableOpacity
               style={styles.favoriteButton}
               onPress={onFavorite}>
-              <Heart />
+                {selected ? <HeartFilled /> : <Heart />}
             </TouchableOpacity>
           )}
           {!showFavoriteButton && (
@@ -95,10 +98,10 @@ const styles = StyleSheet.create({
     marginLeft: 12,
   },
   cardTitle: {
-    fontSize: RFValue(12),
+    fontSize: RFValue(13),
     color: colors.appBlack,
-    fontFamily: fontsFamily.semiBold,
-    fontWeight:'500',
+    fontFamily: fontsFamily.regular,
+    fontWeight:'600',
   },
   cardLocation: {
     fontSize: RFValue(12),

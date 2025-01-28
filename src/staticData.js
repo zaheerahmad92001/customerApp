@@ -27,6 +27,26 @@ const mockData = [
     reviews: 312,
     position: 'Paid',
   },
+  {
+    id: 1,
+    image: images.room, // Replace with your image path
+    title: 'Hair Avenue',
+    location: 'Lakewood, California',
+    distance: '2 km',
+    rating: 4.7,
+    reviews: 312,
+    position: 'Paid',
+  },
+  {
+    id: 1,
+    image: images.room, // Replace with your image path
+    title: 'Hair Avenue',
+    location: 'Lakewood, California',
+    distance: '2 km',
+    rating: 4.7,
+    reviews: 312,
+    position: 'Paid',
+  },
 ];
 
 const menuOptions = [

@@ -1,14 +1,15 @@
 import {
   View,
-  Text,
   SafeAreaView,
-  ScrollView,
   StyleSheet,
   FlatList,
 } from 'react-native';
 import React from 'react';
-import {mockData} from '../../../staticData';
-import SalonCard from '../../../components/salonCard/salonCard';
+import {mockData} from '../../staticData';
+import SalonCard from '../../components/salonCard/salonCard';
+import colors from '../../assets/colors';
+import Header from '../../components/appHeader';
+import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
 
 const Favorites = () => {
   const handleFavoritePress = id => {
@@ -24,17 +25,21 @@ const Favorites = () => {
       reviews={item.reviews}
       onFavorite={() => handleFavoritePress(item.id)}
       showFavoriteButton={true}
+      selected={true}
     />
   );
   return (
     <SafeAreaView style={styles.container}>
-      <FlatList
-        data={mockData}
-        keyExtractor={item => item.id.toString()}
-        renderItem={renderSalonCard}
-        contentContainerStyle={styles.list}
-        nestedScrollEnabled
-      />
+      <Header title={'Favorites'} showBackButton={true} />
+      <View style={styles.wrapper}>
+        <FlatList
+          data={mockData}
+          keyExtractor={item => item.id.toString()}
+          renderItem={renderSalonCard}
+          contentContainerStyle={styles.list}
+          nestedScrollEnabled
+        />
+      </View>
     </SafeAreaView>
   );
 };
@@ -42,7 +47,11 @@ const Favorites = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 10,
+    backgroundColor: colors.white,
+  },
+  wrapper: {
+    flex: 1,
+    marginHorizontal: wp(4),
   },
 });
 

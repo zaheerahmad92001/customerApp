@@ -31,6 +31,7 @@ const styles = StyleSheet.create({
   },
   input: {
     // height: 40,
+    paddingVertical:12,
     borderRadius:5,
     paddingHorizontal: 15,
     fontSize: RFValue(12),

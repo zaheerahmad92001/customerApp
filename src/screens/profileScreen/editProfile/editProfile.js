@@ -1,102 +1,121 @@
-import {View, Text, Image, StyleSheet, TouchableOpacity} from 'react-native';
-import React from 'react';
+import {
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  SafeAreaView,
+  Alert,
+} from 'react-native';
+import React, {useRef, useReducer} from 'react';
 import TextField from '../../../components/textField/textField';
-import colors from '../../../assets/colors';
 import images from '../../../assets/images';
-import {RFValue} from 'react-native-responsive-fontsize';
 import Header from '../../../components/appHeader';
-import fontsFamily from '../../../assets/fontsFamily';
+import styles from './editProfle.styles';
+import FastImage from 'react-native-fast-image';
+import Camera from '../../../assets/svgs/camera.svg';
+import {BottomSheet} from '../../../components/bottomSheet';
+import {heightPercentageToDP} from 'react-native-responsive-screen';
+import ModalComponent from '../../../components/modal';
+import MediaPicker from '../../../components/modal/mediaPicker'
+import { captureImageWithCamera, pickImageFromLibrary } from '../../../functions';
 
 const EditProfile = () => {
+  const refRBSheet = useRef();
+
+  const [state, updateState] = useReducer(
+    (state, newState) => ({...state, ...newState}),
+    {
+      isVisible: false,
+      profileImage:null,
+    },
+  );
+  const {isVisible , profileImage} = state;
+
+  // const openBottomSheet = () => {
+  //   if (refRBSheet.current) {
+  //     refRBSheet.current.present();
+  //   } else {
+  //     Alert.alert('Error', 'Something went wrong');
+  //   }
+  // };
+
+  const handleImagePicked = (image) => {
+    updateState({isVisible:false, profileImage:image.uri});
+  };
+
+  const openModal = () => {
+    updateState({isVisible: isVisible ? false : true});
+  };
+
   return (
-    <View style={styles.container}>
-      <Header title={'Profile'} showBackButton={true} />
-      <View style={styles.profileImageContainer}>
-        <View style={styles.innerProfileImageContainer}>
-          <Image
-            source={images.room} // Replace with your image URL
-            style={styles.profileImage}
+    <SafeAreaView style={styles.wrapper}>
+      <Header title={'Edit Profile'} showBackButton={true} />
+      <View style={styles.container}>
+        <View style={styles.profileImageContainer}>
+          <View style={styles.innerProfileImageContainer}>
+            <View style={styles.ImageContainer}>
+              <FastImage
+                source={profileImage?{uri:profileImage}:images.room}
+                // resizeMode={FastImage.resizeMode.contain}
+                style={styles.profileImage}
+              />
+            </View>
+            <TouchableOpacity onPress={openModal} style={styles.editIcon}>
+              <Camera />
+            </TouchableOpacity>
+          </View>
+        </View>
+        <View style={[styles.inputContainer, {flexDirection: 'row', gap: 10}]}>
+          <View style={styles.inputHalf}>
+            <TextField label={'First name'} value="Kaylynn" />
+          </View>
+          <View style={styles.inputHalf}>
+            <TextField label={'Last name'} value="Kenter" />
+          </View>
+        </View>
+        <View style={styles.inputContainer}>
+          <TextField label={'Email'} value="Kaylynn021@gmail.com" />
+        </View>
+        <View style={styles.inputContainer}>
+          <TextField label={'Phone number'} value="+966 123 456 7890" />
+        </View>
+        <View style={styles.inputContainer}>
+          <TextField label={'Date of birth'} value="28 October 2024" />
+        </View>
+        <TouchableOpacity style={styles.button}>
+          <Text style={styles.buttonText}>Update Profile</Text>
+        </TouchableOpacity>
+      </View>
+
+      {/* <BottomSheet
+        refRBSheet={refRBSheet}
+        onClose={() => {}}
+        scrollEnabled={true}
+        disableDynamicSizing={false}
+        height={heightPercentageToDP(20)}
+      >
+        <></>
+      </BottomSheet> */}
+
+
+      <ModalComponent
+        visible={isVisible}
+        onClose={() => {
+          updateState({isVisible: false});
+        }}>
+          <MediaPicker 
+          onCancel={()=>{
+            updateState({isVisible: false});
+          }}
+          captureWithCamera={() => {
+            captureImageWithCamera(handleImagePicked)}}
+          pickFromGallery={() => {
+            pickImageFromLibrary(handleImagePicked)}}
+          
           />
-          <TouchableOpacity style={styles.editIcon}>
-            <Text style={styles.editIconText}>🔒</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
-      <View style={[styles.inputContainer, {flexDirection: 'row'}]}>
-        <View style={styles.inputHalf}>
-          <TextField label={'First name'} value="Kaylynn" />
-        </View>
-        <View style={styles.inputHalf}>
-          <TextField label={'Last name'} value="Kenter" />
-        </View>
-      </View>
-      <View style={styles.inputContainer}>
-        <TextField label={'Email'} value="Kaylynn021@gmail.com" />
-      </View>
-      <View style={styles.inputContainer}>
-        <TextField label={'Phone number'} value="+966 123 456 7890" />
-      </View>
-      <View style={styles.inputContainer}>
-        <TextField label={'Date of birth'} value="28 October 2024" />
-      </View>
-      <TouchableOpacity style={styles.button}>
-        <Text style={styles.buttonText}>Update Profile</Text>
-      </TouchableOpacity>
-    </View>
+        </ModalComponent>
+    </SafeAreaView>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    padding: 20,
-  },
-  profileImageContainer: {
-    alignItems: 'center',
-    marginBottom: 20,
-  },
-  innerProfileImageContainer: {},
-  profileImage: {
-    width: 150,
-    height: 150,
-    borderRadius: 150 / 2,
-    backgroundColor: colors.primary,
-    borderWidth: 4,
-    borderColor: colors.lightGray,
-  },
-  editIcon: {
-    position: 'absolute',
-    bottom: 0,
-    right: 10,
-    backgroundColor: colors.white,
-    borderRadius: 20,
-    padding: 5,
-    borderWidth: 2,
-    borderColor: colors.primary,
-  },
-  editIconText: {
-    fontSize: RFValue(14),
-  },
-  inputContainer: {
-    marginBottom: 15,
-  },
-  inputHalf: {
-    flex: 1,
-    marginHorizontal: 5, // Add spacing between fields
-  },
-  button: {
-    marginTop: 'auto', // Push the button to the bottom
-    backgroundColor: colors.primary,
-    paddingVertical: 10,
-    alignItems: 'center',
-    borderRadius: 8,
-  },
-  buttonText: {
-    color: colors.white,
-    fontSize: RFValue(14),
-    fontFamily: fontsFamily.semiBold,
-  },
-});
 
 export default EditProfile;
