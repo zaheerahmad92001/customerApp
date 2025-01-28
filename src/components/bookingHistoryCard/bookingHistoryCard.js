@@ -1,6 +1,7 @@
 import React from 'react';
-import {View, Text, Image, StyleSheet, TouchableOpacity} from 'react-native';
+import {View, Text, Image, TouchableOpacity} from 'react-native';
 import Messages from '../../assets/svgs/messages.svg';
+import {SmallText} from '../Typography';
 import styles from './booking.style';
 import { AppButton } from '../appButton';
 
@@ -16,6 +17,9 @@ const BookingHistoryCard = ({
   onCancel,
   onReschedule,
 }) => {
+const cancelORBook = status==='Confirmed' ? 'Cancel Booking' : 'Book Again';
+const completeORReview = status==='Confirmed' ? 'Completed' : 'Leave a Review';
+
   return (
     <View style={styles.card}>
       <View style={styles.header}>
@@ -23,11 +27,24 @@ const BookingHistoryCard = ({
           {date} - {time}
         </Text>
         <Text
-          style={[styles.status, status === 'Confirmed' && styles.confirmed]}>
+          style={[
+            styles.status,
+            status === 'Confirmed'
+              ? styles.confirmed
+              : status === 'Pending'
+              ? styles.pendingStatus
+              : status === 'Cancelled'
+              ? styles.cancelledStatus
+              : status === 'Completed'
+              ? styles.completedStatus
+              : '',
+          ]}>
           {status}
         </Text>
       </View>
+
       <View style={styles.body}>
+
         <View style={styles.cardImage}>
           <Image source={imageUri} style={styles.image} />
         </View>
@@ -38,22 +55,31 @@ const BookingHistoryCard = ({
           <Text style={styles.services}>{services}</Text>
         </View>
 
+
         <View>
           <View style={styles.priceContainer}>
           <Text style={styles.price}>{price}</Text>
           </View>
-          <TouchableOpacity style={styles.icon}>
-            <Messages />
-          </TouchableOpacity>
+          {status === 'Completed' && (
+            <TouchableOpacity style={styles.completedButton}>
+              <SmallText text={'Report'} style={styles.reportText} />
+            </TouchableOpacity>
+          )}
+          {status === 'Confirmed' && (
+            <TouchableOpacity style={styles.icon}>
+              <Messages />
+            </TouchableOpacity>
+          )}
         </View>
-
       </View>
-
-      <View style={styles.actions}>
-        <AppButton title="Cancel Booking" onPress={onCancel} style={styles.cancelButton} textstyle={styles.cancelText} />
-        <AppButton title="Reschedule" onPress={onReschedule}  style={styles.rescheduleButton} />
-      </View>
+      {status !== 'Cancelled' && (
+        <View style={styles.actions}>
+          <AppButton title={cancelORBook} onPress={onCancel} style={styles.cancelButton} textstyle={styles.cancelText} />
+          <AppButton title={completeORReview} onPress={onReschedule} style={styles.rescheduleButton} textstyle={styles.rescheduleText} />
+        </View>
+      )}
     </View>
   );
 };
+
 export default BookingHistoryCard;

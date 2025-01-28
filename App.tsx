@@ -4,7 +4,6 @@ import AppStack from './src/navigation/appStack';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import {BottomSheetModalProvider} from '@gorhom/bottom-sheet';
 
-
 const App = () => {
   return (
     <GestureHandlerRootView>
