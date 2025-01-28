@@ -1,14 +1,14 @@
 import images from './assets/images';
-import EditIcon from './assets/svgs/edit.svg'
+import EditIcon from './assets/svgs/edit.svg';
 import HeartIcon from './assets/svgs/heart.svg';
- import HistoryIcon from './assets/svgs/document.svg';
- import Discount from './assets/svgs/discount-shape.svg';
- import SaveCardIcon from './assets/svgs/card.svg';
- import CallIcon from './assets/svgs/call.svg';
- import RequestIcon from './assets/svgs/money.svg';
- import Invoice from './assets/svgs/receipt.svg';
- import Setting from './assets/svgs/setting.svg';
- import Logout from './assets/svgs/logout.svg';
+import HistoryIcon from './assets/svgs/document.svg';
+import Discount from './assets/svgs/discount-shape.svg';
+import SaveCardIcon from './assets/svgs/card.svg';
+import CallIcon from './assets/svgs/call.svg';
+import RequestIcon from './assets/svgs/money.svg';
+import Invoice from './assets/svgs/receipt.svg';
+import Setting from './assets/svgs/setting.svg';
+import Logout from './assets/svgs/logout.svg';
 
 const recentSearches = [
   'Beauty Unleashed',
@@ -27,30 +27,10 @@ const mockData = [
     reviews: 312,
     position: 'Paid',
   },
-  {
-    id: 1,
-    image: images.room, // Replace with your image path
-    title: 'Hair Avenue',
-    location: 'Lakewood, California',
-    distance: '2 km',
-    rating: 4.7,
-    reviews: 312,
-    position: 'Paid',
-  },
-  {
-    id: 1,
-    image: images.room, // Replace with your image path
-    title: 'Hair Avenue',
-    location: 'Lakewood, California',
-    distance: '2 km',
-    rating: 4.7,
-    reviews: 312,
-    position: 'Paid',
-  },
 ];
 
 const menuOptions = [
-  {title: 'Edit Profile', img:EditIcon},
+  {title: 'Edit Profile', img: EditIcon},
   {title: 'Favorites', img: HeartIcon},
   {title: 'Booking History', img: HistoryIcon},
   {title: 'Saved Cards', img: SaveCardIcon},
@@ -75,9 +55,7 @@ const settingOptions = [
   {title: 'Delete Account'},
 ];
 
-const supportOptions = [
-  {title: 'Contact Us', img: CallIcon},
-];
+const supportOptions = [{title: 'Contact Us', img: CallIcon}];
 
 const accountManagement = [
   {title: 'Account Settings', img: Setting},
