@@ -16,6 +16,8 @@ const colors = {
   lighterPrimary: '#F5EAEC',
   radioBorders: '#ccc',
   borderPrimary: '#ECD5D9',
+  placholdercolor: 'rgba(121, 129, 136, 1)',
+  
 };
 
 export default colors;
