@@ -64,9 +64,6 @@ const styles = StyleSheet.create({
     marginLeft: 12,
   },
   title: {
-    fontSize: RFValue(13),
-    fontWeight: '600',
-    color: colors.appBlack,
     fontFamily: fontsFamily.regular,
   },
   location: {

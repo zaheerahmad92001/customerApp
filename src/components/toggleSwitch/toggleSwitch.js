@@ -1,7 +1,9 @@
 import React, {useState} from 'react';
-import {View, Text, StyleSheet, TouchableOpacity, Animated} from 'react-native';
+import {View, Switch, StyleSheet, TouchableOpacity, Animated} from 'react-native';
 import colors from '../../assets/colors';
 import fontsFamily from '../../assets/fontsFamily';
+import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import { MediumText } from '../Typography';
 
 const ToggleSwitch = ({label, isEnabled, onToggle}) => {
   const [toggleAnim] = useState(new Animated.Value(isEnabled ? 1 : 0));
@@ -27,7 +29,7 @@ const ToggleSwitch = ({label, isEnabled, onToggle}) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.label}>{label}</Text>
+      <MediumText text={label} style={styles.label}/>
       <TouchableOpacity onPress={handleToggle} activeOpacity={0.7}>
         <Animated.View style={[styles.track, {backgroundColor: trackColor}]}>
           <Animated.View
@@ -35,6 +37,14 @@ const ToggleSwitch = ({label, isEnabled, onToggle}) => {
           />
         </Animated.View>
       </TouchableOpacity>
+
+      {/* <Switch
+        trackColor={{ false: colors.inputGray, true: colors.primary }}
+        thumbColor={isEnabled ? colors.white : colors.white}
+        ios_backgroundColor={colors.lightGray}
+        onValueChange={handleToggle}
+        value={isEnabled}
+      /> */}
     </View>
   );
 };
@@ -44,16 +54,15 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingVertical: 10,
+     paddingVertical:hp(1.8),
     paddingHorizontal: 15,
     backgroundColor: colors.lightGray,
     borderRadius: 8,
     marginVertical: 5,
   },
   label: {
-    fontSize: 16,
-    color: colors.appBlack,
-    fontFamily: fontsFamily.regular,
+    color: colors.lightBlack,
+    fontFamily: fontsFamily.extraLight,
   },
   track: {
     width: 45,

@@ -9,6 +9,12 @@ import RequestIcon from './assets/svgs/money.svg';
 import Invoice from './assets/svgs/receipt.svg';
 import Setting from './assets/svgs/setting.svg';
 import Logout from './assets/svgs/logout.svg';
+import Receipt from './assets/svgs/invoice.svg';
+import Notes from './assets/svgs/notes.svg';
+import Salon from './assets/svgs/salon.svg';
+import Clock from './assets/svgs/clock.svg';
+import Calendar from './assets/svgs/calendar-black.svg';
+import Service from './assets/svgs/document-text.svg';
 
 const recentSearches = [
   'Beauty Unleashed',
@@ -25,7 +31,7 @@ const mockData = [
     distance: '2 km',
     rating: 4.7,
     reviews: 312,
-    position: 'Paid',
+    position: 'Cancelled',
   },
 ];
 
@@ -195,6 +201,57 @@ const slides = [
   },
 ];
 
+const invoiceDetailRows = [
+  {
+    label: "Invoice No",
+    value: "65548910",
+    image: Receipt
+  },
+  {
+    label: "Salon",
+    value: "Hair Avenue",
+    image: Salon
+  },
+  {
+    label: "Service",
+    value: "Facial",
+    image: Service
+  },
+  {
+    label: "Dates",
+    value: "Wed, 03 Jan 2024",
+    image: Calendar
+  },
+  {
+    label: "Time",
+    value: "01:00 AM",
+    image: Clock
+  },
+  {
+    label: "Notes",
+    value: "Lorem ipsum dolor sit amet consectetur. pretium etiam.",
+    image: Notes
+  }
+];
+
+const invoiceSummry = [
+  {
+    id:1,
+    title:'All Invoices',
+    count:'06',
+  },
+  {
+    id:1,
+    title:'Paid',
+    count:'04',
+  },
+  {
+    id:1,
+    title:'Cancelled',
+    count:'02',
+  },
+]
+
 export {
   recentSearches,
   mockData,
@@ -215,4 +272,6 @@ export {
   categoriesOptions,
   serviceData,
   slides,
+  invoiceDetailRows,
+  invoiceSummry
 };

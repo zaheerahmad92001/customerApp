@@ -3,11 +3,14 @@ import React from 'react';
 import Header from '../../../components/appHeader';
 import MenuItem from '../../../components/menItems/menuItems';
 import {settingOptions} from '../../../staticData';
+import colors from '../../../assets/colors';
+import { widthPercentageToDP as wp } from 'react-native-responsive-screen';
 
 const Settings = () => {
   return (
     <SafeAreaView style={styles.container}>
       <Header title={'Settings'} showBackButton />
+      <View style={styles.wrapper}>
       <View style={styles.menuContainer}>
         {settingOptions.map((option, index) => (
           <MenuItem
@@ -19,6 +22,7 @@ const Settings = () => {
           />
         ))}
       </View>
+      </View>
     </SafeAreaView>
   );
 };
@@ -26,7 +30,11 @@ const Settings = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 15,
+    backgroundColor:colors.white,
+  },
+  wrapper:{
+    flex:1,
+    marginHorizontal:wp(4)
   },
   menuContainer: {
     marginTop: 10,

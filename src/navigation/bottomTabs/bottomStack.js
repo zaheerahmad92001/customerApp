@@ -10,6 +10,15 @@ import ProfileScreen from '../../screens/profileScreen/profile/profile';
 import EditProfile from '../../screens/profileScreen/editProfile/editProfile';
 import Favorites from '../../screens/favoritesScreen/favourites';
 import BookingHistory from '../../screens/bookingHistoryScreen/bookingHistory';
+import Card from '../../screens/cardScreen/savedCard/card';
+import AddCard from '../../screens/cardScreen/addCard/addCard';
+import Invoice from '../../screens/invoiceScreen/invoiceDetail/invoiceDetail';
+import InvoiceList from '../../screens/invoiceScreen/invoiceList/invoiceList';
+import Settings from '../../screens/settingScreen/settings/settings';
+import Language from '../../screens/languageScreen/language/language';
+import NotificationSetting from '../../screens/notificationSettingsScreen/notificationSetting';
+import ChangePassword from '../../screens/changePasswordScreen/changePassword';
+
 
 import colors from '../../assets/colors';
 
@@ -82,7 +91,7 @@ const BottomStack = () => {
       <Tab.Screen name="Home" component={SearchScreen} />
       <Tab.Screen name="Booking" component={ReviewScreen} />
       <Tab.Screen name="Messages" component={ProfileScreen} />
-      <Tab.Screen name="More" component={BookingHistory} />
+      <Tab.Screen name="More" component={ChangePassword} />
     </Tab.Navigator>
   );
 };

@@ -9,6 +9,7 @@ import colors from '../../assets/colors';
 import fontsFamily from '../../assets/fontsFamily';
 import {RFValue} from 'react-native-responsive-fontsize';
 import { MediumText } from '../Typography';
+import { widthPercentageToDP as wp} from 'react-native-responsive-screen';
 
 const SalonCard = ({
   image,
@@ -22,6 +23,7 @@ const SalonCard = ({
   position,
   selected = false
 }) => {
+  const isCancelled = position === 'Cancelled' ? true : false;
   return (
     <View style={styles.cardContainer}>
       <View style={styles.cardImage}>
@@ -29,7 +31,7 @@ const SalonCard = ({
       </View>
       <View style={styles.cardContent}>
         <View style={styles.cardTitleContainer}>
-          <Text style={styles.cardTitle}>{title}</Text>
+          <MediumText text={title} style={styles.cardTitle} />
           <Text style={styles.distanceText}>{distance}</Text>
         </View>
         <View style={styles.locationContainer}>
@@ -55,7 +57,9 @@ const SalonCard = ({
             </TouchableOpacity>
           )}
           {!showFavoriteButton && (
-            <Text style={styles.position}>{position}</Text>
+            <View style={isCancelled ?[styles.cancelContainer]:[styles.paidContainer]}>
+            <Text style={isCancelled ?[styles.cancelText]:[styles.paidText]}>{position}</Text>
+            </View>
           )}
         </View>
       </View>
@@ -98,10 +102,7 @@ const styles = StyleSheet.create({
     marginLeft: 12,
   },
   cardTitle: {
-    fontSize: RFValue(13),
-    color: colors.appBlack,
     fontFamily: fontsFamily.regular,
-    fontWeight:'600',
   },
   cardLocation: {
     fontSize: RFValue(12),
@@ -153,13 +154,28 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
-  position: {
+  paidText: {
     color: colors.success,
-    backgroundColor: colors.lightSuccess,
-    paddingHorizontal: 12,
-    borderRadius: 5,
     fontFamily: fontsFamily.regular,
+    fontSize: RFValue(12),
+    fontWeight:'500',
   },
+  paidContainer:{
+    backgroundColor: colors.lightSuccess,
+    paddingVertical:5,
+    borderRadius:5,
+    paddingHorizontal:wp(4.5),
+  },
+  cancelContainer:{
+    backgroundColor: colors.lighterPrimary,
+    paddingVertical:5,
+    borderRadius:5,
+    paddingHorizontal:wp(2.5),
+  },
+  cancelText:{
+    color: colors.error,
+  }
+
 });
 
 export default SalonCard;

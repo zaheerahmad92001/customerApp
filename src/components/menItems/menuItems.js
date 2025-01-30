@@ -8,12 +8,10 @@ import RightArrow from '../../assets/svgs/arrow-right.svg';
 
 
 const MenuItem = ({title, Icon, showImage, onPress}) => {
-  console.log('icon is ', Icon)
   return (
     <TouchableOpacity onPress={onPress} style={styles.menuItem}>
       <View style={styles.menuItemsTitleCard}>
         {showImage && <Icon/>}
-        {/* {showImage && <Image source={img} style={styles.imageStyle} />} */}
         <SmallText text={title} style={styles.menuText} />
       </View>
       <RightArrow/>

@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Text, Image, TouchableOpacity} from 'react-native';
 import Messages from '../../assets/svgs/messages.svg';
-import {SmallText} from '../Typography';
+import {MediumText, SmallText} from '../Typography';
 import styles from './booking.style';
 import { AppButton } from '../appButton';
 
@@ -50,7 +50,7 @@ const completeORReview = status==='Confirmed' ? 'Completed' : 'Leave a Review';
         </View>
 
         <View style={styles.details}>
-          <Text style={styles.title}>{title}</Text>
+          <MediumText text={title} style={styles.title} />
           <Text style={styles.location}>{location}</Text>
           <Text style={styles.services}>{services}</Text>
         </View>

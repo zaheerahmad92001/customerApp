@@ -19,7 +19,8 @@ const colors = {
   placeholderColor:'#99A0A6',
   radioBorders: '#ccc',
   borderPrimary: '#ECD5D9',
-  ratedBox:'#F59E0B4D'
+  ratedBox:'#F59E0B4D',
+  lightOffWhite:'rgba(255, 255, 255, 0.6)'
 };
 
 export default colors;

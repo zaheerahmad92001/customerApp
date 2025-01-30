@@ -1,11 +1,13 @@
 import React, {useState} from 'react';
-import {View, Text, StyleSheet, FlatList} from 'react-native';
+import {View, Text, StyleSheet, FlatList, SafeAreaView} from 'react-native';
 import {RFValue} from 'react-native-responsive-fontsize';
-import colors from '../../../assets/colors';
-import fontsFamily from '../../../assets/fontsFamily';
-import Header from '../../../components/appHeader';
-import ToggleSwitch from '../../../components/toggleSwitch/toggleSwitch';
-import {toggleItems} from '../../../staticData';
+import colors from '../../assets/colors';
+import fontsFamily from '../../assets/fontsFamily';
+import Header from '../../components/appHeader';
+import ToggleSwitch from '../../components/toggleSwitch/toggleSwitch';
+import {toggleItems} from '../../staticData';
+import { heightPercentageToDP as hp, widthPercentageToDP as wp} from 'react-native-responsive-screen';
+import { MediumText } from '../../components/Typography';
 
 const NotificationSettings = () => {
   const [toggles, setToggles] = useState(toggleItems);
@@ -16,10 +18,13 @@ const NotificationSettings = () => {
     );
     setToggles(updatedToggles);
   };
+
+  
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Header title={'Notification Settings'} showBackButton />
-      <Text style={styles.heading}>Settings</Text>
+      <View style={styles.wrapper}>
+      <MediumText text='Settings' style={styles.heading}/>
       <FlatList
         data={toggles}
         keyExtractor={item => item.id.toString()}
@@ -31,20 +36,24 @@ const NotificationSettings = () => {
           />
         )}
       />
-    </View>
+      </View>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 15,
     backgroundColor: colors.white,
   },
+  wrapper:{
+    flex:1,
+    marginHorizontal:wp(4)
+  },
   heading: {
-    fontSize: RFValue(14),
-    fontFamily: fontsFamily.regular,
-    marginBottom: 10,
+    color: colors.lightBlack,
+    marginTop:hp(2),
+    marginBottom:hp(2),
   },
 });
 
