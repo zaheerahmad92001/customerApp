@@ -99,6 +99,7 @@ const invoices = [
 ];
 
 const languages = ['English', 'Arabic', 'Urdu', 'French', 'Spanish', 'Chinese'];
+const loginlang = ['English', 'العربية'];
 const toggleItems = [
   {id: 1, label: 'Payments', isEnabled: false},
   {id: 2, label: 'Schedule', isEnabled: false},
@@ -203,54 +204,54 @@ const slides = [
 
 const invoiceDetailRows = [
   {
-    label: "Invoice No",
-    value: "65548910",
-    image: Receipt
+    label: 'Invoice No',
+    value: '65548910',
+    image: Receipt,
   },
   {
-    label: "Salon",
-    value: "Hair Avenue",
-    image: Salon
+    label: 'Salon',
+    value: 'Hair Avenue',
+    image: Salon,
   },
   {
-    label: "Service",
-    value: "Facial",
-    image: Service
+    label: 'Service',
+    value: 'Facial',
+    image: Service,
   },
   {
-    label: "Dates",
-    value: "Wed, 03 Jan 2024",
-    image: Calendar
+    label: 'Dates',
+    value: 'Wed, 03 Jan 2024',
+    image: Calendar,
   },
   {
-    label: "Time",
-    value: "01:00 AM",
-    image: Clock
+    label: 'Time',
+    value: '01:00 AM',
+    image: Clock,
   },
   {
-    label: "Notes",
-    value: "Lorem ipsum dolor sit amet consectetur. pretium etiam.",
-    image: Notes
-  }
+    label: 'Notes',
+    value: 'Lorem ipsum dolor sit amet consectetur. pretium etiam.',
+    image: Notes,
+  },
 ];
 
 const invoiceSummry = [
   {
-    id:1,
-    title:'All Invoices',
-    count:'06',
+    id: 1,
+    title: 'All Invoices',
+    count: '06',
   },
   {
-    id:1,
-    title:'Paid',
-    count:'04',
+    id: 1,
+    title: 'Paid',
+    count: '04',
   },
   {
-    id:1,
-    title:'Cancelled',
-    count:'02',
+    id: 1,
+    title: 'Cancelled',
+    count: '02',
   },
-]
+];
 
 export {
   recentSearches,
@@ -273,5 +274,6 @@ export {
   serviceData,
   slides,
   invoiceDetailRows,
-  invoiceSummry
+  invoiceSummry,
+  loginlang,
 };
