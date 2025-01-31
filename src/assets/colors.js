@@ -20,7 +20,8 @@ const colors = {
   radioBorders: '#ccc',
   borderPrimary: '#ECD5D9',
   ratedBox:'#F59E0B4D',
-  lightOffWhite:'rgba(255, 255, 255, 0.6)'
+  lightOffWhite:'rgba(255, 255, 255, 0.6)',
+  darkYellow:'#FFC000',
 };
 
 export default colors;

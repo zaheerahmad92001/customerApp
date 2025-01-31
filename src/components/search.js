@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
-import {Pressable, StyleSheet, TextInput, View} from 'react-native';
+import {Platform, Pressable, StyleSheet, TextInput, View} from 'react-native';
 import FilterIcon from '../assets/svgs/candle.svg';
+import MapIcon from '../assets/svgs/map.svg';
 import Icon from 'react-native-vector-icons/EvilIcons';
 import colors from '../assets/colors';
 import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
@@ -8,7 +9,7 @@ import fontsFamily from '../assets/fontsFamily';
 import {recentSearches} from '../staticData';
 
 const Search = props => {
-  const {setFilteredSearches, setIsInputActive} = props;
+  const {setFilteredSearches, setIsInputActive , isHome} = props;
 
   const [searchText, setSearchText] = useState('');
 
@@ -46,7 +47,10 @@ const Search = props => {
       </View>
       <View>
         <Pressable onPress={() => {}} style={styles.button}>
-          <FilterIcon />
+          {isHome ?
+          <MapIcon/>:
+          <FilterIcon/>
+          }
         </Pressable>
       </View>
     </View>
@@ -66,8 +70,10 @@ const styles = StyleSheet.create({
     backgroundColor: colors.lightGray,
     borderRadius: 8,
     paddingHorizontal: 8,
-    height: 40,
-    width: wp(82),
+    paddingVertical:Platform.OS==='android'? 0 : 10,
+    // height: 40,
+    // width: '90%',
+    width: wp(80),
     borderWidth: 1,
     borderColor: colors.gray,
   },
@@ -77,8 +83,8 @@ const styles = StyleSheet.create({
   button: {
     backgroundColor: 'white',
     borderRadius: 8,
-    paddingHorizontal: 8,
-    paddingVertical: 8,
+    paddingHorizontal: 7,
+    paddingVertical: 7,
     marginLeft: 5,
     borderWidth: 1,
     borderColor: colors.gray,

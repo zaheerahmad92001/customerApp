@@ -33,6 +33,46 @@ const mockData = [
     reviews: 312,
     position: 'Cancelled',
   },
+  {
+    id: 2,
+    image: images.room, // Replace with your image path
+    title: 'Hair Avenue',
+    location: 'Lakewood, California',
+    distance: '2 km',
+    rating: 4.7,
+    reviews: 312,
+    position: 'Cancelled',
+  },
+  {
+    id: 3,
+    image: images.room, // Replace with your image path
+    title: 'Hair Avenue',
+    location: 'Lakewood, California',
+    distance: '2 km',
+    rating: 4.7,
+    reviews: 312,
+    position: 'Cancelled',
+  },
+  {
+    id: 4,
+    image: images.room, // Replace with your image path
+    title: 'Hair Avenue',
+    location: 'Lakewood, California',
+    distance: '2 km',
+    rating: 4.7,
+    reviews: 312,
+    position: 'Cancelled',
+  },
+  {
+    id: 5,
+    image: images.room, // Replace with your image path
+    title: 'Hair Avenue',
+    location: 'Lakewood, California',
+    distance: '2 km',
+    rating: 4.7,
+    reviews: 312,
+    position: 'Cancelled',
+  },
 ];
 
 const menuOptions = [

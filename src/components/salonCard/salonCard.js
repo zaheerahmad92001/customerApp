@@ -9,7 +9,8 @@ import colors from '../../assets/colors';
 import fontsFamily from '../../assets/fontsFamily';
 import {RFValue} from 'react-native-responsive-fontsize';
 import { MediumText } from '../Typography';
-import { widthPercentageToDP as wp} from 'react-native-responsive-screen';
+import { heightPercentageToDP as hp, widthPercentageToDP as wp} from 'react-native-responsive-screen';
+import FavourSelector from '../favouriteSelector';
 
 const SalonCard = ({
   image,
@@ -50,11 +51,7 @@ const SalonCard = ({
             </Text>
           </View>
           {showFavoriteButton && (
-            <TouchableOpacity
-              style={styles.favoriteButton}
-              onPress={onFavorite}>
-                {selected ? <HeartFilled /> : <Heart />}
-            </TouchableOpacity>
+            <FavourSelector onFavorite={onFavorite} selected={selected} />
           )}
           {!showFavoriteButton && (
             <View style={isCancelled ?[styles.cancelContainer]:[styles.paidContainer]}>
@@ -73,17 +70,18 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
     borderRadius: 10,
     padding: 12,
-    marginVertical: 8,
+    marginBottom:hp(1.5),
+    // marginVertical: 8,
     borderColor: colors.gray,
-    borderWidth: 0.3,
+    borderWidth: 0.5,
     // For Android shadow
-    elevation: 2,
-    shadowColor: '#000',
-    shadowOffset: {width: 0, height: 2},
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
+    // elevation: 0.3,
+    // shadowColor: '#000',
+    // shadowOffset: {width: 0, height: 2},
+    // shadowOpacity: 0.1,
+    // shadowRadius: 4,
     alignItems: 'center',
-    margin: 5,
+    // margin: 5,
   },
   cardImage: {
     width: 80,
@@ -140,7 +138,7 @@ const styles = StyleSheet.create({
 
   },
   favoriteButton: {
-    padding: 8,
+    padding: 6,
     backgroundColor: colors.inputGray,
     borderRadius: 7,
     marginLeft: 8,
