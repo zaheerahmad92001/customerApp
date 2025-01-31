@@ -61,14 +61,14 @@ const styles = StyleSheet.create({
     fontFamily: fontsFamily.regular,
   },
   otpContainer: {
-    width: '80%',
+    width: '75%',
     height: 50,
     alignSelf: 'center',
     marginTop: hp(6),
   },
   otpInput: {
-    width: 50,
-    height: 55,
+    width: 55,
+    height: 60,
     borderWidth: 1,
     borderColor: colors.gray,
     color: colors.appBlack,
