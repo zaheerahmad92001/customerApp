@@ -5,6 +5,6 @@ import 'react-native-get-random-values';
 import {AppRegistry} from 'react-native';
 import App from './App';
 import {name as appName} from './app.json';
-import RegisteredSuccessfuly from './src/screens/registeredSuccesfulyScreen/registeredSuccesfuly/RegisteredSuccesfuly';
+import OtpView from './src/screens/otpScreen/otp/otp';
 
-AppRegistry.registerComponent(appName, () => RegisteredSuccessfuly);
+AppRegistry.registerComponent(appName, () => OtpView);

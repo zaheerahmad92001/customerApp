@@ -1,39 +1,51 @@
-import {View, Text, StyleSheet, SafeAreaView, FlatList} from 'react-native';
-import React, {useState} from 'react';
+import {View, Text, SafeAreaView, StyleSheet} from 'react-native';
+import React, {useRef, useState} from 'react';
+import PhoneInput from 'react-native-phone-number-input';
 import {SmallText, XlargeText} from '../../../components/Typography';
 import colors from '../../../assets/colors';
-import {RFValue} from 'react-native-responsive-fontsize';
 import fontsFamily from '../../../assets/fontsFamily';
+import {RFValue} from 'react-native-responsive-fontsize';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
-import {languages, loginlang} from '../../../staticData';
-import LanguageSelector from '../../../components/languageSelector/languageSelector';
 import {AppButton} from '../../../components/appButton';
 
-const LanguageLogin = () => {
-  const [selectedLanguage, setSelectedLanguage] = useState(null);
+const Login = () => {
+  const phoneInput = useRef(null);
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [formattedValue, setFormattedValue] = useState('');
+  const [countryCode, setCountryCode] = useState('');
 
-  const handleSelect = language => {
-    setSelectedLanguage(language);
-  };
   return (
     <SafeAreaView style={styles.container}>
-      <XlargeText text={'Select Preferred Language'} style={styles.heading} />
+      <XlargeText text={'Welcome to ANAQA'} style={styles.heading} />
       <SmallText
-        text={'Please select your preferred language'}
+        text={
+          'Login or create an account to book and manage your appointments.'
+        }
         style={styles.subHeading}
       />
-      <FlatList
-        data={loginlang}
-        keyExtractor={item => item}
-        renderItem={({item}) => (
-          <LanguageSelector
-            label={item}
-            selected={item === selectedLanguage}
-            onSelect={handleSelect}
-          />
-        )}
+      <SmallText text={'Enter Phone Number'} style={styles.label} />
+      <PhoneInput
+        ref={phoneInput}
+        defaultValue={phoneNumber}
+        defaultCode="US"
+        layout="first"
+        onChangeFormattedText={text => setFormattedValue(text)}
+        onChangeCountry={country => {
+          return setCountryCode(country.callingCode);
+        }}
+        withShadow
+        containerStyle={styles.phoneContainer}
+        textContainerStyle={styles.textInput}
+        flagButtonStyle={styles.flagButton}
       />
+
       <AppButton title={'Done'} />
+
+      <View style={styles.registerTextContainer}>
+        <SmallText text={"Don't have an account?"} style={styles.headingAcc} />
+        <SmallText text={'Register Here'} style={styles.subHeadingAcc} />
+      </View>
+      <SmallText text={'Need Help?'} style={styles.helpText} />
     </SafeAreaView>
   );
 };
@@ -45,8 +57,8 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
   },
   heading: {
-    fontSize: RFValue(16),
-    fontFamily: fontsFamily.semiBold,
+    fontSize: RFValue(18),
+    fontFamily: fontsFamily.bold,
     marginTop: hp(5),
   },
   subHeading: {
@@ -54,6 +66,49 @@ const styles = StyleSheet.create({
     color: colors.lightBlack,
     fontFamily: fontsFamily.regular,
   },
+  label: {
+    color: colors.appBlack,
+    fontSize: RFValue(12),
+    fontFamily: fontsFamily.regular,
+    marginTop: hp(4),
+  },
+  phoneContainer: {
+    width: '100%',
+    height: 50,
+    marginVertical: 10,
+  },
+  textInput: {
+    paddingVertical: 0,
+    backgroundColor: colors.inputGray,
+  },
+  flagButton: {
+    backgroundColor: colors.inputGray,
+  },
+  registerTextContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    alignSelf: 'center',
+    marginVertical: 10,
+  },
+  headingAcc: {
+    fontSize: RFValue(12),
+    color: colors.lightBlack,
+    fontFamily: fontsFamily.regular,
+  },
+  subHeadingAcc: {
+    fontSize: RFValue(12),
+    color: colors.primary,
+    fontFamily: fontsFamily.regular,
+    marginLeft: 5,
+  },
+  helpText: {
+    fontSize: RFValue(12),
+    color: colors.lightBlack,
+    fontFamily: fontsFamily.regular,
+    marginLeft: 5,
+    textAlign: 'center',
+    marginBottom:hp(3)
+  },
 });
 
-export default LanguageLogin;
+export default Login;
