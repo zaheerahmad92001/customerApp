@@ -4,12 +4,22 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import FastImage from 'react-native-fast-image';
 import images from '../../assets/images';
+import HomeStack from '../homeStack';
 import SearchScreen from '../../screens/searchScreen/search/search';
 import ReviewScreen from '../../screens/reviewScreen/review/review';
 import ProfileScreen from '../../screens/profileScreen/profile/profile';
 import EditProfile from '../../screens/profileScreen/editProfile/editProfile';
 import Favorites from '../../screens/favoritesScreen/favourites';
 import BookingHistory from '../../screens/bookingHistoryScreen/bookingHistory';
+import Card from '../../screens/cardScreen/savedCard/card';
+import AddCard from '../../screens/cardScreen/addCard/addCard';
+import Invoice from '../../screens/invoiceScreen/invoiceDetail/invoiceDetail';
+import InvoiceList from '../../screens/invoiceScreen/invoiceList/invoiceList';
+import Settings from '../../screens/settingScreen/settings/settings';
+import Language from '../../screens/languageScreen/language/language';
+import NotificationSetting from '../../screens/notificationSettingsScreen/notificationSetting';
+import ChangePassword from '../../screens/changePasswordScreen/changePassword';
+
 
 import colors from '../../assets/colors';
 
@@ -18,7 +28,7 @@ const Tab = createBottomTabNavigator();
 
 // Image source mapping for each tab
 const TAB_ICONS = {
-  Home: images.homeTab,
+  homeStack: images.homeTab,
   Booking:images.bookingTab,
   Messages:images.messageTab,
   More:images.moreTab 
@@ -62,7 +72,7 @@ const CustomTabBar = (props) => {
               />
             </View>
             <Text style={[styles.tabLabel, { color: isFocused ? colors.primary : 'gray' }]}>
-              {route.name}
+              {route.name==='homeStack' ? 'Home' : route.name}
             </Text>
           </TouchableOpacity>
         );
@@ -79,10 +89,10 @@ const BottomStack = () => {
         headerShown: false,
       }}
     >
-      <Tab.Screen name="Home" component={SearchScreen} />
+      <Tab.Screen name="homeStack" component={HomeStack} />
       <Tab.Screen name="Booking" component={ReviewScreen} />
       <Tab.Screen name="Messages" component={ProfileScreen} />
-      <Tab.Screen name="More" component={BookingHistory} />
+      <Tab.Screen name="More" component={ChangePassword} />
     </Tab.Navigator>
   );
 };

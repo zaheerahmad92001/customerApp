@@ -24,15 +24,16 @@ const styles = StyleSheet.create({
   container: {
   },
   label: {
-    fontSize: RFValue(12),
+    fontSize: RFValue(14),
     color: colors.appBlack,
-    fontFamily: fontsFamily.medium,
+    fontFamily: fontsFamily.regular,
+    fontWeight:'400',
     marginBottom: 4,
   },
   input: {
     // height: 40,
     paddingVertical:12,
-    borderRadius:5,
+    borderRadius:8,
     paddingHorizontal: 15,
     fontSize: RFValue(12),
     fontFamily: fontsFamily.regular,

@@ -6,16 +6,18 @@ import {
   Text,
   TouchableOpacity,
 } from 'react-native';
-import SimpleIcons from 'react-native-vector-icons/SimpleLineIcons'; // Ensure this import
 import FeatherIcons from 'react-native-vector-icons/Feather'; // Ensure this import
 import colors from '../../assets/colors';
 import {RFValue} from 'react-native-responsive-fontsize';
 import fontsFamily from '../../assets/fontsFamily';
+import CloseEye from '../../assets/svgs/eye-slash.svg';
+import Lock from '../../assets/svgs/lock.svg';
 
 const PasswordInput = ({
   label,
   placeholder = 'Enter your password',
   onChange,
+  style,
 }) => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
@@ -23,15 +25,12 @@ const PasswordInput = ({
     setIsPasswordVisible(!isPasswordVisible);
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, style]}>
       {label && <Text style={styles.label}>{label}</Text>}
       <View style={styles.inputContainer}>
-        <SimpleIcons
-          name="lock"
-          size={20}
-          color={colors.lightBlack}
-          style={styles.icon}
-        />
+        <View style={styles.icon}>
+        <Lock/>
+        </View>
         <TextInput
           style={styles.input}
           secureTextEntry={!isPasswordVisible}
@@ -40,11 +39,11 @@ const PasswordInput = ({
           onChangeText={onChange}
         />
         <TouchableOpacity onPress={togglePasswordVisibility}>
-          <FeatherIcons
-            name={isPasswordVisible ? 'eye' : 'eye-off'}
-            size={20}
-            color={colors.lightBlack}
-          />
+          {isPasswordVisible ? (
+            <FeatherIcons name={'eye'} size={20} color={colors.lightBlack} />
+          ) : (
+            <CloseEye />
+          )}
         </TouchableOpacity>
       </View>
     </View>
@@ -52,27 +51,27 @@ const PasswordInput = ({
 };
 
 const styles = StyleSheet.create({
-  container: {
-    marginVertical: 10,
-  },
+  container: {},
   label: {
-    marginBottom: 5,
     fontSize: RFValue(14),
     color: colors.appBlack,
     fontFamily: fontsFamily.regular,
+    fontWeight: '400',
+    marginBottom: 4,
   },
   inputContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#f5f5f5',
     borderRadius: 8,
     paddingHorizontal: 10,
-    paddingVertical: 8,
+    backgroundColor: colors.inputGray,
   },
   input: {
     flex: 1,
-    fontSize: 16,
-    color: '#333',
+    paddingVertical: 12,
+    fontSize: RFValue(14),
+    fontFamily: fontsFamily.regular,
+    color: colors.lightBlack,
   },
   icon: {
     marginRight: 10,

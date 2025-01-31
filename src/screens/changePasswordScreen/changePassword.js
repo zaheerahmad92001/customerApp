@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useReducer, useState} from 'react';
 import {
   View,
   Text,
@@ -11,9 +11,23 @@ import {RFValue} from 'react-native-responsive-fontsize';
 import fontsFamily from '../../assets/fontsFamily';
 import colors from '../../assets/colors';
 import PasswordInput from '../../components/passwordInput/passwordInput';
+import {
+  heightPercentageToDP as hp,
+  widthPercentageToDP as wp,
+} from 'react-native-responsive-screen';
+import {MediumText} from '../../components/Typography';
+import {AppButton} from '../../components/appButton';
 
 const ChangePassword = () => {
-  const [password, setPassword] = useState('');
+  const [state, updateState] = useReducer(
+      (state, newState) => ({...state, ...newState}),
+      {
+        currentPass: null,
+        newPass: null,
+        confirmPass: null,
+      },
+    );
+    const {currentPass, newPass, confirmPass} = state;
 
   const handleChangePassword = () => {
     // Handle the change password action here
@@ -22,31 +36,35 @@ const ChangePassword = () => {
   return (
     <SafeAreaView style={styles.container}>
       <Header title={'Change Password'} showBackButton />
-      <Text style={styles.heading}>Please Enter your current password</Text>
+      <View style={styles.wrapper}>
+        <MediumText
+          text="Please Enter your current password"
+          style={styles.heading}
+        />
 
-      <PasswordInput
-        label="Current Password"
-        placeholder="Enter your password"
-        onChange={text => setPassword(text)}
-      />
+        <PasswordInput
+          label="Current Password"
+          placeholder="Enter your password"
+          onChange={text => updateState({currentPass:text})}
+          style={{marginTop: hp(1)}}
+        />
+        <MediumText text="Create a new password" style={styles.newPassText} />
 
-      <Text style={styles.heading}>Create a new password</Text>
+        <PasswordInput
+          label="New Password"
+          placeholder="Enter your password"
+          onChange={text => updateState({newPass:text})}
+          style={{marginBottom: hp(2.5)}}
+        />
 
-      <PasswordInput
-        label="New Password"
-        placeholder="Enter your password"
-        onChange={text => setPassword(text)}
-      />
+        <PasswordInput
+          label="Confirm Password"
+          placeholder="Enter your password"
+          onChange={text => updateState({confirmPass:text})}
+        />
 
-      <PasswordInput
-        label="Confirm Password"
-        placeholder="Enter your password"
-        onChange={text => setPassword(text)}
-      />
-
-      <TouchableOpacity style={styles.button} onPress={handleChangePassword}>
-        <Text style={styles.buttonText}>Change Password</Text>
-      </TouchableOpacity>
+        <AppButton title="Change Password" onPress={handleChangePassword} />
+      </View>
     </SafeAreaView>
   );
 };
@@ -54,13 +72,21 @@ const ChangePassword = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 15,
+    backgroundColor: colors.white,
+  },
+  wrapper: {
+    flex: 1,
+    marginHorizontal: wp(4),
   },
   heading: {
-    fontSize: RFValue(14),
-    fontFamily: fontsFamily.regular,
     color: colors.lightBlack,
-    marginBottom: 10,
+    marginTop: hp(2),
+    marginBottom: hp(2),
+  },
+  newPassText: {
+    color: colors.lightBlack,
+    marginTop: hp(3),
+    marginBottom: hp(3),
   },
   button: {
     marginTop: 'auto',

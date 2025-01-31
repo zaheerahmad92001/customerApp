@@ -14,6 +14,8 @@ class AppDelegate: RCTAppDelegate {
     self.initialProps = [:]
 
     return super.application(application, didFinishLaunchingWithOptions: launchOptions)
+//    GMSPlacesClient.provideAPIKey("AIzaSyDxIa9RyrpJ01I523OuvNBkdOGE1WcEQLg")
+
   }
 
   override func sourceURL(for bridge: RCTBridge) -> URL? {

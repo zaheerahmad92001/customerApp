@@ -3,6 +3,8 @@ import {View, Text, StyleSheet} from 'react-native';
 import {RFValue} from 'react-native-responsive-fontsize';
 import colors from '../../assets/colors';
 import fontsFamily from '../../assets/fontsFamily';
+import { LargeText, MediumText, SmallText, XlargeText } from '../Typography';
+import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 const PricingDetails = ({data}) => {
   const calculateTotal = () => {
@@ -16,13 +18,15 @@ const PricingDetails = ({data}) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>Pricing Details</Text>
+
+      <MediumText text = {'Pricing Details'} style={styles.header}/>
       {data.items.map((item, index) => (
         <View style={styles.row} key={index}>
           <Text style={styles.label}>{item.name}</Text>
-          <Text style={styles.price}>SAR {item.price}</Text>
+          <Text style={styles.label}>SAR {item.price}</Text>
         </View>
       ))}
+
       <View style={styles.row}>
         <Text style={[styles.label, styles.discount]}>Discount</Text>
         <Text style={[styles.price, styles.discount]}>SAR {data.discount}</Text>
@@ -31,16 +35,18 @@ const PricingDetails = ({data}) => {
       <View style={styles.divider} />
 
       <View style={styles.row}>
-        <Text style={styles.label}>Total</Text>
-        <Text style={styles.price}>SAR {total.toFixed(2)}</Text>
+        <Text style={[styles.label,{color:colors.appBlack}]}>Total</Text>
+        <Text style={[styles.label,{color:colors.appBlack}]}>SAR {total.toFixed(2)}</Text>
       </View>
+
       <View style={styles.row}>
         <Text style={styles.label}>VAT {data.vatRate}%</Text>
-        <Text style={styles.price}>SAR {vat.toFixed(2)}</Text>
+        <Text style={[styles.label]}>SAR {vat.toFixed(2)}</Text>
       </View>
+
       <View style={styles.row}>
-        <Text style={[styles.label, styles.grandTotal]}>Grand Total</Text>
-        <Text style={[styles.price, styles.grandTotal]}>
+        <SmallText text={'Grand Total'} style={styles.grandTotal} />
+        <Text style={[styles.label,{color:colors.appBlack}]}>
           SAR {grandTotal.toFixed(2)}
         </Text>
       </View>
@@ -54,10 +60,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   header: {
-    fontSize: RFValue(12),
-    fontFamily: fontsFamily.semiBold,
-    marginBottom: RFValue(12),
-    color: '#000',
+    marginBottom: hp(1),
   },
   row: {
     flexDirection: 'row',
@@ -66,8 +69,10 @@ const styles = StyleSheet.create({
   },
   label: {
     fontSize: RFValue(12),
+    color:colors.lightBlack,
     fontFamily: fontsFamily.regular,
-    color: colors.appBlack,
+    fontWeight:'400',
+    // marginLeft: 5,
   },
   price: {
     fontSize: RFValue(12),
@@ -75,17 +80,15 @@ const styles = StyleSheet.create({
     color: colors.appBlack,
   },
   discount: {
-    color: 'green',
+   color:colors.success
   },
   grandTotal: {
-    fontSize: RFValue(14),
-    color: colors.appBlack,
-    fontFamily: fontsFamily.semiBold,
+    // marginLeft:5,
   },
   divider: {
-    height: 1,
-    backgroundColor: '#ddd',
-    marginVertical: RFValue(8),
+    marginVertical: hp(1),
+    borderWidth:1,
+    borderColor:colors.lightGray,
   },
 });
 

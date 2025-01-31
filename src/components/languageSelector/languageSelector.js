@@ -3,14 +3,18 @@ import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import {RFValue} from 'react-native-responsive-fontsize';
 import colors from '../../assets/colors';
 import fontsFamily from '../../assets/fontsFamily';
+import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import { MediumText } from '../Typography';
 
 const LanguageSelector = ({label, onSelect, selected}) => {
   return (
-    <TouchableOpacity style={styles.container} onPress={() => onSelect(label)}>
+    <TouchableOpacity 
+    onPress={() => onSelect(label)}
+    style={styles.container}>
       <View style={[styles.radioCircle, selected && styles.selected]}>
         {selected && <View style={styles.radioCircleInner} />}
       </View>
-      <Text style={styles.label}>{label}</Text>
+      <MediumText text={label} style={styles.label}/>
     </TouchableOpacity>
   );
 };
@@ -21,7 +25,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginVertical: 8,
     backgroundColor: colors.lightGray,
-    paddingVertical: 10,
+    paddingVertical:hp(1.8),
     paddingHorizontal: 15,
     borderRadius: 5,
   },
@@ -45,9 +49,8 @@ const styles = StyleSheet.create({
     borderColor: colors.primary,
   },
   label: {
-    fontSize: RFValue(14),
-    color: colors.appBlack,
-    fontFamily: fontsFamily.regular,
+    color: colors.lightBlack,
+    fontFamily: fontsFamily.extraLight,
   },
 });
 

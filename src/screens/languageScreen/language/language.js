@@ -1,11 +1,11 @@
-import {FlatList, SafeAreaView, StyleSheet, Text} from 'react-native';
+import {FlatList, SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import React, {useState} from 'react';
 import {languages} from '../../../staticData';
 import LanguageSelector from '../../../components/languageSelector/languageSelector';
-import {RFValue} from 'react-native-responsive-fontsize';
 import Header from '../../../components/appHeader';
-import fontsFamily from '../../../assets/fontsFamily';
 import colors from '../../../assets/colors';
+import { heightPercentageToDP as hp, widthPercentageToDP as wp } from 'react-native-responsive-screen';
+import { MediumText } from '../../../components/Typography';
 
 const Language = () => {
   const [selectedLanguage, setSelectedLanguage] = useState(null);
@@ -16,9 +16,8 @@ const Language = () => {
   return (
     <SafeAreaView style={styles.container}>
       <Header title={'Languages'} showBackButton />
-      <Text style={styles.headerTitle}>
-        Please select your default language
-      </Text>
+      <View style={styles.wrapper}>
+        <MediumText text='Please select your default language' style={styles.headerTitle}/>
       <FlatList
         data={languages}
         keyExtractor={item => item}
@@ -30,6 +29,7 @@ const Language = () => {
           />
         )}
       />
+      </View>
     </SafeAreaView>
   );
 };
@@ -37,13 +37,16 @@ const Language = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 15,
     backgroundColor:colors.white
   },
+  wrapper:{
+    flex:1,
+    marginHorizontal:wp(4)
+  },
   headerTitle: {
-    fontSize: RFValue(12),
-    fontFamily: fontsFamily.regular,
-    marginBottom: 10,
+    color: colors.lightBlack,
+    marginTop:hp(2),
+    marginBottom:hp(2),
   },
 });
 

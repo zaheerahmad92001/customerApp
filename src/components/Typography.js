@@ -1,7 +1,6 @@
 import React from "react";
 import { StyleSheet, Text } from "react-native";
 import { RFValue } from "react-native-responsive-fontsize";
-import { heightPercentageToDP as hp } from "react-native-responsive-screen";
 import fontsFamily from "../assets/fontsFamily";
 import colors from "../assets/colors";
 

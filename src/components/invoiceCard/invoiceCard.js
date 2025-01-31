@@ -3,8 +3,12 @@ import React from 'react';
 import fontsFamily from '../../assets/fontsFamily';
 import colors from '../../assets/colors';
 import {RFValue} from 'react-native-responsive-fontsize';
-import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
+import {
+  heightPercentageToDP as hp,
+  widthPercentageToDP as wp,
+} from 'react-native-responsive-screen';
 import images from '../../assets/images';
+import { MediumText, SmallText } from '../Typography';
 
 const InvoiceCard = ({invoice}) => {
   return (
@@ -13,115 +17,140 @@ const InvoiceCard = ({invoice}) => {
         styles.card,
         invoice.status === 'Paid' ? styles.paidCard : styles.cancelledCard,
       ]}>
-      <Text style={styles.date}>{`${invoice.date} - ${invoice.time}`}</Text>
-      <View style={styles.detailsRow}>
-        <Image source={images.room} style={styles.avatar} />
-        <View style={styles.textContainer}>
-          <Text style={styles.name}>{invoice.name}</Text>
-          <Text style={styles.service}>{invoice.service}</Text>
+      <View
+        style={{
+          flex: 1,
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+        }}>
+        <View style={{flex: 1}}>
+          <Text style={styles.date}>{`${invoice.date} - ${invoice.time}`}</Text>
+          <View style={styles.detailsRow}>
+            <View style={styles.imageContainer}>
+              <Image
+                source={images.room}
+                resizeMode="contain"
+                style={styles.avatar}
+              />
+            </View>
+
+            <View style={styles.textContainer}>
+              <MediumText text={invoice.name} style={styles.name} />
+              <SmallText text={invoice.service} style={styles.service} />
+            </View>
+          </View>
         </View>
-        <View>
-          <Text
+
+        <View style={{alignItems: 'flex-end'}}>
+          <View
             style={
               invoice.status === 'Paid'
-                ? styles.paidStatus
-                : styles.cancelledStatus
+                ? styles.paidStatusContainer
+                : [styles.paidStatusContainer, styles.cancelledStatusContainer]
             }>
-            {invoice.status}
-          </Text>
-          <Text style={styles.amount}>{invoice.amount}</Text>
+            <Text
+              style={
+                invoice.status === 'Paid'
+                  ? styles.paidStatus
+                  : styles.cancelStatus
+              }>
+              {invoice.status}
+            </Text>
+          </View>
+
+          <View style={[styles.paidStatusContainer, styles.amountContainer]}>
+            <Text style={[styles.paidStatus, styles.amount]}>
+              {invoice.amount}
+            </Text>
+          </View>
         </View>
+        {/* <View style={styles.amountContainer}></View> */}
       </View>
-      <View style={styles.amountContainer}></View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: colors.white,
-    borderRadius: 12,
-    padding: 10,
-    marginBottom: 10,
+    backgroundColor: colors.lightGray,
+    borderRadius: 10,
+    padding: 15,
+    borderWidth: 0.3,
+    borderColor: colors.gray,
+    elevation: 2,
     shadowColor: '#000',
     shadowOffset: {width: 0, height: 2},
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 6,
-    margin: 5,
-    // borderWidth: 1,
-    // borderColor: '#EDEDED',
+    shadowOpacity: 0.2,
+    shadowRadius: 2,
+    marginBottom: hp(2),
   },
-  //   paidCard: {
-  //     borderLeftWidth: 5,
-  //     borderLeftColor: '#4CAF50',
-  //   },
-  //   cancelledCard: {
-  //     borderLeftWidth: 5,
-  //     borderLeftColor: '#F44336',
-  //   },
+
   date: {
     fontSize: RFValue(12),
     color: colors.appBlack,
-    marginBottom: 12,
-    fontFamily: fontsFamily.regular,
+    fontFamily: fontsFamily.thin,
+    fontWeight: '500',
+    marginBottom: hp(1),
   },
   detailsRow: {
     flexDirection: 'row',
-    alignItems: 'center',
+  },
+  imageContainer: {
+    width: 50,
+    height: 50,
+    borderRadius: 10,
+    marginRight: 12,
+    overflow: 'hidden',
+    alignSelf: 'flex-start',
   },
   avatar: {
-    width: 40,
-    height: 40,
-    borderRadius: 8,
-    marginRight: 12,
+    width: null,
+    height: null,
+    flex: 1,
   },
   textContainer: {
     flex: 1,
   },
   name: {
-    fontSize: RFValue(14),
-    fontFamily: fontsFamily.semiBold,
-    color: colors.appBlack,
+    fontFamily: fontsFamily.regular,
   },
   service: {
     fontSize: RFValue(12),
-    color: colors.appBlack,
+    color: colors.lightBlack,
     fontFamily: fontsFamily.regular,
+    fontWeight:"400",
   },
-  paidStatus: {
+  paidStatusContainer: {
     backgroundColor: colors.lightSuccess,
+    paddingVertical: 5,
+    borderRadius: 5,
+    width: '100%',
+    paddingHorizontal: wp(1.5),
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  cancelledStatusContainer: {
+    backgroundColor: colors.lighterPrimary,
+  },
+
+  paidStatus: {
     color: colors.success,
+    fontFamily: fontsFamily.regular,
     fontSize: RFValue(12),
-    fontFamily: fontsFamily.semiBold,
-    paddingVertical: 4,
-    paddingHorizontal: 8,
-    borderRadius: 8,
-    textAlign: 'center',
-    marginBottom: 3,
+    fontWeight: '500',
   },
-  cancelledStatus: {
-    backgroundColor: colors.lightError,
+  cancelStatus: {
     color: colors.error,
-    fontSize: RFValue(12),
-    fontFamily: fontsFamily.semiBold,
-    paddingVertical: 4,
-    paddingHorizontal: 8,
-    borderRadius: 8,
-    textAlign: 'center',
-    marginBottom: 3,
+    fontFamily: fontsFamily.regular,
+    fontWeight: '500',
   },
+
   amountContainer: {
-    marginTop: 12,
+    backgroundColor: colors.lighterPrimary,
+    marginTop: hp(1.8),
   },
   amount: {
-    fontSize: RFValue(12),
-    color: '#FF5C5C',
-    textAlign: 'center',
-    fontFamily: fontsFamily.semiBold,
-    backgroundColor: colors.lighterPrimary,
-    borderRadius: 5,
-    width: wp(20),
+    color: colors.primary,
   },
 });
 
