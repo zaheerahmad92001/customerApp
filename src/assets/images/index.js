@@ -17,5 +17,6 @@ const images = {
   spa: require('../images/spa.png'),
   nail: require('../images/nail.png'),
   salonSpa: require('../images/salonSpa.png'),
+  toprated: require('../images/toprated1.png'),
 };
 export default images;
