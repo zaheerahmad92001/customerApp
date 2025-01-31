@@ -5,34 +5,16 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import FastImage from 'react-native-fast-image';
 import images from '../../assets/images';
 import SearchScreen from '../../screens/searchScreen/search/search';
+import ReviewScreen from '../../screens/reviewScreen/review/review';
+import ProfileScreen from '../../screens/profileScreen/profile/profile';
+import EditProfile from '../../screens/profileScreen/editProfile/editProfile';
+import Favorites from '../../screens/favoritesScreen/favourites';
+import BookingHistory from '../../screens/bookingHistoryScreen/bookingHistory';
+
 import colors from '../../assets/colors';
 
 const Tab = createBottomTabNavigator();
 
-// Sample screens for the tabs
-const HomeScreen = () => (
-  <View style={styles.screen}>
-    <Text>Home Screen</Text>
-  </View>
-);
-
-const SettingsScreen = () => (
-  <View style={styles.screen}>
-    <Text>Settings Screen</Text>
-  </View>
-);
-
-const ProfileScreen = () => (
-  <View style={styles.screen}>
-    <Text>Profile Screen</Text>
-  </View>
-);
-
-const NotificationsScreen = () => (
-  <View style={styles.screen}>
-    <Text>Notifications Screen</Text>
-  </View>
-);
 
 // Image source mapping for each tab
 const TAB_ICONS = {
@@ -98,9 +80,9 @@ const BottomStack = () => {
       }}
     >
       <Tab.Screen name="Home" component={SearchScreen} />
-      <Tab.Screen name="Booking" component={SettingsScreen} />
+      <Tab.Screen name="Booking" component={ReviewScreen} />
       <Tab.Screen name="Messages" component={ProfileScreen} />
-      <Tab.Screen name="More" component={NotificationsScreen} />
+      <Tab.Screen name="More" component={BookingHistory} />
     </Tab.Navigator>
   );
 };

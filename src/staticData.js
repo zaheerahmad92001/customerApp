@@ -1,4 +1,14 @@
 import images from './assets/images';
+import EditIcon from './assets/svgs/edit.svg';
+import HeartIcon from './assets/svgs/heart.svg';
+import HistoryIcon from './assets/svgs/document.svg';
+import Discount from './assets/svgs/discount-shape.svg';
+import SaveCardIcon from './assets/svgs/card.svg';
+import CallIcon from './assets/svgs/call.svg';
+import RequestIcon from './assets/svgs/money.svg';
+import Invoice from './assets/svgs/receipt.svg';
+import Setting from './assets/svgs/setting.svg';
+import Logout from './assets/svgs/logout.svg';
 
 const recentSearches = [
   'Beauty Unleashed',
@@ -20,13 +30,20 @@ const mockData = [
 ];
 
 const menuOptions = [
-  {title: 'Edit Profile', img: images.shop},
-  {title: 'Favorites', img: images.service},
-  {title: 'Booking History', img: images.document},
-  {title: 'Saved Cards', img: images.clock},
-  {title: 'Invoices', img: images.calendar},
-  {title: 'Requests & Complaints', img: images.shop},
-  {title: 'Loyalty Points', img: images.document},
+  {title: 'Edit Profile', img: EditIcon},
+  {title: 'Favorites', img: HeartIcon},
+  {title: 'Booking History', img: HistoryIcon},
+  {title: 'Saved Cards', img: SaveCardIcon},
+  {title: 'Invoices', img: Invoice},
+  {title: 'Requests & Complaints', img: RequestIcon},
+  {title: 'Loyalty Points', img: Discount},
+];
+
+const categoriesOptions = [
+  {title: 'Salon', img: images.salon},
+  {title: 'Spa', img: images.spa},
+  {title: 'Nail Art', img: images.nail},
+  {title: 'Salon & Spa', img: images.salonSpa},
 ];
 
 const settingOptions = [
@@ -38,11 +55,11 @@ const settingOptions = [
   {title: 'Delete Account'},
 ];
 
-const supportOptions = [
-  {title: 'Edit Profile', img: images.shop},
-  {title: 'Favorites', img: images.service},
-  {title: 'Booking History', img: images.document},
-  {title: 'Saved Cards', img: images.clock},
+const supportOptions = [{title: 'Contact Us', img: CallIcon}];
+
+const accountManagement = [
+  {title: 'Account Settings', img: Setting},
+  {title: 'Logout', img: Logout},
 ];
 
 const dummyData = {
@@ -144,20 +161,58 @@ const usedPointData = [
   {id: 3, points: -100, expiryDate: '04/10/2024'},
 ];
 
+const serviceData = [
+  {
+    id: '1',
+    image: images.room,
+    title: 'Hair Avenue',
+    location: 'Moratuwa, Colombo',
+    date: 'Mon 21 Sep 2024',
+    service: 'Hair Cut',
+    professional: 'Marilyn Vetrovs',
+    distance: '2 km',
+  },
+];
+
+const slides = [
+  {
+    key: '1',
+    title: 'Welcome to ANAKA',
+    text: 'Your trusted salon booking app – Find the best, book with ease.',
+    image: images.room,
+  },
+  {
+    key: '2',
+    title: 'Your Beauty, Our Priority',
+    text: 'Explore top salons, book appointments, and enjoy exceptional service with ANAKA.',
+    image: images.room,
+  },
+  {
+    key: '3',
+    title: 'Elevate Your Salon Experience with ANAKA',
+    text: 'From discovery to booking, we make beauty effortless.',
+    image: images.room,
+  },
+];
+
 export {
   recentSearches,
   mockData,
   menuOptions,
-  supportOptions,
   dummyData,
   invoices,
   languages,
+  supportOptions,
   settingOptions,
+  accountManagement,
   toggleItems,
   reasons,
   faqs,
   discounts,
   allPointData,
   earnPointData,
-  usedPointData
+  usedPointData,
+  categoriesOptions,
+  serviceData,
+  slides,
 };

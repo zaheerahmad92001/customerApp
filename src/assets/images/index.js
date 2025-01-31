@@ -12,5 +12,10 @@ const images = {
   calendar: require('../images/calendar.png'),
   clock: require('../images/clock.png'),
   document: require('../images/document.png'),
+  customers: require('../images/customers.png'),
+  salon: require('../images/salon.png'),
+  spa: require('../images/spa.png'),
+  nail: require('../images/nail.png'),
+  salonSpa: require('../images/salonSpa.png'),
 };
 export default images;
