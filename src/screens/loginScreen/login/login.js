@@ -34,9 +34,15 @@ const Login = () => {
           return setCountryCode(country.callingCode);
         }}
         withShadow
+        placeholder="Enter your phone number"
         containerStyle={styles.phoneContainer}
         textContainerStyle={styles.textInput}
         flagButtonStyle={styles.flagButton}
+        textInputProps={{
+          placeholderTextColor: colors.lightBlack,
+          fontFamily: fontsFamily.regular,
+          fontSize: RFValue(12),
+        }}
       />
 
       <AppButton title={'Done'} />
@@ -68,14 +74,14 @@ const styles = StyleSheet.create({
   },
   label: {
     color: colors.appBlack,
-    fontSize: RFValue(12),
+    fontSize: RFValue(14),
     fontFamily: fontsFamily.regular,
     marginTop: hp(4),
+    marginBottom: 10,
   },
   phoneContainer: {
     width: '100%',
-    height: 50,
-    marginVertical: 10,
+    height: 40,
   },
   textInput: {
     paddingVertical: 0,
@@ -107,7 +113,7 @@ const styles = StyleSheet.create({
     fontFamily: fontsFamily.regular,
     marginLeft: 5,
     textAlign: 'center',
-    marginBottom:hp(3)
+    marginBottom: hp(3),
   },
 });
 
