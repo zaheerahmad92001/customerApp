@@ -1,14 +1,14 @@
-import { View, Text, StyleSheet } from 'react-native'
-import React from 'react'
+import { View, Text, StyleSheet } from 'react-native';
+import React from 'react';
 import fontsFamily from '../assets/fontsFamily';
-import { widthPercentageToDP as wp } from 'react-native-responsive-screen';
+import { heightPercentageToDP as hp, widthPercentageToDP as wp } from 'react-native-responsive-screen';
 import { RFValue } from 'react-native-responsive-fontsize';
 import colors from '../assets/colors';
 
 const DetailRow = ({ label, value, Icon }) => (
     <View style={styles.detailRow}>
         <View style={styles.invoiceRow}>
-            <Icon />
+            <Icon/>
             <Text style={styles.detailLabel}>{label}</Text>
         </View>
         <Text style={styles.detailValue}>{value}</Text>
@@ -19,10 +19,10 @@ const styles = StyleSheet.create({
     detailRow: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        marginBottom: 8,
+        marginBottom:hp(1.7),
     },
     detailLabel: {
-        fontSize: RFValue(12),
+        fontSize: RFValue(14),
         color:colors.lightBlack,
         fontFamily: fontsFamily.regular,
         fontWeight:'400',
@@ -31,6 +31,7 @@ const styles = StyleSheet.create({
     detailValue: {
         fontSize: RFValue(12),
         color:colors.appBlack,
+        fontWeight:'500',
         fontFamily: fontsFamily.regular,
         width: wp(40),
         textAlign: 'right',
@@ -40,4 +41,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default DetailRow
+export default DetailRow;

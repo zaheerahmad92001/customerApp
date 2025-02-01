@@ -11,7 +11,7 @@ import PricingDetails from '../../../components/pricingDetail/pricingDetail';
 import SalonCard from '../../../components/salonCard/salonCard';
 import {dummyData, invoiceDetailRows, mockData} from '../../../staticData';
 import styles from './invoiceDetail.styles';
-import {SmallText } from '../../../components/Typography';
+import {MediumText, SmallText } from '../../../components/Typography';
 import DottedLine from '../../../components/DottedHorizontalLine';
 import { AppButton } from '../../../components/appButton';
 
@@ -58,7 +58,7 @@ const InvoiceDetail = () => {
         />
         <View style={styles.content}>
           <View style={styles.serviceDetails}>
-           <SmallText text={'Your Service'} style={styles.smallText}/>
+           <MediumText text={'Your Service'} style={styles.smallText}/>
             <FlatList 
             data={invoiceDetailRows}
             renderItem={renderItem}

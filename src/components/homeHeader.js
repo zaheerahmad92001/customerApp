@@ -10,7 +10,7 @@ import fontsFamily from '../assets/fontsFamily';
 import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
 
 const HomeHeader = (props) => {
-  const {location, onLocationPress} = props;
+  const {location, onLocationPress , onFavoritePress , onNotificationPress} = props;
   return (
     <View style={styles.container}>
       <Pressable 
@@ -30,19 +30,19 @@ const HomeHeader = (props) => {
       </Pressable>
 
       <View style={styles.row}>
-        <View>
+        <Pressable onPress={onNotificationPress}>
           <NotificationBell/>
           <View style={styles.badgeContainer}>
             <SmallText text={'12'} style={styles.badgeText} />
           </View>
-        </View>
+        </Pressable>
 
-        <View>
+        <Pressable onPress={onFavoritePress}>
           <LikeIcon />
           <View style={styles.badgeContainer}>
             <SmallText text={'12'} style={styles.badgeText} />
           </View>
-        </View>
+        </Pressable>
       </View>
     </View>
   );
