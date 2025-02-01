@@ -22,6 +22,8 @@ const colors = {
   ratedBox:'#F59E0B4D',
   lightOffWhite:'rgba(255, 255, 255, 0.6)',
   darkYellow:'#FFC000',
+  appBG:'rgb(249,249,249)',
+  
 };
 
 export default colors;

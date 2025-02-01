@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
   },
   mediumText:{
     color:colors.appBlack,
-    fontFamily:fontsFamily.extraLight,
+    fontFamily:fontsFamily.regular,
     fontSize:RFValue(13),
     fontWeight:'500',
   },

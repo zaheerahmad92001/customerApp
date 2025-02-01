@@ -3,6 +3,7 @@
 import * as React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import BottomStack from './bottomTabs/bottomStack';
+import NotificationStack from './notificationStack';
 
 
 const Stack = createNativeStackNavigator();
@@ -14,6 +15,7 @@ function AppStack() {
         headerShown: false
       }}>
       <Stack.Screen name="BottomStack" component={BottomStack} />
+      <Stack.Screen name="notificationStack" component={NotificationStack} />
     </Stack.Navigator>
   );
 }

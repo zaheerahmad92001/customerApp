@@ -33,7 +33,7 @@ const categories = [
   },
 ];
 
-const HomeScreen = () => {
+const HomeScreen = ({navigation, route}) => {
   const [filteredSearches, setFilteredSearches] = useState(recentSearches);
   const [isInputActive, setIsInputActive] = useState(false);
   const [location, setLocation] = useState('');
@@ -85,16 +85,23 @@ const HomeScreen = () => {
     updateState({isModalVisible: !isModalVisible});
   }, [isModalVisible]);
 
-const renderTopRatedVenus = ({item , index}) => {
-return(
-  <TopRatedVenus />)
-}
+  const renderTopRatedVenus = ({item, index}) => {
+    return <TopRatedVenus />;
+  };
 
+  const handleNotificationPress = () => {
+    navigation.navigate('notificationStack', {screen: 'notifications'});
+  };
 
   return (
     <SafeAreaView style={styles.container}>
-      <HomeHeader onLocationPress={openLocationModal} location={location} />
+      <HomeHeader
+        onNotificationPress={handleNotificationPress}
+        onLocationPress={openLocationModal}
+        location={location}
+      />
       <View style={styles.wrapper}>
+        <View style={styles.contentWrapper}>
         <ScrollView showsVerticalScrollIndicator={false}>
           <Search
             setFilteredSearches={setFilteredSearches}
@@ -135,7 +142,7 @@ return(
               renderItem={renderCategory}
               keyExtractor={item => item.id.toString()}
               horizontal={true}
-              contentContainerStyle={{gap:10}}
+              contentContainerStyle={{gap: 10}}
               // numColumns={4}
               // scrollEnabled={false}
               // columnWrapperStyle={styles.categoryRow}
@@ -164,20 +171,18 @@ return(
             </TouchableOpacity>
           </View>
 
-<FlatList
-data={[1,2,3,4,5,6,7,8,9,10]}
-horizontal={true}
-renderItem={renderTopRatedVenus}
-contentContainerStyle={{gap:10}}
-showsHorizontalScrollIndicator={false}
-/>
+          <FlatList
+            data={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
+            horizontal={true}
+            renderItem={renderTopRatedVenus}
+            contentContainerStyle={{gap: 10}}
+            showsHorizontalScrollIndicator={false}
+          />
 
           {/* <View style={{flexDirection: 'row', gap:10,}}>
           <TopRatedVenus />
           <TopRatedVenus />
           </View> */}
-
-          
 
           <View style={styles.sectionHeader}>
             <LargeText
@@ -197,6 +202,7 @@ showsHorizontalScrollIndicator={false}
             scrollEnabled={false}
           />
         </ScrollView>
+        </View>
       </View>
       <GooglePlacesModal
         isVisible={isModalVisible}

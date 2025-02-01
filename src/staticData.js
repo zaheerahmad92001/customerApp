@@ -293,6 +293,33 @@ const invoiceSummry = [
   },
 ];
 
+const notificationData = [
+  {
+    title: 'Today',
+    data: [
+      { heading: 'Booking Cancelled', subHeading: 'You have made a salon payment',  },
+      { heading: 'Today’s Special Offers', subHeading: 'You have made a salon payment', },
+      { heading: 'Payment Successful!', subHeading: 'You have made a salon payment', },
+    ],
+  },
+  {
+    title: 'Yesterday',
+    data: [
+      { heading: 'Booking Cancelled', subHeading: 'You have made a salon payment',  },
+      { heading: 'Payment Successful!', subHeading: 'You have made a salon payment', },
+    ],
+  },
+  {
+    title: '17 Aug 2024',
+    data: [
+      { heading: 'Booking Cancelled', subHeading: 'You have made a salon payment',  },
+      { heading: 'Payment Successful!', subHeading: 'You have made a salon payment', },
+      { heading: 'Account Setup Successful!', subHeading: 'You have made a salon payment', }
+    ],
+  },
+];
+
+
 export {
   recentSearches,
   mockData,
@@ -316,4 +343,5 @@ export {
   invoiceDetailRows,
   invoiceSummry,
   loginlang,
+  notificationData,
 };

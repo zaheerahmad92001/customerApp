@@ -10,8 +10,13 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
   },
   wrapper: {
-    paddingHorizontal: wp(4),
     flex: 1,
+    backgroundColor:colors.appBG,
+
+  },
+  contentWrapper:{
+    flex:1,
+    paddingHorizontal: wp(4),
   },
   headerBackground: {
     borderRadius: 10,
@@ -83,8 +88,8 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     alignItems: 'center',
     justifyContent: 'center',
-    borderWidth: 0.5,
-    borderColor: colors.gray,
+    // borderWidth: 0.5,
+    // borderColor: colors.gray,
     width: wp(21),
   },
   catImageContainer: {
