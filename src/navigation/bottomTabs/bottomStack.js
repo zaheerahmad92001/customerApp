@@ -6,6 +6,8 @@ import HomeStack from '../homeStack';
 import ProfileScreen from '../../screens/profileScreen/profile/profile';
 import EditProfile from '../../screens/profileScreen/editProfile/editProfile';
 import Booking from '../../screens/bookingScreen/booking';
+import AddrequestScreen from '../../screens/complaints/AddNewRequest/AddNewRequestScreen';
+
 
 
 import colors from '../../assets/colors';
@@ -94,7 +96,7 @@ const BottomStack = () => {
       }}
     >
       <Tab.Screen name="homeStack" component={HomeStack} />
-      <Tab.Screen name="Booking" component={Booking} />
+      <Tab.Screen name="Booking" component={AddrequestScreen} />
       <Tab.Screen name="Messages" component={ProfileScreen} />
       <Tab.Screen name="More" component={ProfileScreen} />
     </Tab.Navigator>

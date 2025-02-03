@@ -21,7 +21,6 @@ import Language from '../screens/languageScreen/language/language';
 import NotificationSetting from '../screens/notificationSettingsScreen/notificationSetting';
 import ChangePassword from '../screens/changePasswordScreen/changePassword';
 
-
 const Stack = createNativeStackNavigator();
 
 function AppStack() {

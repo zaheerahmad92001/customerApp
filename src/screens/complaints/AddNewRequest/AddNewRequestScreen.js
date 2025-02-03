@@ -8,8 +8,9 @@ import DropdownComponent from '../../../components/dropdown/dropdown';
 import SalonCard from '../../../components/complaintsSalonCard/complaintsSalonCard';
 import {mockData} from '../../../staticData';
 import { AppButton } from '../../../components/appButton';
+import images from '../../../assets/images';
 
-const addrequestScreen = () => {
+const AddrequestScreen = () => {
     const [selectedValue, setSelectedValue] = useState(null);
     
     const Items = [
@@ -23,7 +24,7 @@ const addrequestScreen = () => {
 
     const RenderSalonCard = ({item}) => (
         <SalonCard
-          image={'../images/room.png'}
+          image={images.room}
           title={'Hair Avenue'}
           datetime={'Mon 21 Sep 2024'}
           location={'Moratuwa, Colombo'}
@@ -118,4 +119,4 @@ const addrequestScreen = () => {
         </SafeAreaView>
     );
 };
-export default addrequestScreen;
+export default AddrequestScreen;

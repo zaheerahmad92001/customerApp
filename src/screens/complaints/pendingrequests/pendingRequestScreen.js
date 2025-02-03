@@ -17,7 +17,7 @@ const pendingRequestMockData = [
       complaintStatus: 'Pending',
     },
   ];
-const pendingRequestSCreen = () => {
+const PendingRequestSCreen = () => {
     const RenderpendingComplaintCard = (Item) => (
         <PendingCard></PendingCard>
     );
@@ -46,4 +46,4 @@ const pendingRequestSCreen = () => {
         </SafeAreaView>
     );
 };
-export default pendingRequestSCreen;
+export default PendingRequestSCreen;

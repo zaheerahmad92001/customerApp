@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
     mainContainer: {
         flex: 1,
         padding: 5,
-        backgroundColor: colors.white
+        backgroundColor: colors.appBG
     },
 
     headingtext: {
