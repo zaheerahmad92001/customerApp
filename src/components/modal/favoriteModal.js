@@ -8,33 +8,21 @@ import {RFValue} from 'react-native-responsive-fontsize';
 import fontsFamily from '../../assets/fontsFamily';
 import colors from '../../assets/colors';
 import { AppButton } from '../appButton';
+import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
-const FavoriteModal = ({fvrtButton, removeButton, cancelButton}) => {
-  const renderSalonCard = ({item}) => (
-    <SalonCard
-      image={item.image}
-      title={item.title}
-      location={item.location}
-      distance={item.distance}
-      rating={item.rating}
-      reviews={item.reviews}
-      onFavorite={fvrtButton}
-      showFavoriteButton={true}
-      selected={true}
-    />
-  );
+const FavoriteModal = (props) => {
+const {handleFavourie, removeButton, cancelButton, item} = props
   return (
     <View>
       <XlargeText text={'Remove from Favorites?'} style={styles.heading} />
-      <Divider style={styles.divider} />
 
-      <FlatList
-        data={mockData}
-        keyExtractor={item => item.id.toString()}
-        renderItem={renderSalonCard}
-        contentContainerStyle={styles.list}
-        nestedScrollEnabled
-      />
+      <Divider style={styles.divider} />
+      <SalonCard
+      item={item}
+      onFavorite={handleFavourie}
+      showFavoriteButton={true}
+      selected={true}
+    />
 
       <View style={styles.buttonContainer}>
         <AppButton
@@ -56,12 +44,12 @@ const FavoriteModal = ({fvrtButton, removeButton, cancelButton}) => {
 const styles = StyleSheet.create({
   heading: {
     fontSize: RFValue(16),
-    fontFamily: fontsFamily.semiBold,
+    fontWeight:'600',
   },
   divider: {
     borderWidth: 0.1,
-    marginTop: 2,
-    marginBottom: 10,
+    marginTop:hp(1),
+    marginBottom: hp(2),
   },
   buttonContainer: {
     flexDirection: 'row',
@@ -74,8 +62,9 @@ const styles = StyleSheet.create({
   },
   cancelButton: {
     marginTop: 10,
-    backgroundColor: colors.lightPrimary,
-    borderWidth: 0,
+    backgroundColor: colors.lighterPrimary,
+    borderWidth: 1,
+    borderColor:colors.lighterPrimary,
     width: '48%',
   },
   cancelText: {

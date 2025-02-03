@@ -5,20 +5,20 @@ import fontsFamily from "../assets/fontsFamily";
 import colors from "../assets/colors";
 
 const XlargeText = (props) => {
-    const {text, style} = props
+    const {text, style ,numberOfLines , } = props
   return <Text style={[styles.xlText,style]}>{text}</Text>;
 };
 
 const LargeText = (props) => {
-    const {text,style} = props
+    const {text,style ,numberOfLines} = props
   return <Text style={[styles.lText,style]}>{text}</Text>;
 };
 const MediumText = (props) => {
-    const {text, style} = props
-  return <Text style={[styles.mediumText,style]}>{text}</Text>;
+    const {text, style, numberOfLines } = props
+  return <Text  style={[styles.mediumText,style]}>{text}</Text>;
 };
 const SmallText = (props) => {
-  const {text, style} = props
+  const {text, style , numberOfLines} = props
 return <Text style={[styles.smallText,style]}>{text}</Text>;
 };
 

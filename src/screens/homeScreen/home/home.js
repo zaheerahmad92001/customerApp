@@ -17,6 +17,7 @@ import styles from './home.styles';
 import HomeHeader from '../../../components/homeHeader';
 import GooglePlacesModal from '../../../components/modal/google-places-modal';
 import TopRatedVenus from '../../../components/topRatedVenus';
+import { heightPercentageToDP } from 'react-native-responsive-screen';
 
 const categories = [
   {id: 1, name: 'Salon', icon: images.salon},
@@ -46,7 +47,6 @@ const HomeScreen = ({navigation, route}) => {
   );
   const {isModalVisible} = state;
 
-  console.log('location is', location);
   const handleFavoritePress = id => {
     console.log(`Favorite pressed for salon ID: ${id}`);
   };
@@ -66,12 +66,7 @@ const HomeScreen = ({navigation, route}) => {
 
   const renderSalonCard = ({item}) => (
     <SalonCard
-      image={item.image}
-      title={item.title}
-      location={item.location}
-      distance={item.distance}
-      rating={item.rating}
-      reviews={item.reviews}
+    item={item}
       onFavorite={() => handleFavoritePress(item.id)}
       showFavoriteButton={true}
     />
@@ -92,22 +87,32 @@ const HomeScreen = ({navigation, route}) => {
   const handleNotificationPress = () => {
     navigation.navigate('notificationStack', {screen: 'notifications'});
   };
+  const handleFavouritePress = () => {
+    navigation.navigate('favorites',);
+  };
+
+  const handleSeeAll=(routeName)=>{
+   navigation.navigate(routeName)
+  }
 
   return (
     <SafeAreaView style={styles.container}>
       <HomeHeader
         onNotificationPress={handleNotificationPress}
+        onFavoritePress={handleFavouritePress}
         onLocationPress={openLocationModal}
         location={location}
       />
       <View style={styles.wrapper}>
         <View style={styles.contentWrapper}>
         <ScrollView showsVerticalScrollIndicator={false}>
+          <View style={{marginVertical:heightPercentageToDP(2)}}>
           <Search
             setFilteredSearches={setFilteredSearches}
             setIsInputActive={setIsInputActive}
             isHome={true}
           />
+          </View>
           <View>
             <View style={styles.imageContainer}>
               <Image
@@ -131,7 +136,7 @@ const HomeScreen = ({navigation, route}) => {
 
           <View style={styles.sectionHeader}>
             <LargeText text={'Categories'} style={styles.sectionTitle} />
-            <TouchableOpacity>
+            <TouchableOpacity onPress={()=>handleSeeAll('categories')}>
               <SmallText text={'See All'} style={styles.seeAllText} />
             </TouchableOpacity>
           </View>

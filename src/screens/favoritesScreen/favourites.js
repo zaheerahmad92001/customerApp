@@ -1,60 +1,80 @@
 import {View, SafeAreaView, StyleSheet, FlatList} from 'react-native';
-import React, {useState} from 'react';
+import React, {useCallback, useReducer, useRef,} from 'react';
 import {mockData} from '../../staticData';
 import SalonCard from '../../components/salonCard/salonCard';
 import colors from '../../assets/colors';
 import Header from '../../components/appHeader';
-import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
-import ModalComponent from '../../components/modal';
-import {XlargeText} from '../../components/Typography';
-import {Divider} from 'react-native-paper';
-import {AppButton} from '../../components/appButton';
-import {RFValue} from 'react-native-responsive-fontsize';
-import fontsFamily from '../../assets/fontsFamily';
+import {heightPercentageToDP, heightPercentageToDP as hp, widthPercentageToDP as wp} from 'react-native-responsive-screen';
 import FavoriteModal from '../../components/modal/favoriteModal';
-import RatingModal from '../../components/modal/ratingModal';
+import { BottomSheet } from '../../components/bottomSheet';
 
-const Favorites = () => {
-  const [isVisible, setIsVisible] = useState(false);
+const Favorites = ({navigation, route}) => {
+    const refRBSheet = useRef();
+    const [state, updateState] = useReducer(
+      (state, newState) => ({...state, ...newState}),
+      {
+        selectedItem:null,
+      },
+    );
+    const {selectedItem} = state;
 
-  const handleFavoritePress = id => {
-    console.log(`Favorite pressed for salon ID: ${id}`);
-    setIsVisible(true);
+    const handleFavoritePress = useCallback((item) => {
+      updateState({ selectedItem: item });
+      if (refRBSheet.current) {
+        setTimeout(() => refRBSheet.current.present(), 0);
+      }
+    }, [refRBSheet]);
+
+
+  const hideBottomSheet = () => {
+    if (refRBSheet.current) {
+      refRBSheet.current.close();
+    }
   };
+
+  const removeFavourite=()=>{
+    hideBottomSheet()
+    navigation.navigate('successScreen',{actionName:'remove'})
+  }
+
 
   const renderSalonCard = ({item}) => (
     <SalonCard
-      image={item.image}
-      title={item.title}
-      location={item.location}
-      distance={item.distance}
-      rating={item.rating}
-      reviews={item.reviews}
-      onFavorite={() => handleFavoritePress(item.id)}
+      item={item}
+      onFavorite={() => handleFavoritePress(item)}
       showFavoriteButton={true}
       selected={true}
     />
   );
   return (
     <SafeAreaView style={styles.container}>
-      <Header title={'Favorites'} showBackButton={true} />
+      <Header title={'Favorites'} showBackButton={true} onBackPress={()=>navigation.goBack()} />
       <View style={styles.wrapper}>
+        <View style={styles.contentContainer}>
         <FlatList
           data={mockData}
           keyExtractor={item => item.id.toString()}
           renderItem={renderSalonCard}
-          contentContainerStyle={styles.list}
+          contentContainerStyle={{marginTop:20}}
           nestedScrollEnabled
         />
+        </View>
       </View>
-      <ModalComponent
-        visible={isVisible}
-        onClose={() => {
-          setIsVisible(false);
-        }}>
-        <FavoriteModal cancelButton={() => setIsVisible(false)} />
-        {/* <RatingModal /> */}
-      </ModalComponent>
+
+      <BottomSheet
+        refRBSheet={refRBSheet}
+        onClose={() =>hideBottomSheet()}
+        scrollEnabled={false}
+        disableDynamicSizing={false}
+        height={heightPercentageToDP(32)}
+      >
+         <FavoriteModal 
+        item={selectedItem}
+        cancelButton={() => hideBottomSheet()} 
+        removeButton={removeFavourite}
+        />
+      </BottomSheet>
+
     </SafeAreaView>
   );
 };
@@ -66,8 +86,12 @@ const styles = StyleSheet.create({
   },
   wrapper: {
     flex: 1,
-    marginHorizontal: wp(4),
+    backgroundColor:colors.appBG,
   },
+  contentContainer:{
+    flex:1,
+    marginHorizontal: wp(4),
+  }
 });
 
 export default Favorites;

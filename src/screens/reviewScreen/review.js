@@ -1,13 +1,13 @@
 import React, {useState} from 'react';
 import {View, Image, SafeAreaView, Platform} from 'react-native';
-import RadioButton from '../../../components/radioButton';
+import RadioButton from '../../components/radioButton';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 
-import images from '../../../assets/images';
-import Header from '../../../components/appHeader';
-import TextField from '../../../components/textField/textField';
+import images from '../../assets/images';
+import Header from '../../components/appHeader';
+import TextField from '../../components/textField/textField';
 import styles from './review.styles';
-import CustomRating from '../../../components/customRating';
+import CustomRating from '../../components/customRating';
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
@@ -16,11 +16,11 @@ import {
   LargeText,
   MediumText,
   XlargeText,
-} from '../../../components/Typography';
-import {AppButton} from '../../../components/appButton';
-import colors from '../../../assets/colors';
+} from '../../components/Typography';
+import {AppButton} from '../../components/appButton';
+import colors from '../../assets/colors';
 
-const Review = () => {
+const Review = ({navigation , route}) => {
   const [review, setReview] = useState('');
   const [recommend, setRecommend] = useState(null);
   const [scrollEnabled, setScrollEnabled] = useState(true);
@@ -33,14 +33,14 @@ const Review = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Header title={'Review'} showBackButton />
+      <Header title={'Review'} showBackButton={true} onBackPress={()=>navigation.goBack()} />
       <KeyboardAwareScrollView
         style={{flex: 1}}
         resetScrollToCoords={{x: 0, y: 0}}
         scrollEnabled={scrollEnabled}
         keyboardShouldPersistTaps="handled"
         onContentSizeChange={(contentWidth, contentHeight) => {
-          const screenHeight = Platform.OS === 'ios' ? 812 : 600;
+          const screenHeight = Platform.OS === 'ios' ? 600 : 600;
           setScrollEnabled(contentHeight > screenHeight);
         }}>
         <View style={styles.wrapper}>
@@ -96,11 +96,7 @@ const Review = () => {
             <AppButton
               onPress={() => {}}
               title={'Cancel'}
-              style={{
-                marginTop: hp(2),
-                backgroundColor: colors.lightPrimary,
-                borderColor: colors.lightPrimary,
-              }}
+              style={styles.cancelButton}
               textstyle={{color: colors.primary}}
             />
           </View>

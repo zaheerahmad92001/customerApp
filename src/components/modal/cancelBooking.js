@@ -6,8 +6,10 @@ import {RFValue} from 'react-native-responsive-fontsize';
 import {MediumText, XlargeText} from '../Typography';
 import {Divider} from 'react-native-paper';
 import {AppButton} from '../appButton';
+import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
-const CancelBooking = ({cancelButton, agreeButton}) => {
+const CancelBooking = (props) => {
+  const {onAgree, onCancel} = props;
   return (
     <View>
       <XlargeText text={'Cancel Booking'} style={styles.heading} />
@@ -24,13 +26,13 @@ const CancelBooking = ({cancelButton, agreeButton}) => {
       />
       <AppButton
         title={'Yes, Cancel'}
-        onPress={agreeButton}
+        onPress={onAgree}
         style={styles.yesButton}
       />
 
       <AppButton
         title={'No'}
-        onPress={cancelButton}
+        onPress={onCancel}
         style={styles.cancelButton}
         textstyle={styles.cancelText}
       />
@@ -41,28 +43,26 @@ const CancelBooking = ({cancelButton, agreeButton}) => {
 const styles = StyleSheet.create({
   heading: {
     fontSize: RFValue(16),
-    fontFamily: fontsFamily.semiBold,
+    fontWeight:'600',
   },
   divider: {
     borderWidth: 0.1,
-    marginTop: 2,
-    marginBottom: 10,
+    marginTop:hp(1),
+    marginBottom: hp(1),
   },
   subHeading: {
-    fontFamily: fontsFamily.semiBold,
-    marginBottom: 10,
   },
   description: {
-    marginVertical: 20,
+    marginVertical:hp(1.5),
     color: colors.lightBlack,
   },
   yesButton: {
     marginTop: 10,
   },
   cancelButton: {
-    marginTop: 10,
-    backgroundColor: colors.lightPrimary,
-    borderWidth: 0,
+    marginTop: hp(2),
+    backgroundColor: colors.lighterPrimary,
+    borderColor:colors.lighterPrimary,
   },
   cancelText: {
     color: colors.primary,

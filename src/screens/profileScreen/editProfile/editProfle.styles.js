@@ -57,11 +57,7 @@ const styles = StyleSheet.create({
     //   marginHorizontal: 5, // Add spacing between fields
     },
     button: {
-      marginTop: 'auto', // Push the button to the bottom
-      backgroundColor: colors.primary,
-      paddingVertical: 10,
-      alignItems: 'center',
-      borderRadius: 8,
+      marginTop:hp(5)
     },
     buttonText: {
       color: colors.white,

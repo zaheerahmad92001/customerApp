@@ -1,37 +1,31 @@
 import React from 'react';
-import {
-  View,
-  Text,
-  Image,
-  StyleSheet,
-} from 'react-native';
+import {View, Text, Image, StyleSheet} from 'react-native';
 import Heart from '../../assets/svgs/heart.svg';
 import LocationMarker from '../../assets/svgs/locationMarker.svg';
 import Star from '../../assets/svgs/star.svg';
 import colors from '../../assets/colors';
 import fontsFamily from '../../assets/fontsFamily';
 import {RFValue} from 'react-native-responsive-fontsize';
-import {MediumText} from '../Typography';
+import {MediumText, SmallText} from '../Typography';
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
 } from 'react-native-responsive-screen';
 import FavourSelector from '../favouriteSelector';
-const SalonCard = ({
-  image,
-  title,
-  location,
-  distance,
-  rating,
-  reviews,
-  onFavorite,
-  showFavoriteButton = false,
-  position,
-  selected = false,
-  isNotificaiton = false,
-  isRefund = false,
-}) => {
-  const isCancelled = position === 'Cancelled' ? true : false;
+
+const SalonCard = props => {
+  const {
+    item,
+    onFavorite,
+    showFavoriteButton = false,
+    selected = false,
+    isNotificaiton = false,
+    isRefund = false,
+    hasDiscount = false,
+  } = props;
+  const {status, image, title, location, distance, rating, reviews} = item;
+
+  const isCancelled = status === 'Cancelled' ? true : false;
   return (
     <View style={styles.cardContainer}>
       <View style={styles.cardImage}>
@@ -39,7 +33,14 @@ const SalonCard = ({
       </View>
       <View style={styles.cardContent}>
         <View style={styles.cardTitleContainer}>
-          <MediumText text={title} style={styles.cardTitle} />
+          <View style={[styles.ratingContainer, {flex: 1, flexWrap:'wrap'}]}>
+            <MediumText text={title} style={styles.cardTitle} />
+            {hasDiscount && (
+              <View style={styles.discounts}>
+                <SmallText text={'20%'} style={styles.smallText} />
+              </View>
+            )}
+          </View>
           <Text
             style={
               isNotificaiton
@@ -60,8 +61,7 @@ const SalonCard = ({
         {/* Noticfication  */}
 
         {isNotificaiton && (
-          <View
-            style={styles.serviceName}>
+          <View style={styles.serviceName}>
             <Text style={styles.distanceText}>{'Hair cut'}</Text>
             <View
               style={
@@ -97,7 +97,7 @@ const SalonCard = ({
                 }>
                 <Text
                   style={isCancelled ? [styles.cancelText] : [styles.paidText]}>
-                  {position}
+                  {status}
                 </Text>
               </View>
             )}
@@ -106,7 +106,14 @@ const SalonCard = ({
         {isNotificaiton && (
           <View style={[styles.cardFooter, {marginTop: hp(0.4)}]}>
             <Text style={styles.distanceText}>{'Sep 10, 2024 - 9:10 AM'}</Text>
-            <Text style={isRefund?[styles.distanceText,{color:colors.error}]:[styles.distanceText]}>{'Pending'}</Text>
+            <Text
+              style={
+                isRefund
+                  ? [styles.distanceText, {color: colors.error}]
+                  : [styles.distanceText]
+              }>
+              {'Pending'}
+            </Text>
           </View>
         )}
       </View>
@@ -121,8 +128,6 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     padding: 12,
     marginBottom: hp(1.5),
-    // borderColor: colors.gray,
-    // borderWidth: 0.5,
     alignItems: 'center',
   },
   cardImage: {
@@ -144,6 +149,7 @@ const styles = StyleSheet.create({
   cardTitle: {
     // fontWeight:'600',
     fontFamily: fontsFamily.regular,
+    maxWidth:'95%',
   },
   cardLocation: {
     fontSize: RFValue(12),
@@ -173,6 +179,7 @@ const styles = StyleSheet.create({
     fontSize: RFValue(12),
     color: colors.lightBlack,
     fontFamily: fontsFamily.extraLight,
+    alignSelf: 'flex-start',
   },
   favoriteButton: {
     padding: 6,
@@ -226,12 +233,24 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     paddingHorizontal: wp(1.8),
   },
-  serviceName:{
-      flexDirection: 'row',
-      alignItems: 'center',
-      justifyContent: 'space-between',
-      marginTop: hp(0.7),
-  }
+  serviceName: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginTop: hp(0.7),
+  },
+  discounts: {
+    backgroundColor: colors.lighterPrimary,
+    marginHorizontal: 10,
+    borderRadius: 15,
+    paddingHorizontal: wp(3),
+    paddingVertical: hp(0.2),
+  },
+  smallText: {
+    minWidth: wp(5),
+    color: colors.primary,
+    fontFamily:fontsFamily.regular
+  },
 });
 
 export default SalonCard;

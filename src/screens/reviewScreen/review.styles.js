@@ -1,12 +1,12 @@
 import {StyleSheet} from 'react-native';
 import {RFValue} from 'react-native-responsive-fontsize';
-import fontsFamily from '../../../assets/fontsFamily';
+import fontsFamily from '../../assets/fontsFamily';
 import {
   heightPercentageToDP,
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
 } from 'react-native-responsive-screen';
-import colors from '../../../assets/colors';
+import colors from '../../assets/colors';
 
 const styles = StyleSheet.create({
   container: {
@@ -96,10 +96,9 @@ const styles = StyleSheet.create({
     fontFamily: fontsFamily.semiBold,
   },
   cancelButton: {
-    backgroundColor: colors.lightGray,
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    borderRadius: 10,
+    marginTop: hp(2),
+    backgroundColor: colors.lighterPrimary,
+    borderColor: colors.lighterPrimary,
   },
   cancelText: {
     fontSize: RFValue(12), // Updated to RFValue
