@@ -14,6 +14,7 @@ import {
 } from 'react-native-responsive-screen';
 import FavourSelector from '../favouriteSelector';
 
+
 const SalonCard = props => {
   const {
     item,
