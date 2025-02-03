@@ -5,12 +5,9 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import FastImage from 'react-native-fast-image';
 import images from '../../assets/images';
 import HomeStack from '../homeStack';
-import SearchScreen from '../../screens/searchScreen/search/search';
-import ReviewScreen from '../../screens/reviewScreen/review/review';
 import ProfileScreen from '../../screens/profileScreen/profile/profile';
 import EditProfile from '../../screens/profileScreen/editProfile/editProfile';
-import Favorites from '../../screens/favoritesScreen/favourites';
-import BookingHistory from '../../screens/bookingHistoryScreen/bookingHistory';
+import Booking from '../../screens/bookingScreen/booking';
 import Card from '../../screens/cardScreen/savedCard/card';
 import AddCard from '../../screens/cardScreen/addCard/addCard';
 import Invoice from '../../screens/invoiceScreen/invoiceDetail/invoiceDetail';
@@ -22,8 +19,11 @@ import ChangePassword from '../../screens/changePasswordScreen/changePassword';
 
 
 import colors from '../../assets/colors';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 const Tab = createBottomTabNavigator();
+const Stack = createNativeStackNavigator();
+
 
 
 // Image source mapping for each tab
@@ -81,6 +81,20 @@ const CustomTabBar = (props) => {
   );
 };
 
+const MoreStack = () => {
+  return (
+    <Stack.Navigator 
+      initialRouteName="Profile"
+      screenOptions={{
+        headerShown: false
+      }}
+    >
+      <Stack.Screen name="Profile" component={ProfileScreen} />
+      <Stack.Screen name="editProfile" component={EditProfile} />
+    </Stack.Navigator>
+  );
+};
+
 const BottomStack = () => {
   return (
     <Tab.Navigator
@@ -90,9 +104,9 @@ const BottomStack = () => {
       }}
     >
       <Tab.Screen name="homeStack" component={HomeStack} />
-      <Tab.Screen name="Booking" component={ReviewScreen} />
+      <Tab.Screen name="Booking" component={Booking} />
       <Tab.Screen name="Messages" component={ProfileScreen} />
-      <Tab.Screen name="More" component={ChangePassword} />
+      <Tab.Screen name="More" component={ProfileScreen} />
     </Tab.Navigator>
   );
 };

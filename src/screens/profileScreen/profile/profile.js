@@ -12,11 +12,18 @@ import {
   SmallText,
   XlargeText,
 } from '../../../components/Typography';
+import colors from '../../../assets/colors';
 
-const Profile = () => {
+const Profile = ({navigation , route}) => {
+console.log('navigation', navigation)
+  const handleNavigation =(routeName)=>{
+    navigation.navigate(routeName)
+  }
+
+
   return (
     <SafeAreaView style={styles.container}>
-      <Header title={'Profile'} />
+      <Header title={'Profile'} showBackButton={true} onBackPress={()=>navigation.goBack()}/>
       <ScrollView showsVerticalScrollIndicator={false} style={styles.wrapper}>
         <View style={styles.profileContainer}>
           <View style={styles.imageContainer}>
@@ -46,8 +53,9 @@ const Profile = () => {
                 key={index}
                 title={option.title}
                 Icon={option.img}
-                showImage={true}
-                onPress={() => console.log(`${option.title} pressed`)}
+                showIcon={true}
+                // style={{backgroundColor:colors.inputGray}}
+                onPress={()=>handleNavigation(option.routeName)}
               />
             );
           })}
@@ -59,7 +67,7 @@ const Profile = () => {
             key={index}
             title={option.title}
             Icon={option.img}
-            showImage={true}
+            showIcon={true}
             onPress={() => console.log(`${option.title} pressed`)}
           />
         ))}
@@ -70,11 +78,10 @@ const Profile = () => {
             key={index}
             title={option.title}
             Icon={option.img}
-            showImage={true}
+            showIcon={true}
             onPress={() => console.log(`${option.title} pressed`)}
           />
         ))}
-
 
       </ScrollView>
     </SafeAreaView>

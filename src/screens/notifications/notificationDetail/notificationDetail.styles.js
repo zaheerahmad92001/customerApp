@@ -16,6 +16,7 @@ const styles = StyleSheet.create({
     detailContainer:{
         flex:1,
         marginHorizontal:wp(4),
+        paddingTop:hp(2),
       },
     header: {
       flexDirection: 'row',

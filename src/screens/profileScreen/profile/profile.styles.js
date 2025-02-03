@@ -9,6 +9,7 @@ const styles = StyleSheet.create({
       flex: 1,
       backgroundColor: colors.white,
     },
+
     wrapper:{
         flex:1,
         marginHorizontal:wp(4)
@@ -47,7 +48,7 @@ const styles = StyleSheet.create({
       marginTop:hp(0.4)
     },
     inviteContainer: {
-      backgroundColor: colors.lightPrimary,
+      backgroundColor: colors.lighterPrimary,
       padding:hp(1.8),
       marginTop: hp(1.6),
       borderRadius: 10,

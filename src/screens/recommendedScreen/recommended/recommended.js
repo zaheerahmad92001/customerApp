@@ -14,12 +14,7 @@ const Recommended = () => {
   };
   const renderSalonCard = ({item}) => (
     <SalonCard
-      image={item.image}
-      title={item.title}
-      location={item.location}
-      distance={item.distance}
-      rating={item.rating}
-      reviews={item.reviews}
+     item={item}
       onFavorite={() => handleFavoritePress(item.id)}
       showFavoriteButton={true}
     />

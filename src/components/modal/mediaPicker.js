@@ -4,6 +4,7 @@ import {LargeText} from '../Typography';
 import fontsFamily from '../../assets/fontsFamily';
 import Feather from 'react-native-vector-icons/Feather';
 import colors from '../../assets/colors';
+import { RFValue } from 'react-native-responsive-fontsize';
 
 const MediaPicker = props => {
   const {captureWithCamera, pickFromGallery, onCancel} = props;
@@ -33,8 +34,9 @@ export default MediaPicker;
 
 const styles = StyleSheet.create({
   XlargeText: {
-    fontWeight: '500',
+    fontWeight: '600',
     fontFamily: fontsFamily.Pregular,
+    fontSize:RFValue(16)
   },
   container: {
     alignItems: 'flex-start',

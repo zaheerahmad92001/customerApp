@@ -31,15 +31,9 @@ const NotificationDetail = ({navigation, route}) => {
       <View style={styles.container}>
         <View style={styles.detailContainer}>
           <SalonCard
-            image={mockData[0].image}
-            title={mockData[0].title}
-            location={mockData[0].location}
-            distance={mockData[0].distance}
-            rating={mockData[0].rating}
-            reviews={mockData[0].reviews}
+          item={mockData[0]}
             onFavorite={() => handleFavoritePress(mockData[0].id)}
             showFavoriteButton={false}
-            position={mockData[0].position}
             isNotificaiton={true}
           />
 
