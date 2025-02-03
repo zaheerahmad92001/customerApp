@@ -9,7 +9,7 @@ import fontsFamily from '../assets/fontsFamily';
 import {recentSearches} from '../staticData';
 
 const Search = props => {
-  const {setFilteredSearches, setIsInputActive , isHome} = props;
+  const {setFilteredSearches, setIsInputActive , isHome, isSearch = false} = props;
 
   const [searchText, setSearchText] = useState('');
 
@@ -28,7 +28,7 @@ const Search = props => {
 
   return (
     <View style={styles.searchBarContainer}>
-      <View style={styles.searchBar}>
+      <View style={[styles.searchBar,{width:isSearch?'100%':wp(80)}]}>
         <Icon
           name="search"
           size={24}
@@ -46,12 +46,14 @@ const Search = props => {
         />
       </View>
       <View>
+        { !isSearch &&
         <Pressable onPress={() => {}} style={styles.button}>
           {isHome ?
           <MapIcon/>:
           <FilterIcon/>
           }
         </Pressable>
+}
       </View>
     </View>
   );
