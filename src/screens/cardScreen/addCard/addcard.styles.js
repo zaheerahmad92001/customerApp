@@ -19,15 +19,14 @@ const styles = StyleSheet.create({
     heading: {
       marginBottom:hp(3),
       marginTop:hp(3),
-      fontFamily:fontsFamily.extraBold,
-      fontSize:RFValue(17)
+      fontFamily: fontsFamily.regular,
+    color: colors.appBlack,
+    fontWeight: '600',
+    alignSelf:'flex-start',
     },
     button: {
-      backgroundColor: colors.primary,
-      padding: 10,
-      borderRadius: 8,
-      alignItems: 'center',
-      marginTop: 'auto',
+  
+      // marginTop: 'auto',
     },
     buttonText: {
       fontSize: RFValue(12),

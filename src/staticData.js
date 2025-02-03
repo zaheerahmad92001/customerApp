@@ -79,7 +79,7 @@ const menuOptions = [
   {title: 'Edit Profile', img: EditIcon,  routeName:'editProfile'},
   {title: 'Favorites', img: HeartIcon , routeName:'favorites'},
   {title: 'Booking History', img: HistoryIcon, routeName:'booking'},
-  {title: 'Saved Cards', img: SaveCardIcon, routeName:'editProfile'},
+  {title: 'Saved Cards', img: SaveCardIcon, routeName:'savedCard'},
   {title: 'Invoices', img: Invoice, routeName:'editProfile'},
   {title: 'Requests & Complaints', img: RequestIcon, routeName:'editProfile'},
   {title: 'Loyalty Points', img: Discount, routeName:'editProfile'},

@@ -1,21 +1,11 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import FastImage from 'react-native-fast-image';
 import images from '../../assets/images';
 import HomeStack from '../homeStack';
 import ProfileScreen from '../../screens/profileScreen/profile/profile';
 import EditProfile from '../../screens/profileScreen/editProfile/editProfile';
 import Booking from '../../screens/bookingScreen/booking';
-import Card from '../../screens/cardScreen/savedCard/card';
-import AddCard from '../../screens/cardScreen/addCard/addCard';
-import Invoice from '../../screens/invoiceScreen/invoiceDetail/invoiceDetail';
-import InvoiceList from '../../screens/invoiceScreen/invoiceList/invoiceList';
-import Settings from '../../screens/settingScreen/settings/settings';
-import Language from '../../screens/languageScreen/language/language';
-import NotificationSetting from '../../screens/notificationSettingsScreen/notificationSetting';
-import ChangePassword from '../../screens/changePasswordScreen/changePassword';
 
 
 import colors from '../../assets/colors';
