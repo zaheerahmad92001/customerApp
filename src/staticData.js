@@ -31,7 +31,7 @@ const mockData = [
     distance: '2 km',
     rating: 4.7,
     reviews: 312,
-    position: 'Cancelled',
+    status: 'Cancelled',
   },
   {
     id: 2,
@@ -41,7 +41,7 @@ const mockData = [
     distance: '2 km',
     rating: 4.7,
     reviews: 312,
-    position: 'Cancelled',
+    status: 'Cancelled',
   },
   {
     id: 3,
@@ -51,7 +51,7 @@ const mockData = [
     distance: '2 km',
     rating: 4.7,
     reviews: 312,
-    position: 'Cancelled',
+    status: 'Cancelled',
   },
   {
     id: 4,
@@ -61,7 +61,7 @@ const mockData = [
     distance: '2 km',
     rating: 4.7,
     reviews: 312,
-    position: 'Cancelled',
+    status: 'Cancelled',
   },
   {
     id: 5,
@@ -71,18 +71,18 @@ const mockData = [
     distance: '2 km',
     rating: 4.7,
     reviews: 312,
-    position: 'Cancelled',
+    status: 'Cancelled',
   },
 ];
 
 const menuOptions = [
-  {title: 'Edit Profile', img: EditIcon},
-  {title: 'Favorites', img: HeartIcon},
-  {title: 'Booking History', img: HistoryIcon},
-  {title: 'Saved Cards', img: SaveCardIcon},
-  {title: 'Invoices', img: Invoice},
-  {title: 'Requests & Complaints', img: RequestIcon},
-  {title: 'Loyalty Points', img: Discount},
+  {title: 'Edit Profile', img: EditIcon,  routeName:'editProfile'},
+  {title: 'Favorites', img: HeartIcon , routeName:'favorites'},
+  {title: 'Booking History', img: HistoryIcon, routeName:'booking'},
+  {title: 'Saved Cards', img: SaveCardIcon, routeName:'editProfile'},
+  {title: 'Invoices', img: Invoice, routeName:'editProfile'},
+  {title: 'Requests & Complaints', img: RequestIcon, routeName:'editProfile'},
+  {title: 'Loyalty Points', img: Discount, routeName:'editProfile'},
 ];
 
 const categoriesOptions = [
@@ -297,27 +297,43 @@ const notificationData = [
   {
     title: 'Today',
     data: [
-      { heading: 'Booking Cancelled', subHeading: 'You have made a salon payment',  },
-      { heading: 'Today’s Special Offers', subHeading: 'You have made a salon payment', },
-      { heading: 'Payment Successful!', subHeading: 'You have made a salon payment', },
+      { heading: 'Booking Cancelled', subHeading: 'You have made a salon payment'  },
+      { heading: 'Today’s Special Offers', subHeading: 'You have made a salon payment' },
+      { heading: 'Payment Successful!', subHeading: 'You have made a salon payment' },
     ],
   },
   {
     title: 'Yesterday',
     data: [
-      { heading: 'Booking Cancelled', subHeading: 'You have made a salon payment',  },
-      { heading: 'Payment Successful!', subHeading: 'You have made a salon payment', },
+      { heading: 'Booking Cancelled', subHeading: 'You have made a salon payment'  },
+      { heading: 'Payment Successful!', subHeading: 'You have made a salon payment' },
     ],
   },
   {
     title: '17 Aug 2024',
     data: [
-      { heading: 'Booking Cancelled', subHeading: 'You have made a salon payment',  },
-      { heading: 'Payment Successful!', subHeading: 'You have made a salon payment', },
-      { heading: 'Account Setup Successful!', subHeading: 'You have made a salon payment', }
+      { heading: 'Booking Cancelled', subHeading: 'You have made a salon payment'  },
+      { heading: 'Payment Successful!', subHeading: 'You have made a salon payment' },
+      { heading: 'Account Setup Successful!', subHeading: 'You have made a salon payment' },
     ],
   },
 ];
+
+const messages = {
+  register: {
+    title: 'Register Successfully!',
+    subheading: 'Your account has been registered successfully.',
+  },
+  cancel: {
+    title: 'Canceled Successfully!',
+    subheading: 'Your booking has been canceled successfully.',
+  },
+  remove: {
+    title: 'Removed Successfully!',
+    subheading: 'Your salon has been successfully removed from favorites.',
+  },
+};
+
 
 
 export {
@@ -344,4 +360,5 @@ export {
   invoiceSummry,
   loginlang,
   notificationData,
+  messages,
 };

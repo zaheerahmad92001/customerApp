@@ -7,6 +7,7 @@ import {
 
 // import { styles } from './styles';
 import { TouchableWithoutFeedback, View, Text } from 'react-native';
+import colors from '../assets/colors';
 
 export const BottomSheet = (props) => {
   const {
@@ -53,23 +54,19 @@ export const BottomSheet = (props) => {
       keyboardBlurBehavior="restore"
       enableDismissOnClose
       backdropComponent={renderBackdrop}
-    //   backgroundStyle={styles.container}
+      backgroundStyle={{backgroundColor:colors.appBG}}
       onDismiss={onDismiss}
     >
       {Boolean(title) && (
-        <View 
-        // style={styles.meetingListContainer}
-        >
-          <Text 
-        //   style={styles.font}
-          >{title}</Text>
+        <View>
+          <Text>{title}</Text>
         </View>
       )}
 
       <BottomSheetScrollView
+      style={{paddingHorizontal:20}}
         nestedScrollEnabled={true}
-        scrollEnabled={scrollEnabled ? true : false}
-      >
+        scrollEnabled={scrollEnabled ? true : false}>
         <View style={{ minHeight: height }}>{children}</View>
       </BottomSheetScrollView>
     </BottomSheetModal>

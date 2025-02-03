@@ -19,7 +19,7 @@ const RadioButton = (props) => {
           style={styles.radioOption}
           onPress={()=>handleSelect(option)}
         >
-          <View style={styles.circle}>
+          <View style={[styles.circle,{borderColor:selectedOption === option?colors.primary:colors.gray}]} >
             {selectedOption === option && <View style={styles.checkedCircle} />}
           </View>
           <Text style={styles.optionText}>{option}</Text>
@@ -54,7 +54,8 @@ const styles = StyleSheet.create({
       width: 10,
       height: 10,
       borderRadius: 5,
-      backgroundColor:colors.gray,
+      backgroundColor:colors.primary,
+      // backgroundColor:colors.gray,
     },
     optionText: {
       fontSize: 16,

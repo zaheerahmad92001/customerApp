@@ -14,8 +14,8 @@ const BookingHistoryCard = ({
   price,
   status,
   imageUri,
-  onCancel,
-  onReschedule,
+  bookinOptions,
+  reviewAndReschedule,
 }) => {
 const cancelORBook = status==='Confirmed' ? 'Cancel Booking' : 'Book Again';
 const completeORReview = status==='Confirmed' ? 'Completed' : 'Leave a Review';
@@ -74,8 +74,8 @@ const completeORReview = status==='Confirmed' ? 'Completed' : 'Leave a Review';
       </View>
       {status !== 'Cancelled' && (
         <View style={styles.actions}>
-          <AppButton title={cancelORBook} onPress={onCancel} style={styles.cancelButton} textstyle={styles.cancelText} />
-          <AppButton title={completeORReview} onPress={onReschedule} style={styles.rescheduleButton} textstyle={styles.rescheduleText} />
+          <AppButton title={cancelORBook} onPress={bookinOptions} style={styles.cancelButton} textstyle={styles.cancelText} />
+          <AppButton title={completeORReview} onPress={reviewAndReschedule} style={styles.rescheduleButton} textstyle={styles.rescheduleText} />
         </View>
       )}
     </View>
