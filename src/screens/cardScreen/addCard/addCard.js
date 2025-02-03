@@ -3,9 +3,11 @@ import {View, Text, TouchableOpacity, SafeAreaView} from 'react-native';
 import Header from '../../../components/appHeader';
 import TextField from '../../../components/textField/textField';
 import styles from './addcard.styles';
-import {XlargeText} from '../../../components/Typography';
+import {LargeText, XlargeText} from '../../../components/Typography';
+import { AppButton } from '../../../components/appButton';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
-const AddCard = () => {
+const AddCard = ({navigation, route}) => {
   const [state, updateState] = useReducer(
     (state, newState) => ({...state, ...newState}),
     {
@@ -19,10 +21,10 @@ const AddCard = () => {
 
   return (
     <SafeAreaView style={styles.wrapper}>
+        <Header title={'Add Card'} showBackButton onBackPress={()=>navigation.goBack()} />
+      <KeyboardAwareScrollView>
       <View style={styles.container}>
-        <Header title={'Add Card'} showBackButton />
-
-        <XlargeText text="Card Details" style={styles.heading} />
+        <LargeText text="Card Details" style={styles.heading} />
 
         <TextField
           label={'Card Number'}
@@ -62,12 +64,10 @@ const AddCard = () => {
           }}
           keyboardType="number-pad"
           style={styles.inputStyle}
-        />
-
-        <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>Save Card</Text>
-        </TouchableOpacity>
+        /> 
+       <AppButton title="Save Card" onPress={()=>{}} style={styles.button} />
       </View>
+      </KeyboardAwareScrollView>
     </SafeAreaView>
   );
 };

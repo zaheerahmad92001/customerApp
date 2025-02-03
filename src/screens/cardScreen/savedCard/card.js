@@ -12,7 +12,13 @@ import { MediumText } from '../../../components/Typography';
 import { AppButton } from '../../../components/appButton';
 import { FlatList } from 'react-native-gesture-handler';
 
-const Card = () => {
+const Card = ({navigation , route}) => {
+
+const handleAddNewCard=()=>{
+navigation.navigate('addCard')
+}
+
+
 
 const renderItem = ({ item }) => {
   return(
@@ -48,15 +54,16 @@ const renderItem = ({ item }) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Header title={'Saved Cards'} showBackButton />
+      <Header title={'Saved Cards'} showBackButton onBackPress={()=>navigation.goBack()} />
       <View style={styles.wrapper}>
         <FlatList 
         data={[1,2,3,4,5,6,7,8,9,10]}
         renderItem={renderItem}
         keyExtractor={item => item.id}
+        contentContainerStyle={styles.contentContainer}
         showsVerticalScrollIndicator={false}
         />
-        <AppButton title='Add New Card' />
+        <AppButton title='Add New Card' onPress={handleAddNewCard} style={styles.button} />
       </View>
     </SafeAreaView>
   );
