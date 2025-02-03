@@ -76,13 +76,13 @@ const mockData = [
 ];
 
 const menuOptions = [
-  {title: 'Edit Profile', img: EditIcon,  routeName:'editProfile'},
-  {title: 'Favorites', img: HeartIcon , routeName:'favorites'},
-  {title: 'Booking History', img: HistoryIcon, routeName:'booking'},
-  {title: 'Saved Cards', img: SaveCardIcon, routeName:'savedCard'},
-  {title: 'Invoices', img: Invoice, routeName:'editProfile'},
-  {title: 'Requests & Complaints', img: RequestIcon, routeName:'editProfile'},
-  {title: 'Loyalty Points', img: Discount, routeName:'editProfile'},
+  {title: 'Edit Profile', img: EditIcon, routeName: 'editProfile'},
+  {title: 'Favorites', img: HeartIcon, routeName: 'favorites'},
+  {title: 'Booking History', img: HistoryIcon, routeName: 'booking'},
+  {title: 'Saved Cards', img: SaveCardIcon, routeName: 'savedCard'},
+  {title: 'Invoices', img: Invoice, routeName: 'editProfile'},
+  {title: 'Requests & Complaints', img: RequestIcon, routeName: 'editProfile'},
+  {title: 'Loyalty Points', img: Discount, routeName: 'editProfile'},
 ];
 
 const categoriesOptions = [
@@ -297,24 +297,48 @@ const notificationData = [
   {
     title: 'Today',
     data: [
-      { heading: 'Booking Cancelled', subHeading: 'You have made a salon payment'  },
-      { heading: 'Today’s Special Offers', subHeading: 'You have made a salon payment' },
-      { heading: 'Payment Successful!', subHeading: 'You have made a salon payment' },
+      {
+        heading: 'Booking Cancelled',
+        subHeading: 'You have made a salon payment',
+      },
+      {
+        heading: 'Today’s Special Offers',
+        subHeading: 'You have made a salon payment',
+      },
+      {
+        heading: 'Payment Successful!',
+        subHeading: 'You have made a salon payment',
+      },
     ],
   },
   {
     title: 'Yesterday',
     data: [
-      { heading: 'Booking Cancelled', subHeading: 'You have made a salon payment'  },
-      { heading: 'Payment Successful!', subHeading: 'You have made a salon payment' },
+      {
+        heading: 'Booking Cancelled',
+        subHeading: 'You have made a salon payment',
+      },
+      {
+        heading: 'Payment Successful!',
+        subHeading: 'You have made a salon payment',
+      },
     ],
   },
   {
     title: '17 Aug 2024',
     data: [
-      { heading: 'Booking Cancelled', subHeading: 'You have made a salon payment'  },
-      { heading: 'Payment Successful!', subHeading: 'You have made a salon payment' },
-      { heading: 'Account Setup Successful!', subHeading: 'You have made a salon payment' },
+      {
+        heading: 'Booking Cancelled',
+        subHeading: 'You have made a salon payment',
+      },
+      {
+        heading: 'Payment Successful!',
+        subHeading: 'You have made a salon payment',
+      },
+      {
+        heading: 'Account Setup Successful!',
+        subHeading: 'You have made a salon payment',
+      },
     ],
   },
 ];
@@ -334,7 +358,26 @@ const messages = {
   },
 };
 
+const staticBookings = [
+  {
+    date: 'Wed, Sep 10 at 9:30 AM',
+    professional: 'Marilyn Vetrovs',
+    timeslot: 'Sat 28 Sep 2024 at 9:30 AM',
+    services: [
+      {name: 'Hair Cut', price: 100},
+      {name: 'Hair Wash', price: 50},
+    ],
+  },
+];
 
+const paymentMethods = [
+  {id: '1', name: 'Apple Pay', icon: images.applePay},
+  {
+    id: '2',
+    name: 'Credit/Debit Card',
+    icon: images.applePay,
+  },
+];
 
 export {
   recentSearches,
@@ -361,4 +404,6 @@ export {
   loginlang,
   notificationData,
   messages,
+  staticBookings,
+  paymentMethods,
 };
