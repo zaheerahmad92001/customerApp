@@ -37,7 +37,7 @@ const ChatListView = () => {
                             isSearch={true}
                         />
                     </View>
-                    <View><Text>RECENTS</Text></View>
+                    <View><Text style = {style.recentTextview}>RECENTS</Text></View>
                     <FlatList
                     data={[1,2,3,4,5]}
                     renderItem={renderChatCard}

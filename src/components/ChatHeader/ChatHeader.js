@@ -1,29 +1,60 @@
 import React from "react";
-import { StyleSheet, View } from 'react-native';
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import colors from "../../assets/colors";
+import BackArrow from '../../assets/svgs/back-arrow-button.svg'
+import More from '../../assets/svgs/more.svg'
 import { heightPercentageToDP as hp, widthPercentageToDP as wp } from 'react-native-responsive-screen';
-const ChatHeader = () => {
+
+import images from "../../assets/images";
+import fontsFamily from "../../assets/fontsFamily";
+const ChatHeader = ({ userName, userImage, onBackPress, morePressed }) => {
     return (
         <View style={style.container}>
-            <View style={style.mainContainer}></View>
-            <View style={style.dotedView}></View>
+            <View style={style.mainContainer}>
+                <View style={style.leftSideView}>
+                    <TouchableOpacity onPress={onBackPress}>
+                        <BackArrow />
+                    </TouchableOpacity>
+                    <Image source={images.room} style={style.usrImageView}></Image>
+                    <Text style={style.userNameTitle}>{userName}</Text>
+                </View>
+
+                <TouchableOpacity onPress={morePressed}>
+                    <More />
+                </TouchableOpacity>
+            </View>
         </View>
     );
 };
 
 const style = StyleSheet.create({
     container: {
-        backgroundColor: colors.appBG
+        backgroundColor: colors.appBG,
     },
     mainContainer: {
         flexDirection: 'row',
-        justifyContent: 'center',
-        flex: 1
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        padding: 15
     },
-    dotedView: {
-        width: wp(5),
+    leftSideView: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+    },
+
+    usrImageView: {
+        width: wp(9),
         height: hp(4),
-        shadowRadius: 5,
-        backgroundColor: colors.primary
+        borderRadius: 5,
+        marginLeft: 12
+    },
+    userNameTitle: {
+        marginLeft: 8,
+        fontFamily: fontsFamily.bold,
+        fontWeight: '600'
     }
 });
+
+
+export default ChatHeader;
