@@ -41,6 +41,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor:'red',
     // backgroundColor:colors.white,
     paddingHorizontal: wp(2),
     height:
