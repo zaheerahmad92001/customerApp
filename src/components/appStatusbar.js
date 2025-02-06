@@ -12,7 +12,7 @@ const AppStatusBar = ({ backgroundColor = colors.white, barStyle = 'dark-content
 
 const styles = StyleSheet.create({
   statusBar: {
-    height: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
+    // height: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
   },
 });
 
