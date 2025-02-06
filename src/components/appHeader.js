@@ -41,11 +41,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor:'red',
-    // backgroundColor:colors.white,
     paddingHorizontal: wp(2),
-    height:
-      Platform.OS === 'android' ? wp(12) + StatusBar.currentHeight : wp(12),
+    paddingVertical: wp(3),
+    // height:
+    //   Platform.OS === 'android' ? wp(12) + StatusBar.currentHeight : wp(12),
   },
   leftView: {
     flexDirection: 'row',
