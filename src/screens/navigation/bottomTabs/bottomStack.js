@@ -6,6 +6,7 @@ import HomeStack from '../homeStack';
 import ProfileScreen from '../../profileScreen/profile/profile';
 import EditProfile from '../../profileScreen/editProfile/editProfile';
 import Booking from '../../bookingScreen/booking';
+import ChatList from '../../chatList/chatList';
 
 
 
@@ -96,7 +97,7 @@ const BottomStack = () => {
     >
       <Tab.Screen name="homeStack" component={HomeStack} />
       <Tab.Screen name="Booking" component={Booking} />
-      <Tab.Screen name="Messages" component={ProfileScreen} />
+      <Tab.Screen name="Messages" component={ChatList} />
       <Tab.Screen name="More" component={ProfileScreen} />
     </Tab.Navigator>
   );

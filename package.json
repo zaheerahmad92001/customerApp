@@ -13,6 +13,7 @@
     "@gorhom/bottom-sheet": "^5.0.6",
     "@react-native-clipboard/clipboard": "^1.16.1",
     "@react-native-community/datetimepicker": "^8.3.0",
+    "@react-native-documents/picker": "^10.1.0",
     "@react-navigation/bottom-tabs": "^7.2.0",
     "@react-navigation/elements": "^2.2.5",
     "@react-navigation/material-top-tabs": "^7.1.0",
