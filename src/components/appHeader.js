@@ -43,8 +43,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingHorizontal: wp(2),
     paddingVertical: wp(3),
-    // height:
-    //   Platform.OS === 'android' ? wp(12) + StatusBar.currentHeight : wp(12),
   },
   leftView: {
     flexDirection: 'row',

@@ -23,7 +23,7 @@ const colors = {
   lightOffWhite:'rgba(255, 255, 255, 0.6)',
   darkYellow:'#FFC000',
   appBG:'rgb(249,249,249)',
-  chatlistmessage:'rgb(108,117,125)',
+  chatlistmessage:'#6C757D',
   darkGray:'#1C1C1C0D',
 
   

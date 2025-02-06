@@ -6,7 +6,7 @@ import HomeStack from '../homeStack';
 import ProfileScreen from '../../profileScreen/profile/profile';
 import EditProfile from '../../profileScreen/editProfile/editProfile';
 import Booking from '../../bookingScreen/booking';
-import ChatList from '../../chat_module/chatList';
+import ChatList from '../../chatList/chatList';
 
 
 

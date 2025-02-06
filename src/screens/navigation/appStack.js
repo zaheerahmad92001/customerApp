@@ -20,6 +20,7 @@ import Complaints from '../complaintsScreens/complaints';
 import AddNewComplaint from '../addNewRequest/addNewComplaint';
 import ComplaintDetail from '../complaintDetail/complaintDetail';
 import Settings from '../settingScreen/settings/settings';
+import Chat from '../chatView/chatView';
 import Language from '../languageScreen/language/language';
 import NotificationSetting from '../notificationSettingsScreen/notificationSetting';
 import ChangePassword from '../changePasswordScreen/changePassword';
@@ -48,6 +49,7 @@ function AppStack() {
       <Stack.Screen name="complaints" component={Complaints}/>
       <Stack.Screen name='addNewComplaint' component={AddNewComplaint}/>
       <Stack.Screen name='complaintDetail' component={ComplaintDetail}/>
+      <Stack.Screen name='Chat' component={Chat}/>
     </Stack.Navigator>
   );
 }
