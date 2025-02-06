@@ -1,16 +1,15 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import images from '../../assets/images';
+import images from '../../../assets/images';
 import HomeStack from '../homeStack';
-import ProfileScreen from '../../screens/profileScreen/profile/profile';
-import EditProfile from '../../screens/profileScreen/editProfile/editProfile';
-import Booking from '../../screens/bookingScreen/booking';
-import AddrequestScreen from '../../screens/complaints/AddNewRequest/AddNewRequestScreen';
+import ProfileScreen from '../../profileScreen/profile/profile';
+import EditProfile from '../../profileScreen/editProfile/editProfile';
+import Booking from '../../bookingScreen/booking';
 
 
 
-import colors from '../../assets/colors';
+import colors from '../../../assets/colors';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 const Tab = createBottomTabNavigator();
@@ -96,7 +95,7 @@ const BottomStack = () => {
       }}
     >
       <Tab.Screen name="homeStack" component={HomeStack} />
-      <Tab.Screen name="Booking" component={AddrequestScreen} />
+      <Tab.Screen name="Booking" component={Booking} />
       <Tab.Screen name="Messages" component={ProfileScreen} />
       <Tab.Screen name="More" component={ProfileScreen} />
     </Tab.Navigator>

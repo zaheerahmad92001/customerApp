@@ -1,4 +1,4 @@
-import {View, Text, Image, StyleSheet} from 'react-native';
+import {View, Text, Image, StyleSheet, Pressable} from 'react-native';
 import React from 'react';
 import fontsFamily from '../../assets/fontsFamily';
 import colors from '../../assets/colors';
@@ -10,19 +10,17 @@ import {
 import images from '../../assets/images';
 import { MediumText, SmallText } from '../Typography';
 
-const InvoiceCard = ({invoice}) => {
+const InvoiceCard = (props) => {
+ const {invoice , handleOnPress} = props
+
   return (
-    <View
+    <Pressable
+    onPress={handleOnPress}
       style={[
         styles.card,
         invoice.status === 'Paid' ? styles.paidCard : styles.cancelledCard,
       ]}>
-      <View
-        style={{
-          flex: 1,
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-        }}>
+      <View style={styles.wrapper}>
         <View style={{flex: 1}}>
           <Text style={styles.date}>{`${invoice.date} - ${invoice.time}`}</Text>
           <View style={styles.detailsRow}>
@@ -64,9 +62,8 @@ const InvoiceCard = ({invoice}) => {
             </Text>
           </View>
         </View>
-        {/* <View style={styles.amountContainer}></View> */}
       </View>
-    </View>
+    </Pressable>
   );
 };
 
@@ -74,15 +71,14 @@ const styles = StyleSheet.create({
   card: {
     backgroundColor: colors.lightGray,
     borderRadius: 10,
-    padding: 15,
-    borderWidth: 0.3,
-    borderColor: colors.gray,
-    elevation: 2,
-    shadowColor: '#000',
-    shadowOffset: {width: 0, height: 2},
-    shadowOpacity: 0.2,
-    shadowRadius: 2,
+    paddingHorizontal: 13,
+    paddingVertical:10,
     marginBottom: hp(2),
+  },
+  wrapper:{
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
 
   date: {
@@ -96,8 +92,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   imageContainer: {
-    width: 50,
-    height: 50,
+    width: 60,
+    height: 60,
     borderRadius: 10,
     marginRight: 12,
     overflow: 'hidden',

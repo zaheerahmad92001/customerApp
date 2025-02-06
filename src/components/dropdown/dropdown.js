@@ -14,8 +14,8 @@ const MyDropdown = ({labelField, placeholder, value, data, onChange}) => {
       style={styles.dropdown}
       data={data}
       placeholder={placeholder || 'Select an option'}
-      labelField="label" // Fixed to match the structure of your Items
-      valueField="value" // Fixed to match the structure of your Items
+      labelField="label" 
+      valueField="value"
       value={value}
       onChange={onChange}
       maxHeight={300}
@@ -24,10 +24,6 @@ const MyDropdown = ({labelField, placeholder, value, data, onChange}) => {
       placeholderStyle = {styles.placeholderStyle}
       selectedTextStyle = {styles.selectedTextStyle}
       containerStyle = {styles.dropDownContainerStyle}
-      
-      
-      
-      
        />
     </View>
    );
@@ -44,11 +40,9 @@ const styles = StyleSheet.create({
     height: 50,
     borderWidth: 0,
     borderRadius: 10,
-    marginLeft:12,
-    marginRight:12,
     backgroundColor:colors.inputGray,
     fontFamily:fontsFamily.regular,
-    fontSize:RFValue(12)
+    fontSize:RFValue(15)
     
    },
    iconStyle: {

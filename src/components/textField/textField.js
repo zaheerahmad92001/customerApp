@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
   container: {
   },
   label: {
-    fontSize: RFValue(14),
+    fontSize: RFValue(13),
     color: colors.appBlack,
     fontFamily: fontsFamily.regular,
     fontWeight:'400',
