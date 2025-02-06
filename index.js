@@ -8,4 +8,7 @@ import App from './App';
 //import ChatListView from './src/screens/chat_module/Chats_ListScreen';
 import ChatViewScreen from './src/screens/chat_module/ChatView/ChatView';
 import {name as appName} from './app.json';
-AppRegistry.registerComponent(appName, () => ChatViewScreen);
+import AvailableTimeSlot from './src/screens/availableTimeSlotScreen/availableTimeSlot/availableTimeSlot';
+import OrderDetail from './src/screens/orderDetailScreen/orderDetail/orderDetail';
+
+AppRegistry.registerComponent(appName, () => OrderDetail);

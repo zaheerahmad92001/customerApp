@@ -24,6 +24,8 @@ const colors = {
   darkYellow:'#FFC000',
   appBG:'rgb(249,249,249)',
   chatlistmessage:'rgb(108,117,125)',
+  darkGray:'#1C1C1C0D',
+
   
 };
 

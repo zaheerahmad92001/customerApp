@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { createNativeStackNavigator ,CardStyleInterpolators } from '@react-navigation/native-stack';
-import HomeScreen from '../screens/homeScreen/home/home';
+import HomeScreen from '../homeScreen/home/home';
 
 
 const Stack = createNativeStackNavigator();

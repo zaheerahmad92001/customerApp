@@ -1,7 +1,6 @@
 import React from 'react';
 import {View, Text, Image, StyleSheet} from 'react-native';
 import Heart from '../../assets/svgs/heart.svg';
-import HeartFilled from '../../assets/svgs/fill-heart.svg';
 import LocationMarker from '../../assets/svgs/locationMarker.svg';
 import Star from '../../assets/svgs/star.svg';
 import colors from '../../assets/colors';
@@ -13,7 +12,6 @@ import {
   widthPercentageToDP as wp,
 } from 'react-native-responsive-screen';
 import FavourSelector from '../favouriteSelector';
-
 
 const SalonCard = props => {
   const {
@@ -155,7 +153,7 @@ const styles = StyleSheet.create({
   },
   cardLocation: {
     fontSize: RFValue(12),
-    color: colors.lightBlack,
+    color: colors.appBlack,
     marginVertical: 4,
     fontFamily: fontsFamily.extraLight,
     fontWeight: '500',
@@ -175,12 +173,6 @@ const styles = StyleSheet.create({
     fontSize: RFValue(12),
     color: colors.appBlack,
     fontFamily: fontsFamily.regular,
-    marginLeft: 4,
-  },
-  reviewText: {
-    fontSize: RFValue(12),
-    color: colors.lightBlack,
-    fontFamily: fontsFamily.extraLight,
     marginLeft: 4,
   },
   distanceText: {
@@ -203,6 +195,7 @@ const styles = StyleSheet.create({
   locationContainer: {
     flexDirection: 'row',
     alignItems: 'center',
+    marginTop: 2,
   },
   paidText: {
     color: colors.success,

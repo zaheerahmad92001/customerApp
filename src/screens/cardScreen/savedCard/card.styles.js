@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
       alignItems: 'center',
     },
 button:{
-  marginBottom: Platform.OS==='android'? hp(2): hp(0),
+  marginBottom: Platform.OS==='android'? hp(2): hp(1),
 }
 
 

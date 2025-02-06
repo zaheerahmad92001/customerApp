@@ -12,7 +12,11 @@ const styles = StyleSheet.create({
   },
   wrapper: {
     flex: 1,
-    marginHorizontal: wp(4),
+    backgroundColor:colors.appBG,
+  },
+  contentContainer:{
+    flex:1,
+    marginHorizontal:wp(4),
   },
   content: {
     flex: 1,
@@ -36,8 +40,8 @@ const styles = StyleSheet.create({
   printButton: {
     flex: 1,
     marginRight: 5,
-    backgroundColor: colors.lightPrimary,
-    borderColor: colors.lightPrimary,
+    backgroundColor: colors.lighterPrimary,
+    borderColor: colors.lighterPrimary,
   },
   downloadButton: {
     flex: 1,

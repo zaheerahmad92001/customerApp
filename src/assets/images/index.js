@@ -18,5 +18,6 @@ const images = {
   nail: require('../images/nail.png'),
   salonSpa: require('../images/salonSpa.png'),
   toprated: require('../images/toprated1.png'),
+  applePay: require('../images/applePay.png'),
 };
 export default images;
