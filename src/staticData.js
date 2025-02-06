@@ -297,24 +297,48 @@ const notificationData = [
   {
     title: 'Today',
     data: [
-      { heading: 'Booking Cancelled', subHeading: 'You have made a salon payment'  },
-      { heading: 'Today’s Special Offers', subHeading: 'You have made a salon payment' },
-      { heading: 'Payment Successful!', subHeading: 'You have made a salon payment' },
+      {
+        heading: 'Booking Cancelled',
+        subHeading: 'You have made a salon payment',
+      },
+      {
+        heading: 'Today’s Special Offers',
+        subHeading: 'You have made a salon payment',
+      },
+      {
+        heading: 'Payment Successful!',
+        subHeading: 'You have made a salon payment',
+      },
     ],
   },
   {
     title: 'Yesterday',
     data: [
-      { heading: 'Booking Cancelled', subHeading: 'You have made a salon payment'  },
-      { heading: 'Payment Successful!', subHeading: 'You have made a salon payment' },
+      {
+        heading: 'Booking Cancelled',
+        subHeading: 'You have made a salon payment',
+      },
+      {
+        heading: 'Payment Successful!',
+        subHeading: 'You have made a salon payment',
+      },
     ],
   },
   {
     title: '17 Aug 2024',
     data: [
-      { heading: 'Booking Cancelled', subHeading: 'You have made a salon payment'  },
-      { heading: 'Payment Successful!', subHeading: 'You have made a salon payment' },
-      { heading: 'Account Setup Successful!', subHeading: 'You have made a salon payment' },
+      {
+        heading: 'Booking Cancelled',
+        subHeading: 'You have made a salon payment',
+      },
+      {
+        heading: 'Payment Successful!',
+        subHeading: 'You have made a salon payment',
+      },
+      {
+        heading: 'Account Setup Successful!',
+        subHeading: 'You have made a salon payment',
+      },
     ],
   },
 ];
@@ -340,7 +364,26 @@ const complaints =[
   {name:'Rejected' , value:'01',routeName:''},
 ]
 
+const staticBookings = [
+  {
+    date: 'Wed, Sep 10 at 9:30 AM',
+    professional: 'Marilyn Vetrovs',
+    timeslot: 'Sat 28 Sep 2024 at 9:30 AM',
+    services: [
+      {name: 'Hair Cut', price: 100},
+      {name: 'Hair Wash', price: 50},
+    ],
+  },
+];
 
+const paymentMethods = [
+  {id: '1', name: 'Apple Pay', icon: images.applePay},
+  {
+    id: '2',
+    name: 'Credit/Debit Card',
+    icon: images.applePay,
+  },
+];
 
 export {
   recentSearches,
@@ -368,4 +411,6 @@ export {
   notificationData,
   messages,
   complaints,
+  staticBookings,
+  paymentMethods,
 };
