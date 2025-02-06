@@ -109,8 +109,7 @@ const styles = StyleSheet.create({
     padding: 10,
     minHeight: 130,
     textAlignVertical: 'top',
-    // marginBottom: hp(8),
-    fontSize: RFValue(14), // Added font size for input text
+    fontSize: RFValue(14),
   },
   
 });

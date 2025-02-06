@@ -1,14 +1,15 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import images from '../../assets/images';
+import images from '../../../assets/images';
 import HomeStack from '../homeStack';
-import ProfileScreen from '../../screens/profileScreen/profile/profile';
-import EditProfile from '../../screens/profileScreen/editProfile/editProfile';
-import Booking from '../../screens/bookingScreen/booking';
+import ProfileScreen from '../../profileScreen/profile/profile';
+import EditProfile from '../../profileScreen/editProfile/editProfile';
+import Booking from '../../bookingScreen/booking';
 
 
-import colors from '../../assets/colors';
+
+import colors from '../../../assets/colors';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 const Tab = createBottomTabNavigator();

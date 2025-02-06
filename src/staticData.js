@@ -76,13 +76,13 @@ const mockData = [
 ];
 
 const menuOptions = [
-  {title: 'Edit Profile', img: EditIcon, routeName: 'editProfile'},
-  {title: 'Favorites', img: HeartIcon, routeName: 'favorites'},
-  {title: 'Booking History', img: HistoryIcon, routeName: 'booking'},
-  {title: 'Saved Cards', img: SaveCardIcon, routeName: 'savedCard'},
-  {title: 'Invoices', img: Invoice, routeName: 'editProfile'},
-  {title: 'Requests & Complaints', img: RequestIcon, routeName: 'editProfile'},
-  {title: 'Loyalty Points', img: Discount, routeName: 'editProfile'},
+  {title: 'Edit Profile', img: EditIcon,  routeName:'editProfile'},
+  {title: 'Favorites', img: HeartIcon , routeName:'favorites'},
+  {title: 'Booking History', img: HistoryIcon, routeName:'booking'},
+  {title: 'Saved Cards', img: SaveCardIcon, routeName:'savedCard'},
+  {title: 'Invoices', img: Invoice, routeName:'invoiceList'},
+  {title: 'Requests & Complaints', img: RequestIcon, routeName:'complaints'},
+  {title: 'Loyalty Points', img: Discount, routeName:'editProfile'},
 ];
 
 const categoriesOptions = [
@@ -358,6 +358,12 @@ const messages = {
   },
 };
 
+const complaints =[
+  {name:'Pending' , value:'02' , routeName:''},
+  {name:'Resolved' , value:'10',routeName:''},
+  {name:'Rejected' , value:'01',routeName:''},
+]
+
 const staticBookings = [
   {
     date: 'Wed, Sep 10 at 9:30 AM',
@@ -404,6 +410,7 @@ export {
   loginlang,
   notificationData,
   messages,
+  complaints,
   staticBookings,
   paymentMethods,
 };

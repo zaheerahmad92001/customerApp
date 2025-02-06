@@ -15,7 +15,7 @@ import {MediumText, SmallText } from '../../../components/Typography';
 import DottedLine from '../../../components/DottedHorizontalLine';
 import { AppButton } from '../../../components/appButton';
 
-const InvoiceDetail = () => {
+const InvoiceDetail = ({navigation, route}) => {
   const handleFavoritePress = id => {
     console.log(`Favorite pressed for salon ID: ${id}`);
   };
@@ -42,15 +42,18 @@ const InvoiceDetail = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Header title={'Invoice'} showBackButton />
+      <Header title={'Invoice'} showBackButton onBackPress={()=>navigation.goBack()} />
       <ScrollView style={styles.container}>
       <View style={styles.wrapper}>
+        <View style={styles.contentContainer}>
+          <View style={{marginTop:20,}}>
         <SalonCard
          item={mockData[0]}
           onFavorite={() => handleFavoritePress(mockData[0].id)}
           showFavoriteButton={false}
           position={mockData[0].position}
         />
+        </View>
         <View style={styles.content}>
           <View style={styles.serviceDetails}>
            <MediumText text={'Your Service'} style={styles.smallText}/>
@@ -72,6 +75,7 @@ const InvoiceDetail = () => {
             <AppButton onPress={handleDownload} title={isCancelled?'Pay Now': 'Download'} style={styles.downloadButton} />
           </View>
 
+        </View>
         </View>
       </View>
       </ScrollView>

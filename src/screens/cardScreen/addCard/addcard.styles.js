@@ -25,8 +25,8 @@ const styles = StyleSheet.create({
     alignSelf:'flex-start',
     },
     button: {
-  
-      // marginTop: 'auto',
+      marginHorizontal:wp(4),
+      marginTop:hp(4),
     },
     buttonText: {
       fontSize: RFValue(12),
