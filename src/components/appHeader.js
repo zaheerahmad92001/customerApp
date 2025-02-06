@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: wp(2),
-    paddingVertical: wp(2),
+    paddingVertical: wp(3),
     // height:
     //   Platform.OS === 'android' ? wp(12) + StatusBar.currentHeight : wp(12),
   },
