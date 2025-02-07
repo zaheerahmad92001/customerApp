@@ -82,7 +82,7 @@ const menuOptions = [
   {title: 'Saved Cards', img: SaveCardIcon, routeName:'savedCard'},
   {title: 'Invoices', img: Invoice, routeName:'invoiceList'},
   {title: 'Requests & Complaints', img: RequestIcon, routeName:'complaints'},
-  {title: 'Loyalty Points', img: Discount, routeName:'editProfile'},
+  {title: 'Loyalty Points', img: Discount, routeName:'loyaltyPoints'},
 ];
 
 const categoriesOptions = [
@@ -384,6 +384,7 @@ const paymentMethods = [
     icon: images.applePay,
   },
 ];
+const pointsButtons = ['All', 'Earned Points', 'Used Points']
 
 export {
   recentSearches,
@@ -413,4 +414,5 @@ export {
   complaints,
   staticBookings,
   paymentMethods,
+  pointsButtons
 };

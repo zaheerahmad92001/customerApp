@@ -19,6 +19,7 @@ import InvoiceList from '../invoiceScreen/invoiceList/invoiceList';
 import Complaints from '../complaintsScreens/complaints';
 import AddNewComplaint from '../addNewRequest/addNewComplaint';
 import ComplaintDetail from '../complaintDetail/complaintDetail';
+import LoyaltyPoints from '../loyaltyPointsScreen/loyaltyPoints';
 import Settings from '../settingScreen/settings/settings';
 import Chat from '../chatView/chatView';
 import Language from '../languageScreen/language/language';
@@ -50,6 +51,7 @@ function AppStack() {
       <Stack.Screen name='addNewComplaint' component={AddNewComplaint}/>
       <Stack.Screen name='complaintDetail' component={ComplaintDetail}/>
       <Stack.Screen name='Chat' component={Chat}/>
+      <Stack.Screen name='loyaltyPoints' component={LoyaltyPoints}/>
     </Stack.Navigator>
   );
 }
