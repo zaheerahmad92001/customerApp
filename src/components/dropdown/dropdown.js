@@ -19,11 +19,22 @@ const MyDropdown = ({labelField, placeholder, value, data, onChange}) => {
       value={value}
       onChange={onChange}
       maxHeight={300}
+      minHeight={200}
       fontFamily={fontsFamily.regular}
       iconStyle = {styles.iconStyle}
       placeholderStyle = {styles.placeholderStyle}
       selectedTextStyle = {styles.selectedTextStyle}
       containerStyle = {styles.dropDownContainerStyle}
+      itemContainerStyle = {{
+        paddingVertical:0,
+        marginVertical: 0,
+        
+      }}
+      itemTextStyle={{
+        fontSize: 14, // Adjust font size
+        paddingVertical: 2, // Reduce text padding
+      }}
+      
        />
     </View>
    );
@@ -42,7 +53,8 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     backgroundColor:colors.inputGray,
     fontFamily:fontsFamily.regular,
-    fontSize:RFValue(15)
+    fontSize:RFValue(15),
+  
     
    },
    iconStyle: {
@@ -50,16 +62,17 @@ const styles = StyleSheet.create({
   },
   dropDownContainerStyle:{
     borderRadius:10,
-    backgroundColor:colors.lightGray
+    backgroundColor:colors.lightGray,
+    
   },
   placeholderStyle : {
-    fontSize: RFValue(10),
-    color: colors.placholdercolor,
+    fontSize: RFValue(12),
+    color: colors.lightBlack,
     fontsFamily:fontsFamily.regular,
     marginLeft:10
   },
   selectedTextStyle : {
-    fontSize: RFValue(11),
+    fontSize: RFValue(12),
     color: colors.appBlack,
     fontsFamily:fontsFamily.regular,
     marginLeft:10
