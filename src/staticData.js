@@ -384,7 +384,8 @@ const paymentMethods = [
     icon: images.applePay,
   },
 ];
-const pointsButtons = ['All', 'Earned Points', 'Used Points']
+const pointsButtons = ['All', 'Earned Points', 'Used Points'];
+const requestStatus = ['Pending', 'Resolved', 'Rejected'];
 
 export {
   recentSearches,
@@ -414,5 +415,6 @@ export {
   complaints,
   staticBookings,
   paymentMethods,
-  pointsButtons
+  pointsButtons,
+  requestStatus
 };

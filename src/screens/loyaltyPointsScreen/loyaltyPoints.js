@@ -1,22 +1,17 @@
 import React, {useState} from 'react';
 import {
   View,
-  Text,
   SafeAreaView,
-  TouchableOpacity,
-  ScrollView,
 } from 'react-native';
 import colors from '../../assets/colors';
 import Header from '../../components/appHeader';
-import LoyaltyCard from '../../components/loyaltyCard/loyaltyCard';
-import {allPointData, earnPointData, pointsButtons, usedPointData} from '../../staticData';
 import LinearGradient from 'react-native-linear-gradient';
 import styles from './loyaltyPoint.style'
-import { LargeText, MediumText, SmallText, XlargeText } from '../../components/Typography';
+import { LargeText, SmallText, XlargeText } from '../../components/Typography';
+import TopTabView from '../../components/loyalityTabs/TopTabButton';
 
 const LoyaltyPoints = ({navigation , route}) => {
-  const [selectedCategory, setSelectedCategory] = useState('All');
-
+ 
   return (
     <SafeAreaView style={styles.container}>
       <Header title={'Loyalty Points'} showBackButton onBackPress={()=>navigation.goBack()} />
@@ -40,61 +35,8 @@ const LoyaltyPoints = ({navigation , route}) => {
 
         <LargeText text={'Loyalty Points History'} style={styles.heading}/>
 
-        <View style={styles.buttonContainer}>
-          {pointsButtons.map(category => (
-            <TouchableOpacity
-              key={category}
-              style={[
-                styles.button,
-                selectedCategory === category && styles.selectedButton,
-              ]}
-              onPress={() => setSelectedCategory(category)}>
-              <Text
-                style={[
-                  styles.buttonText,
-                  selectedCategory === category && styles.selectedButtonText,
-                ]}>
-                {category}
-              </Text>
-            </TouchableOpacity>
-          ))}
-        </View>
-
-        {selectedCategory === 'All' && (
-          <>
-            {allPointData.map(item => (
-              <LoyaltyCard
-                key={item.id}
-                points={item.points}
-                expiryDate={item.expiryDate}
-              />
-            ))}
-          </>
-        )}
-
-        {selectedCategory === 'Earned Points' && (
-          <>
-            {earnPointData.map(item => (
-              <LoyaltyCard
-                key={item.id}
-                points={item.points}
-                expiryDate={item.expiryDate}
-              />
-            ))}
-          </>
-        )}
-
-        {selectedCategory === 'Used Points' && (
-          <>
-            {usedPointData.map(item => (
-              <LoyaltyCard
-                key={item.id}
-                points={item.points}
-                expiryDate={item.expiryDate}
-              />
-            ))}
-          </>
-        )}
+        <TopTabView/>
+      
       </View>
     </SafeAreaView>
   );

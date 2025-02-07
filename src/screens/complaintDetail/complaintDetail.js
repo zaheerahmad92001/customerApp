@@ -5,7 +5,7 @@ import style from './complaintDetail.style';
 import ComplaintsCard from '../../components/complaintsCard/conplaintsCard';
 import Filter from '../../assets/svgs/filter-search.svg';
 import { LargeText, MediumText } from '../../components/Typography';
-import FilterScreen from '../../components/filterScreen/filterScreen';
+import FilterScreen from '../../components/modal/filterScreen/filterScreen';
 import ModalComponent from '../../components/modal/index';
 const ComplaintDetail = ({ navigation, route }) => {
 
