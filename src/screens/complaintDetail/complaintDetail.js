@@ -44,11 +44,6 @@ const openModal = () => {
 
 
   const renderItem = Item => <ComplaintsCard />;
-  const renderFilter = ()=>{
-    return(
-       <FilterScreen></FilterScreen>
-    );
-  }
 
   return (
     <SafeAreaView style={style.container}>
