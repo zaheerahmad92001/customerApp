@@ -56,9 +56,9 @@ const styles = {
   menuText: {
     fontSize: RFValue(13),
     fontFamily:fontsFamily.extraLight,
-    fontWeight: '400',
+    fontWeight: '500',
     color: colors.lightBlack,
-    marginLeft:12,
+    marginLeft:5,
   },
 };
 

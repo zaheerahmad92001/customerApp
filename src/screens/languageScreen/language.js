@@ -1,13 +1,15 @@
 import {FlatList, SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import React, {useState} from 'react';
-import {languages} from '../../../staticData';
-import LanguageSelector from '../../../components/languageSelector/languageSelector';
-import Header from '../../../components/appHeader';
-import colors from '../../../assets/colors';
+import {languages} from '../../staticData';
+import LanguageSelector from '../../components/languageSelector/languageSelector';
+import Header from '../../components/appHeader';
+import colors from '../../assets/colors';
 import { heightPercentageToDP as hp, widthPercentageToDP as wp } from 'react-native-responsive-screen';
-import { MediumText } from '../../../components/Typography';
+import { MediumText } from '../../components/Typography';
+import fontsFamily from '../../assets/fontsFamily';
+import { RFValue } from 'react-native-responsive-fontsize';
 
-const Language = () => {
+const Language = ({navigation, route}) => {
   const [selectedLanguage, setSelectedLanguage] = useState(null);
 
   const handleSelect = language => {
@@ -15,7 +17,7 @@ const Language = () => {
   };
   return (
     <SafeAreaView style={styles.container}>
-      <Header title={'Languages'} showBackButton />
+      <Header title={'Languages'} showBackButton onBackPress={()=>navigation.goBack()} />
       <View style={styles.wrapper}>
         <MediumText text='Please select your default language' style={styles.headerTitle}/>
       <FlatList
@@ -47,6 +49,9 @@ const styles = StyleSheet.create({
     color: colors.lightBlack,
     marginTop:hp(2),
     marginBottom:hp(2),
+    fontFamily:fontsFamily.medium,
+    fontWeight:'600',
+    fontSize:RFValue(14)
   },
 });
 

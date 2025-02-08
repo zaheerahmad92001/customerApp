@@ -79,7 +79,7 @@ console.log('navigation', navigation)
             title={option.title}
             Icon={option.img}
             showIcon={true}
-            onPress={() => console.log(`${option.title} pressed`)}
+            onPress={()=>handleNavigation(option.routeName)}
           />
         ))}
 

@@ -27,17 +27,18 @@ const styles = StyleSheet.create({
     backgroundColor: colors.lightGray,
     paddingVertical:hp(1.8),
     paddingHorizontal: 15,
-    borderRadius: 5,
+    borderRadius: 7,
   },
   radioCircle: {
-    height: 20,
-    width: 20,
-    borderRadius: 10,
-    borderWidth: 2,
+    height: 25,
+    width: 25,
+    borderRadius: 12.5,
+    borderWidth: 2.5,
     borderColor: colors.radioBorders,
     alignItems: 'center',
     justifyContent: 'center',
     marginRight: 10,
+    marginLeft: 8,
   },
   radioCircleInner: {
     width: 10,
@@ -50,7 +51,9 @@ const styles = StyleSheet.create({
   },
   label: {
     color: colors.lightBlack,
-    fontFamily: fontsFamily.extraLight,
+    fontFamily: fontsFamily.medium,
+    fontSize:RFValue(14),
+    marginLeft:15
   },
 });
 
