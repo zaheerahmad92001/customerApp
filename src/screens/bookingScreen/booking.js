@@ -1,5 +1,5 @@
 import {FlatList, SafeAreaView, StyleSheet, View} from 'react-native';
-import React, {useCallback, useReducer, useRef, useState} from 'react';
+import React, {useCallback, useReducer, useRef} from 'react';
 import BookingHistoryCard from '../../components/bookingHistoryCard/bookingHistoryCard';
 import images from '../../assets/images';
 import Header from '../../components/appHeader';
@@ -10,7 +10,6 @@ import { BottomSheet } from '../../components/bottomSheet';
 
 const BookingHistory = ({navigation , route}) => {
   const refRBSheet = useRef();
-  const [isVisible, setIsVisible] = useState(false);
 
       const [state, updateState] = useReducer(
         (state, newState) => ({...state, ...newState}),
@@ -92,14 +91,6 @@ const openBottomSheet = useCallback((item) => {
          onAgree={cancelBooking} />
       </BottomSheet>
 
-
-      {/* <ModalComponent
-        visible={isVisible}
-        onClose={() => {
-          setIsVisible(false);
-        }}>
-        
-      </ModalComponent> */}
     </SafeAreaView>
   );
 };

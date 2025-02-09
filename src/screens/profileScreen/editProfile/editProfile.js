@@ -18,6 +18,7 @@ const EditProfile = ({navigation, route}) => {
   const emailRef = useRef(null);
   const phoneRef = useRef(null);
   const dobRef = useRef(null);
+  const modalRef = useRef()
 
   const [state, updateState] = useReducer(
     (state, newState) => ({...state, ...newState}),
@@ -38,7 +39,17 @@ const EditProfile = ({navigation, route}) => {
   };
 
   const openModal = () => {
-    updateState({isVisible: isVisible ? false : true});
+    if (modalRef?.current) {
+      modalRef.current.open();
+    } else {
+    }
+  };
+  
+  const closeModal = () => {
+    if (modalRef?.current) {
+      modalRef.current.close();
+    } else {
+    }
   };
 
   const handleNavigation = () => {
@@ -147,14 +158,10 @@ const EditProfile = ({navigation, route}) => {
       </KeyboardAwareScrollView>
 
       <ModalComponent
-        visible={isVisible}
-        onClose={() => {
-          updateState({isVisible: false});
-        }}>
+        ref={modalRef}
+        onClose={closeModal}>
         <MediaPicker
-          onCancel={() => {
-            updateState({isVisible: false});
-          }}
+          onCancel={closeModal}
           captureWithCamera={() => {
             captureImageWithCamera(handleImagePicked);
           }}

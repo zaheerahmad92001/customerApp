@@ -101,7 +101,7 @@ const settingOptions = [
   {title: 'Delete Account'},
 ];
 
-const supportOptions = [{title: 'Contact Us', img: CallIcon}];
+const supportOptions = [{title: 'Contact Us', img: CallIcon ,routeName:'customerSupport'}];
 
 const accountManagement = [
   {title: 'Account Settings', img: Setting},

@@ -1,29 +1,58 @@
-import React from 'react';
-import {View, Text, SafeAreaView, ScrollView, Image} from 'react-native';
+import React, {useRef} from 'react';
+import {
+  View,
+  SafeAreaView,
+  ScrollView,
+  Image,
+  Pressable,
+} from 'react-native';
 import images from '../../../assets/images';
-import {accountManagement, menuOptions, supportOptions} from '../../../staticData';
+import {
+  accountManagement,
+  menuOptions,
+  supportOptions,
+} from '../../../staticData';
 import BackArrow from '../../../assets/svgs/backArrow.svg';
 import Header from '../../../components/appHeader';
 import MenuItem from '../../../components/menItems/menuItems';
 import styles from './profile.styles';
 import {
-  LargeText,
   MediumText,
   SmallText,
   XlargeText,
 } from '../../../components/Typography';
-import colors from '../../../assets/colors';
+import ModalComponent from '../../../components/modal';
+import LogoutModal from '../../../components/modal/logout';
+import { widthPercentageToDP } from 'react-native-responsive-screen';
 
-const Profile = ({navigation , route}) => {
-console.log('navigation', navigation)
-  const handleNavigation =(routeName)=>{
-    navigation.navigate(routeName)
-  }
+const Profile = ({navigation, route}) => {
+  const modalRef = useRef();
+  const handleNavigation = routeName => {
+    navigation.navigate(routeName);
+  };
+
+  const openModal = () => {
+    if (modalRef?.current) {
+      modalRef.current.open();
+    } else {
+    }
+  };
+
+  const closeModal = () => {
+    if (modalRef?.current) {
+      modalRef.current.close();
+    } else {
+    }
+  };
 
 
   return (
     <SafeAreaView style={styles.container}>
-      <Header title={'Profile'} showBackButton={true} onBackPress={()=>navigation.goBack()}/>
+      <Header
+        title={'Profile'}
+        showBackButton={true}
+        onBackPress={() => navigation.goBack()}
+      />
       <ScrollView showsVerticalScrollIndicator={false} style={styles.wrapper}>
         <View style={styles.profileContainer}>
           <View style={styles.imageContainer}>
@@ -39,10 +68,12 @@ console.log('navigation', navigation)
           </View>
         </View>
 
-        <View style={styles.inviteContainer}>
+        <Pressable
+          onPress={() => handleNavigation('inviteFriends')}
+          style={styles.inviteContainer}>
           <BackArrow />
           <XlargeText text={'Invite Friends'} style={styles.inv} />
-        </View>
+        </Pressable>
 
         <MediumText text={'Personal Information'} style={styles.infoText} />
 
@@ -54,8 +85,7 @@ console.log('navigation', navigation)
                 title={option.title}
                 Icon={option.img}
                 showIcon={true}
-                // style={{backgroundColor:colors.inputGray}}
-                onPress={()=>handleNavigation(option.routeName)}
+                onPress={() => handleNavigation(option.routeName)}
               />
             );
           })}
@@ -68,22 +98,31 @@ console.log('navigation', navigation)
             title={option.title}
             Icon={option.img}
             showIcon={true}
-            onPress={() => console.log(`${option.title} pressed`)}
+            onPress={() => handleNavigation(option.routeName)}
           />
         ))}
 
-<MediumText text={'Account Managment'} style={styles.supportStyle} />
+        <MediumText text={'Account Managment'} style={styles.supportStyle} />
         {accountManagement.map((option, index) => (
           <MenuItem
             key={index}
             title={option.title}
             Icon={option.img}
             showIcon={true}
-            onPress={() => console.log(`${option.title} pressed`)}
+            onPress={openModal}
           />
         ))}
-
       </ScrollView>
+      <ModalComponent
+        ref={modalRef}
+        onClose={closeModal}
+        style={{width: widthPercentageToDP(80)}}
+        >
+        <LogoutModal
+        handleLogout={()=>{}}
+        handleCancel={closeModal}
+        />
+      </ModalComponent>
     </SafeAreaView>
   );
 };

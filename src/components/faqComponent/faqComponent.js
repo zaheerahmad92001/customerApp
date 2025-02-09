@@ -1,10 +1,10 @@
-// FAQItem.js
 import React, {useState} from 'react';
-import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
-import {RFValue} from 'react-native-responsive-fontsize';
-import Entypo from 'react-native-vector-icons/Entypo';
+import {View, TouchableOpacity, StyleSheet, Pressable} from 'react-native';
 import colors from '../../assets/colors';
 import fontsFamily from '../../assets/fontsFamily';
+import { LargeText, SmallText } from '../Typography';
+import DownArrow from '../../assets/svgs/down-arrow-light-black.svg';
+import UpArrow from '../../assets/svgs/up-arrow.svg';
 
 const FAQItem = ({question, answer}) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,23 +12,25 @@ const FAQItem = ({question, answer}) => {
   return (
     <View style={styles.container}>
       <View style={styles.card}>
-        <TouchableOpacity
+        <Pressable
           onPress={() => setIsOpen(!isOpen)}
           style={styles.questionContainer}>
-          <Text style={styles.question}>{question}</Text>
+            <LargeText text={question} style={styles.question}/>
           {isOpen ? (
-            <Entypo name="chevron-up" size={20} />
+            <UpArrow/>
           ) : (
-            <Entypo name="chevron-down" size={20} />
+            <DownArrow/>
           )}
-        </TouchableOpacity>
+        </Pressable>
       </View>
-      {isOpen && <Text style={styles.answer}>{answer}</Text>}
+      {isOpen && <SmallText text={answer} style={styles.answer}/>}
     </View>
   );
 };
 
 const styles = StyleSheet.create({
+
+  
   card: {
     marginVertical: 8,
     paddingHorizontal: 16,
@@ -42,14 +44,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   question: {
-    fontSize: RFValue(14),
-    fontFamily: fontsFamily.semiBold,
+    textAlign:'left',
+    fontWeight:'500',
+    color:colors.appBlack
   },
   answer: {
-    marginBottom: 8,
-    fontSize: RFValue(12),
-    fontFamily: fontsFamily.regular,
     color: colors.lightBlack,
+    fontFamily:fontsFamily.regular,
+    fontWeight:'400',
   },
 });
 

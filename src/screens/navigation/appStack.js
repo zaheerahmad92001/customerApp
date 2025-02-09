@@ -4,7 +4,6 @@ import * as React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import BottomStack from './bottomTabs/bottomStack';
 import NotificationStack from './notificationStack';
-import FavouriteStack from './favouriteStack';
 import SuccessScreen from '../successMessageScreen/succesScreen';
 import Categories from '../categoriesScreen/categories';
 import CategoryListing from '../categoryListing/categoryListing';
@@ -25,6 +24,8 @@ import Chat from '../chatView/chatView';
 import Language from '../languageScreen/language/language';
 import NotificationSetting from '../notificationSettingsScreen/notificationSetting';
 import ChangePassword from '../changePasswordScreen/changePassword';
+import Support from '../supportScreen';
+import InviteFriends from '../inviteFriends/inviteFriends';
 
 const Stack = createNativeStackNavigator();
 
@@ -48,10 +49,14 @@ function AppStack() {
       <Stack.Screen name="invoiceList" component={InvoiceList}/>
       <Stack.Screen name="invoiceDetail" component={invoiceDetail}/>
       <Stack.Screen name="complaints" component={Complaints}/>
-      <Stack.Screen name='addNewComplaint' component={AddNewComplaint}/>
-      <Stack.Screen name='complaintDetail' component={ComplaintDetail}/>
-      <Stack.Screen name='Chat' component={Chat}/>
-      <Stack.Screen name='loyaltyPoints' component={LoyaltyPoints}/>
+      <Stack.Screen name="addNewComplaint" component={AddNewComplaint}/>
+      <Stack.Screen name="complaintDetail" component={ComplaintDetail}/>
+      <Stack.Screen name="chat" component={Chat}/>
+      <Stack.Screen name="loyaltyPoints" component={LoyaltyPoints}/>
+      <Stack.Screen name="customerSupport" component={Support}/>
+      <Stack.Screen name="inviteFriends" component={InviteFriends}/>
+
+
     </Stack.Navigator>
   );
 }

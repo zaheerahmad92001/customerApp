@@ -1,54 +1,33 @@
-import React, { useReducer } from 'react';
+import React, { useRef } from 'react';
 import Header from '../../components/appHeader';
-import { FlatList, Pressable, SafeAreaView, Text, View } from 'react-native';
+import { FlatList, Pressable, SafeAreaView, View } from 'react-native';
 import style from './complaintDetail.style';
 import ComplaintsCard from '../../components/complaintsCard/conplaintsCard';
 import Filter from '../../assets/svgs/filter-search.svg';
 import { LargeText, MediumText } from '../../components/Typography';
-import FilterScreen from '../../components/modal/filterScreen/filterScreen';
+import FilterScreen from '../../components/modal/filterScreen';
 import ModalComponent from '../../components/modal/index';
-const ComplaintDetail = ({ navigation, route }) => {
 
+
+const ComplaintDetail = ({ navigation, route }) => {
+ const modalRef = useRef();
   const { scene } = route.params;
 
-
-// const [state, updateState] = useReducer(
-//     (state, newState) => ({...state, ...newState}),
-//     {
-//       isVisible: false,
-//       profileImage: null,
-//       fname: null,
-//       lname: null,
-//       email: null,
-//       phone: null,
-//       dob: null,
-//     },
-//   );
-//   const {isVisible, profileImage, fname, lname, email, phone, dob} = state;
-
-
-
-
-const [state , updateState] = useReducer (
-  (state, newState) => ({...state, ...newState}),
-  {
-    isVisible: false,
-  }
-); 
-const {isVisible} = state;
-
 const openModal = () => {
-  updateState({isVisible: isVisible ? false : true});
+  if (modalRef?.current) {
+    modalRef.current.open();
+  } else {
+  }
 };
 
-
+const closeModal = () => {
+  if (modalRef?.current) {
+    modalRef.current.close();
+  } else {
+  }
+};
 
   const renderItem = Item => <ComplaintsCard />;
-  const renderFilter = ()=>{
-    return(
-       <FilterScreen></FilterScreen>
-    );
-  }
 
   return (
     <SafeAreaView style={style.container}>
@@ -78,18 +57,13 @@ const openModal = () => {
       </View>
 
       <ModalComponent
-        visible={isVisible}
-        onClose={() => {
-          updateState({isVisible: false});
-        }}>
+       ref={modalRef}
+        onClose={closeModal}>
         <FilterScreen
-          onCancel={() => {
-            updateState({isVisible: false});
-          }}
+          onCancel={closeModal}
           onApply={() => {
             console.log('Apply')
           }}
-          
         />
       </ModalComponent>
     </SafeAreaView>
