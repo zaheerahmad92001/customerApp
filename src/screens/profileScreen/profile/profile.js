@@ -109,7 +109,7 @@ const Profile = ({navigation, route}) => {
             title={option.title}
             Icon={option.img}
             showIcon={true}
-            onPress={openModal}
+            onPress={()=>handleNavigation(option.routeName)}
           />
         ))}
       </ScrollView>

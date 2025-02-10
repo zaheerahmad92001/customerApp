@@ -18,7 +18,7 @@ import {
 import {MediumText} from '../../components/Typography';
 import {AppButton} from '../../components/appButton';
 
-const ChangePassword = () => {
+const ChangePassword = ({navigation,route}) => {
   const [state, updateState] = useReducer(
       (state, newState) => ({...state, ...newState}),
       {
@@ -35,7 +35,7 @@ const ChangePassword = () => {
   };
   return (
     <SafeAreaView style={styles.container}>
-      <Header title={'Change Password'} showBackButton />
+      <Header title={'Change Password'} showBackButton onBackPress={()=>navigation.goBack()}/>
       <View style={styles.wrapper}>
         <MediumText
           text="Please Enter your current password"
@@ -63,7 +63,7 @@ const ChangePassword = () => {
           onChange={text => updateState({confirmPass:text})}
         />
 
-        <AppButton title="Change Password" onPress={handleChangePassword} />
+        <AppButton title="Change Password" onPress={handleChangePassword} style= {{marginBottom : hp(1)}} />
       </View>
     </SafeAreaView>
   );
@@ -82,6 +82,9 @@ const styles = StyleSheet.create({
     color: colors.lightBlack,
     marginTop: hp(2),
     marginBottom: hp(2),
+    fontFamily:fontsFamily.medium,
+    fontSize:RFValue(14),
+    fontWeight:'500'
   },
   newPassText: {
     color: colors.lightBlack,

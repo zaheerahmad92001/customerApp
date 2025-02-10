@@ -92,20 +92,20 @@ const categoriesOptions = [
   {title: 'Salon & Spa', img: images.salonSpa},
 ];
 
-const settingOptions = [
-  {title: 'Language'},
-  {title: 'Notification Settings'},
-  {title: 'Change Password'},
-  {title: 'Privacy Policy'},
-  {title: 'Terms & Conditions'},
-  {title: 'Delete Account'},
+const settingOptions = [ 
+  {title: 'Language', routeName:'language'},
+  {title: 'Notification Settings' , routeName:'notificationSetting'},
+  {title: 'Change Password', routeName:'changePassword'},
+  {title: 'Privacy Policy', routeName:'privacyPolicy'},
+  {title: 'Terms & Conditions', routeName:'termsCondition'},
+  {title: 'Delete Account', routeName:'deleteAccount'},
 ];
 
 const supportOptions = [{title: 'Contact Us', img: CallIcon ,routeName:'customerSupport'}];
 
-const accountManagement = [
-  {title: 'Account Settings', img: Setting},
-  {title: 'Logout', img: Logout},
+const accountManagement = [ 
+  {title: 'Account Settings', img: Setting, routeName:'settings'},
+  {title: 'Logout', img: Logout, routeName:'editProfile'},
 ];
 
 const dummyData = {

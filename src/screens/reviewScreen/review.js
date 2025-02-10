@@ -87,7 +87,10 @@ const Review = ({navigation , route}) => {
 
           <View style={styles.options}>
             <View style={styles.radioButtonContainer}>
-              <RadioButton options={['Yes', 'No']} />
+              <RadioButton options={[
+                {key:'Yes',value:'Yes'},
+                {key:'No',value:'No'}
+              ]} />
             </View>
           </View>
 

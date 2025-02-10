@@ -1,15 +1,20 @@
 import {View, Text, StyleSheet, SafeAreaView} from 'react-native';
 import React from 'react';
-import Header from '../../../components/appHeader';
-import MenuItem from '../../../components/menItems/menuItems';
-import {settingOptions} from '../../../staticData';
-import colors from '../../../assets/colors';
+import Header from '../../components/appHeader';
+import MenuItem from '../../components/menItems/menuItems';
+import {settingOptions} from '../../staticData';
+import colors from '../../assets/colors';
 import { widthPercentageToDP as wp } from 'react-native-responsive-screen';
 
-const Settings = () => {
+const Settings = ({navigation,route}) => {
+
+
+  const handleNavigation =(routeName)=>{
+    navigation.navigate(routeName)
+  }
   return (
     <SafeAreaView style={styles.container}>
-      <Header title={'Settings'} showBackButton />
+      <Header title={'Settings'} showBackButton onBackPress={()=>navigation.goBack()}/>
       <View style={styles.wrapper}>
       <View style={styles.menuContainer}>
         {settingOptions.map((option, index) => (
@@ -18,7 +23,7 @@ const Settings = () => {
             title={option.title}
             img={option.img}
             showImage={false}
-            onPress={() => console.log(`${option.title} pressed`)}
+            onPress={() => handleNavigation(option.routeName)}
           />
         ))}
       </View>

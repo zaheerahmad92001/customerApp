@@ -19,11 +19,15 @@ import Complaints from '../complaintsScreens/complaints';
 import AddNewComplaint from '../addNewRequest/addNewComplaint';
 import ComplaintDetail from '../complaintDetail/complaintDetail';
 import LoyaltyPoints from '../loyaltyPointsScreen/loyaltyPoints';
-import Settings from '../settingScreen/settings/settings';
+import Settings from '../settingScreen/settings';
 import Chat from '../chatView/chatView';
-import Language from '../languageScreen/language/language';
+import Language from '../languageScreen/language';
 import NotificationSetting from '../notificationSettingsScreen/notificationSetting';
 import ChangePassword from '../changePasswordScreen/changePassword';
+import PrivacyPolicy from '../privacyPolicyScreen/privacyPolicy';
+import TermCondition from '../termConditionScreen/termCondition';
+import DeleteAccount from '../deleteAccountScreen/deleteAccount';
+
 import Support from '../supportScreen';
 import InviteFriends from '../inviteFriends/inviteFriends';
 
@@ -51,8 +55,15 @@ function AppStack() {
       <Stack.Screen name="complaints" component={Complaints}/>
       <Stack.Screen name="addNewComplaint" component={AddNewComplaint}/>
       <Stack.Screen name="complaintDetail" component={ComplaintDetail}/>
-      <Stack.Screen name="chat" component={Chat}/>
+      <Stack.Screen name="Chat" component={Chat}/>
       <Stack.Screen name="loyaltyPoints" component={LoyaltyPoints}/>
+      <Stack.Screen name="settings" component={Settings}/>
+      <Stack.Screen name="language" component={Language}/>
+      <Stack.Screen name="notificationSetting" component={NotificationSetting}/>
+      <Stack.Screen name="changePassword" component={ChangePassword}/>
+      <Stack.Screen name="privacyPolicy" component={PrivacyPolicy}/>
+      <Stack.Screen name="termsCondition" component={TermCondition}/>
+      <Stack.Screen name="deleteAccount" component={DeleteAccount}/>
       <Stack.Screen name="customerSupport" component={Support}/>
       <Stack.Screen name="inviteFriends" component={InviteFriends}/>
 

@@ -9,7 +9,8 @@ import {toggleItems} from '../../staticData';
 import { heightPercentageToDP as hp, widthPercentageToDP as wp} from 'react-native-responsive-screen';
 import { MediumText } from '../../components/Typography';
 
-const NotificationSettings = () => {
+const NotificationSettings = ({navigation, route}) => {
+
   const [toggles, setToggles] = useState(toggleItems);
 
   const handleToggle = id => {
@@ -22,7 +23,7 @@ const NotificationSettings = () => {
   
   return (
     <SafeAreaView style={styles.container}>
-      <Header title={'Notification Settings'} showBackButton />
+      <Header title={'Notification Settings'} showBackButton onBackPress={()=> navigation.goBack()}/>
       <View style={styles.wrapper}>
       <MediumText text='Settings' style={styles.heading}/>
       <FlatList
@@ -54,6 +55,9 @@ const styles = StyleSheet.create({
     color: colors.lightBlack,
     marginTop:hp(2),
     marginBottom:hp(2),
+    fontFamily:fontsFamily.medium,
+    fontSize:RFValue(14),
+    fontWeight:'500'
   },
 });
 

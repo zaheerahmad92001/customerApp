@@ -5,6 +5,7 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
+  Pressable,
 } from 'react-native';
 import FeatherIcons from 'react-native-vector-icons/Feather'; // Ensure this import
 import colors from '../../assets/colors';
@@ -38,13 +39,13 @@ const PasswordInput = ({
           placeholderTextColor="#aaa"
           onChangeText={onChange}
         />
-        <TouchableOpacity onPress={togglePasswordVisibility}>
+        <Pressable onPress={togglePasswordVisibility} style = {{marginRight:10}}>
           {isPasswordVisible ? (
             <FeatherIcons name={'eye'} size={20} color={colors.lightBlack} />
           ) : (
             <CloseEye />
           )}
-        </TouchableOpacity>
+        </Pressable>
       </View>
     </View>
   );
@@ -75,6 +76,7 @@ const styles = StyleSheet.create({
   },
   icon: {
     marginRight: 10,
+    marginLeft:8
   },
 });
 
