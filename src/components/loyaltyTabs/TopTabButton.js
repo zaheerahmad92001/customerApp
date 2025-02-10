@@ -36,22 +36,22 @@ const MyTabBar = ({ navigationState, position, jumpTo }) => {
   );
 };
 
-export default function TopTabView() {
+export default function TopTabView({ routes, scenes }) {
   const layout = useWindowDimensions();
   const [index, setIndex] = React.useState(0);
-  const [routes] = React.useState([
-    { key: 'first', title: 'All' },
-    { key: 'second', title: 'Earned Points' },
-    { key: 'third', title: 'Used Points' },
-  ]);
+  // const [routes] = React.useState([
+  //   { key: 'first', title: 'All' },
+  //   { key: 'second', title: 'Earned Points' },
+  //   { key: 'third', title: 'Used Points' },
+  // ]);
 
   return (
     <TabView
       navigationState={{ index, routes }}
-      renderScene={renderScene}
+      renderScene={scenes}
       onIndexChange={setIndex}
       initialLayout={{ width: layout.width }}
-      renderTabBar={(props) => <MyTabBar {...props} />} // ✅ Using Custom TabBar
+      renderTabBar={(props) => <MyTabBar {...props} />}
     />
   );
 }
@@ -72,14 +72,13 @@ const styles = StyleSheet.create({
   label: {
     fontSize: RFValue(12),
     fontFamily:fontsFamily.regular,
-    fontWeight:'500',
+    fontWeight:'600',
     color: colors.lightBlack,
   },
   activeLabel: {
     color: colors.white,
     fontFamily:fontsFamily.regular,
     fontSize:RFValue(12),
-    // borderRadius: 10,
   },
   indicator: {
     // width: '60%',

@@ -8,6 +8,7 @@ import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
 import fontsFamily from '../assets/fontsFamily';
 import {recentSearches} from '../staticData';
 
+
 const Search = props => {
   const {setFilteredSearches, setIsInputActive , isHome, isSearch = false} = props;
 
@@ -55,6 +56,7 @@ const Search = props => {
         </Pressable>
 }
       </View>
+
     </View>
   );
 };

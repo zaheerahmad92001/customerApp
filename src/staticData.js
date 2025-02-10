@@ -94,14 +94,14 @@ const categoriesOptions = [
 
 const settingOptions = [ 
   {title: 'Language', routeName:'language'},
-  {title: 'Notification Settings' , routeName:'notificationsetting'},
-  {title: 'Change Password', routeName:'changepassword'},
-  {title: 'Privacy Policy', routeName:'privacypolicy'},
-  {title: 'Terms & Conditions', routeName:'termcondition'},
-  {title: 'Delete Account', routeName:'deleteaccount'},
+  {title: 'Notification Settings' , routeName:'notificationSetting'},
+  {title: 'Change Password', routeName:'changePassword'},
+  {title: 'Privacy Policy', routeName:'privacyPolicy'},
+  {title: 'Terms & Conditions', routeName:'termsCondition'},
+  {title: 'Delete Account', routeName:'deleteAccount'},
 ];
 
-const supportOptions = [{title: 'Contact Us', img: CallIcon}];
+const supportOptions = [{title: 'Contact Us', img: CallIcon ,routeName:'customerSupport'}];
 
 const accountManagement = [ 
   {title: 'Account Settings', img: Setting, routeName:'settings'},

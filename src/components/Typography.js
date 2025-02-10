@@ -26,13 +26,13 @@ const styles = StyleSheet.create({
   xlText: {
     fontSize: RFValue(15),
     fontFamily: fontsFamily.regular,
-    fontWeight:'500',
+    fontWeight:'600',
     color:colors.appBlack,
   },
   lText: {
     fontSize: RFValue(14),
     fontFamily: fontsFamily.regular,
-    fontWeight:'500',
+    fontWeight:'600',
     textAlign: 'center',
     color:colors.appBlack,
   },
@@ -40,13 +40,13 @@ const styles = StyleSheet.create({
     color:colors.appBlack,
     fontFamily:fontsFamily.regular,
     fontSize:RFValue(13),
-    fontWeight:'500',
+    fontWeight:'600',
   },
   smallText:{
     color:colors.appBlack,
     fontFamily:fontsFamily.thin,
     fontSize:RFValue(12),
-    fontWeight:'500',
+    fontWeight:'600',
   }
 });
 

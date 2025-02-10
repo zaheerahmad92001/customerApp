@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {
   View,
   SafeAreaView,
@@ -6,9 +6,9 @@ import {
 import colors from '../../assets/colors';
 import Header from '../../components/appHeader';
 import LinearGradient from 'react-native-linear-gradient';
-import styles from './loyaltyPoint.style'
+import styles from './loyaltyPoints.style'
 import { LargeText, SmallText, XlargeText } from '../../components/Typography';
-import TopTabView from '../../components/loyalityTabs/TopTabButton';
+import LoyaltyPointTabs from '../../components/loyaltyTabs';
 
 const LoyaltyPoints = ({navigation , route}) => {
  
@@ -35,7 +35,7 @@ const LoyaltyPoints = ({navigation , route}) => {
 
         <LargeText text={'Loyalty Points History'} style={styles.heading}/>
 
-        <TopTabView/>
+        <LoyaltyPointTabs/>
       
       </View>
     </SafeAreaView>

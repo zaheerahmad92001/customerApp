@@ -4,7 +4,6 @@ import * as React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import BottomStack from './bottomTabs/bottomStack';
 import NotificationStack from './notificationStack';
-import FavouriteStack from './favouriteStack';
 import SuccessScreen from '../successMessageScreen/succesScreen';
 import Categories from '../categoriesScreen/categories';
 import CategoryListing from '../categoryListing/categoryListing';
@@ -29,6 +28,8 @@ import PrivacyPolicy from '../privacyPolicyScreen/privacyPolicy';
 import TermCondition from '../termConditionScreen/termCondition';
 import DeleteAccount from '../deleteAccountScreen/deleteAccount';
 
+import Support from '../supportScreen';
+import InviteFriends from '../inviteFriends/inviteFriends';
 
 const Stack = createNativeStackNavigator();
 
@@ -52,17 +53,20 @@ function AppStack() {
       <Stack.Screen name="invoiceList" component={InvoiceList}/>
       <Stack.Screen name="invoiceDetail" component={invoiceDetail}/>
       <Stack.Screen name="complaints" component={Complaints}/>
-      <Stack.Screen name='addNewComplaint' component={AddNewComplaint}/>
-      <Stack.Screen name='complaintDetail' component={ComplaintDetail}/>
-      <Stack.Screen name='Chat' component={Chat}/>
-      <Stack.Screen name='loyaltyPoints' component={LoyaltyPoints}/>
-      <Stack.Screen name='settings' component={Settings}/> 
-      <Stack.Screen name='language' component={Language}/> 
-      <Stack.Screen name='notificationsetting' component={NotificationSetting}/>  
-      <Stack.Screen name='changepassword' component={ChangePassword}/>  
-      <Stack.Screen name='privacypolicy' component={PrivacyPolicy}/>  
-      <Stack.Screen name='termcondition' component={TermCondition}/>  
-      <Stack.Screen name='deleteaccount' component={DeleteAccount}/>
+      <Stack.Screen name="addNewComplaint" component={AddNewComplaint}/>
+      <Stack.Screen name="complaintDetail" component={ComplaintDetail}/>
+      <Stack.Screen name="Chat" component={Chat}/>
+      <Stack.Screen name="loyaltyPoints" component={LoyaltyPoints}/>
+      <Stack.Screen name="settings" component={Settings}/>
+      <Stack.Screen name="language" component={Language}/>
+      <Stack.Screen name="notificationSetting" component={NotificationSetting}/>
+      <Stack.Screen name="changePassword" component={ChangePassword}/>
+      <Stack.Screen name="privacyPolicy" component={PrivacyPolicy}/>
+      <Stack.Screen name="termsCondition" component={TermCondition}/>
+      <Stack.Screen name="deleteAccount" component={DeleteAccount}/>
+      <Stack.Screen name="customerSupport" component={Support}/>
+      <Stack.Screen name="inviteFriends" component={InviteFriends}/>
+
 
     </Stack.Navigator>
   );

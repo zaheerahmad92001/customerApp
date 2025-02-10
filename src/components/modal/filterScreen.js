@@ -1,16 +1,16 @@
 import React, {useState} from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import colors from '../../../assets/colors';
+import colors from '../../assets/colors';
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
 } from 'react-native-responsive-screen';
-import MyDropdown from '../../dropdown/dropdown';
+import MyDropdown from '../dropdown/dropdown';
 import {RFValue} from 'react-native-responsive-fontsize';
-import fontsFamily from '../../../assets/fontsFamily';
-import DatePickerComponent from '../../datePicker/datePicker';
-import {AppButton} from '../../appButton';
-import { requestStatus } from '../../../staticData';
+import fontsFamily from '../../assets/fontsFamily';
+import DatePickerComponent from '../datePicker/datePicker';
+import {AppButton} from '../appButton';
+import { requestStatus } from '../../staticData';
 const FilterScreen = props => {
   const {onCancel, onApply} = props;
   const [selectedValue, setSelectedValue] = useState(null);

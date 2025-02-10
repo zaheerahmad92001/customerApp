@@ -12,7 +12,7 @@ const ChatList = ({navigation , route}) => {
   const [isInputActive, setIsInputActive] = useState(false);
   
   const handleNavigation=(item)=>{
-  navigation.navigate('Chat',{item})
+  navigation.navigate('chat',{item})
   }
 
   const renderChatCard = ({item}) => {

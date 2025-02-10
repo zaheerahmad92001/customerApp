@@ -1,17 +1,23 @@
 import React from 'react';
 import {View, Text, TouchableOpacity, StyleSheet, Pressable} from 'react-native';
 import {RFValue} from 'react-native-responsive-fontsize';
+import { Divider } from 'react-native-paper';
+import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import colors from '../../assets/colors';
 import fontsFamily from '../../assets/fontsFamily';
 
 const ReasonSelector = ({label, onSelect, selected}) => {
   return (
+    <>    
     <Pressable style={styles.container} onPress={() => onSelect(label)}>
       <View style={[styles.radioCircle, selected && styles.selected]}>
         {selected && <View style={styles.radioCircleInner} />}
       </View>
       <Text style={styles.label}>{label}</Text>
     </Pressable>
+    <Divider style={styles.divider} />
+    </>
+
   );
 };
 
@@ -20,11 +26,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     marginVertical: 8,
-    borderBottomWidth: 1,
-    borderColor: colors.lightGray,
+    // borderBottomWidth: 1,
+    // borderColor: colors.gray,
     paddingVertical: 10,
-    // paddingHorizontal: 15,
-    borderRadius: 5,
   },
   radioCircle: {
     height: 25,
@@ -53,6 +57,9 @@ const styles = StyleSheet.create({
     fontWeight:'500',
     marginLeft:8
   },
+  divider: {
+      borderWidth: 0.1,
+    },
 });
 
 export default ReasonSelector;

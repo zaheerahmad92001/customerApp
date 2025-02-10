@@ -1,7 +1,8 @@
-import {View, Text, SafeAreaView, StyleSheet} from 'react-native';
+import {SafeAreaView} from 'react-native';
 import React from 'react';
 import BookingHistoryCard from '../../../components/bookingHistoryCard/bookingHistoryCard';
 import images from '../../../assets/images';
+import styles  from './pendingBooking.style';
 
 const PendingBooking = () => {
   const handleCancel = () => {
@@ -29,11 +30,6 @@ const PendingBooking = () => {
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 15,
-  },
-});
+
 
 export default PendingBooking;
