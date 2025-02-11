@@ -28,12 +28,12 @@ const styles = StyleSheet.create({
   label: {
     fontSize: RFValue(13),
     color: colors.appBlack,
-    fontFamily: fontsFamily.regular,
+    fontFamily: fontsFamily.medium,
     fontWeight:'400',
-    marginBottom: 4,
+    marginBottom: 8,
   },
   input: {
-    // height: 40,
+     height: 50,
     paddingVertical:12,
     borderRadius:8,
     paddingHorizontal: 15,

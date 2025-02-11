@@ -26,7 +26,9 @@ import NotificationSetting from '../notificationSettingsScreen/notificationSetti
 import ChangePassword from '../changePasswordScreen/changePassword';
 import Support from '../supportScreen';
 import InviteFriends from '../inviteFriends/inviteFriends';
-
+import SignUp from '../signUpScreen/signUp';
+import OtpView from '../otpScreen/otp/otp';
+import Login from '../loginScreen/login/login';
 const Stack = createNativeStackNavigator();
 
 function AppStack() {
@@ -55,8 +57,11 @@ function AppStack() {
       <Stack.Screen name="loyaltyPoints" component={LoyaltyPoints}/>
       <Stack.Screen name="customerSupport" component={Support}/>
       <Stack.Screen name="inviteFriends" component={InviteFriends}/>
+      <Stack.Screen name="signup" component={SignUp}/>
+      <Stack.Screen name="otpview" component={OtpView}/>
+      <Stack.Screen name="login" component={Login}/>
 
-
+    
     </Stack.Navigator>
   );
 }

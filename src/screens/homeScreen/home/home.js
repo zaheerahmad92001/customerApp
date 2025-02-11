@@ -51,7 +51,8 @@ const HomeScreen = ({ navigation, route }) => {
   const { isModalVisible,isVisible } = state;
   
   const openModal = () => {
-    updateState({ isVisible: isVisible ? false : true });
+    //updateState({ isVisible: isVisible ? false : true });
+    navigation.navigate('signup');
   };
 
 
