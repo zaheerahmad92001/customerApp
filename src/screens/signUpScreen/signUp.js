@@ -27,39 +27,34 @@ const SignUp = ({ navigation, route }) => {
       <View style={styles.mainContainer}>
         <XlargeText text={'Create your Account!'} style={styles.heading} />
         <SmallText text={'Phone Number'} style={styles.label} />
-        {/* <ContactInput></ContactInput> */}
-       
-      {/* <SmallText text={'Phone Number'} style={styles.label} /> */}
-      {/* <ContactInput/> */}
-      
-      {console.log('phoneNumber',phoneNumber,'countryCode',countryCode)}
+        {console.log('phoneNumber', phoneNumber, 'countryCode', countryCode)}
 
-<PhoneInput
-        ref={phoneInput}
-        defaultValue={phoneNumber}
-        defaultCode="SA"
-        layout="first"
-        placeholder="Enter your phone number"
-        disableCountryCode={true} 
-        onChangeText={(text) => {
-          setPhoneNumber(text);
-        }}
-        onChangeFormattedText={text => setFormattedValue(text)}
-        onChangeCountry={country => setCountryCode(country.callingCode)}
-        withShadow={false}
-        containerStyle={styles.phoneContainer}
-        textContainerStyle={styles.textInput}
-        flagButtonStyle={styles.flagButton}
-        textInputProps={{
-          placeholderTextColor: colors.lightBlack,
-          fontFamily: fontsFamily.regular,
-          fontSize: RFValue(12),
-          style: { paddingLeft: 0, marginLeft: -20, textAlign: "left" }
-        }}
-        renderDropdownImage={
-          <DownArrow/>
-        }
-      />
+        <PhoneInput
+          ref={phoneInput}
+          defaultValue={phoneNumber}
+          defaultCode="SA"
+          layout="first"
+          placeholder="Enter your phone number"
+          disableCountryCode={true}
+          onChangeText={(text) => {
+            setPhoneNumber(text);
+          }}
+          onChangeFormattedText={text => setFormattedValue(text)}
+          onChangeCountry={country => setCountryCode(country.callingCode)}
+          withShadow={false}
+          containerStyle={styles.phoneContainer}
+          textContainerStyle={styles.textInput}
+          flagButtonStyle={styles.flagButton}
+          textInputProps={{
+            placeholderTextColor: colors.lightBlack,
+            fontFamily: fontsFamily.regular,
+            fontSize: RFValue(12),
+            style: { paddingLeft: 0, marginLeft: -20, textAlign: "left" }
+          }}
+          renderDropdownImage={
+            <DownArrow />
+          }
+        />
 
         <View style={styles.nameContainer}>
 
@@ -99,7 +94,7 @@ const SignUp = ({ navigation, route }) => {
               </Text>
             </Text>
           </View>
-          
+
         </View>
 
         <AppButton
@@ -107,7 +102,7 @@ const SignUp = ({ navigation, route }) => {
           disabled={!isChecked}
           style={styles.signUpButton}
           textstyle={styles.signUpText}
-          onPress={()=>navigation.navigate('otpview')}
+          onPress={() => navigation.navigate('otpview')}
         />
 
         <View style={styles.loginTextContainer}>
@@ -115,8 +110,8 @@ const SignUp = ({ navigation, route }) => {
             text={'Already have an account?'}
             style={styles.headingAcc}
           />
-          <Pressable onPress={()=> navigation.navigate('login')}>
-          <SmallText text={'Sign in'} style={styles.subHeadingAcc} />
+          <Pressable onPress={() => navigation.navigate('login')}>
+            <SmallText text={'Sign in'} style={styles.subHeadingAcc} />
           </Pressable>
         </View>
 

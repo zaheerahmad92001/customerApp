@@ -9,7 +9,7 @@ import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import { AppButton } from '../../../components/appButton';
 import Header from '../../../components/appHeader';
 import DownArrow from '../../../assets/svgs/downarrow.svg';
-const Login = ({navigation, route}) => {
+const Login = ({ navigation, route }) => {
   const phoneInput = useRef(null);
   const [phoneNumber, setPhoneNumber] = useState('');
   const [formattedValue, setFormattedValue] = useState('');
@@ -17,8 +17,8 @@ const Login = ({navigation, route}) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Header title={'Login'} showBackButton onBackPress={()=>navigation.goBack()}></Header>
-      <View style = {styles.mainContainer}>
+      <Header title={'Login'} showBackButton onBackPress={() => navigation.goBack()}></Header>
+      <View style={styles.mainContainer}>
         <XlargeText text={'Welcome to ANAQA'} style={styles.heading} />
         <SmallText
           text={
@@ -28,42 +28,18 @@ const Login = ({navigation, route}) => {
         />
         <SmallText text={'Enter Phone Number.'} style={styles.label} />
         <PhoneInput
-        ref={phoneInput}
-        defaultValue={phoneNumber}
-        defaultCode="SA"
-        layout="first"
-        placeholder="Enter your phone number"
-        disableCountryCode={true} 
-        onChangeText={(text) => {
-          setPhoneNumber(text);
-        }}
-        onChangeFormattedText={text => setFormattedValue(text)}
-        onChangeCountry={country => setCountryCode(country.callingCode)}
-        withShadow={false}
-        containerStyle={styles.phoneContainer}
-        textContainerStyle={styles.textInput}
-        flagButtonStyle={styles.flagButton}
-        textInputProps={{
-          placeholderTextColor: colors.lightBlack,
-          fontFamily: fontsFamily.regular,
-          fontSize: RFValue(12),
-          style: { paddingLeft: 0, marginLeft: -20, textAlign: "left" }
-        }}
-        renderDropdownImage={
-          <DownArrow/>
-        }
-      />
-        {/* <PhoneInput
           ref={phoneInput}
           defaultValue={phoneNumber}
           defaultCode="SA"
           layout="first"
-          onChangeFormattedText={text => setFormattedValue(text)}
-          onChangeCountry={country => {
-            return setCountryCode(country.callingCode);
-          }}
-          withShadow
           placeholder="Enter your phone number"
+          disableCountryCode={true}
+          onChangeText={(text) => {
+            setPhoneNumber(text);
+          }}
+          onChangeFormattedText={text => setFormattedValue(text)}
+          onChangeCountry={country => setCountryCode(country.callingCode)}
+          withShadow={false}
           containerStyle={styles.phoneContainer}
           textContainerStyle={styles.textInput}
           flagButtonStyle={styles.flagButton}
@@ -71,15 +47,17 @@ const Login = ({navigation, route}) => {
             placeholderTextColor: colors.lightBlack,
             fontFamily: fontsFamily.regular,
             fontSize: RFValue(12),
+            style: { paddingLeft: 0, marginLeft: -20, textAlign: "left" }
+          }}
+          renderDropdownImage={
+            <DownArrow />
           }
-        }
-        /> */}
-
-        <AppButton title={'Done'} textstyle={styles.loginpText} onPress={()=>navigation.navigate('otpview')}/>
+        />
+        <AppButton title={'Done'} textstyle={styles.loginpText} onPress={() => navigation.navigate('otpview')} />
 
         <View style={styles.registerTextContainer}>
           <SmallText text={"Don't have an account?"} style={styles.headingAcc} />
-         <Pressable onPress={()=>navigation.navigate('signup')}> <SmallText text={'Register Here'} style={styles.subHeadingAcc} /></Pressable>
+          <Pressable onPress={() => navigation.navigate('signup')}> <SmallText text={'Register Here'} style={styles.subHeadingAcc} /></Pressable>
         </View>
         <SmallText text={'Need Help?'} style={styles.helpText} />
 
@@ -97,7 +75,7 @@ const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
     backgroundColor: colors.appBG,
-    paddingHorizontal:20
+    paddingHorizontal: 20
   },
   heading: {
     fontSize: RFValue(18),
@@ -123,7 +101,7 @@ const styles = StyleSheet.create({
   textInput: {
     paddingVertical: 0,
     backgroundColor: colors.inputGray,
-    height:50
+    height: 50
   },
   flagButton: {
     backgroundColor: colors.inputGray,
