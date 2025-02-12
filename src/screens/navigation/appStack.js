@@ -6,6 +6,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import AppIntro from '../appIntroScreen/appIntro';
 import BottomStack from './bottomTabs/bottomStack';
 import NotificationStack from './notificationStack';
+import AuthStack from './authStack';
 
 import Categories from '../categoriesScreen/categories';
 import CategoryListing from '../categoryListing/categoryListing';
@@ -31,12 +32,10 @@ import TermCondition from '../termConditionScreen/termCondition';
 import DeleteAccount from '../deleteAccountScreen/deleteAccount';
 import Support from '../supportScreen';
 import InviteFriends from '../inviteFriends/inviteFriends';
-import SignUp from '../signUpScreen/signUp';
-import OtpView from '../otpScreen/otp/otp';
-import Login from '../loginScreen/login/login';
 import SuccessScreen from '../successMessageScreen/succesScreen';
+import ServiceDetail from '../serviceDetailScreen/serviceDetail';
+import Location from '../location/location';
 
-import ServiceDetail from '../serviceDetailScreen/serviceDetail'
 const Stack = createNativeStackNavigator();
 
 const IntroStack=()=>{
@@ -58,9 +57,11 @@ function AppStack() {
         headerShown: false,
       }}>
        <Stack.Screen name="IntroStack" component={IntroStack}/>
+       <Stack.Screen name="authStack" component={AuthStack} />
       <Stack.Screen name="BottomStack" component={BottomStack} />
+      <Stack.Screen name="location" component={Location}/>
       <Stack.Screen name="notificationStack" component={NotificationStack} />
-      <Stack.Screen name="successscreen" component={SuccessScreen} />
+      <Stack.Screen name="successScreen" component={SuccessScreen} />
       <Stack.Screen name="categories" component={Categories}/>
       <Stack.Screen name="categoryListing" component={CategoryListing}/>
       <Stack.Screen name="favorites" component={Favorites} />
@@ -85,9 +86,6 @@ function AppStack() {
       <Stack.Screen name="deleteAccount" component={DeleteAccount}/>
       <Stack.Screen name="customerSupport" component={Support}/>
       <Stack.Screen name="inviteFriends" component={InviteFriends}/>
-      <Stack.Screen name="signup" component={SignUp}/>
-      <Stack.Screen name="otpview" component={OtpView}/>
-      <Stack.Screen name="login" component={Login}/>
       <Stack.Screen name="detail" component={ServiceDetail}/>
 
     </Stack.Navigator>

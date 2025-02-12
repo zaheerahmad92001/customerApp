@@ -17,7 +17,7 @@ const Login = ({ navigation, route }) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Header title={'Login'} showBackButton onBackPress={() => navigation.goBack()}></Header>
+      <Header title={'Login'} showBackButton onBackPress={() => navigation.goBack()} />
       <View style={styles.mainContainer}>
         <XlargeText text={'Welcome to ANAQA'} style={styles.heading} />
         <SmallText
@@ -47,17 +47,19 @@ const Login = ({ navigation, route }) => {
             placeholderTextColor: colors.lightBlack,
             fontFamily: fontsFamily.regular,
             fontSize: RFValue(12),
-            style: { paddingLeft: 0, marginLeft: -20, textAlign: "left" }
+            style: { paddingLeft: 0, marginLeft: -20, textAlign: 'left' },
           }}
           renderDropdownImage={
             <DownArrow />
           }
         />
-        <AppButton title={'Done'} textstyle={styles.loginpText} onPress={() => navigation.navigate('otpview')} />
+        <AppButton title={'Done'} textstyle={styles.loginpText} onPress={() => navigation.navigate('otpView')} />
 
         <View style={styles.registerTextContainer}>
           <SmallText text={"Don't have an account?"} style={styles.headingAcc} />
-          <Pressable onPress={() => navigation.navigate('signup')}> <SmallText text={'Register Here'} style={styles.subHeadingAcc} /></Pressable>
+          <Pressable onPress={() => navigation.navigate('signup')}>
+            <SmallText text={'Register Here'} style={styles.subHeadingAcc} />
+          </Pressable>
         </View>
         <SmallText text={'Need Help?'} style={styles.helpText} />
 
@@ -75,7 +77,7 @@ const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
     backgroundColor: colors.appBG,
-    paddingHorizontal: 20
+    paddingHorizontal: 20,
   },
   heading: {
     fontSize: RFValue(18),
@@ -101,7 +103,7 @@ const styles = StyleSheet.create({
   textInput: {
     paddingVertical: 0,
     backgroundColor: colors.inputGray,
-    height: 50
+    height: 50,
   },
   flagButton: {
     backgroundColor: colors.inputGray,

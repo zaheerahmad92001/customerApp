@@ -1,19 +1,19 @@
 import React from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import colors from "../../assets/colors";
-import BackArrow from '../../assets/svgs/back-arrow-button.svg'
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import More from '../../assets/svgs/more.svg'
 import { heightPercentageToDP as hp, widthPercentageToDP as wp } from 'react-native-responsive-screen';
 
 import images from "../../assets/images";
 import fontsFamily from "../../assets/fontsFamily";
-const ChatHeader = ({ userName, userImage, onBackPress, morePressed }) => {
+const ChatHeader = ({ userName, userImage, onBackPress, morePressed , iconColor }) => {
     return (
         <View style={style.container}>
             <View style={style.mainContainer}>
                 <View style={style.leftSideView}>
                     <TouchableOpacity onPress={onBackPress}>
-                        <BackArrow />
+                    <Ionicons name="chevron-back" size={20} color={iconColor?iconColor :colors.appBlack} />
                     </TouchableOpacity>
                     <Image source={images.room} style={style.usrImageView}></Image>
                     <Text style={style.userNameTitle}>{userName}</Text>
@@ -29,7 +29,7 @@ const ChatHeader = ({ userName, userImage, onBackPress, morePressed }) => {
 
 const style = StyleSheet.create({
     container: {
-        backgroundColor: colors.appBG,
+        backgroundColor: colors.white,
     },
     mainContainer: {
         flexDirection: 'row',

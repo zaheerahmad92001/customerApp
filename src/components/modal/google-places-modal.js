@@ -1,23 +1,29 @@
-import React, { useState } from 'react';
+import React, { forwardRef, useImperativeHandle, useState } from 'react';
 import { View, Modal, StyleSheet, TouchableOpacity, SafeAreaView } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons'; // Import the icon library
 import colors from '../../assets/colors';
 import GooglePlacesAutoComplete from '../../components/google-places-auto-complete';
 
-const GooglePlacesModal = (props) => {
+const GooglePlacesModal = forwardRef((props,ref) => {
     const {isVisible, toggleModal , setLocation} = props;
+
+    const [visible, setVisible] = useState(false);
+      useImperativeHandle(ref, () => ({
+        open: () => setVisible(true),
+        close: () => setVisible(false),
+      }));
 
   return (
 
       <Modal
         animationType="slide"
         transparent={false}
-        visible={isVisible}
-        onRequestClose={toggleModal}
+        visible={visible}
+        onRequestClose={()=>setVisible(false)}
       >
         <SafeAreaView style={{flex:1}}>
         <View style={styles.modalContainer}>
-          <TouchableOpacity onPress={toggleModal} style={styles.closeButton}>
+          <TouchableOpacity onPress={()=>setVisible(false)} style={styles.closeButton}>
             <Icon name="close" size={30} color={colors.appBlack} />
           </TouchableOpacity>
           <GooglePlacesAutoComplete
@@ -31,7 +37,7 @@ const GooglePlacesModal = (props) => {
         </SafeAreaView>
       </Modal>
   );
-};
+});
 
 const styles = StyleSheet.create({
   

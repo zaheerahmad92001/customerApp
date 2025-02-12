@@ -9,7 +9,6 @@ import { AppButton } from '../../components/appButton';
 import TextField from '../../components/textField/textField';
 import { Checkbox } from 'react-native-paper';
 import { RFValue } from 'react-native-responsive-fontsize';
-import ContactInput from '../../components/textFieldCounteryPicker/textFieldCounteryPicker';
 import Header from '../../components/appHeader';
 import DownArrow from '../../assets/svgs/downarrow.svg';
 
@@ -102,7 +101,7 @@ const SignUp = ({ navigation, route }) => {
           disabled={!isChecked}
           style={styles.signUpButton}
           textstyle={styles.signUpText}
-          onPress={() => navigation.navigate('otpview')}
+          onPress={() => navigation.navigate('otpView')}
         />
 
         <View style={styles.loginTextContainer}>

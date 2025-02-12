@@ -32,7 +32,7 @@ const AppIntro = ({navigation, route}) => {
 
   const renderDoneButton = () => {
     return (
-      <AppButton title="Get Started" onPress={() => navigation.navigate('BottomStack')} />
+      <AppButton title="Get Started" onPress={() => navigation.navigate('authStack')} />
     );
   };
 

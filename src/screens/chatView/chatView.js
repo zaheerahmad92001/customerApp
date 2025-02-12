@@ -21,7 +21,7 @@ import colors from '../../assets/colors';
 import {keepLocalCopy, pick ,types} from '@react-native-documents/picker';
 import {heightPercentageToDP} from 'react-native-responsive-screen';
 
-const Chat = () => {
+const Chat = ({navigation, route}) => {
   const [file, setFile] = useState(null);
   const arr = [
     {id: 1, text: 'Lorem', time: '7:21', sent: false},
@@ -87,7 +87,7 @@ const Chat = () => {
 
   return (
     <SafeAreaView style={style.container}>
-      <ChatHeader userImage={images.room} userName={'Alexandra’s Salon'} />
+      <ChatHeader userImage={images.room} userName={'Alexandra’s Salon'} onBackPress={()=>navigation.goBack()}/>
       <View style={style.dividerView} />
 
       <ParentView

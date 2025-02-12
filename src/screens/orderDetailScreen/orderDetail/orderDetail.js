@@ -8,7 +8,7 @@ import {
   ScrollView,
 } from 'react-native';
 import React, {useState} from 'react';
-import {serviceData, staticBookings} from '../../../staticData';
+import {staticBookings} from '../../../staticData';
 import ServiceCard from '../../../components/serviceCard/serviceCard';
 import Header from '../../../components/appHeader';
 import DropdownComponent from '../../../components/dropdownComponent/dropdownComponent';

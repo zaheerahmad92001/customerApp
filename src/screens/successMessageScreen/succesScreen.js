@@ -32,7 +32,9 @@ const SuccessScreen = ({navigation, route}) => {
           <SmallText text={`${subheading}`} style={styles.description} />
 
           <View style={styles.bookingsButton}>
-            <AppButton onPress={() => navigation.goBack()} title="Done" />
+            <AppButton 
+            onPress={() => {isRegister? goToHome(): navigation.goBack()}} 
+            title="Done" />
             {!isRegister && (
               <AppButton
                 onPress={goToHome}

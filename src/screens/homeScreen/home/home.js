@@ -7,7 +7,6 @@ import {
   FlatList,
   Image,
   ScrollView,
-  Alert,
 } from 'react-native';
 import Search from '../../../components/search';
 import { mockData, recentSearches } from '../../../staticData';
@@ -18,7 +17,7 @@ import styles from './home.styles';
 import HomeHeader from '../../../components/homeHeader';
 import GooglePlacesModal from '../../../components/modal/google-places-modal';
 import TopRatedVenus from '../../../components/topRatedVenus';
-import { heightPercentageToDP, widthPercentageToDP } from 'react-native-responsive-screen';
+import { heightPercentageToDP } from 'react-native-responsive-screen';
 import SalonFilterCard from '../../../components/salon_filter/salonFilterCard';
 import ModalComponent from '../../../components/modal';
 
@@ -42,6 +41,7 @@ const HomeScreen = ({ navigation, route }) => {
   const [isInputActive, setIsInputActive] = useState(false);
   const [location, setLocation] = useState('');
   const modalRef = useRef()
+  const locationModalRef = useRef();
 
   const [state, updateState] = useReducer(
     (state, newState) => ({ ...state, ...newState }),
@@ -62,8 +62,6 @@ const HomeScreen = ({ navigation, route }) => {
       modalRef.current.close()
     }
   };
-
-
 
   const handleFavoritePress = id => {
     console.log(`Favorite pressed for salon ID: ${id}`);
@@ -91,13 +89,12 @@ const HomeScreen = ({ navigation, route }) => {
     />
   );
 
-  const openLocationModal = useCallback(() => {
-    updateState({ isModalVisible: true });
-  }, []);
+  const openLocationModal = () => {
+    if(locationModalRef?.current){
+      locationModalRef.current.open()
+    }
+  };
 
-  const toggleModal = useCallback(() => {
-    updateState({ isModalVisible: !isModalVisible });
-  }, [isModalVisible]);
 
   const renderTopRatedVenus = ({ item, index }) => {
     return <TopRatedVenus />;
@@ -224,9 +221,8 @@ const HomeScreen = ({ navigation, route }) => {
         </View>
       </View>
       <GooglePlacesModal
-        isVisible={isModalVisible}
-        toggleModal={toggleModal}
-        setLocation={setLocation}
+       ref={locationModalRef}
+       setLocation={setLocation}
       />
 
       <ModalComponent

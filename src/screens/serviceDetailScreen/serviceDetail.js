@@ -1,7 +1,6 @@
 import React, {useEffect, useRef} from 'react';
 import {View, Text, Image, TouchableOpacity} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import MapView, {Callout, Marker, PROVIDER_GOOGLE} from 'react-native-maps';
 import images from '../../assets/images';
 import Header from '../../components/appHeader';
 import Message from '../../assets/svgs/messages.svg';
@@ -17,7 +16,7 @@ import {
   widthPercentageToDP,
 } from 'react-native-responsive-screen';
 import ServiceCard from '../../components/availableServices/service';
-import {FlatList} from 'react-native-gesture-handler';
+import {FlatList, Pressable} from 'react-native-gesture-handler';
 import {AppButton} from '../../components/appButton';
 import TimmingComponent from '../../components/timmingComponent';
 import TopRatedVenus from '../../components/topRatedVenus';
@@ -51,6 +50,9 @@ const ServiceDetail = ({navigation, route}) => {
   const renderTopRatedVenus = ({item, index}) => {
     return <TopRatedVenus />;
   };
+ const handleNavigation = (routeName,params) => {
+    navigation.navigate(routeName,{params});
+  };
 
   const renderHeader = () => {
     return (
@@ -61,7 +63,7 @@ const ServiceDetail = ({navigation, route}) => {
         <View style={styles.subContainer}>
           <XlargeText text={'Hair Avenue'} style={styles.heading} />
           <View style={styles.buttonsContainer}>
-            <TouchableOpacity style={styles.icon}>
+            <TouchableOpacity onPress={()=>handleNavigation('chat')} style={styles.icon}>
               <Message />
             </TouchableOpacity>
             <TouchableOpacity style={styles.icon}>
@@ -76,13 +78,13 @@ const ServiceDetail = ({navigation, route}) => {
         </Text>
 
         <View style={styles.locationContainer}>
-          <View style={styles.locationSubContainer}>
+          <Pressable onPress={()=>handleNavigation('location','No 03,Kadalana Road, Kadalana, Moratuwa')} style={styles.locationSubContainer}>
             <Location />
             <SmallText
               text={'No 03,Kadalana Road, Kadalana, Moratuwa'}
               style={styles.locationText}
             />
-          </View>
+          </Pressable>
           <View style={styles.locationSubContainer}>
             <Clock />
             <SmallText text={'9AM-10PM, Mon -Sun'} style={styles.timeText} />
@@ -123,29 +125,6 @@ const ServiceDetail = ({navigation, route}) => {
           text={'Location'}
           style={{marginVertical: heightPercentageToDP(1)}}
         />
-        {/* <MapView
-          style={{width: '100%', height: 200}}
-          initialRegion={{
-            latitude: 37.78825,
-            longitude: -122.4324,
-            latitudeDelta: 0.0922,
-            longitudeDelta: 0.0421,
-          }}>
-          <Marker
-            coordinate={{latitude: 37.78825, longitude: -122.4324}}
-            title="Hair Avenu"
-            identifier="hairAvenuMarker"
-            description="Best hair salon in town"
-          >
-            <View style={styles.calloutContainer}>
-              <Text style={styles.calloutTitle}>Hair Avenu</Text>
-              <Text style={styles.calloutDescription}>
-                Best hair salon in town
-              </Text>
-            </View>
-          </Marker>
-        </MapView> */}
-
         <View style={styles.mapContainer}>
           <FastImage source={{uri: mapUrl}} style={styles.mapImage} />
           <View style={styles.calloutContainer}>
