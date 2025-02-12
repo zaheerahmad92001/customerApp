@@ -19,5 +19,9 @@ const images = {
   salonSpa: require('../images/salonSpa.png'),
   toprated: require('../images/toprated1.png'),
   applePay: require('../images/applePay.png'),
+  intro1: require('../images/intro2.png'),
+  intro2: require('../images/intro3.png'),
+  intro3: require('../images/intro1.png'),
+  transparentBG: require('../images/transparentBg.png'),
 };
 export default images;

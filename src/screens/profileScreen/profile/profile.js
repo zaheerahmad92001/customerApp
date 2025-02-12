@@ -27,9 +27,14 @@ import { widthPercentageToDP } from 'react-native-responsive-screen';
 
 const Profile = ({navigation, route}) => {
   const modalRef = useRef();
+  
   const handleNavigation = routeName => {
+    if(routeName === 'logout') {
+      openModal();
+    } else {
     navigation.navigate(routeName);
   };
+}
 
   const openModal = () => {
     if (modalRef?.current) {
@@ -109,7 +114,7 @@ const Profile = ({navigation, route}) => {
             title={option.title}
             Icon={option.img}
             showIcon={true}
-            onPress={openModal}
+            onPress={()=>handleNavigation(option.routeName)}
           />
         ))}
       </ScrollView>

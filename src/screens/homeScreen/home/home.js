@@ -1,4 +1,4 @@
-import React, { useCallback, useReducer, useState } from 'react';
+import React, { useCallback, useReducer, useRef, useState } from 'react';
 import {
   View,
   Text,
@@ -7,6 +7,7 @@ import {
   FlatList,
   Image,
   ScrollView,
+  Alert,
 } from 'react-native';
 import Search from '../../../components/search';
 import { mockData, recentSearches } from '../../../staticData';
@@ -40,6 +41,7 @@ const HomeScreen = ({ navigation, route }) => {
   const [filteredSearches, setFilteredSearches] = useState(recentSearches);
   const [isInputActive, setIsInputActive] = useState(false);
   const [location, setLocation] = useState('');
+  const modalRef = useRef()
 
   const [state, updateState] = useReducer(
     (state, newState) => ({ ...state, ...newState }),
@@ -49,8 +51,18 @@ const HomeScreen = ({ navigation, route }) => {
     },
   );
   const { isModalVisible,isVisible } = state;
-  
-  const openModal = () => { };
+ 
+  const openModal = () => {
+    if(modalRef?.current){
+      modalRef.current.open()
+    }
+  };
+  const closeModal = () => {
+    if(modalRef?.current){
+      modalRef.current.close()
+    }
+  };
+
 
 
   const handleFavoritePress = id => {
@@ -58,7 +70,8 @@ const HomeScreen = ({ navigation, route }) => {
   };
 
   const renderCategory = ({ item }) => (
-    <TouchableOpacity style={styles.categoryCard}>
+    <TouchableOpacity 
+    style={styles.categoryCard}>
       <View style={styles.catImageContainer}>
         <Image
           source={item.icon}
@@ -190,11 +203,6 @@ const HomeScreen = ({ navigation, route }) => {
               showsHorizontalScrollIndicator={false}
             />
 
-            {/* <View style={{flexDirection: 'row', gap:10,}}>
-          <TopRatedVenus />
-          <TopRatedVenus />
-          </View> */}
-
             <View style={styles.sectionHeader}>
               <LargeText
                 text={'Recommended Venues'}
@@ -222,15 +230,10 @@ const HomeScreen = ({ navigation, route }) => {
       />
 
       <ModalComponent
-        visible={isVisible}
-        style={{width:widthPercentageToDP(60),height: heightPercentageToDP(60)}}
-        onClose={() => {
-          updateState({ isVisible: false });
-        }}>
+        ref={modalRef}
+        onClose={closeModal}>
         <SalonFilterCard
-          onCancel={() => {
-            updateState({ isVisible: false });
-          }}
+          onCancel={closeModal}
           onApply={() => {
             console.log('Apply')
           }}

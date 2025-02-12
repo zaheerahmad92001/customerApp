@@ -4,6 +4,7 @@ import colors from '../../assets/colors';
 import fontsFamily from '../../assets/fontsFamily';
 import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import { MediumText } from '../Typography';
+import { RFValue } from 'react-native-responsive-fontsize';
 
 const ToggleSwitch = ({label, isEnabled, onToggle}) => {
   const [toggleAnim] = useState(new Animated.Value(isEnabled ? 1 : 0));
@@ -58,11 +59,14 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
     backgroundColor: colors.lightGray,
     borderRadius: 8,
-    marginVertical: 5,
+    marginVertical: 8,
   },
   label: {
     color: colors.lightBlack,
-    fontFamily: fontsFamily.extraLight,
+    fontFamily: fontsFamily.medium,
+    fontSize:RFValue(14),
+    fontWeight:'500',
+    marginLeft:5
   },
   track: {
     width: 45,
@@ -73,15 +77,15 @@ const styles = StyleSheet.create({
     padding: 2,
   },
   thumb: {
-    width: 18,
-    height: 18,
+    width: 20,
+    height: 20,
     backgroundColor: '#fff',
     borderRadius: 18 / 2,
-    shadowColor: '#000',
-    shadowOffset: {width: 0, height: 1},
-    shadowOpacity: 0.2,
-    shadowRadius: 1.41,
-    elevation: 6,
+    //shadowColor: '#000',
+   // shadowOffset: {width: 0, height: 1},
+    //shadowOpacity: 0.2,
+   // shadowRadius: 1.41,
+    //elevation: 6,
   },
 });
 

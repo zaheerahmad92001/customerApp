@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, Image, StyleSheet} from 'react-native';
+import {View, Text, Image, StyleSheet, Pressable} from 'react-native';
 import Heart from '../../assets/svgs/heart.svg';
 import LocationMarker from '../../assets/svgs/locationMarker.svg';
 import Star from '../../assets/svgs/star.svg';
@@ -17,17 +17,21 @@ const SalonCard = props => {
   const {
     item,
     onFavorite,
+    handleOnPress,
     showFavoriteButton = false,
     selected = false,
     isNotificaiton = false,
     isRefund = false,
     hasDiscount = false,
+
   } = props;
   const {status, image, title, location, distance, rating, reviews} = item;
 
   const isCancelled = status === 'Cancelled' ? true : false;
   return (
-    <View style={styles.cardContainer}>
+    <Pressable 
+    onPress={handleOnPress}
+    style={styles.cardContainer}>
       <View style={styles.cardImage}>
         <Image source={image} style={styles.imageStyle} />
       </View>
@@ -117,7 +121,7 @@ const SalonCard = props => {
           </View>
         )}
       </View>
-    </View>
+    </Pressable>
   );
 };
 

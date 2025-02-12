@@ -18,7 +18,7 @@ import ChatCard from '../../components/messageCard/MessageCard';
 import DocumentAttachment from '../../assets/svgs/attachedocument.svg';
 import SendIcon from '../../assets/svgs/sendicon.svg';
 import colors from '../../assets/colors';
-import DocumentPicker from '@react-native-documents/picker';
+import {keepLocalCopy, pick ,types} from '@react-native-documents/picker';
 import {heightPercentageToDP} from 'react-native-responsive-screen';
 
 const Chat = () => {
@@ -77,20 +77,10 @@ const Chat = () => {
   };
 
   const pickDocuments = async () => {
-    try {
-      Alert.alert('Calling');
-      const result = await DocumentPicker.pick({
-        type: [DocumentPicker.types.allFiles],
-      });
-      console.log('Picked document:', result);
-      setFile(result[0]);
-    } catch (err) {
-      if (DocumentPicker.isCancel(err)) {
-        console.log('User cancelled document picker');
-      } else {
-        console.log('Error picking document:', err);
-      }
-    }
+    const [file] = await pick({
+      allowMultiSelection: true,
+      // type: [types.pdf, types.docx],
+    })
   };
 
   const ParentView = Platform.OS === 'android' ? View : KeyboardAvoidingView;

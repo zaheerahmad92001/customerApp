@@ -2,6 +2,8 @@
 
 import * as React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+import AppIntro from '../appIntroScreen/appIntro';
 import BottomStack from './bottomTabs/bottomStack';
 import NotificationStack from './notificationStack';
 
@@ -19,25 +21,43 @@ import Complaints from '../complaintsScreens/complaints';
 import AddNewComplaint from '../addNewRequest/addNewComplaint';
 import ComplaintDetail from '../complaintDetail/complaintDetail';
 import LoyaltyPoints from '../loyaltyPointsScreen/loyaltyPoints';
-import Settings from '../settingScreen/settings/settings';
+import Settings from '../settingScreen/settings';
 import Chat from '../chatView/chatView';
-import Language from '../languageScreen/language/language';
+import Language from '../languageScreen/language';
 import NotificationSetting from '../notificationSettingsScreen/notificationSetting';
 import ChangePassword from '../changePasswordScreen/changePassword';
+import PrivacyPolicy from '../privacyPolicyScreen/privacyPolicy';
+import TermCondition from '../termConditionScreen/termCondition';
+import DeleteAccount from '../deleteAccountScreen/deleteAccount';
 import Support from '../supportScreen';
 import InviteFriends from '../inviteFriends/inviteFriends';
 import SignUp from '../signUpScreen/signUp';
 import OtpView from '../otpScreen/otp/otp';
 import Login from '../loginScreen/login/login';
 import SuccessScreen from '../successMessageScreen/succesScreen';
+
+import ServiceDetail from '../serviceDetailScreen/serviceDetail'
 const Stack = createNativeStackNavigator();
 
-function AppStack() {
-  return (
+const IntroStack=()=>{
+  return(
     <Stack.Navigator
     screenOptions={{
         headerShown: false,
       }}>
+      <Stack.Screen name="AppIntro" component={AppIntro} />
+    </Stack.Navigator>
+  )
+}
+
+function AppStack() {
+  return (
+    <Stack.Navigator
+    initialRouteName='IntroStack'
+    screenOptions={{
+        headerShown: false,
+      }}>
+       <Stack.Screen name="IntroStack" component={IntroStack}/>
       <Stack.Screen name="BottomStack" component={BottomStack} />
       <Stack.Screen name="notificationStack" component={NotificationStack} />
       <Stack.Screen name="successscreen" component={SuccessScreen} />
@@ -56,14 +76,20 @@ function AppStack() {
       <Stack.Screen name="complaintDetail" component={ComplaintDetail}/>
       <Stack.Screen name="chat" component={Chat}/>
       <Stack.Screen name="loyaltyPoints" component={LoyaltyPoints}/>
+      <Stack.Screen name="settings" component={Settings}/>
+      <Stack.Screen name="language" component={Language}/>
+      <Stack.Screen name="notificationSetting" component={NotificationSetting}/>
+      <Stack.Screen name="changePassword" component={ChangePassword}/>
+      <Stack.Screen name="privacyPolicy" component={PrivacyPolicy}/>
+      <Stack.Screen name="termsCondition" component={TermCondition}/>
+      <Stack.Screen name="deleteAccount" component={DeleteAccount}/>
       <Stack.Screen name="customerSupport" component={Support}/>
       <Stack.Screen name="inviteFriends" component={InviteFriends}/>
       <Stack.Screen name="signup" component={SignUp}/>
       <Stack.Screen name="otpview" component={OtpView}/>
-      <Stack.Screen name="login" component={Login}/> 
-     
+      <Stack.Screen name="login" component={Login}/>
+      <Stack.Screen name="detail" component={ServiceDetail}/>
 
-    
     </Stack.Navigator>
   );
 }

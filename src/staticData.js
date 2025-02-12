@@ -92,20 +92,20 @@ const categoriesOptions = [
   {title: 'Salon & Spa', img: images.salonSpa},
 ];
 
-const settingOptions = [
-  {title: 'Language'},
-  {title: 'Notification Settings'},
-  {title: 'Change Password'},
-  {title: 'Privacy Policy'},
-  {title: 'Terms & Conditions'},
-  {title: 'Delete Account'},
+const settingOptions = [ 
+  {title: 'Language', routeName:'language'},
+  {title: 'Notification Settings' , routeName:'notificationSetting'},
+  {title: 'Change Password', routeName:'changePassword'},
+  {title: 'Privacy Policy', routeName:'privacyPolicy'},
+  {title: 'Terms & Conditions', routeName:'termsCondition'},
+  {title: 'Delete Account', routeName:'deleteAccount'},
 ];
 
 const supportOptions = [{title: 'Contact Us', img: CallIcon ,routeName:'customerSupport'}];
 
-const accountManagement = [
-  {title: 'Account Settings', img: Setting},
-  {title: 'Logout', img: Logout},
+const accountManagement = [ 
+  {title: 'Account Settings', img: Setting, routeName:'settings'},
+  {title: 'Logout', img: Logout, routeName:'logout'},
 ];
 
 const dummyData = {
@@ -224,22 +224,25 @@ const serviceData = [
 const slides = [
   {
     key: '1',
-    title: 'Welcome to ANAKA',
+    title_1: 'Welcome to',
+    title_2: 'ANAKA',
     text: 'Your trusted salon booking app – Find the best, book with ease.',
-    image: images.room,
+    image: images.intro3,
   },
   {
     key: '2',
-    title: 'Your Beauty, Our Priority',
+    title_1: 'Your Beauty, Our',
+    title_2: 'Priority',
     text: 'Explore top salons, book appointments, and enjoy exceptional service with ANAKA.',
-    image: images.room,
+    image: images.intro2,
   },
   {
     key: '3',
-    title: 'Elevate Your Salon Experience with ANAKA',
+    title_1: 'Elevate Your Salon',
+    title_2: 'Experience with ANAKA',
     text: 'From discovery to booking, we make beauty effortless.',
-    image: images.room,
-  },
+    image: images.intro1,
+  }
 ];
 
 const invoiceDetailRows = [
