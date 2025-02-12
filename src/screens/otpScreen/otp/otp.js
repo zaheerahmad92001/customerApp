@@ -42,7 +42,10 @@ const OtpView = ({navigation, route}) => {
         <SmallText text={'Resend'} style={styles.subHeadingAcc} />
       </View>
 
-      <AppButton title={'Continue'} style = {styles.buttonContainer} textstyle = {styles.buttontext}/>
+      <AppButton title={'Continue'} 
+      style = {styles.buttonContainer} 
+      textstyle = {styles.buttontext} 
+      onPress={()=>navigation.navigate('successscreen',{actionName:'register'})}/>
       </View>
      
     </SafeAreaView>

@@ -4,7 +4,7 @@ import * as React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import BottomStack from './bottomTabs/bottomStack';
 import NotificationStack from './notificationStack';
-import SuccessScreen from '../successMessageScreen/succesScreen';
+
 import Categories from '../categoriesScreen/categories';
 import CategoryListing from '../categoryListing/categoryListing';
 import EditProfile from '../profileScreen/editProfile/editProfile';
@@ -29,6 +29,7 @@ import InviteFriends from '../inviteFriends/inviteFriends';
 import SignUp from '../signUpScreen/signUp';
 import OtpView from '../otpScreen/otp/otp';
 import Login from '../loginScreen/login/login';
+import SuccessScreen from '../successMessageScreen/succesScreen';
 const Stack = createNativeStackNavigator();
 
 function AppStack() {
@@ -39,7 +40,7 @@ function AppStack() {
       }}>
       <Stack.Screen name="BottomStack" component={BottomStack} />
       <Stack.Screen name="notificationStack" component={NotificationStack} />
-      <Stack.Screen name="successScreen" component={SuccessScreen} />
+      <Stack.Screen name="successscreen" component={SuccessScreen} />
       <Stack.Screen name="categories" component={Categories}/>
       <Stack.Screen name="categoryListing" component={CategoryListing}/>
       <Stack.Screen name="favorites" component={Favorites} />
@@ -59,7 +60,8 @@ function AppStack() {
       <Stack.Screen name="inviteFriends" component={InviteFriends}/>
       <Stack.Screen name="signup" component={SignUp}/>
       <Stack.Screen name="otpview" component={OtpView}/>
-      <Stack.Screen name="login" component={Login}/>
+      <Stack.Screen name="login" component={Login}/> 
+     
 
     
     </Stack.Navigator>

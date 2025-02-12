@@ -1,4 +1,4 @@
-import { View, Text, SafeAreaView, StyleSheet } from 'react-native';
+import { View, Text, SafeAreaView, StyleSheet, Pressable } from 'react-native';
 import React, { useRef, useState } from 'react';
 import PhoneInput from 'react-native-phone-number-input';
 import { SmallText, XlargeText } from '../../../components/Typography';
@@ -79,7 +79,7 @@ const Login = ({navigation, route}) => {
 
         <View style={styles.registerTextContainer}>
           <SmallText text={"Don't have an account?"} style={styles.headingAcc} />
-          <SmallText text={'Register Here'} style={styles.subHeadingAcc} />
+         <Pressable onPress={()=>navigation.navigate('signup')}> <SmallText text={'Register Here'} style={styles.subHeadingAcc} /></Pressable>
         </View>
         <SmallText text={'Need Help?'} style={styles.helpText} />
 
