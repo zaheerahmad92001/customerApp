@@ -7,12 +7,15 @@ import fontsFamily from '../../../assets/fontsFamily';
 import {RFValue} from 'react-native-responsive-fontsize';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import {AppButton} from '../../../components/appButton';
+import Header from '../../../components/appHeader';
 
-const OtpView = () => {
+const OtpView = ({navigation, route}) => {
   const [otp, setOtp] = useState('');
 
   return (
     <SafeAreaView style={styles.container}>
+      <Header title={"OTP"}  showBackButton onBackPress={() => navigation.goBack()}></Header>
+      <View style = {styles.mainContainer}>
       <XlargeText text={'Verify Your Identity'} style={styles.heading} />
       <SmallText
         text={'We’ve sent a 4-digit code to 071*****05 Please enter it below.'}
@@ -39,7 +42,12 @@ const OtpView = () => {
         <SmallText text={'Resend'} style={styles.subHeadingAcc} />
       </View>
 
-      <AppButton title={'Done'} />
+      <AppButton title={'Continue'} 
+      style = {styles.buttonContainer} 
+      textstyle = {styles.buttontext} 
+      onPress={()=>navigation.navigate('successscreen',{actionName:'register'})}/>
+      </View>
+     
     </SafeAreaView>
   );
 };
@@ -47,27 +55,32 @@ const OtpView = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 15,
+    //padding: 15,
     backgroundColor: colors.white,
+  },
+  mainContainer:{
+  flex:1,
+  paddingHorizontal:20,
+  backgroundColor:colors.appBG
   },
   heading: {
     fontSize: RFValue(18),
     fontFamily: fontsFamily.bold,
-    marginTop: hp(5),
+    marginTop: hp(3),
   },
   subHeading: {
-    fontSize: RFValue(12),
+    fontSize: RFValue(11),
     color: colors.lightBlack,
     fontFamily: fontsFamily.regular,
   },
   otpContainer: {
-    width: '80%',
-    height: 50,
+    width: '72%',
+    height: 55,
     alignSelf: 'center',
     marginTop: hp(6),
   },
   otpInput: {
-    width: 50,
+    width: 55,
     height: 55,
     borderWidth: 1,
     borderColor: colors.gray,
@@ -83,7 +96,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     alignSelf: 'center',
     marginVertical: 10,
-    marginTop: hp(6),
+    marginTop: hp(4),
   },
   resendContainer: {
     flexDirection: 'row',
@@ -102,6 +115,15 @@ const styles = StyleSheet.create({
     fontFamily: fontsFamily.regular,
     marginLeft: 5,
   },
+  buttonContainer:{
+    marginBottom:20,
+    
+  },
+  buttontext:{
+    fontFamily:fontsFamily.medium,
+    fontSize:RFValue(14)
+  }
+
 });
 
 export default OtpView;

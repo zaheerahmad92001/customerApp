@@ -51,7 +51,7 @@ const HomeScreen = ({ navigation, route }) => {
     },
   );
   const { isModalVisible,isVisible } = state;
-  
+ 
   const openModal = () => {
     if(modalRef?.current){
       modalRef.current.open()
@@ -62,6 +62,7 @@ const HomeScreen = ({ navigation, route }) => {
       modalRef.current.close()
     }
   };
+
 
 
   const handleFavoritePress = id => {
