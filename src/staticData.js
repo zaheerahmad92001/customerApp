@@ -105,7 +105,7 @@ const supportOptions = [{title: 'Contact Us', img: CallIcon ,routeName:'customer
 
 const accountManagement = [ 
   {title: 'Account Settings', img: Setting, routeName:'settings'},
-  {title: 'Logout', img: Logout, routeName:'editProfile'},
+  {title: 'Logout', img: Logout, routeName:'logout'},
 ];
 
 const dummyData = {
@@ -224,22 +224,25 @@ const serviceData = [
 const slides = [
   {
     key: '1',
-    title: 'Welcome to ANAKA',
+    title_1: 'Welcome to',
+    title_2: 'ANAKA',
     text: 'Your trusted salon booking app – Find the best, book with ease.',
-    image: images.room,
+    image: images.intro3,
   },
   {
     key: '2',
-    title: 'Your Beauty, Our Priority',
+    title_1: 'Your Beauty, Our',
+    title_2: 'Priority',
     text: 'Explore top salons, book appointments, and enjoy exceptional service with ANAKA.',
-    image: images.room,
+    image: images.intro2,
   },
   {
     key: '3',
-    title: 'Elevate Your Salon Experience with ANAKA',
+    title_1: 'Elevate Your Salon',
+    title_2: 'Experience with ANAKA',
     text: 'From discovery to booking, we make beauty effortless.',
-    image: images.room,
-  },
+    image: images.intro1,
+  }
 ];
 
 const invoiceDetailRows = [

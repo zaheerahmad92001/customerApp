@@ -19,6 +19,7 @@ const CategoriesList = ({navigation , route}) => {
     <SalonCard
      item={item}
      onFavorite={() => handleFavoritePress(item.id)}
+     handleOnPress={()=>navigation.navigate('detail',{item})}
      showFavoriteButton={true}
      isNotificaiton={false}
     />

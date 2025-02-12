@@ -18,7 +18,8 @@ const styles = StyleSheet.create({
     subContainer: {
         flex: 1,
         backgroundColor: colors.white,
-        borderRadius:20,
+        borderTopLeftRadius:20,
+        borderTopRightRadius:20,
         paddingTop:hp(3),
         paddingHorizontal:wp(5),
       },

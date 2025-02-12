@@ -2,6 +2,8 @@
 
 import * as React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+import AppIntro from '../appIntroScreen/appIntro';
 import BottomStack from './bottomTabs/bottomStack';
 import NotificationStack from './notificationStack';
 import SuccessScreen from '../successMessageScreen/succesScreen';
@@ -27,18 +29,31 @@ import ChangePassword from '../changePasswordScreen/changePassword';
 import PrivacyPolicy from '../privacyPolicyScreen/privacyPolicy';
 import TermCondition from '../termConditionScreen/termCondition';
 import DeleteAccount from '../deleteAccountScreen/deleteAccount';
-
 import Support from '../supportScreen';
 import InviteFriends from '../inviteFriends/inviteFriends';
+import ServiceDetail from '../serviceDetailScreen/serviceDetail'
 
 const Stack = createNativeStackNavigator();
 
-function AppStack() {
-  return (
+const IntroStack=()=>{
+  return(
     <Stack.Navigator
     screenOptions={{
         headerShown: false,
       }}>
+      <Stack.Screen name="AppIntro" component={AppIntro} />
+    </Stack.Navigator>
+  )
+}
+
+function AppStack() {
+  return (
+    <Stack.Navigator
+    initialRouteName='IntroStack'
+    screenOptions={{
+        headerShown: false,
+      }}>
+       <Stack.Screen name="IntroStack" component={IntroStack}/>
       <Stack.Screen name="BottomStack" component={BottomStack} />
       <Stack.Screen name="notificationStack" component={NotificationStack} />
       <Stack.Screen name="successScreen" component={SuccessScreen} />
@@ -55,7 +70,7 @@ function AppStack() {
       <Stack.Screen name="complaints" component={Complaints}/>
       <Stack.Screen name="addNewComplaint" component={AddNewComplaint}/>
       <Stack.Screen name="complaintDetail" component={ComplaintDetail}/>
-      <Stack.Screen name="Chat" component={Chat}/>
+      <Stack.Screen name="chat" component={Chat}/>
       <Stack.Screen name="loyaltyPoints" component={LoyaltyPoints}/>
       <Stack.Screen name="settings" component={Settings}/>
       <Stack.Screen name="language" component={Language}/>
@@ -66,6 +81,8 @@ function AppStack() {
       <Stack.Screen name="deleteAccount" component={DeleteAccount}/>
       <Stack.Screen name="customerSupport" component={Support}/>
       <Stack.Screen name="inviteFriends" component={InviteFriends}/>
+      <Stack.Screen name="detail" component={ServiceDetail}/>
+      
 
 
     </Stack.Navigator>

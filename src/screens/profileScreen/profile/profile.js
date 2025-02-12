@@ -27,9 +27,14 @@ import { widthPercentageToDP } from 'react-native-responsive-screen';
 
 const Profile = ({navigation, route}) => {
   const modalRef = useRef();
+  
   const handleNavigation = routeName => {
+    if(routeName === 'logout') {
+      openModal();
+    } else {
     navigation.navigate(routeName);
   };
+}
 
   const openModal = () => {
     if (modalRef?.current) {
