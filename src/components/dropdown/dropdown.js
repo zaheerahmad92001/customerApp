@@ -32,7 +32,7 @@ const MyDropdown = ({labelField, placeholder, value, data, onChange}) => {
       }}
       itemTextStyle={{
         fontSize: 14, // Adjust font size
-        paddingVertical: 2, // Reduce text padding
+        paddingVertical:0, // Reduce text padding
       }}
       
        />
@@ -43,25 +43,24 @@ const MyDropdown = ({labelField, placeholder, value, data, onChange}) => {
 
 const styles = StyleSheet.create({
    container:{
-    margin:5,
-    borderRadius:10
+    // margin:5,
+    // borderRadius:10
 
    },
    dropdown:{
     height: 50,
-    borderWidth: 0,
-    borderRadius: 10,
+    borderWidth: 1,
+    borderColor:colors.grayBorder,
+    borderRadius: 7,
     backgroundColor:colors.inputGray,
     fontFamily:fontsFamily.regular,
     fontSize:RFValue(15),
-  
-    
    },
    iconStyle: {
     marginRight: 15,
   },
   dropDownContainerStyle:{
-    borderRadius:10,
+    borderRadius:5,
     backgroundColor:colors.lightGray,
     
   },

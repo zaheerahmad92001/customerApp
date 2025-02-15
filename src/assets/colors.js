@@ -19,10 +19,12 @@ const colors = {
   placeholderColor:'#99A0A6',
   radioBorders: '#ccc',
   borderPrimary: '#ECD5D9',
+  grayBorder:'#E7E9E9',
   ratedBox:'#F59E0B4D',
   lightOffWhite:'rgba(255, 255, 255, 0.6)',
   darkYellow:'#FFC000',
-  appBG:'rgb(249,249,249)',
+  appBG:'rgba(249,249,249,1)',
+  appBG1:'rgba(249,249,249,0.5)',
   chatlistmessage:'#6C757D',
   darkGray:'#1C1C1C0D',
 

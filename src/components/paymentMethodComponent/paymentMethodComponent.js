@@ -3,15 +3,18 @@ import {
   View,
   Text,
   TouchableOpacity,
-  FlatList,
   StyleSheet,
-  Image,
 } from 'react-native';
 import colors from '../../assets/colors';
 import {paymentMethods} from '../../staticData';
 import {RFValue} from 'react-native-responsive-fontsize';
 import fontsFamily from '../../assets/fontsFamily';
 import {AppButton} from '../appButton';
+import {
+  heightPercentageToDP as hp,
+  widthPercentageToDP as wp,
+} from 'react-native-responsive-screen';
+import { SmallText } from '../Typography';
 
 const PaymentMethodComponent = ({onSelect}) => {
   return (
@@ -19,20 +22,21 @@ const PaymentMethodComponent = ({onSelect}) => {
       <View style={styles.headingContainer}>
         <Text style={styles.title}>Payment Method</Text>
         <AppButton title={'Add New Card'} />
-        {/* <TouchableOpacity style={styles.addButton}>
-          <Text style={styles.addButtonText}>Add New Card</Text>
-        </TouchableOpacity> */}
       </View>
-      <FlatList
-        data={paymentMethods}
-        keyExtractor={item => item.id}
-        renderItem={({item}) => (
-          <TouchableOpacity style={styles.item} onPress={() => onSelect(item)}>
-            <Image source={item.icon} style={styles.icon} />
-            <Text style={styles.text}>{item.name}</Text>
-          </TouchableOpacity>
-        )}
-      />
+
+      <View>
+        {paymentMethods.map((item, index) => {
+          return (
+            <TouchableOpacity
+              style={styles.item}
+              onPress={() => onSelect(item)}>
+                <item.Icon/>
+                <SmallText text={item.name} style={styles.text} />
+            </TouchableOpacity>
+          );
+        })}
+      </View>
+
     </View>
   );
 };
@@ -40,8 +44,16 @@ const PaymentMethodComponent = ({onSelect}) => {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: colors.white,
+    marginHorizontal: wp(4),
+    marginTop: hp(3),
+    paddingBottom: 20,
     padding: 16,
     borderRadius: 10,
+    shadowColor: '#000',
+    shadowOffset: {width: 0, height: 0},
+    shadowOpacity: 0.1,
+    shadowRadius: 2,
+    elevation: 1,
   },
   headingContainer: {
     flexDirection: 'row',
@@ -57,24 +69,17 @@ const styles = StyleSheet.create({
   item: {
     flexDirection: 'row',
     alignItems: 'center',
-    padding: 10,
+    paddingVertical: 10,
+    paddingHorizontal: 16,
     borderRadius: 8,
-    backgroundColor: colors.appBG,
+    backgroundColor: colors.inputGray,
     marginBottom: 8,
-  },
-  icon: {
-    width: 30,
-    height: 30,
-    marginRight: 10,
+    gap:16,
   },
   text: {
-    fontSize: RFValue(14),
+    fontSize: RFValue(13),
+    fontWeight:'500',
   },
-  //   addButtonText: {
-  //     color: '#fff',
-  //     fontSize: RFValue(14),
-  //     fontWeight: 'bold',
-  //   },
 });
 
 export default PaymentMethodComponent;

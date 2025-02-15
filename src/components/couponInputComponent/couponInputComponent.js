@@ -9,27 +9,22 @@ import {
 import colors from '../../assets/colors';
 import {RFValue} from 'react-native-responsive-fontsize';
 import fontsFamily from '../../assets/fontsFamily';
+import { widthPercentageToDP as wp } from 'react-native-responsive-screen';
+import { LargeText, MediumText, SmallText } from '../Typography';
+import { AppButton } from '../appButton';
 
 const CouponInput = ({onApply}) => {
   const [coupon, setCoupon] = useState('');
 
   return (
     <View style={styles.container}>
-      <Text style={styles.label}>Coupon Code</Text>
+      <LargeText text={'Coupon Code'} style={styles.label}/>
       <View style={styles.inputContainer}>
-        <TextInput
+        <SmallText
           style={styles.input}
-          placeholder="Enter Coupon Code"
-          placeholderTextColor="#A0A0A0"
-          value={coupon}
-          onChangeText={setCoupon}
+          text={'Enter Coupon Code'}
         />
-        <TouchableOpacity
-          style={[styles.applyButton, !coupon && styles.disabledButton]}
-          onPress={() => onApply(coupon)}
-          disabled={!coupon}>
-          <Text style={styles.applyText}>Apply</Text>
-        </TouchableOpacity>
+        <AppButton title={'Apply'} textstyle={styles.applyText}  style={styles.applyButton}/>
       </View>
     </View>
   );
@@ -37,42 +32,36 @@ const CouponInput = ({onApply}) => {
 
 const styles = StyleSheet.create({
   container: {
-    marginBottom: 16,
+    marginHorizontal:wp(4),
   },
   label: {
-    fontSize: RFValue(12),
-    fontFamily: fontsFamily.semiBold,
+    textAlign:'left',
     marginBottom: 8,
   },
   inputContainer: {
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent:"space-between",
     borderWidth: 1,
-    borderColor: '#D1D1D1',
+    borderColor:colors.grayBorder,
     borderRadius: 8,
-    paddingHorizontal: 10,
-    backgroundColor: colors.inputGray,
+    paddingLeft:10,
+    paddingRight:5,
+    paddingVertical:5,
+    backgroundColor:'transparant',
   },
   input: {
-    flex: 1,
-    height: 40,
-    fontSize: 16,
-    color: colors.appBlack,
+    color: colors.lightBlack,
   },
   applyButton: {
-    backgroundColor: '#E57373',
-    paddingVertical: 10,
-    marginVertical: 10,
-    paddingHorizontal: 16,
-    borderRadius: 6,
+    backgroundColor:colors.lighterPrimary,
+    borderColor:colors.lighterPrimary,
   },
   disabledButton: {
     backgroundColor: colors.gray,
   },
   applyText: {
-    color: colors.white,
-    fontSize: RFValue(12),
-    fontFamily: fontsFamily.semiBold,
+    color: colors.primary,
   },
 });
 

@@ -2,7 +2,6 @@ import {StyleSheet} from 'react-native';
 import {RFValue} from 'react-native-responsive-fontsize';
 import fontsFamily from '../../assets/fontsFamily';
 import {
-  heightPercentageToDP,
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
 } from 'react-native-responsive-screen';
@@ -91,7 +90,7 @@ const styles = StyleSheet.create({
   },
   submitText: {
     color: colors.white,
-    fontSize: RFValue(12), // Updated to RFValue
+    fontSize: RFValue(12),
     textAlign: 'center',
     fontFamily: fontsFamily.semiBold,
   },
@@ -101,12 +100,11 @@ const styles = StyleSheet.create({
     borderColor: colors.lighterPrimary,
   },
   cancelText: {
-    fontSize: RFValue(12), // Updated to RFValue
+    fontSize: RFValue(12),
     textAlign: 'center',
     fontFamily: fontsFamily.semiBold,
   },
   inputStyle: {
-    padding: 10,
     minHeight: 130,
     textAlignVertical: 'top',
     fontSize: RFValue(14),

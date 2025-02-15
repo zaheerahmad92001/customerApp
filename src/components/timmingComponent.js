@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet} from 'react-native';
+import {Pressable, StyleSheet} from 'react-native';
 import Clock from '../assets/svgs/clock.svg';
 import { LargeText, SmallText } from './Typography';
 import { View } from 'react-native';
@@ -7,15 +7,15 @@ import colors from '../assets/colors';
 import { RFValue } from 'react-native-responsive-fontsize';
 
 const TimmingComponent = (props)=>{
-    const {heading, subHeading, style } = props;
+    const {heading, subHeading, style , handleOnPress} = props;
     return(
-        <View style={[styles.timingContainer,style]}>
+        <Pressable onPress={handleOnPress} style={[styles.timingContainer,style]}>
           <LargeText text={heading} style={styles.openeningHeading} />
           <View style={styles.locationSubContainer}>
             <Clock />
             <SmallText text={subHeading} style={styles.openeningText} />
           </View>
-        </View>
+        </Pressable>
     );
 };
 

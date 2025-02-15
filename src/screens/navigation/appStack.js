@@ -14,7 +14,7 @@ import EditProfile from '../profileScreen/editProfile/editProfile';
 import ReviewScreen from '../reviewScreen/review';
 import Favorites from '../favoritesScreen/favourites';
 import BookingHistory from '../bookingScreen/booking';
-import SavedCard from '../cardScreen/savedCard/card';
+import SavedCard from '../cardScreen/savedCard/saveCard';
 import AddCard from '../cardScreen/addCard/addCard';
 import invoiceDetail from '../invoiceScreen/invoiceDetail/invoiceDetail';
 import InvoiceList from '../invoiceScreen/invoiceList/invoiceList';
@@ -35,6 +35,9 @@ import InviteFriends from '../inviteFriends/inviteFriends';
 import SuccessScreen from '../successMessageScreen/succesScreen';
 import ServiceDetail from '../serviceDetailScreen/serviceDetail';
 import Location from '../location/location';
+import RatingAndReview from '../ratingAndReviewScreen/ratingAndReview';
+import AvailableTimeSlot from '../availableTimeSlotScreen/availableTimeSlot';
+import OrderDetail from '../orderDetailScreen/orderDetail';
 
 const Stack = createNativeStackNavigator();
 
@@ -87,6 +90,11 @@ function AppStack() {
       <Stack.Screen name="customerSupport" component={Support}/>
       <Stack.Screen name="inviteFriends" component={InviteFriends}/>
       <Stack.Screen name="detail" component={ServiceDetail}/>
+      <Stack.Screen name='ratingAndReview' component={RatingAndReview}/>
+      <Stack.Screen name='availableTimeSlot' component={AvailableTimeSlot}/>
+      <Stack.Screen name='orderDetail' component={OrderDetail}/>
+
+
 
     </Stack.Navigator>
   );

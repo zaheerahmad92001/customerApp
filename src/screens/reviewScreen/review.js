@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Image, SafeAreaView, Platform} from 'react-native';
+import {View, Image, SafeAreaView, Platform, TextInput} from 'react-native';
 import RadioButton from '../../components/radioButton';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 
@@ -76,6 +76,7 @@ const Review = ({navigation , route}) => {
           <TextField
             placeholder={'Your review here'}
             multiline
+            style={styles.inputStyle}
             inputStyle={styles.inputStyle}
             onChangeText={setReview}
           />

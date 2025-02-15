@@ -28,39 +28,26 @@ const style = StyleSheet.create({
         paddingBottom:10
     },
     divider:{
-        height:1,
-        width:'94%',
-        paddingLeft:20,
-        paddingRight:10,
+        width:'100%',
         marginTop:20,
-        marginLeft:20,
-        marginRight:20,
-        backgroundColor:colors.gray
+        borderBottomColor:colors.gray,
+        borderBottomWidth:0.7,
 
     },
     ratintTxt:{
         fontFamily:fontsFamily.regular,
         fontSize:RFValue(12),
         fontWeight:'300',
-        paddingVertical:15,
-        paddingLeft:10,
+        paddingVertical:5,
         color:colors.chatlistmessage
-
-
     },
     namedateView: {
         flexDirection: 'row',
         marginTop:5,
-        paddingLeft:10
     },
     nameText:{
         color:colors.primary,
-        fontFamily:fontsFamily.bold,
-        fontSize:RFValue(12),
-        fontWeight:'400',
-        alignItems:'center',
-         textAlign:'center',
-         
+        fontWeight:'500',
     },
     dotText:{
         fontWeight:'500',
@@ -68,7 +55,12 @@ const style = StyleSheet.create({
         textAlign:'center',
         fontFamily:fontsFamily.medium,
         color:colors.chatlistmessage
-
+    },
+    dateText:{
+        color:colors.lightBlack,
+        fontWeight:'400',
+        fontFamily:fontsFamily.regular,
+        fontSize:RFValue(12),
     },
     starContainer: {
         flexDirection: 'row',
@@ -76,6 +68,12 @@ const style = StyleSheet.create({
     },
     starView: {
         padding: 4
+    },
+    mostRelevent:{
+        color:colors.lightBlack,
+        fontFamily:fontsFamily.regular,
+        fontWeight:'400',
+        fontSize:RFValue(12),
     }
 });
 

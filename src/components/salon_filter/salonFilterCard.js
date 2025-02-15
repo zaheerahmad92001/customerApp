@@ -1,19 +1,17 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import { StyleSheet, Text, TextInput, TouchableOpacity, View, ScrollView } from "react-native";
 import colors from "../../assets/colors";
-import { heightPercentageToDP as hp, widthPercentageToDP as wp } from "react-native-responsive-screen";
 import { RFValue } from 'react-native-responsive-fontsize';
 import fontsFamily from '../../assets/fontsFamily';
 import { RangeSlider } from '@react-native-assets/slider';
 import WhiteStar from '../../assets/svgs/whitestar.svg'
 import YellowStar from '../../assets/svgs/star.svg'
+import {MediumText, SmallText, XlargeText } from "../Typography";
+import { AppButton } from "../appButton";
 
 const SalonFilterCard = (props) => {
-    const { onCancel, onApply } = props;
 
-    const [minPrice, setMinPrice] = useState(0);
-    const [maxPrice, setMaxPrice] = useState(500);
-    const sliderRef = useRef(null);
+    const { onCancel, onApply } = props;
     const [selectedCategory, setSelectedCategory] = useState("Salon");
     const [selectedRating, setSelectedRating] = useState(5);
     const [selectedDistance, setSelectedDistance] = useState("1-5 km");
@@ -25,11 +23,12 @@ const SalonFilterCard = (props) => {
     const [range, setRange] = useState([0, 500]);
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Filters</Text>
+            <XlargeText text={'Filters'} style={styles.title} />
             <View style={styles.divider}></View>
             <ScrollView showsVerticalScrollIndicator={false}>
                 {/* Category Section */}
-                <Text style={styles.sectionTitle}>Category</Text>
+
+                <MediumText text={'Category'} style={styles.sectionTitle}/>
                 <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.horizontalScroll}>
                     {categories.map((category) => (
                         <TouchableOpacity
@@ -45,7 +44,8 @@ const SalonFilterCard = (props) => {
                 </ScrollView>
 
                 {/* Ratings Section */}
-                <Text style={styles.sectionTitle}>Ratings</Text>
+
+                <MediumText text={'Ratings'} style={styles.sectionTitle}/>
                 <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.horizontalScroll}>
                     {ratings.map((rating) => (
                         <TouchableOpacity
@@ -67,7 +67,8 @@ const SalonFilterCard = (props) => {
                 </ScrollView>
 
                 {/* Distance Section */}
-                <Text style={styles.sectionTitle}>Distance</Text>
+
+                <MediumText text={'Distance'} style={styles.sectionTitle}/>             
                 <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.horizontalScroll}>
                     {distances.map((distance) => (
                         <TouchableOpacity
@@ -75,16 +76,15 @@ const SalonFilterCard = (props) => {
                             style={[styles.button, selectedDistance === distance && styles.selectedButton]}
                             onPress={() => setSelectedDistance(distance)}
                         >
-                            <Text style={[styles.buttonText, selectedDistance === distance && styles.selectedText]}>
-                                {distance}
-                            </Text>
+                            <SmallText text={distance} style={[styles.buttonText, selectedDistance === distance && styles.selectedText]}/>
                         </TouchableOpacity>
                     ))}
                 </ScrollView>
 
                 {/* Price Range Section */}
-                <Text style={styles.sectionTitle}>Price Range</Text>
-                <View>
+
+                <MediumText text={'Price Range'} style={styles.sectionTitle}/>             
+              
                     <RangeSlider
                         style={styles.slider}
                         range={range}
@@ -96,12 +96,9 @@ const SalonFilterCard = (props) => {
                         thumbTintColor={colors.borderPrimary}
                         onValueChange={(newRange) => setRange(newRange)}
 
-                        trackStyle={styles.track} // Custom Track
-                        thumbStyle={styles.thumb} // Custom Knob
-                    //minimumTrackStyle={styles.minimumTrack} // Custom Selected Track
-                    //maximumTrackStyle={styles.maximumTrack} // Custom Unselected Track
+                        trackStyle={styles.track}
+                        thumbStyle={styles.thumb}
                     />
-                </View>
 
 
                 <View style={styles.priceInputs}>
@@ -114,12 +111,8 @@ const SalonFilterCard = (props) => {
 
                 {/* Buttons */}
                 <View style={styles.buttonContainer}>
-                    <TouchableOpacity onPress={onCancel} style={[styles.actionButton, styles.cancelButton]}>
-                        <Text style={styles.cancelText}>Cancel</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={onApply} style={[styles.actionButton, styles.applyButton]}>
-                        <Text style={styles.applyText}>Apply</Text>
-                    </TouchableOpacity>
+                    <AppButton title="Cancel" onPress={onCancel} style={styles.cancelButton} textstyle={styles.cancelText}  />
+                    <AppButton title="Apply" onPress={onApply} style={styles.applyButton}  />
                 </View>
             </ScrollView>
         </View>
@@ -128,27 +121,18 @@ const SalonFilterCard = (props) => {
 
 const styles = StyleSheet.create({
     container: {
-        //   flex: 1,
         backgroundColor: colors.appBG,
-        padding: 10,
     },
     divider: {
-        height: hp(0.2),
-        width: wp('75%'),
-        backgroundColor: colors.darkGray,
+        borderWidth:1,
+        borderColor:colors.grayBorder,
         marginTop: 10
     },
-    title: {
-        fontSize: 24,
-        fontWeight: '700',
-        marginBottom: 10,
-        fontFamily: fontsFamily.bold
-    },
     sectionTitle: {
-        fontSize: 14,
-        fontFamily: fontsFamily.bold,
-        marginTop: 15,
-        marginBottom: 10,
+        fontWeight:'500',
+        textAlign:'left',
+        marginTop: 10,
+        marginBottom: 15,
     },
     row: {
         flexDirection: "row",
@@ -168,29 +152,17 @@ const styles = StyleSheet.create({
 
     },
     buttonText: {
-        color: colors.appBlack,
-        fontFamily: fontsFamily.regular,
-        fontSize: RFValue(12),
-        fontWeight: '500',
-        alignItems: "center",
-        justifyContent: 'center'
+        color: colors.lightBlack,
+        fontWeight: '600'
     },
     selectedText: {
         color: colors.white,
-        fontFamily: fontsFamily.regular,
-        fontSize: RFValue(12),
-        fontWeight: '500',
-        alignItems: "center",
-        justifyContent: 'center'
-
     },
     startButtonView: {
         flexDirection: 'row',
         alignItems: "center",
         justifyContent: 'center',
         gap: 10
-
-
     },
     priceInputs: {
         flexDirection: "row",
@@ -202,14 +174,14 @@ const styles = StyleSheet.create({
     input: {
         flex: 1,
         borderWidth: 1,
-        borderColor: colors.darkGray,
+        borderColor: colors.grayBorder,
         borderRadius: 10,
         padding: 10,
         textAlign: "center",
         fontFamily: fontsFamily.regular,
-        fontWeight: '500',
-        fontSize: 16,
-        color: colors.appBlack,
+        fontWeight: '400',
+        fontSize: RFValue(14),
+        color: colors.lightBlack,
     },
     dash: {
         fontSize: 18,
@@ -220,6 +192,7 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         justifyContent: "space-between",
         marginTop: 20,
+        gap:20,
     },
     actionButton: {
         flex: 1,
@@ -228,24 +201,22 @@ const styles = StyleSheet.create({
         alignItems: "center",
     },
     cancelButton: {
-        backgroundColor: colors.lightPrimary,
-        marginRight: 10,
+        backgroundColor: colors.lighterPrimary,
+        borderColor:colors.lighterPrimary,
+        flex:1,
 
     },
     applyButton: {
-        backgroundColor: colors.primary,
+        flex:1
     },
     cancelText: {
         color: colors.primary,
-        fontSize: 16,
     },
     applyText: {
         color: colors.white,
         fontSize: 16,
         fontWeight: "bold",
     },
-
-
 
     slider: {
         width: "100%",
@@ -258,7 +229,6 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         marginLeft: 12,
         marginRight: 12
-        //backgroundColor: colors.primary, // Track color
     },
     minimumTrack: {
         backgroundColor: colors.borderPrimary, 

@@ -22,9 +22,13 @@ import TimmingComponent from '../../components/timmingComponent';
 import TopRatedVenus from '../../components/topRatedVenus';
 import Config from 'react-native-config';
 import FastImage from 'react-native-fast-image';
+import ModalComponent from '../../components/modal';
+import OpeningHours from '../../components/modal/openingHours';
 
 const ServiceDetail = ({navigation, route}) => {
   const mapRef = useRef(null);
+  const modalRef = useRef();
+
   const {REACT_APP_GOOGLE_MAPS_API_KEY} = Config;
   const latitude = 37.78825;
   const longitude = -122.4324;
@@ -50,8 +54,17 @@ const ServiceDetail = ({navigation, route}) => {
   const renderTopRatedVenus = ({item, index}) => {
     return <TopRatedVenus />;
   };
- const handleNavigation = (routeName,params) => {
-    navigation.navigate(routeName,{params});
+  const handleNavigation = (routeName, params) => {
+    navigation.navigate(routeName, {params});
+  };
+
+  const openModal = () => {
+    if (modalRef.current) {
+      modalRef.current.open();
+    }
+  };
+  const closeModal = () => {
+    modalRef.current.close();
   };
 
   const renderHeader = () => {
@@ -63,7 +76,9 @@ const ServiceDetail = ({navigation, route}) => {
         <View style={styles.subContainer}>
           <XlargeText text={'Hair Avenue'} style={styles.heading} />
           <View style={styles.buttonsContainer}>
-            <TouchableOpacity onPress={()=>handleNavigation('chat')} style={styles.icon}>
+            <TouchableOpacity
+              onPress={() => handleNavigation('chat')}
+              style={styles.icon}>
               <Message />
             </TouchableOpacity>
             <TouchableOpacity style={styles.icon}>
@@ -78,7 +93,14 @@ const ServiceDetail = ({navigation, route}) => {
         </Text>
 
         <View style={styles.locationContainer}>
-          <Pressable onPress={()=>handleNavigation('location','No 03,Kadalana Road, Kadalana, Moratuwa')} style={styles.locationSubContainer}>
+          <Pressable
+            onPress={() =>
+              handleNavigation(
+                'location',
+                'No 03,Kadalana Road, Kadalana, Moratuwa',
+              )
+            }
+            style={styles.locationSubContainer}>
             <Location />
             <SmallText
               text={'No 03,Kadalana Road, Kadalana, Moratuwa'}
@@ -89,7 +111,10 @@ const ServiceDetail = ({navigation, route}) => {
             <Clock />
             <SmallText text={'9AM-10PM, Mon -Sun'} style={styles.timeText} />
           </View>
-          <View style={styles.locationSubContainer}>
+
+          <Pressable
+            onPress={() => handleNavigation('ratingAndReview')}
+            style={styles.locationSubContainer}>
             <Star />
             <View style={styles.row}>
               <SmallText
@@ -98,7 +123,7 @@ const ServiceDetail = ({navigation, route}) => {
               />
               <SmallText text={'312'} style={styles.locationText} />
             </View>
-          </View>
+          </Pressable>
         </View>
         <XlargeText
           text={'Services'}
@@ -117,6 +142,7 @@ const ServiceDetail = ({navigation, route}) => {
         <TimmingComponent
           heading={'Monday - Saturday'}
           subHeading={'Open at: 9AM-10PM '}
+          handleOnPress={openModal}
           style={{marginBottom: heightPercentageToDP(2)}}
         />
         <TimmingComponent heading={'Sunday'} subHeading={'Closed '} />
@@ -129,12 +155,11 @@ const ServiceDetail = ({navigation, route}) => {
           <FastImage source={{uri: mapUrl}} style={styles.mapImage} />
           <View style={styles.calloutContainer}>
             <Text style={styles.calloutTitle}>Hair Avenu</Text>
-            <View style={[styles.row,{gap:5}]}>
+            <View style={[styles.row, {gap: 5}]}>
               <Star />
               <Text style={styles.ratingText}>4.7</Text>
               <Text style={styles.ratingCount}>(312)</Text>
             </View>
-        
           </View>
         </View>
 
@@ -176,8 +201,11 @@ const ServiceDetail = ({navigation, route}) => {
           />
         </View>
 
-        <AppButton title={`Continue ${'(2)'}`} style={styles.continueButton} />
+        <AppButton onPress={()=>handleNavigation('availableTimeSlot')} title={`Continue ${'(2)'}`} style={styles.continueButton} />
       </View>
+      <ModalComponent ref={modalRef} onClose={closeModal}>
+        <OpeningHours onClose={closeModal} />
+      </ModalComponent>
     </SafeAreaView>
   );
 };

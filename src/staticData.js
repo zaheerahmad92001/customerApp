@@ -15,6 +15,8 @@ import Salon from './assets/svgs/salon.svg';
 import Clock from './assets/svgs/clock.svg';
 import Calendar from './assets/svgs/calendar-black.svg';
 import Service from './assets/svgs/document-text.svg';
+import ApplePay from './assets/svgs/appleIcon.svg';
+import CardPay from './assets/svgs/debtCard.svg';
 
 const recentSearches = [
   'Beauty Unleashed',
@@ -380,15 +382,48 @@ const staticBookings = [
 ];
 
 const paymentMethods = [
-  {id: '1', name: 'Apple Pay', icon: images.applePay},
+  {
+  id: '1', 
+  key:'applePay',
+  name: 'Apple Pay',
+  Icon: ApplePay
+  },
   {
     id: '2',
+    key:'creditCard',
     name: 'Credit/Debit Card',
-    icon: images.applePay,
+    Icon: CardPay,
   },
 ];
 const pointsButtons = ['All', 'Earned Points', 'Used Points'];
 const requestStatus = ['Pending', 'Resolved', 'Rejected'];
+
+const openingHours = [
+  {id:1,  day:'Monday', time:'Open at: 09AM-10PM'},
+  {id:1,  day:'Tuesday', time:'Open at: 09AM-10PM'},
+  {id:1,  day:'Wednesday', time:'Open at: 08AM-09PM'},
+  {id:1,  day:'Thursday', time:'Open at: 08AM-09PM'},
+  {id:1,  day:'Friday', time:'Open at: 09AM-10PM'},
+  {id:1,  day:'Saturday', time:'Open at: 09AM-10PM'},
+  {id:1,  day:'Sunday', time:'Closed'},
+]
+const AvailableTimeSlots = [
+  '10:00 AM',
+  '11:00 AM',
+  '12:00 PM',
+  '01:00 PM',
+  '02:00 PM',
+  '03:00 PM',
+  '04:00 PM',
+  '05:00 PM',
+  '06:00 PM',
+  '07:00 PM',
+  '08:00 PM',
+  '09:00 PM',
+  '10:00 PM',
+  '11:00 PM',
+  '12:00 AM',
+];
 
 export {
   recentSearches,
@@ -419,5 +454,7 @@ export {
   staticBookings,
   paymentMethods,
   pointsButtons,
-  requestStatus
+  requestStatus,
+  openingHours,
+  AvailableTimeSlots,
 };

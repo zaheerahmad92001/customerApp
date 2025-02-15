@@ -65,7 +65,7 @@ const Favorites = ({navigation, route}) => {
         refRBSheet={refRBSheet}
         onClose={() =>hideBottomSheet()}
         scrollEnabled={false}
-        disableDynamicSizing={false}
+        disableDynamicSizing={true}
         height={heightPercentageToDP(32)}
       >
          <FavoriteModal 

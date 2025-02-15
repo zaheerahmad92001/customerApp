@@ -3,29 +3,35 @@ import React from 'react';
 import colors from '../../assets/colors';
 import {RFValue} from 'react-native-responsive-fontsize';
 import fontsFamily from '../../assets/fontsFamily';
+import Marker from '../../assets/svgs/locationMarker.svg';
+import {LargeText, SmallText} from '../Typography';
 
-const ServiceCard = ({
-  image,
-  title,
-  location,
-  date,
-  service,
-  professional,
-  distance,
-}) => {
+const ServiceCard = props => {
+  const {item ,style} = props;
+  const {image, title, location, date, service, professional, distance} = item;
+
   return (
-    <View style={styles.cardContainer}>
-      <Image source={image} style={styles.image} />
+    <View style={[styles.cardContainer,style]}>
+      <View style={styles.imageContainer}>
+        <Image source={image} style={styles.image} />
+      </View>
       <View style={styles.detailsContainer}>
         <View style={styles.headerContainer}>
-          <Text style={styles.title}>{title}</Text>
-          <Text style={styles.date}>{date}</Text>
+          <LargeText text={title} style={styles.title} />
+          <SmallText text={date} style={styles.date} />
         </View>
-        <Text style={styles.location}>{location}</Text>
-        <Text style={styles.service}>Service: {service}</Text>
+
+        <View style={styles.locationContainer}>
+          <Marker />
+          <SmallText text={location} style={styles.date} />
+        </View>
+        <SmallText text={`Service: ${service}`} style={styles.date} />
         <View style={styles.profContainer}>
-          <Text style={styles.professional}>Professional: {professional}</Text>
-          <Text style={styles.distance}>{distance}</Text>
+          <SmallText
+            text={`Professional: ${professional}`}
+            style={styles.date}
+          />
+          <SmallText text={`${distance}`} style={styles.date} />
         </View>
       </View>
     </View>
@@ -40,10 +46,16 @@ const styles = StyleSheet.create({
     padding: 10,
     marginVertical: 10,
   },
-  image: {
+  imageContainer: {
     width: 80,
     height: 80,
     borderRadius: 10,
+    overflow: 'hidden',
+  },
+  image: {
+    width: null,
+    height: null,
+    flex: 1,
   },
   detailsContainer: {
     flex: 1,
@@ -55,14 +67,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   title: {
-    fontSize: RFValue(14),
-    fontFamily: fontsFamily.semiBold,
     color: colors.appBlack,
   },
   date: {
-    fontSize: RFValue(10),
-    fontFamily: fontsFamily.regular,
     color: colors.lightBlack,
+    fontWeight: '500',
   },
   location: {
     fontSize: RFValue(12),
@@ -90,6 +99,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
+  },
+  locationContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
   },
 });
 

@@ -23,5 +23,7 @@ const images = {
   intro2: require('../images/intro3.png'),
   intro3: require('../images/intro1.png'),
   transparentBG: require('../images/transparentBg.png'),
+  masterCard: require('../images/masterCard.png'),
+  visaCard: require('../images/visaCard.png'),
 };
 export default images;

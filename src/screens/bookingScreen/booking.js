@@ -83,7 +83,7 @@ const openBottomSheet = useCallback((item) => {
         refRBSheet={refRBSheet}
         onClose={() =>hideBottomSheet()}
         scrollEnabled={false}
-        disableDynamicSizing={false}
+        disableDynamicSizing={true}
         height={heightPercentageToDP(35)}
       >
          <CancelBooking 

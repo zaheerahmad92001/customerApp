@@ -6,17 +6,17 @@ import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
 import Marker from '../assets/svgs/location-color.svg';
 
 const LocationPicker = props => {
-  const {location, handleOnPress} = props;
+  const {location, handleOnPress, handleFilterPress} = props;
   return (
-    <Pressable onPress={handleOnPress} style={styles.searchBarContainer}>
-      <View style={[styles.searchBar]}>
+    <View style={styles.searchBarContainer}>
+      <Pressable onPress={handleOnPress} style={[styles.searchBar]}>
         <Marker />
         <Text style={styles.input}>{location}</Text>
-      </View>
-      <Pressable onPress={() => {}} style={styles.button}>
+      </Pressable>
+      <Pressable onPress={handleFilterPress} style={styles.button}>
         <FilterIcon />
       </Pressable>
-    </Pressable>
+    </View>
   );
 };
 
@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: colors.gray,
   },
- 
+
   button: {
     backgroundColor: 'white',
     borderRadius: 8,

@@ -19,6 +19,7 @@ export const BottomSheet = (props) => {
     scrollEnabled,
     disableDynamicSizing,
     title,
+    removeSheetScrolllView=false,
   } = props;
 
   const renderBackdrop = useCallback(
@@ -62,13 +63,16 @@ export const BottomSheet = (props) => {
           <Text>{title}</Text>
         </View>
       )}
-
+     { removeSheetScrolllView ?
+      <View style={{ minHeight: height }}>{children}</View>
+      :
       <BottomSheetScrollView
       style={{paddingHorizontal:20}}
-        nestedScrollEnabled={true}
+        nestedScrollEnabled={false}
         scrollEnabled={scrollEnabled ? true : false}>
         <View style={{ minHeight: height }}>{children}</View>
       </BottomSheetScrollView>
+      }
     </BottomSheetModal>
   );
 };
