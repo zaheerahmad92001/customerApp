@@ -4,6 +4,7 @@ import {RFValue} from 'react-native-responsive-fontsize';
 import colors from '../../assets/colors';
 import fontsFamily from '../../assets/fontsFamily';
 import Ticket from '../../assets/svgs/ticket.svg';
+import { SmallText } from '../Typography';
 
 const DiscountCard = ({title, discount, validity, remaining, onApply}) => {
   return (
@@ -11,17 +12,19 @@ const DiscountCard = ({title, discount, validity, remaining, onApply}) => {
       <View style={styles.row}>
         <Ticket />
         <View style={styles.textContainer}>
-          <Text style={styles.title}>{title}</Text>
-          <Text style={styles.discount}>{discount}</Text>
+          <SmallText text={title} style={styles.title}/>
+          <SmallText text={`${discount} Discount`} style={styles.discount}/>
         </View>
-        <Text style={styles.remaining}>{remaining} left</Text>
+        <View style={styles.remaining}>
+         <SmallText text={`${remaining} left`} style={styles.remainingText}/>
+        </View>
       </View>
       <View style={styles.divider} />
       <View style={styles.row}>
-        <Text style={styles.validity}>Valid: {validity}</Text>
+        <SmallText text={`Valid : ${validity}`} style={styles.validity}/>
         <View style={styles.footer}>
           <TouchableOpacity onPress={onApply} style={styles.applyButton}>
-            <Text style={styles.applyText}>Apply</Text>
+            <SmallText text={'Apply'} style={styles.applyText}/>
           </TouchableOpacity>
         </View>
       </View>
@@ -59,14 +62,11 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     flex: 1,
   },
-  title: {
-    fontSize: RFValue(12),
-    fontFamily: fontsFamily.semiBold,
-    color: colors.appBlack,
-  },
+  
   discount: {
-    fontSize: RFValue(10),
+    fontSize: RFValue(12),
     color: colors.lightBlack,
+    fontWeight:'500',
   },
   validity: {
     fontSize: RFValue(10),
@@ -77,15 +77,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   remaining: {
-    fontSize: RFValue(10),
-    color: colors.primary,
     marginRight: 15,
     backgroundColor: colors.lightPrimary,
-    paddingHorizontal: 10,
-    paddingVertical: 3,
+    paddingHorizontal: 13,
+    paddingVertical: 5,
     borderRadius: 20,
     fontFamily: fontsFamily.semiBold,
   },
+  remainingText:{color:colors.primary},
   applyButton: {
     borderRadius: 15,
     paddingVertical: 5,
@@ -97,8 +96,9 @@ const styles = StyleSheet.create({
     fontFamily: fontsFamily.semiBold,
   },
   divider: {
-    height: 1,
-    backgroundColor: '#E0E0E0',
+    borderWidth:1,
+    borderColor:'#E0E0E0',
+    borderStyle:'dashed'
   },
 });
 

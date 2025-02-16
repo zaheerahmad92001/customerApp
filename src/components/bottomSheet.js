@@ -6,8 +6,11 @@ import {
 } from '@gorhom/bottom-sheet';
 
 // import { styles } from './styles';
-import { TouchableWithoutFeedback, View, Text } from 'react-native';
+import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import { TouchableWithoutFeedback, View, Text, Pressable, StyleSheet } from 'react-native';
 import colors from '../assets/colors';
+import { MediumText } from './Typography';
+import Close from '../assets/svgs/close.svg';
 
 export const BottomSheet = (props) => {
   const {
@@ -59,9 +62,10 @@ export const BottomSheet = (props) => {
       onDismiss={onDismiss}
     >
       {Boolean(title) && (
-        <View>
-          <Text>{title}</Text>
-        </View>
+       <Pressable onPress={onClose} style={styles.header}>
+         <MediumText text={title} />
+       <Close />
+     </Pressable>
       )}
      { removeSheetScrolllView ?
       <View style={{ minHeight: height }}>{children}</View>
@@ -76,3 +80,15 @@ export const BottomSheet = (props) => {
     </BottomSheetModal>
   );
 };
+
+const styles = StyleSheet.create({
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    borderBottomColor: colors.grayBorder,
+    borderBottomWidth: 1,
+    paddingBottom:hp(1),
+    marginHorizontal:20,
+  },
+})

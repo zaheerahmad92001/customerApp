@@ -15,13 +15,15 @@ import {
   widthPercentageToDP as wp,
 } from 'react-native-responsive-screen';
 import { SmallText } from '../Typography';
+import { useNavigation } from '@react-navigation/native';
 
 const PaymentMethodComponent = ({onSelect}) => {
+  const navigation = useNavigation()
   return (
     <View style={styles.container}>
       <View style={styles.headingContainer}>
         <Text style={styles.title}>Payment Method</Text>
-        <AppButton title={'Add New Card'} />
+        <AppButton title={'Add New Card'} onPress={()=> navigation.navigate('addCard')} />
       </View>
 
       <View>
@@ -46,8 +48,9 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
     marginHorizontal: wp(4),
     marginTop: hp(3),
-    paddingBottom: 20,
-    padding: 16,
+    paddingTop: 16,
+    paddingBottom: 10,
+    paddingHorizontal: 10,
     borderRadius: 10,
     shadowColor: '#000',
     shadowOffset: {width: 0, height: 0},

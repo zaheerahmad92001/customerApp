@@ -9,7 +9,7 @@ import Trash from '../assets/svgs/trash.svg';
 import images from '../assets/images';
 
 const CreditCard=(props)=>{
-    const {item ,index} = props;
+    const {item ,index , isSheet=false} = props;
     const showMaster = index % 2 === 0;
     return(
         <View style={styles.card}>
@@ -31,9 +31,11 @@ const CreditCard=(props)=>{
             <MediumText text='056'/>
           </View>
 
-          <TouchableOpacity style={styles.deleteButton}>
+          {!isSheet &&
+            <TouchableOpacity style={styles.deleteButton}>
             <Trash />
           </TouchableOpacity>
+          }
         </View> 
     )
 }

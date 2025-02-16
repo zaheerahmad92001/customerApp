@@ -42,6 +42,23 @@ const styles = StyleSheet.create({
     shadowRadius: 2,
     elevation:1,
     },
+    billView:{
+      backgroundColor:colors.white,
+      marginTop:hp(0.5),
+      borderTopRightRadius: 20,
+      borderTopLeftRadius: 20,
+      paddingHorizontal:wp(4),
+
+      elevation:1,
+      shadowColor: '#000',
+      shadowOffset: {
+        width: 0,
+        height: 0,
+      },
+      shadowOpacity: 0.25,
+      shadowRadius:1,
+      
+    },
     
   });
 

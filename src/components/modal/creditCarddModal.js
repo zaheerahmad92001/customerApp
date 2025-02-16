@@ -1,28 +1,19 @@
 import React from 'react';
-import {View, StyleSheet, Pressable} from 'react-native';
-import Close from '../../assets/svgs/close.svg';
-import Clock from '../../assets/svgs/clock.svg';
-import {MediumText, SmallText} from '../Typography';
+import {View, StyleSheet} from 'react-native';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import colors from '../../assets/colors';
-import {openingHours} from '../../staticData';
 import CreditCard from '../creditCard';
 
 const CreditCardModal = props => {
-  const {onClose, list} = props;
+  const {onClose, list ,isSheet} = props;
   return (
     <View>
-      <Pressable onPress={onClose} style={styles.header}>
-        <MediumText text={'Select Card'} />
-        <Close />
-      </Pressable>
-
       <View style={styles.innerContainer}>
         {list.map((item, index) => {
           const isClose = item.day === 'Sunday' ? true : false;
           return (
             <React.Fragment>
-              <CreditCard/>
+              <CreditCard isSheet={isSheet}/>
             </React.Fragment>
           );
         })}
