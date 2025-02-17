@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Feather from 'react-native-vector-icons/Feather';
 import {
   StyleSheet,
@@ -14,8 +14,6 @@ import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import {slides} from '../../staticData';
 import { LargeText, SmallText } from '../../components/Typography';
 import { AppButton } from '../../components/appButton';
-import ArrowRight from '../../assets/svgs/arrow-right.svg'
-
 const AppIntro = ({navigation, route}) => {
 
 
@@ -25,7 +23,6 @@ const AppIntro = ({navigation, route}) => {
         <View style={styles.innerCircle}>
         <Feather name="chevron-right" color={colors.white} size={24} />
         </View>
-        {/* <Icon name="circle-chevron-right" color={colors.primary} size={24} /> */}
       </View>
     );
   };
@@ -38,7 +35,6 @@ const AppIntro = ({navigation, route}) => {
 
 
   const renderItem = ({item}) => {
-    console.log('item', item);
     return (
       <ImageBackground 
       // resizeMode='contain'

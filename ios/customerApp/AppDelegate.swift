@@ -10,12 +10,17 @@ class AppDelegate: RCTAppDelegate {
     self.moduleName = "customerApp"
     self.dependencyProvider = RCTAppDependencyProvider()
     GMSServices.provideAPIKey("AIzaSyDwcvvpzgOthoJ_RkIn_m8-ESRRQSMV0dw")
-    
     // You can add your custom initial props in the dictionary below.
     // They will be passed down to the ViewController used by React Native.
     self.initialProps = [:]
    
-    return super.application(application, didFinishLaunchingWithOptions: launchOptions)
+
+    let isLaunched =  super.application(application, didFinishLaunchingWithOptions: launchOptions)
+    
+//    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+        RNSplashScreen.show()
+//       }
+    return isLaunched
 
   }
 
