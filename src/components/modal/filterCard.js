@@ -8,18 +8,15 @@ import WhiteStar from '../../assets/svgs/whitestar.svg'
 import YellowStar from '../../assets/svgs/star.svg'
 import {MediumText, SmallText, XlargeText } from "../Typography";
 import { AppButton } from "../appButton";
+import { filterCategories, filterDistances, filterRatings } from "../../staticData";
 
-const SalonFilterCard = (props) => {
+const FilterCard = (props) => {
 
     const { onCancel, onApply } = props;
     const [selectedCategory, setSelectedCategory] = useState("Salon");
     const [selectedRating, setSelectedRating] = useState(5);
     const [selectedDistance, setSelectedDistance] = useState("1-5 km");
 
-
-    const categories = ["Salon", "Spa", "Nail Art", "Salon & Spa"];
-    const ratings = [5, 4, 3, 2, "All"];
-    const distances = ["1 km", "1-5 km", "5-10 km", "10-20 km"];
     const [range, setRange] = useState([0, 500]);
     return (
         <View style={styles.container}>
@@ -30,7 +27,7 @@ const SalonFilterCard = (props) => {
 
                 <MediumText text={'Category'} style={styles.sectionTitle}/>
                 <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.horizontalScroll}>
-                    {categories.map((category) => (
+                    {filterCategories.map((category) => (
                         <TouchableOpacity
                             key={category}
                             style={[styles.button, selectedCategory === category && styles.selectedButton]}
@@ -47,7 +44,7 @@ const SalonFilterCard = (props) => {
 
                 <MediumText text={'Ratings'} style={styles.sectionTitle}/>
                 <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.horizontalScroll}>
-                    {ratings.map((rating) => (
+                    {filterRatings.map((rating) => (
                         <TouchableOpacity
                             key={rating}
                             style={[styles.button, selectedRating === rating && styles.selectedButton]}
@@ -70,7 +67,7 @@ const SalonFilterCard = (props) => {
 
                 <MediumText text={'Distance'} style={styles.sectionTitle}/>             
                 <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.horizontalScroll}>
-                    {distances.map((distance) => (
+                    {filterDistances.map((distance) => (
                         <TouchableOpacity
                             key={distance}
                             style={[styles.button, selectedDistance === distance && styles.selectedButton]}
@@ -262,4 +259,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default SalonFilterCard;
+export default FilterCard;

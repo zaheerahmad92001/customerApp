@@ -9,7 +9,7 @@ import {LargeText} from '../../components/Typography';
 const Categories = ({navigation, route}) => {
 
 const handlePress=(item)=>{
- navigation.navigate('categoryListing',{item})
+ navigation.navigate('categoryProducts',{item})
 }
 
 

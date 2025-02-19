@@ -21,12 +21,12 @@ const styles = StyleSheet.create({
       marginTop:hp(3),
       fontFamily: fontsFamily.regular,
     color: colors.appBlack,
-    fontWeight: '600',
+    fontWeight: '500',
     alignSelf:'flex-start',
     },
     button: {
       marginHorizontal:wp(4),
-      marginTop:hp(4),
+      // marginTop:hp(4),
     },
     buttonText: {
       fontSize: RFValue(12),

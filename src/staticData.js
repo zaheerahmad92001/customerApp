@@ -80,7 +80,7 @@ const mockData = [
 const menuOptions = [
   {title: 'Edit Profile', img: EditIcon,  routeName:'editProfile'},
   {title: 'Favorites', img: HeartIcon , routeName:'favorites'},
-  {title: 'Booking History', img: HistoryIcon, routeName:'booking'},
+  {title: 'Booking History', img: HistoryIcon, routeName:'bookingHistory'},
   {title: 'Saved Cards', img: SaveCardIcon, routeName:'savedCard'},
   {title: 'Invoices', img: Invoice, routeName:'invoiceList'},
   {title: 'Requests & Complaints', img: RequestIcon, routeName:'complaints'},
@@ -361,6 +361,15 @@ const messages = {
     title: 'Removed Successfully!',
     subheading: 'Your salon has been successfully removed from favorites.',
   },
+  reschedule: {
+    title: 'Reschedule Successfully!',
+    subheading: 'Your booking has been reshedule successfully.',
+  },
+  booking: {
+    title: 'Booked Successfully!',
+    subheading: 'Your booking has been successfully done.',
+  },
+
 };
 
 const complaints =[
@@ -424,6 +433,33 @@ const AvailableTimeSlots = [
   '11:00 PM',
   '12:00 AM',
 ];
+const venueList={
+  nearBy:'Nearby Venues',
+  topRated:'Top Rated Venues',
+  recommended:'Recommended Venues',
+}
+
+
+const filterCategories = ["Salon", "Spa", "Nail Art", "Salon & Spa"];
+const filterRatings = [5, 4, 3, 2, "All"];
+const filterDistances = ["1 km", "1-5 km", "5-10 km", "10-20 km"];
+
+
+const statuses = ['Completed', 'Pending', 'Cancelled', 'Confirmed'];
+
+const getRandomStatus = () => statuses[Math.floor(Math.random() * statuses.length)];
+
+const bookingHistory = Array.from({ length: 10 }, (_, index) => ({
+  id: index + 1, // Unique ID for each item
+  date: 'Sep 10, 2024',
+  time: '9:10 AM',
+  title: 'Hair Avenue',
+  location: 'Lakewood, California',
+  services: 'Services: Hair Cut, Hair Wash',
+  price: 'SAR 200',
+  status: getRandomStatus(), // Assign a random status
+  imageUri: images.room,
+}));
 
 export {
   recentSearches,
@@ -457,4 +493,9 @@ export {
   requestStatus,
   openingHours,
   AvailableTimeSlots,
+  venueList,
+  filterCategories,
+  filterRatings,
+  filterDistances,
+  bookingHistory
 };

@@ -18,17 +18,18 @@ import { heightPercentageToDP } from 'react-native-responsive-screen';
 import CustomCalendar from '../../components/calendar';
 
 const AvailableTimeSlot = ({navigation, route}) => {
+
   const refRBSheet  = useRef();
+  const {item , isReschedule} = route.params;
+
   const [selectedDate, setSelectedDate] = useState(
     moment().format('YYYY-MM-DD'),
   );
   const [selectedTime, setSelectedTime] = useState('02:00 PM');
 
-  // Generate dates for today and the next 4 days
   const dates = Array.from({length: 5}, (_, i) =>
     moment().add(i, 'days').format('YYYY-MM-DD'),
   );
-
 
   const openBottomSheet = useCallback((item) => {
         if (refRBSheet.current) {
@@ -42,10 +43,18 @@ const AvailableTimeSlot = ({navigation, route}) => {
       }
     };
 
+    const handleNavigation=()=>{
+      if(isReschedule){
+        navigation.navigate('successScreen',{actionName:'reschedule'})
+      }else{
+       navigation.navigate('orderDetail')
+      }
+    }
+
   return (
     <SafeAreaView style={styles.container}>
       <Header
-        title={'Available Time Slot'}
+        title={isReschedule?'Reschedule': 'Available Time Slot'}
         showBackButton
         onBackPress={() => navigation.goBack()}
       />
@@ -111,8 +120,8 @@ const AvailableTimeSlot = ({navigation, route}) => {
           </View>
         </View>
         <AppButton 
-        onPress={()=>navigation.navigate('orderDetail')} 
-        title ={'Select & Continue'} 
+        onPress={handleNavigation} 
+        title ={isReschedule? 'Reschedule' : 'Select & Continue'} 
         style={styles.continueButton}
         />
       </View>

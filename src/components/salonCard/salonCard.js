@@ -19,7 +19,6 @@ const SalonCard = props => {
     onFavorite,
     handleOnPress,
     showFavoriteButton = false,
-    selected = false,
     isNotificaiton = false,
     isRefund = false,
     hasDiscount = false,
@@ -90,7 +89,7 @@ const SalonCard = props => {
               <Text style={styles.reviewText}>({reviews})</Text>
             </View>
             {showFavoriteButton && (
-              <FavourSelector onFavorite={onFavorite} selected={selected} />
+              <FavourSelector onFavorite={onFavorite} />
             )}
             {!showFavoriteButton && (
               <View
@@ -133,6 +132,14 @@ const styles = StyleSheet.create({
     padding: 12,
     marginBottom: hp(1.5),
     alignItems: 'center',
+
+    // shadowColor: colors.appBlack,
+    // shadowOffset: {
+    //   width: 1,
+    //   height: 0.1,
+    // },
+    // shadowOpacity:0.2,
+    // shadowRadius: 1,
   },
   cardImage: {
     width: 80,

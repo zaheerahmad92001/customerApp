@@ -78,10 +78,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
   },
-  categoryRow: {
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
   categoryCard: {
     backgroundColor: colors.white,
     borderRadius: 8,

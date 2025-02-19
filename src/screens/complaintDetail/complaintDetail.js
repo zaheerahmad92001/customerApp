@@ -5,7 +5,7 @@ import style from './complaintDetail.style';
 import ComplaintsCard from '../../components/complaintsCard/conplaintsCard';
 import Filter from '../../assets/svgs/filter-search.svg';
 import { LargeText, MediumText } from '../../components/Typography';
-import FilterScreen from '../../components/modal/filterScreen';
+import FilterRequest from '../../components/modal/filterRequest';
 import ModalComponent from '../../components/modal/index';
 
 
@@ -59,7 +59,7 @@ const closeModal = () => {
       <ModalComponent
        ref={modalRef}
         onClose={closeModal}>
-        <FilterScreen
+        <FilterRequest
           onCancel={closeModal}
           onApply={() => {
             console.log('Apply')

@@ -1,12 +1,9 @@
 import {
   View,
-  Text,
-  SafeAreaView,
-  ScrollView,
   Alert,
   Pressable,
 } from 'react-native';
-import React, {useCallback, useReducer, useRef, useState} from 'react';
+import React, {useCallback, useReducer, useRef} from 'react';
 import {serviceData, staticBookings} from '../../staticData';
 import ServiceCard from '../../components/serviceCard/serviceCard';
 import Header from '../../components/appHeader';
@@ -24,8 +21,7 @@ import TextField from '../../components/textField/textField';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import CreditCardModal from '../../components/modal/creditCarddModal';
 import CodeDiscount from '../../components/modal/discounts';
-import BillDetail from '../../components/billDetail';
-import colors from '../../assets/colors';
+import BillDetail from '../../components/billDetail';;
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import LoyalityPoints from '../../components/loyaltyPoints';
 
@@ -81,6 +77,10 @@ const OrderDetail = ({navigation, route}) => {
       updateState({sheetName: ''});
     }
   };
+
+  const handleBooking=()=>{
+    navigation.navigate('successScreen', {actionName: 'booking'});
+  }
 
   return (
     <View style={[styles.container,{paddingTop: insets.top, paddingBottom: insets.bottom}]}>
@@ -140,7 +140,7 @@ const OrderDetail = ({navigation, route}) => {
       <View
         style={[styles.billView]}>
         <BillDetail item={staticBookings[0]}/>
-        <AppButton title={'Proceed (SAR 172.50)'} />
+        <AppButton title={'Proceed (SAR 172.50)'} onPress={handleBooking}/>
       </View>
 
       <BottomSheet

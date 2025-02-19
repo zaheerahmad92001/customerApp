@@ -5,6 +5,7 @@ import fontsFamily from '../../assets/fontsFamily';
 import { LargeText, SmallText } from '../Typography';
 import DownArrow from '../../assets/svgs/down-arrow-light-black.svg';
 import UpArrow from '../../assets/svgs/up-arrow.svg';
+import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 const FAQItem = ({question, answer}) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -52,6 +53,7 @@ const styles = StyleSheet.create({
     color: colors.lightBlack,
     fontFamily:fontsFamily.regular,
     fontWeight:'400',
+    marginBottom:hp(1)
   },
 });
 

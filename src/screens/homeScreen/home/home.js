@@ -1,4 +1,4 @@
-import React, { useCallback, useReducer, useRef, useState } from 'react';
+import React, {useReducer, useRef, useState } from 'react';
 import {
   View,
   Text,
@@ -9,7 +9,7 @@ import {
   ScrollView,
 } from 'react-native';
 import Search from '../../../components/search';
-import { mockData, recentSearches } from '../../../staticData';
+import { mockData, recentSearches, venueList } from '../../../staticData';
 import images from '../../../assets/images';
 import SalonCard from '../../../components/salonCard/salonCard';
 import { LargeText, SmallText } from '../../../components/Typography';
@@ -18,20 +18,20 @@ import HomeHeader from '../../../components/homeHeader';
 import GooglePlacesModal from '../../../components/modal/google-places-modal';
 import TopRatedVenus from '../../../components/topRatedVenus';
 import { heightPercentageToDP } from 'react-native-responsive-screen';
-import SalonFilterCard from '../../../components/salon_filter/salonFilterCard';
+import SalonFilterCard from '../../../components/modal/filterCard';
 import ModalComponent from '../../../components/modal';
 
 const categories = [
-  { id: 1, name: 'Salon', icon: images.salon },
-  { id: 2, name: 'Spa', icon: images.spa },
+  { id: 1, title: 'Salon', icon: images.salon },
+  { id: 2, title: 'Spa', icon: images.spa },
   {
     id: 3,
-    name: 'Nail Art',
+    title: 'Nail Art',
     icon: images.nail,
   },
   {
     id: 4,
-    name: 'Salon & Spa',
+    title: 'Salon & Spa',
     icon: images.salonSpa,
   },
 ];
@@ -68,7 +68,9 @@ const HomeScreen = ({ navigation, route }) => {
   };
 
   const renderCategory = ({ item }) => (
-    <TouchableOpacity 
+    <TouchableOpacity
+    onPress={()=>navigation.navigate('categoryProducts',{item})} 
+
     style={styles.categoryCard}>
       <View style={styles.catImageContainer}>
         <Image
@@ -77,13 +79,14 @@ const HomeScreen = ({ navigation, route }) => {
           style={styles.categoryIcon}
         />
       </View>
-      <Text style={styles.categoryText}>{item.name}</Text>
+      <Text style={styles.categoryText}>{item.title}</Text>
     </TouchableOpacity>
   );
 
-  const renderSalonCard = ({ item }) => (
+  const renderVenues = ({ item }) => (
     <SalonCard
       item={item}
+      handleOnPress={()=>handleNavigation('detail',{item})}
       onFavorite={() => handleFavoritePress(item.id)}
       showFavoriteButton={true}
     />
@@ -97,25 +100,23 @@ const HomeScreen = ({ navigation, route }) => {
 
 
   const renderTopRatedVenus = ({ item, index }) => {
-    return <TopRatedVenus />;
+    return( 
+    <TopRatedVenus 
+    handleOnPress={() => handleNavigation('detail', {item})}
+    onFavorite={()=>{}}
+    />)
   };
 
-  const handleNotificationPress = () => {
-    navigation.navigate('notificationStack', { screen: 'notifications' });
-  };
-  const handleFavouritePress = () => {
-    navigation.navigate('favorites',);
+  const handleNavigation = (screen, params = {}) => {
+    navigation.navigate(screen, params);
   };
 
-  const handleSeeAll = (routeName) => {
-    navigation.navigate(routeName)
-  }
 
   return (
     <SafeAreaView style={styles.container}>
       <HomeHeader
-        onNotificationPress={handleNotificationPress}
-        onFavoritePress={handleFavouritePress}
+        onNotificationPress={()=>handleNavigation('notificationStack', { screen: 'notifications' })}
+        onFavoritePress={() => handleNavigation('favorites')}
         onLocationPress={openLocationModal}
         location={location}
       />
@@ -126,6 +127,7 @@ const HomeScreen = ({ navigation, route }) => {
               <Search
                 setFilteredSearches={setFilteredSearches}
                 setIsInputActive={setIsInputActive}
+                handleOnPress={() => handleNavigation('location', { params: location })}
                 isHome={true}
               />
             </View>
@@ -152,7 +154,7 @@ const HomeScreen = ({ navigation, route }) => {
 
             <View style={styles.sectionHeader}>
               <LargeText text={'Categories'} style={styles.sectionTitle} />
-              <TouchableOpacity onPress={() => handleSeeAll('categories')}>
+              <TouchableOpacity onPress={() => handleNavigation('categories')}>
                 <SmallText text={'See All'} style={styles.seeAllText} />
               </TouchableOpacity>
             </View>
@@ -164,15 +166,12 @@ const HomeScreen = ({ navigation, route }) => {
                 keyExtractor={item => item.id.toString()}
                 horizontal={true}
                 contentContainerStyle={{ gap: 10 }}
-              // numColumns={4}
-              // scrollEnabled={false}
-              // columnWrapperStyle={styles.categoryRow}
               />
             </View>
 
             <View style={styles.sectionHeader}>
-              <LargeText text={'Nearby Venues'} style={styles.sectionTitle} />
-              <TouchableOpacity>
+              <LargeText text={venueList.nearBy} style={styles.sectionTitle} />
+              <TouchableOpacity onPress={() => handleNavigation('VenueList',{title:venueList.nearBy})}>
                 <SmallText text={'See All'} style={styles.seeAllText} />
               </TouchableOpacity>
             </View>
@@ -180,14 +179,14 @@ const HomeScreen = ({ navigation, route }) => {
             <FlatList
               data={mockData}
               keyExtractor={item => item.id.toString()}
-              renderItem={renderSalonCard}
+              renderItem={renderVenues}
               contentContainerStyle={styles.list}
               scrollEnabled={false}
             />
 
             <View style={styles.sectionHeader}>
-              <LargeText text={'Top Rated Venues'} style={styles.sectionTitle} />
-              <TouchableOpacity>
+              <LargeText text={venueList.topRated} style={styles.sectionTitle} />
+              <TouchableOpacity onPress={() => handleNavigation('VenueList',{title:venueList.topRated})}>
                 <SmallText text={'See All'} style={styles.seeAllText} />
               </TouchableOpacity>
             </View>
@@ -202,10 +201,10 @@ const HomeScreen = ({ navigation, route }) => {
 
             <View style={styles.sectionHeader}>
               <LargeText
-                text={'Recommended Venues'}
+                text={venueList.recommended}
                 style={styles.sectionTitle}
               />
-              <TouchableOpacity>
+              <TouchableOpacity onPress={() => handleNavigation('VenueList',{title:venueList.recommended})}>
                 <SmallText text={'See All'} style={styles.seeAllText} />
               </TouchableOpacity>
             </View>
@@ -213,7 +212,7 @@ const HomeScreen = ({ navigation, route }) => {
             <FlatList
               data={mockData}
               keyExtractor={item => item.id.toString()}
-              renderItem={renderSalonCard}
+              renderItem={renderVenues}
               contentContainerStyle={styles.list}
               scrollEnabled={false}
             />
@@ -236,9 +235,6 @@ const HomeScreen = ({ navigation, route }) => {
 
         />
       </ModalComponent>
-
-
-
     </SafeAreaView>
   );
 };

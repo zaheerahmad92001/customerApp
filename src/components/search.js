@@ -10,7 +10,7 @@ import {recentSearches} from '../staticData';
 
 
 const Search = props => {
-  const {setFilteredSearches, setIsInputActive , isHome, isSearch = false} = props;
+  const {setFilteredSearches, setIsInputActive , isHome, isSearch = false , handleOnPress} = props;
 
   const [searchText, setSearchText] = useState('');
 
@@ -48,7 +48,7 @@ const Search = props => {
       </View>
       <View>
         { !isSearch &&
-        <Pressable onPress={() => {}} style={styles.button}>
+        <Pressable onPress={handleOnPress} style={styles.button}>
           {isHome ?
           <MapIcon/>:
           <FilterIcon/>

@@ -38,12 +38,11 @@ const Favorites = ({navigation, route}) => {
   }
 
 
-  const renderSalonCard = ({item}) => (
+  const renderItem = ({item}) => (
     <SalonCard
       item={item}
-      onFavorite={() => handleFavoritePress(item)}
+      onFavorite={()=>{}}
       showFavoriteButton={true}
-      selected={true}
     />
   );
   return (
@@ -54,7 +53,7 @@ const Favorites = ({navigation, route}) => {
         <FlatList
           data={mockData}
           keyExtractor={item => item.id.toString()}
-          renderItem={renderSalonCard}
+          renderItem={renderItem}
           contentContainerStyle={{marginTop:20}}
           nestedScrollEnabled
         />
@@ -68,7 +67,7 @@ const Favorites = ({navigation, route}) => {
         disableDynamicSizing={true}
         height={heightPercentageToDP(32)}
       >
-         <FavoriteModal 
+        <FavoriteModal 
         item={selectedItem}
         cancelButton={() => hideBottomSheet()} 
         removeButton={removeFavourite}

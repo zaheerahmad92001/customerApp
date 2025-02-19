@@ -6,8 +6,10 @@ import styles from './addcard.styles';
 import {LargeText} from '../../../components/Typography';
 import {AppButton} from '../../../components/appButton';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+import ToggleSwitch from '../../../components/toggleSwitch/toggleSwitch';
 
 const AddCard = ({navigation, route}) => {
+  const {isNew} = route.params || {};
   const cardNumRef = useRef(null);
   const cardHolderRef = useRef(null);
   const expiryRef = useRef(null);
@@ -20,20 +22,24 @@ const AddCard = ({navigation, route}) => {
       cardHolderName: null,
       expiryDate: null,
       cvv: null,
+      saveMethod: false,
     },
   );
-  const {cardHolderName, cardNumber, expiryDate, cvv} = state;
+  const {cardHolderName, cardNumber, expiryDate, cvv, saveMethod} = state;
 
   return (
     <SafeAreaView style={styles.wrapper}>
       <Header
-        title={'Add Card'}
+        title={isNew ? 'Payment Method' : 'Add Card'}
         showBackButton
         onBackPress={() => navigation.goBack()}
       />
-      <KeyboardAwareScrollView>
+      <KeyboardAwareScrollView style={{flex:1}}>
         <View style={styles.container}>
-          <LargeText text="Card Details" style={styles.heading} />
+          <LargeText
+            text={isNew ? 'Add New Card' : 'Card Details'}
+            style={styles.heading}
+          />
 
           <TextField
             ref={cardNumRef}
@@ -100,13 +106,17 @@ const AddCard = ({navigation, route}) => {
             onSubmitEditing={() => Keyboard.dismiss()}
             style={styles.inputStyle}
           />
+          {isNew && (
+            <ToggleSwitch
+              label={'Save Method'}
+              isEnabled={saveMethod}
+              onToggle={() => updateState({saveMethod: !saveMethod})}
+            />
+          )}
         </View>
-        <AppButton
-            title="Save Card"
-            onPress={() => {}}
-            style={styles.button}
-          />
-      </KeyboardAwareScrollView>  
+      
+      </KeyboardAwareScrollView>
+      <AppButton title={isNew? 'Done': 'Save Card'} onPress={() => {}} style={styles.button} />
     </SafeAreaView>
   );
 };

@@ -11,7 +11,7 @@ const TermCondition = ({navigation,route}) => {
     <SafeAreaView style={styles.container}>
       <Header title={'Term & Conditions'} showBackButton onBackPress={()=> navigation.goBack()}/>
      <View style = {styles.mainContainer}>
-     <ScrollView>
+     <ScrollView showsVerticalScrollIndicator={false}>
         <Text style={styles.heading}>Term & Conditions</Text>
         <Text style={styles.description}>
           Lorem ipsum dolor sit amet consectetur. Eget turpis risus ut nullam

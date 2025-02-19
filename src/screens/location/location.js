@@ -13,11 +13,13 @@ import LocationPicker from '../../components/locationPicker';
 import GooglePlacesModal from '../../components/modal/google-places-modal';
 import TopRatedVenus from '../../components/topRatedVenus';
 import {BottomSheet} from '../../components/bottomSheet';
-import SalonFilterCard from '../../components/salon_filter/salonFilterCard';
+import SalonFilterCard from '../../components/modal/filterCard';
 import {heightPercentageToDP} from 'react-native-responsive-screen';
 
 const Location = ({navigation, route}) => {
   const {params} = route.params;
+  console.log('params',  route.params);
+
   const [location, setLocation] = useState('');
 
   const [state, updateState] = useReducer(

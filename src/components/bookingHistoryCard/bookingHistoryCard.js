@@ -1,27 +1,34 @@
 import React from 'react';
-import {View, Text, Image, TouchableOpacity} from 'react-native';
+import {View, Text, Image, TouchableOpacity, Alert} from 'react-native';
 import Messages from '../../assets/svgs/messages.svg';
 import {MediumText, SmallText} from '../Typography';
 import styles from './booking.style';
-import { AppButton } from '../appButton';
+import {AppButton} from '../appButton';
+import InfoIcon from '../../assets/svgs/Info.svg';
 
-const BookingHistoryCard = ({
-  date,
-  time,
-  title,
-  location,
-  services,
-  price,
-  status,
-  imageUri,
-  bookinOptions,
-  reviewAndReschedule,
-}) => {
-const cancelORBook = status==='Confirmed' ? 'Cancel Booking' : 'Book Again';
-const completeORReview = status==='Confirmed' ? 'Completed' : 'Leave a Review';
+const BookingHistoryCard = props => {
+  const {item, bookingOptions, reviewAndReschedule} = props;
+  const {date, time, title, location, services, price, status, imageUri} = item;
+
+  let cancelORBook = '';
+  let completeORReview = '';
+
+  if (status === 'Confirmed' || status === 'Pending') {
+    cancelORBook = 'Cancel Booking';
+    completeORReview = 'Reschedule';
+  } else {
+    cancelORBook = 'Book Again';
+    completeORReview = 'Leave a Review';
+  }
+
 
   return (
-    <View style={styles.card}>
+    <View style={[styles.card, status === 'Pending' && styles.cardTopPadding]}>
+      {status === 'Pending' && (
+        <View style={{alignSelf: 'flex-end'}}>
+          <InfoIcon />
+        </View>
+      )}
       <View style={styles.header}>
         <Text style={styles.date}>
           {date} - {time}
@@ -44,38 +51,53 @@ const completeORReview = status==='Confirmed' ? 'Completed' : 'Leave a Review';
       </View>
 
       <View style={styles.body}>
-
         <View style={styles.cardImage}>
           <Image source={imageUri} style={styles.image} />
         </View>
 
         <View style={styles.details}>
-          <MediumText text={title} style={styles.title} />
-          <Text style={styles.location}>{location}</Text>
-          <Text style={styles.services}>{services}</Text>
-        </View>
-
-
-        <View>
-          <View style={styles.priceContainer}>
-          <Text style={styles.price}>{price}</Text>
+          <View style={styles.titleContainer}>
+            <View style={{flex: 1}}>
+              <MediumText text={title} style={styles.title} />
+            </View>
+            <View style={styles.priceContainer}>
+              <Text style={styles.price}>{price}</Text>
+            </View>
           </View>
-          {status === 'Completed' && (
-            <TouchableOpacity style={styles.completedButton}>
-              <SmallText text={'Report'} style={styles.reportText} />
-            </TouchableOpacity>
-          )}
-          {status === 'Confirmed' && (
-            <TouchableOpacity style={styles.icon}>
-              <Messages />
-            </TouchableOpacity>
-          )}
+
+          <View style={styles.serviceContainer}>
+            <View style={{flex: 1}}>
+              <Text style={styles.location}>{location}</Text>
+              <Text style={styles.services}>{services}</Text>
+            </View>
+
+            {status === 'Completed' && (
+              <TouchableOpacity style={styles.completedButton}>
+                <SmallText text={'Report'} style={styles.reportText} />
+              </TouchableOpacity>
+            )}
+            {status === 'Confirmed' && (
+              <TouchableOpacity style={styles.icon}>
+                <Messages />
+              </TouchableOpacity>
+            )}
+          </View>
         </View>
       </View>
       {status !== 'Cancelled' && (
         <View style={styles.actions}>
-          <AppButton title={cancelORBook} onPress={bookinOptions} style={styles.cancelButton} textstyle={styles.cancelText} />
-          <AppButton title={completeORReview} onPress={reviewAndReschedule} style={styles.rescheduleButton} textstyle={styles.rescheduleText} />
+          <AppButton
+            title={cancelORBook}
+            onPress={bookingOptions}
+            style={styles.cancelButton}
+            textstyle={styles.cancelText}
+          />
+          <AppButton
+            title={completeORReview}
+            onPress={reviewAndReschedule}
+            style={styles.rescheduleButton}
+            textstyle={styles.rescheduleText}
+          />
         </View>
       )}
     </View>

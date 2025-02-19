@@ -12,7 +12,7 @@ const PrivacyPolicy = ({navigation, route}) => {
       <Header title={'Privacy Policy'} showBackButton onBackPress={()=>navigation.goBack()}/>
 
         <View style = {styles.mainContainer}>
-        <ScrollView >
+        <ScrollView showsVerticalScrollIndicator={false} >
         <Text style={styles.heading}>Privacy Policy</Text>
         <Text style={styles.description}>
           Lorem ipsum dolor sit amet consectetur. Eget turpis risus ut nullam

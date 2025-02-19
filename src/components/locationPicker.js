@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.lightGray,
     borderRadius: 8,
     paddingHorizontal: 8,
-    paddingVertical: Platform.OS === 'android' ? 0 : 10,
+    paddingVertical: Platform.OS === 'android' ? 8 : 10,
     width: wp(80),
     borderWidth: 1,
     borderColor: colors.gray,

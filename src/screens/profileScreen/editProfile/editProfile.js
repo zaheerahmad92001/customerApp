@@ -87,6 +87,7 @@ const EditProfile = ({navigation, route}) => {
               <TextField
                 ref={fNameRef}
                 label={'First name'}
+                placeholder="First name"
                 onChangeText={val => {
                   updateState({fname: val});
                 }}
@@ -101,6 +102,7 @@ const EditProfile = ({navigation, route}) => {
               <TextField
                 ref={lastNameRef}
                 label={'Last name'}
+                 placeholder="Last name"
                 onChangeText={val => {
                   updateState({lname: val});
                 }}
@@ -115,6 +117,7 @@ const EditProfile = ({navigation, route}) => {
             <TextField
               ref={emailRef}
               label={'Email'}
+              placeholder="keylynn021@gmail.com"
               onChangeText={val => {
                 updateState({email: val});
               }}
@@ -128,6 +131,7 @@ const EditProfile = ({navigation, route}) => {
             <TextField
               ref={phoneRef}
               label={'Phone number'}
+              placeholder="+966 32525623"
               onChangeText={val => {
                 updateState({phone: val});
               }}
@@ -141,6 +145,7 @@ const EditProfile = ({navigation, route}) => {
             <TextField
               ref={dobRef}
               label={'Date of birth'}
+             placeholder="28 October 2001"
               onChangeText={val => {
                 updateState({dob: val});
               }}

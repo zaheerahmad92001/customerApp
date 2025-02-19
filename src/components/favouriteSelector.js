@@ -1,15 +1,21 @@
-import React from 'react';
-import { StyleSheet, TouchableOpacity} from 'react-native';
+import React, { useState } from 'react';
+import { Pressable, StyleSheet} from 'react-native';
 import Heart from '../assets/svgs/heart.svg';
 import HeartFilled from '../assets/svgs/fill-heart.svg';
 import colors from '../assets/colors';
 
 const FavourSelector = (props) => {
-    const {selected, onFavorite} = props;
+    const {onFavorite} = props;
+      const [isSelected , setIsSelected] = useState(false)
+
+      const handleOnPress = () => {
+        setIsSelected(!isSelected);
+        onFavorite();
+      };
   return (
-    <TouchableOpacity style={styles.favoriteButton} onPress={onFavorite}>
-      {selected ? <HeartFilled /> : <Heart />}
-    </TouchableOpacity>
+    <Pressable style={styles.favoriteButton} onPress={handleOnPress}>
+      {isSelected ? <HeartFilled /> : <Heart />}
+    </Pressable>
   );
 };
 
