@@ -30,6 +30,9 @@ const Review = ({navigation , route}) => {
     console.log({rating, review, recommend});
     // Submit logic goes here
   };
+  const handleCancel = () => {
+    navigation.goBack();
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -98,7 +101,7 @@ const Review = ({navigation , route}) => {
           <View style={styles.buttons}>
             <AppButton onPress={handleSubmit} title={'Submit'} />
             <AppButton
-              onPress={() => {}}
+              onPress={handleCancel}
               title={'Cancel'}
               style={styles.cancelButton}
               textstyle={{color: colors.primary}}

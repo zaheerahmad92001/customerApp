@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import {Platform, StyleSheet} from 'react-native';
 import colors from '../../../assets/colors';
 import {
   heightPercentageToDP as hp,
@@ -24,7 +24,8 @@ const styles = StyleSheet.create({
   },
   serviceDetails: {
     borderRadius: 8,
-    margin: 5,
+    // margin: 5,
+    marginTop:5,
     padding: 10,
     borderWidth: 2,
     borderColor: colors.gray,
@@ -32,10 +33,10 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     flexDirection: 'row',
-    //   marginTop: 'auto',
-    marginTop: hp(1),
+    // marginTop: hp(1),
     justifyContent: 'space-between',
-    paddingTop: 15,
+    // paddingTop: 10,
+    marginBottom:Platform.OS==='android'? 10:0,
   },
   printButton: {
     flex: 1,

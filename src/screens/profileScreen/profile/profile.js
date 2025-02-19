@@ -55,7 +55,7 @@ const Profile = ({navigation, route}) => {
     <SafeAreaView style={styles.container}>
       <Header
         title={'Profile'}
-        showBackButton={true}
+        showBackButton={false}
         onBackPress={() => navigation.goBack()}
       />
       <ScrollView showsVerticalScrollIndicator={false} style={styles.wrapper}>

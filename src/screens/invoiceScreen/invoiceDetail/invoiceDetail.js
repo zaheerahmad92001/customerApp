@@ -43,10 +43,10 @@ const InvoiceDetail = ({navigation, route}) => {
   return (
     <SafeAreaView style={styles.container}>
       <Header title={'Invoice'} showBackButton onBackPress={()=>navigation.goBack()} />
-      <ScrollView style={styles.container}>
+      <View style={styles.container}>
       <View style={styles.wrapper}>
         <View style={styles.contentContainer}>
-          <View style={{marginTop:20,}}>
+        <View style={{marginTop:20,}}>
         <SalonCard
          item={mockData[0]}
           onFavorite={() => handleFavoritePress(mockData[0].id)}
@@ -78,7 +78,7 @@ const InvoiceDetail = ({navigation, route}) => {
         </View>
         </View>
       </View>
-      </ScrollView>
+      </View>
     </SafeAreaView>
   );
 };

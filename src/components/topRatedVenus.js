@@ -1,5 +1,5 @@
-import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import React, { useState } from 'react';
+import {View, StyleSheet, Pressable} from 'react-native';
 import {Rating} from 'react-native-ratings';
 import colors from '../assets/colors';
 import FastImage from 'react-native-fast-image';
@@ -12,9 +12,9 @@ import fontsFamily from '../assets/fontsFamily';
 import FavourSelector from './favouriteSelector';
 
 const TopRatedVenus = props => {
-  const {onFavorite, selected} = props;
+  const {onFavorite,handleOnPress} = props;
   return (
-    <View style={styles.container}>
+    <Pressable onPress={handleOnPress} style={styles.container}>
       <View style={styles.imageContainer}>
         <FastImage
           source={images.toprated}
@@ -28,10 +28,7 @@ const TopRatedVenus = props => {
           <SmallText text={'Services: 08'} style={styles.serviceStyle} />
         </View>
         <View style={{alignSelf: 'flex-start'}}>
-          <FavourSelector
-          onFavorite={onFavorite}
-          selected={selected}
-          />
+          <FavourSelector onFavorite={onFavorite}/>
         </View>
       </View>
       <View style={[styles.textContainer]}>
@@ -51,7 +48,7 @@ const TopRatedVenus = props => {
             <SmallText text={'12 Km'} style={styles.ratingStyle} />
         </View>
       </View>
-    </View>
+    </Pressable>
   );
 };
 

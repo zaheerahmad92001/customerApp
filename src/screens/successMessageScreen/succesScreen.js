@@ -17,11 +17,25 @@ const SuccessScreen = ({navigation, route}) => {
     return message;
   }
   const {title, subheading} = getMessage(actionName);
+  const isRegister = title === messages.register.title ? true : false;
+  const isReschedule = title === messages.reschedule.title ? true : false;
+  const isBookingDone = title === messages.booking.title ? true : false;
 
   const goToHome = () => {
     navigation.navigate('BottomStack', {screen: 'homeStack'});
   };
-  const isRegister = title === messages.register.title ? true : false;
+  const handleOnDonePress = () => {
+    if (isRegister) {
+      goToHome();
+    } else if (isReschedule) {
+      navigation.pop(2);
+    }else if(isBookingDone){
+      navigation.navigate('BottomStack', {screen: 'Booking'});
+    }
+     else {
+      navigation.goBack();
+    }
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -32,9 +46,8 @@ const SuccessScreen = ({navigation, route}) => {
           <SmallText text={`${subheading}`} style={styles.description} />
 
           <View style={styles.bookingsButton}>
-            <AppButton 
-            onPress={() => {isRegister? goToHome(): navigation.goBack()}} 
-            title="Done" />
+            <AppButton onPress={handleOnDonePress} title={isBookingDone? 'See My Bookings': 'Done'} />
+
             {!isRegister && (
               <AppButton
                 onPress={goToHome}

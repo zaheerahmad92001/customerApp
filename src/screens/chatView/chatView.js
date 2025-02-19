@@ -8,8 +8,7 @@ import {
   View,
   KeyboardAvoidingView,
   Platform,
-  TouchableWithoutFeedback,
-  Keyboard,
+  NativeModules
 } from 'react-native';
 import ChatHeader from '../../components/ChatHeader/ChatHeader';
 import images from '../../assets/images';
@@ -21,43 +20,44 @@ import colors from '../../assets/colors';
 import {keepLocalCopy, pick ,types} from '@react-native-documents/picker';
 import {heightPercentageToDP} from 'react-native-responsive-screen';
 
+const arr = [
+  {id: 1, text: 'Lorem', time: '7:21', sent: false},
+  {id: 2, text: 'Lorem ipsum', time: '7:24', sent: true},
+  {
+    id: 3,
+    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliq Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip',
+    time: '7:26',
+    sent: false,
+  },
+
+  {id: 1, text: 'Lorem', time: '7:21', sent: false},
+  {id: 2, text: 'Lorem ipsum', time: '7:24', sent: true},
+  {
+    id: 3,
+    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliq Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip',
+    time: '7:26',
+    sent: true,
+  },
+  {id: 1, text: 'Lorem', time: '7:21', sent: false},
+  {id: 2, text: 'Lorem ipsum', time: '7:24', sent: true},
+  {
+    id: 3,
+    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliq Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip',
+    time: '7:26',
+    sent: false,
+  },
+  {id: 1, text: 'Lorem', time: '7:21', sent: false},
+  {id: 2, text: 'Lorem ipsum', time: '7:24', sent: true},
+  {
+    id: 3,
+    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliq Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip',
+    time: '7:26',
+    sent: true,
+  },
+];
+
 const Chat = ({navigation, route}) => {
   const [file, setFile] = useState(null);
-  const arr = [
-    {id: 1, text: 'Lorem', time: '7:21', sent: false},
-    {id: 2, text: 'Lorem ipsum', time: '7:24', sent: true},
-    {
-      id: 3,
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliq Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip',
-      time: '7:26',
-      sent: false,
-    },
-
-    {id: 1, text: 'Lorem', time: '7:21', sent: false},
-    {id: 2, text: 'Lorem ipsum', time: '7:24', sent: true},
-    {
-      id: 3,
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliq Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip',
-      time: '7:26',
-      sent: true,
-    },
-    {id: 1, text: 'Lorem', time: '7:21', sent: false},
-    {id: 2, text: 'Lorem ipsum', time: '7:24', sent: true},
-    {
-      id: 3,
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliq Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip',
-      time: '7:26',
-      sent: false,
-    },
-    {id: 1, text: 'Lorem', time: '7:21', sent: false},
-    {id: 2, text: 'Lorem ipsum', time: '7:24', sent: true},
-    {
-      id: 3,
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliq Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip',
-      time: '7:26',
-      sent: true,
-    },
-  ];
 
   const [messages, setMessages] = useState(arr);
   const [message, setMessage] = useState('');

@@ -9,13 +9,25 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     borderRadius: 10,
     padding: 15,
-    marginBottom: heightPercentageToDP(2),
+    marginBottom: heightPercentageToDP(1),
+  },
+  cardTopPadding:{
+    paddingTop:5,
   },
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginBottom: 10,
   },
+titleContainer:{
+  flexDirection: 'row',
+   alignItems: 'flex-start'
+  },
+  serviceContainer:{
+    flexDirection: 'row',
+    alignItems: 'center'
+  },
+
   date: {
     fontSize: RFValue(12),
     color: colors.appBlack,
@@ -72,8 +84,8 @@ const styles = StyleSheet.create({
   },
   priceContainer: {
     backgroundColor: colors.lightPrimary,
-    paddingVertical: 7,
-    paddingHorizontal: 7,
+    paddingVertical: 4,
+    paddingHorizontal: 5,
     borderRadius: 5,
   },
   price: {
@@ -87,9 +99,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     alignSelf: 'flex-end',
-    padding: 6,
+    padding: 4,
     borderRadius: 5,
-    marginTop: 5,
   },
   actions: {
     flexDirection: 'row',
@@ -132,7 +143,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingVertical: 4,
     paddingHorizontal: 4,
-    marginTop: 5,
     borderRadius: 5,
   },
   reportText: {

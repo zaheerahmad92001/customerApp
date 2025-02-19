@@ -4,7 +4,7 @@ import Header from '../../components/appHeader';
 import SalonCard from '../../components/salonCard/salonCard';
 import Search from '../../components/search';
 import {mockData, recentSearches} from '../../staticData';
-import styles from './categoryListing.styles';
+import styles from './categoryProducts.styles';
 
 const CategoriesList = ({navigation , route}) => {
 

@@ -32,7 +32,6 @@ const styles = StyleSheet.create({
     fontFamily: fontsFamily.regular,
     fontWeight: '400',
     marginBottom: 4,
-    // marginVertical:hp(2),
   },
 
   inputStyle: {
@@ -40,8 +39,12 @@ const styles = StyleSheet.create({
     textAlignVertical: 'top',
     fontSize: RFValue(14),
   },
+  buttonContainer:{
+    marginHorizontal:wp(4),
+    marginBottom:hp(1),
+  },
   button:{
-    marginTop:hp(4),
+    // marginTop:hp(4),
   },
 
 });

@@ -39,7 +39,7 @@ const InvoiceCard = (props) => {
           </View>
         </View>
 
-        <View style={{alignItems: 'flex-end'}}>
+        <View style={{alignItems: 'flex-end',}}>
           <View
             style={
               invoice.status === 'Paid'
@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
   },
   paidStatusContainer: {
     backgroundColor: colors.lightSuccess,
-    paddingVertical: 5,
+    paddingVertical:4,
     borderRadius: 5,
     width: '100%',
     paddingHorizontal: wp(1.5),
@@ -143,7 +143,7 @@ const styles = StyleSheet.create({
 
   amountContainer: {
     backgroundColor: colors.lighterPrimary,
-    marginTop: hp(1.8),
+    marginTop: hp(1.5),
   },
   amount: {
     color: colors.primary,

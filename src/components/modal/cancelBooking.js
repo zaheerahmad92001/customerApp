@@ -31,7 +31,7 @@ const CancelBooking = (props) => {
       />
 
       <AppButton
-        title={'No'}
+        title={'Back'}
         onPress={onCancel}
         style={styles.cancelButton}
         textstyle={styles.cancelText}

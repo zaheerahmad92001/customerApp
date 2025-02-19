@@ -15,7 +15,7 @@ const Styles = StyleSheet.create({
         marginTop:10,
         marginBottom:5,
         fontWeight:'600',
-        textAlign:'left',
+        color:colors.lightBlack
       },
 
 });

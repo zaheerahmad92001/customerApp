@@ -8,11 +8,12 @@ import BottomStack from './bottomTabs/bottomStack';
 import NotificationStack from './notificationStack';
 import AuthStack from './authStack';
 import Categories from '../categoriesScreen/categories';
-import CategoryListing from '../categoryListing/categoryListing';
+import CategoryListing from '../categoryProducts/categoryProducts';
 import EditProfile from '../profileScreen/editProfile/editProfile';
 import ReviewScreen from '../reviewScreen/review';
 import Favorites from '../favoritesScreen/favourites';
-import BookingHistory from '../bookingScreen/booking';
+import Booking from '../bookingScreen/booking';
+import BookingHistory from '../bookingHistoryScreen/bookingHistory';
 import SavedCard from '../cardScreen/savedCard/saveCard';
 import AddCard from '../cardScreen/addCard/addCard';
 import InvoiceDetail from '../invoiceScreen/invoiceDetail/invoiceDetail';
@@ -37,6 +38,7 @@ import Location from '../location/location';
 import RatingAndReview from '../ratingAndReviewScreen/ratingAndReview';
 import AvailableTimeSlot from '../availableTimeSlotScreen/availableTimeSlot';
 import OrderDetail from '../orderDetailScreen/orderDetail';
+import VenueList from '../venueListScreen/venueList';
 
 const Stack = createNativeStackNavigator();
 
@@ -75,10 +77,11 @@ function AppStack() {
       <Stack.Screen name="notificationStack" component={NotificationStack} />
       <Stack.Screen name="successScreen" component={SuccessScreen} />
       <Stack.Screen name="categories" component={Categories} />
-      <Stack.Screen name="categoryListing" component={CategoryListing} />
+      <Stack.Screen name="categoryProducts" component={CategoryListing} /> 
       <Stack.Screen name="favorites" component={Favorites} />
       <Stack.Screen name="editProfile" component={EditProfile} />
-      <Stack.Screen name="booking" component={BookingHistory} />
+      <Stack.Screen name="booking" component={Booking} />
+      <Stack.Screen name="bookingHistory" component={BookingHistory} />
       <Stack.Screen name="review" component={ReviewScreen} />
       <Stack.Screen name="addCard" component={AddCard} />
       <Stack.Screen name="savedCard" component={SavedCard} />
@@ -102,6 +105,7 @@ function AppStack() {
       <Stack.Screen name="ratingAndReview" component={RatingAndReview} />
       <Stack.Screen name="availableTimeSlot" component={AvailableTimeSlot} />
       <Stack.Screen name="orderDetail" component={OrderDetail} />
+      <Stack.Screen name="VenueList" component={VenueList} />
     </Stack.Navigator>
   );
 }

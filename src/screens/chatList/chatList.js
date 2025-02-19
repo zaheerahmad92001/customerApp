@@ -4,7 +4,7 @@ import Header from '../../components/appHeader';
 import Search from '../../components/search';
 import ChatListCard from '../../components/chatlistCard/ChatListCard';
 import {recentSearches} from '../../staticData';
-import {LargeText} from '../../components/Typography';
+import {SmallText} from '../../components/Typography';
 import styles from './chatList.style';
 
 const ChatList = ({navigation , route}) => {
@@ -32,13 +32,12 @@ const ChatList = ({navigation , route}) => {
           isSearch={true}
         />
 
-        <LargeText text={'RECENTS'} style={styles.recentTextview} />
+        <SmallText text={'RECENTS'} style={styles.recentTextview} />
 
         <FlatList
           data={[...Array(10).keys()]}
           renderItem={renderChatCard}
           showsVerticalScrollIndicator={false}
-          contentContainerStyle={{marginTop: 10}}
         />
       </View>
     </SafeAreaView>

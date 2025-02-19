@@ -23,7 +23,7 @@ const PaymentMethodComponent = ({onSelect}) => {
     <View style={styles.container}>
       <View style={styles.headingContainer}>
         <Text style={styles.title}>Payment Method</Text>
-        <AppButton title={'Add New Card'} onPress={()=> navigation.navigate('addCard')} />
+        <AppButton title={'Add New Card'} onPress={()=> navigation.navigate('addCard',{isNew:true})} />
       </View>
 
       <View>

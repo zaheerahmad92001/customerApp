@@ -24,7 +24,8 @@ const InvieFriends = ({navigation, route}) => {
       </View>
 
       <View style={styles.subContainer}>
-        <XlargeText text={'Invite friends & get 100 points as a reward.'} style={styles.headerText}/>
+        <XlargeText text={'Invite friends & get 100 points'} style={[styles.headerText,{marginBottom:0}]}/>
+        <XlargeText text={'as a reward.'} style={styles.headerText}/>
 
         <Text style={styles.subText}>
           Invite friends to join ANAKA and receive a 100 Points reward as a

@@ -26,6 +26,7 @@ import ModalComponent from '../../components/modal';
 import OpeningHours from '../../components/modal/openingHours';
 
 const ServiceDetail = ({navigation, route}) => {
+  const {item} = route.params;
   const mapRef = useRef(null);
   const modalRef = useRef();
 
