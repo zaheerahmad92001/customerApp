@@ -140,7 +140,7 @@ const invoices = [
   },
 ];
 
-const languages = ['English', 'Arabic', 'Urdu', 'French', 'Spanish', 'Chinese'];
+const languages = ['English', 'العربية',];
 const loginlang = ['English', 'العربية'];
 const toggleItems = [
   {id: 1, label: 'Payments', isEnabled: false},
@@ -437,6 +437,7 @@ const venueList={
   nearBy:'Nearby Venues',
   topRated:'Top Rated Venues',
   recommended:'Recommended Venues',
+  similar:'Similar Venues',
 }
 
 

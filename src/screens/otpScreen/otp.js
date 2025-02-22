@@ -1,4 +1,4 @@
-import {View, Text, SafeAreaView, StyleSheet} from 'react-native';
+import {View, Text, SafeAreaView, StyleSheet, TouchableWithoutFeedback, Keyboard} from 'react-native';
 import React, {useState} from 'react';
 import OTPInputView from '@twotalltotems/react-native-otp-input';
 import {SmallText, XlargeText} from '../../components/Typography';
@@ -13,6 +13,7 @@ const OtpView = ({navigation, route}) => {
   const [otp, setOtp] = useState('');
 
   return (
+    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
     <SafeAreaView style={styles.container}>
       <Header
         title={'OTP'}
@@ -30,7 +31,7 @@ const OtpView = ({navigation, route}) => {
         <OTPInputView
           style={styles.otpContainer}
           pinCount={4}
-          autoFocusOnLoad
+          autoFocusOnLoad={false}
           code={otp}
           onCodeChanged={setOtp}
           codeInputFieldStyle={styles.otpInput}
@@ -60,13 +61,13 @@ const OtpView = ({navigation, route}) => {
         />
       </View>
     </SafeAreaView>
+    </TouchableWithoutFeedback>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    //padding: 15,
     backgroundColor: colors.white,
   },
   mainContainer: {
@@ -80,7 +81,6 @@ const styles = StyleSheet.create({
     marginTop: hp(3),
   },
   subHeading: {
-    fontSize: RFValue(11),
     color: colors.lightBlack,
     fontFamily: fontsFamily.regular,
   },
@@ -116,12 +116,10 @@ const styles = StyleSheet.create({
     marginVertical: 10,
   },
   headingAcc: {
-    fontSize: RFValue(12),
     color: colors.lightBlack,
     fontFamily: fontsFamily.regular,
   },
   subHeadingAcc: {
-    fontSize: RFValue(12),
     color: colors.primary,
     fontFamily: fontsFamily.regular,
     marginLeft: 5,

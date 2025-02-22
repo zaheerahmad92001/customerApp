@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import {
-  Alert,
   FlatList,
   SafeAreaView,
   TextInput,
@@ -8,7 +7,6 @@ import {
   View,
   KeyboardAvoidingView,
   Platform,
-  NativeModules
 } from 'react-native';
 import ChatHeader from '../../components/ChatHeader/ChatHeader';
 import images from '../../assets/images';
@@ -16,9 +14,9 @@ import style from './chatView.Style';
 import ChatCard from '../../components/messageCard/MessageCard';
 import DocumentAttachment from '../../assets/svgs/attachedocument.svg';
 import SendIcon from '../../assets/svgs/sendicon.svg';
-import colors from '../../assets/colors';
 import {keepLocalCopy, pick ,types} from '@react-native-documents/picker';
 import {heightPercentageToDP} from 'react-native-responsive-screen';
+import { setAdjustPan, setAdjustResize } from '../../functions';
 
 const arr = [
   {id: 1, text: 'Lorem', time: '7:21', sent: false},
@@ -61,6 +59,16 @@ const Chat = ({navigation, route}) => {
 
   const [messages, setMessages] = useState(arr);
   const [message, setMessage] = useState('');
+
+  useEffect(() => {
+    if (Platform.OS === "android") {
+      setAdjustResize();
+      return () => {
+        setAdjustPan();
+      };
+    }
+  }, []);
+
 
   const sendMessage = () => {
     if (message.trim().length > 0) {

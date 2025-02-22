@@ -103,8 +103,6 @@ const styles = StyleSheet.create({
      paddingVertical:10,
     },
     reasonValue: {
-      fontSize: RFValue(12),
-      fontWeight:'400',
       color:colors.lightBlack,
       fontFamily: fontsFamily.regular,
     },

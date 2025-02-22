@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   button:{
-    marginBottom:Platform.OS==='android'?hp(2):hp(1)
+    marginBottom:hp(1)
   }
 });
 export default styles;

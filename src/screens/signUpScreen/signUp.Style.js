@@ -57,12 +57,11 @@ const styles = StyleSheet.create({
   },
   checkboxContainer: {
     flexDirection: 'row',
-    marginVertical: 15,
-    alignItems: 'center'
+    marginTop: 15,
+    alignItems: 'center',
   },
   termViews: {
-    paddingRight: 20,
-    paddingTop: 15
+    marginLeft:10,
   },
   termsText: {
     color: colors.lightBlack,

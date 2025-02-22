@@ -73,10 +73,10 @@ const styles = StyleSheet.create({
     paddingTop:16,
     paddingHorizontal:10,
     shadowColor: '#000',
-    shadowOffset: {width: 0, height:0},
-    shadowOpacity: 0.1,
-    shadowRadius: 2,
-    elevation:1,
+    shadowOffset: {width: 0.5, height:0.5},
+    shadowOpacity: 0.3,
+    shadowRadius: 1,
+    elevation:10,
 
   },
   title: {

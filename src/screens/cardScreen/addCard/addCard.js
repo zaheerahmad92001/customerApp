@@ -102,7 +102,7 @@ const AddCard = ({navigation, route}) => {
             }}
             keyboardType="number-pad"
             returnKeyType="done"
-            blurOnSubmit={false}
+            blurOnSubmit={true}
             onSubmitEditing={() => Keyboard.dismiss()}
             style={styles.inputStyle}
           />

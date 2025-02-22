@@ -95,11 +95,7 @@ const styles = StyleSheet.create({
     },
     continueButton: {
       marginTop: 'auto',
-      backgroundColor: colors.primary,
-      borderRadius: 8,
-      alignItems: 'center',
-      paddingVertical: 12,
-      paddingHorizontal: 20,
+      marginBottom:hp(1),
     },
     continueText: {
       color: colors.white,

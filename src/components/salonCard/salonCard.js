@@ -44,20 +44,19 @@ const SalonCard = props => {
               </View>
             )}
           </View>
-          <Text
+          <SmallText
             style={
               isNotificaiton
-                ? [styles.distanceText, {color: colors.appBlack}]
+                ? [styles.distanceText, {color: colors.lightBlack}]
                 : [styles.distanceText]
-            }>
-            {distance}
-          </Text>
+            }
+           text= {isNotificaiton ?'02/04/2023':distance}/>
         </View>
 
         {!isNotificaiton && (
           <View style={styles.locationContainer}>
             <LocationMarker />
-            <Text style={[styles.cardLocation]}>{location}</Text>
+            <SmallText text={location} style={styles.cardLocation} />
           </View>
         )}
 
@@ -65,7 +64,7 @@ const SalonCard = props => {
 
         {isNotificaiton && (
           <View style={styles.serviceName}>
-            <Text style={styles.distanceText}>{'Hair cut'}</Text>
+            <SmallText text={'Hair cut'} style={[styles.cardLocation,{marginVertical:0,}]} />
             <View
               style={
                 isCancelled
@@ -108,15 +107,14 @@ const SalonCard = props => {
         )}
         {isNotificaiton && (
           <View style={[styles.cardFooter, {marginTop: hp(0.4)}]}>
-            <Text style={styles.distanceText}>{'Sep 10, 2024 - 9:10 AM'}</Text>
-            <Text
+            <SmallText style={styles.distanceText} text={'Sep 10, 2024 - 9:10 AM'}/>
+            <SmallText
               style={
                 isRefund
                   ? [styles.distanceText, {color: colors.error}]
                   : [styles.distanceText]
-              }>
-              {'Pending'}
-            </Text>
+              }
+            text={'Pending'}/>
           </View>
         )}
       </View>
@@ -158,16 +156,12 @@ const styles = StyleSheet.create({
     marginLeft: 12,
   },
   cardTitle: {
-    // fontWeight:'600',
-    fontFamily: fontsFamily.regular,
+    fontFamily: fontsFamily.Pregular,
     maxWidth:'95%',
   },
   cardLocation: {
-    fontSize: RFValue(12),
-    color: colors.appBlack,
+    color: colors.lightBlack,
     marginVertical: 4,
-    fontFamily: fontsFamily.extraLight,
-    fontWeight: '500',
   },
   cardFooter: {
     flexDirection: 'row',
@@ -187,9 +181,9 @@ const styles = StyleSheet.create({
     marginLeft: 4,
   },
   distanceText: {
-    fontSize: RFValue(12),
+    // fontSize: RFValue(12),
     color: colors.lightBlack,
-    fontFamily: fontsFamily.extraLight,
+    // fontFamily: fontsFamily.extraLight,
     alignSelf: 'flex-start',
   },
   favoriteButton: {
@@ -216,7 +210,7 @@ const styles = StyleSheet.create({
   },
   paidContainer: {
     backgroundColor: colors.lightSuccess,
-    paddingVertical: 5,
+    paddingVertical: 3,
     borderRadius: 5,
     paddingHorizontal: wp(4.5),
   },
@@ -240,7 +234,7 @@ const styles = StyleSheet.create({
   },
   cancelNotificationContainer: {
     backgroundColor: colors.lighterPrimary,
-    paddingVertical: 5,
+    paddingVertical:3,
     borderRadius: 5,
     paddingHorizontal: wp(1.8),
   },
@@ -249,6 +243,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     marginTop: hp(0.7),
+    marginBottom: hp(0.3),
   },
   discounts: {
     backgroundColor: colors.lighterPrimary,
