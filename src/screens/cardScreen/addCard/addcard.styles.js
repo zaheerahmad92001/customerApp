@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     },
     button: {
       marginHorizontal:wp(4),
-      // marginTop:hp(4),
+      marginBottom:hp(1),
     },
     buttonText: {
       fontSize: RFValue(12),

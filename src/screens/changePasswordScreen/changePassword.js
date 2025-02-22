@@ -1,10 +1,8 @@
 import React, {useReducer, useState} from 'react';
 import {
   View,
-  Text,
   SafeAreaView,
   StyleSheet,
-  TouchableOpacity,
 } from 'react-native';
 import Header from '../../components/appHeader';
 import {RFValue} from 'react-native-responsive-fontsize';
@@ -62,7 +60,6 @@ const ChangePassword = ({navigation,route}) => {
           placeholder="Enter your password"
           onChange={text => updateState({confirmPass:text})}
         />
-
         <AppButton title="Change Password" onPress={handleChangePassword} style= {{marginBottom : hp(1)}} />
       </View>
     </SafeAreaView>

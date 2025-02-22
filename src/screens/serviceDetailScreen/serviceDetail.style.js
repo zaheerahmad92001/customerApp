@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import {Platform, StyleSheet} from 'react-native';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -6,6 +6,7 @@ import {
 import colors from '../../assets/colors';
 import {RFValue} from 'react-native-responsive-fontsize';
 import fontsFamily from '../../assets/fontsFamily';
+import { LargeText } from '../../components/Typography';
 
 const styles = StyleSheet.create({
   container: {
@@ -46,7 +47,7 @@ const styles = StyleSheet.create({
   },
   heading: {
     fontSize: RFValue(16),
-    fontWeight: '600',
+    fontWeight: Platform.OS === 'android' ? '700' : '600',
     color: colors.appBlack,
   },
   subContainer: {
@@ -95,7 +96,7 @@ const styles = StyleSheet.create({
   },
   continueButton: {
     position: 'absolute',
-    bottom: 0,
+    bottom: hp(1),
     width: '90%',
     alignSelf: 'center',
   },
@@ -143,7 +144,11 @@ const styles = StyleSheet.create({
   row:{
     flexDirection:'row',
     alignItems:'center',
-  }
-  
+  },
+  largeText:{
+    marginBottom: hp(1),
+    textAlign:'left',
+  },
+
 });
 export default styles;

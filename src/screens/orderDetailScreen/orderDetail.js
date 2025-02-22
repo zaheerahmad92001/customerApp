@@ -124,7 +124,7 @@ const OrderDetail = ({navigation, route}) => {
 
         <PaymentMethodComponent onSelect={handlePaymentSelect} />
 
-        <View style={[styles.subContainer, {marginTop: hp(1.5)}]}>
+        <View style={[styles.subContainer, {marginTop: hp(1.5), marginBottom:hp(2)}]}>
           <MediumText text="Notes" style={{marginBottom: hp(0.3)}} />
           <TextField
             placeholder={'Your review here'}
@@ -137,10 +137,9 @@ const OrderDetail = ({navigation, route}) => {
         </View>
       </KeyboardAwareScrollView>
 
-      <View
-        style={[styles.billView]}>
+      <View style={[styles.billView]}>
         <BillDetail item={staticBookings[0]}/>
-        <AppButton title={'Proceed (SAR 172.50)'} onPress={handleBooking}/>
+        <AppButton title={'Proceed (SAR 172.50)'} onPress={handleBooking}  style={{marginBottom: hp(1)}}/>
       </View>
 
       <BottomSheet

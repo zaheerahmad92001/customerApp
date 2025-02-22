@@ -12,7 +12,7 @@ import Search from '../../../components/search';
 import { mockData, recentSearches, venueList } from '../../../staticData';
 import images from '../../../assets/images';
 import SalonCard from '../../../components/salonCard/salonCard';
-import { LargeText, SmallText } from '../../../components/Typography';
+import { LargeText, SmallText, XlargeText } from '../../../components/Typography';
 import styles from './home.styles';
 import HomeHeader from '../../../components/homeHeader';
 import GooglePlacesModal from '../../../components/modal/google-places-modal';
@@ -79,7 +79,7 @@ const HomeScreen = ({ navigation, route }) => {
           style={styles.categoryIcon}
         />
       </View>
-      <Text style={styles.categoryText}>{item.title}</Text>
+      <SmallText text={item.title} style={styles.categoryText} />
     </TouchableOpacity>
   );
 
@@ -153,7 +153,7 @@ const HomeScreen = ({ navigation, route }) => {
             </View>
 
             <View style={styles.sectionHeader}>
-              <LargeText text={'Categories'} style={styles.sectionTitle} />
+              <XlargeText text={'Categories'} style={styles.sectionTitle} />
               <TouchableOpacity onPress={() => handleNavigation('categories')}>
                 <SmallText text={'See All'} style={styles.seeAllText} />
               </TouchableOpacity>

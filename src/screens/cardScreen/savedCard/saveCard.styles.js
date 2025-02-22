@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     },
    
 button:{
-  marginBottom: Platform.OS==='android'? hp(2): hp(1),
+  marginBottom:hp(1),
 }
 
 

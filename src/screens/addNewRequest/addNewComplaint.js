@@ -84,13 +84,13 @@ const AddrequestScreen = ({navigation, route}) => {
           </View>
         </View>
       </KeyboardAwareScrollView>
-      <View style={styles.buttonContainer}>
+    
         <AppButton
           title={'Submit'}
           onPress={addrequest}
           style={styles.button}
         />
-      </View>
+    
     </SafeAreaView>
   );
 };

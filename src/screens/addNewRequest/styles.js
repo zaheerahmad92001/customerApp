@@ -39,12 +39,9 @@ const styles = StyleSheet.create({
     textAlignVertical: 'top',
     fontSize: RFValue(14),
   },
-  buttonContainer:{
+  button:{
     marginHorizontal:wp(4),
     marginBottom:hp(1),
-  },
-  button:{
-    // marginTop:hp(4),
   },
 
 });

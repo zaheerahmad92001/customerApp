@@ -1,4 +1,4 @@
-package com.customerapp
+package com.anaqa.client
 
 import android.os.Bundle;
 import com.facebook.react.ReactActivity

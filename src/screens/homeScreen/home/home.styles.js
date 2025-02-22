@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import {Platform, StyleSheet} from 'react-native';
 import colors from '../../../assets/colors';
 import {heightPercentageToDP as hp, widthPercentageToDP as wp} from 'react-native-responsive-screen';
 import fontsFamily from '../../../assets/fontsFamily';
@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontFamily: fontsFamily.regular,
     color: colors.appBlack,
-    fontWeight: '500',
+    fontWeight: Platform.OS==='ios'? '600' : 'bold'
   },
   seeAllText: {
     color: colors.primary,
@@ -100,8 +100,6 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   categoryText: {
-    fontSize: RFValue(12),
-    fontFamily: fontsFamily.regular,
     color: colors.lightBlack,
     flexWrap: 'wrap',
   },
@@ -118,7 +116,7 @@ const styles = StyleSheet.create({
   },
   imageContainer:{
     width:wp(92),
-    height:hp(18),
+    height:hp(Platform.OS==='android'?21: 19),
     borderRadius:10,
     overflow:'hidden',
   },

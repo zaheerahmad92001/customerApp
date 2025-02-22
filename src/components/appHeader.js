@@ -4,6 +4,7 @@ import {
   Text,
   StyleSheet,
   TouchableOpacity,
+  Platform,
 } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import colors from '../assets/colors';
@@ -62,9 +63,9 @@ const styles = StyleSheet.create({
   },
   backButtonText: {
     color: colors.appBlack,
-    fontSize: 14,
+    fontSize: Platform.OS==='android'? 13 : 14,
     fontFamily: fontsFamily.regular,
-    fontWeight:'600',
+    fontWeight:Platform.OS==='android' ? '700':'600',
   },
 });
 

@@ -141,7 +141,7 @@ const EditProfile = ({navigation, route}) => {
               onSubmitEditing={() => dobRef.current?.focus()}
             />
           </View>
-          <View style={styles.inputContainer}>
+          <View style={[styles.inputContainer]}>
             <TextField
               ref={dobRef}
               label={'Date of birth'}
@@ -151,7 +151,7 @@ const EditProfile = ({navigation, route}) => {
               }}
               value={dob}
               returnKeyType="done"
-              blurOnSubmit={false}
+              blurOnSubmit={true}
             />
           </View>
           <AppButton

@@ -28,13 +28,13 @@ const styles = StyleSheet.create({
       marginVertical: 10,
     },
     description: {
-      fontSize: RFValue(12),
       fontFamily: fontsFamily.regular,
       color: colors.lightBlack,
-      marginBottom: wp(18),
+      marginTop:heightPercentageToDP(0.2),
     },
     bookingsButton: {
       width: '100%',
+      marginTop:heightPercentageToDP(12),
     },
     homeButton:{
       marginTop:heightPercentageToDP(2),

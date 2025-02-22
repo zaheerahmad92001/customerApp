@@ -1,5 +1,5 @@
 import React from 'react';
-import {Pressable, StyleSheet, Text} from 'react-native';
+import {Platform, Pressable, StyleSheet, Text} from 'react-native';
 import colors from '../assets/colors';
 import {RFValue} from 'react-native-responsive-fontsize';
 import fontsFamily from '../assets/fontsFamily';
@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: colors.white,
-    fontSize: RFValue(13), // Updated to RFValue
+    fontSize: RFValue(Platform.OS==='android'? 15: 13), // Updated to RFValue
     textAlign: 'center',
     fontWeight: '500',
     fontFamily: fontsFamily.regular,

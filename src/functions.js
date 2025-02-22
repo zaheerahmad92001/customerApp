@@ -1,3 +1,7 @@
+import { NativeModules } from 'react-native';
+const { SoftInputMode } = NativeModules;
+
+
 import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
 
 export const pickImageFromLibrary = async (onImagePicked) => {
@@ -26,3 +30,14 @@ export const captureImageWithCamera = async (onImagePicked) => {
     onImagePicked(result.assets[0]); // Return captured image data to parent
   }
 };
+
+
+const setAdjustPan = () => {
+  SoftInputMode.setAdjustPan();
+};
+
+const setAdjustResize = () => {
+  SoftInputMode.setAdjustResize();
+};
+
+export { setAdjustPan, setAdjustResize };

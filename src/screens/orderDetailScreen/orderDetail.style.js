@@ -36,20 +36,20 @@ const styles = StyleSheet.create({
       fontSize: RFValue(14),
     },
     card:{
-    shadowColor: '#000',
-    shadowOffset: {width: 0, height:0},
-    shadowOpacity: 0.1,
-    shadowRadius: 2,
-    elevation:1,
+      shadowColor: '#000',
+      shadowOffset: {width: 0.5, height:0.5},
+      shadowOpacity: 0.3,
+      shadowRadius: 1,
+    elevation:10,
     },
     billView:{
       backgroundColor:colors.white,
-      marginTop:hp(0.5),
+      // marginTop:hp(0.5),
       borderTopRightRadius: 20,
       borderTopLeftRadius: 20,
       paddingHorizontal:wp(4),
 
-      elevation:1,
+      elevation:20,
       shadowColor: '#000',
       shadowOffset: {
         width: 0,

@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
     marginTop:hp(1),
     marginBottom:hp(2),
     fontFamily:fontsFamily.regular,
-    fontWeight:'400',
+    // fontWeight:'400',
   },
   titleContainer: {
     // marginLeft:wp(2),

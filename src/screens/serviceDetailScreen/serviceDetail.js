@@ -9,7 +9,7 @@ import Clock from '../../assets/svgs/clock.svg';
 import Location from '../../assets/svgs/locationMarker.svg';
 import Star from '../../assets/svgs/star.svg';
 import styles from './serviceDetail.style';
-import {SmallText, XlargeText} from '../../components/Typography';
+import {LargeText, SmallText, XlargeText} from '../../components/Typography';
 import AvailableService from '../../components/availableServices/serviceDropDown';
 import {
   heightPercentageToDP,
@@ -24,6 +24,7 @@ import Config from 'react-native-config';
 import FastImage from 'react-native-fast-image';
 import ModalComponent from '../../components/modal';
 import OpeningHours from '../../components/modal/openingHours';
+import { venueList } from '../../staticData';
 
 const ServiceDetail = ({navigation, route}) => {
   const {item} = route.params;
@@ -126,9 +127,9 @@ const ServiceDetail = ({navigation, route}) => {
             </View>
           </Pressable>
         </View>
-        <XlargeText
+        <LargeText
           text={'Services'}
-          style={{marginBottom: heightPercentageToDP(1)}}
+          style={styles.largeText}
         />
       </React.Fragment>
     );
@@ -136,9 +137,9 @@ const ServiceDetail = ({navigation, route}) => {
   const renderFooter = () => {
     return (
       <View style={styles.footer}>
-        <XlargeText
+        <LargeText
           text={'Opening Hours'}
-          style={{marginBottom: heightPercentageToDP(1)}}
+          style={styles.largeText}
         />
         <TimmingComponent
           heading={'Monday - Saturday'}
@@ -148,9 +149,9 @@ const ServiceDetail = ({navigation, route}) => {
         />
         <TimmingComponent heading={'Sunday'} subHeading={'Closed '} />
 
-        <XlargeText
+        <LargeText
           text={'Location'}
-          style={{marginVertical: heightPercentageToDP(1)}}
+          style={styles.largeText}
         />
         <View style={styles.mapContainer}>
           <FastImage source={{uri: mapUrl}} style={styles.mapImage} />
@@ -165,8 +166,8 @@ const ServiceDetail = ({navigation, route}) => {
         </View>
 
         <View style={styles.sectionHeader}>
-          <XlargeText text={'Similar Venues'} />
-          <TouchableOpacity>
+          <LargeText text={'Similar Venues'} />
+          <TouchableOpacity onPress={()=>navigation.navigate('VenueList',{title:venueList.similar})} >
             <SmallText text={'See All'} style={styles.seeAllText} />
           </TouchableOpacity>
         </View>

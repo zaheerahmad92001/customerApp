@@ -1,6 +1,7 @@
-import { StyleSheet } from "react-native";
+import { Platform, StyleSheet } from "react-native";
 import colors from "../../assets/colors";
 import {heightPercentageToDP as hp, widthPercentageToDP as wp} from 'react-native-responsive-screen';
+import fontsFamily from "../../assets/fontsFamily";
 
 const Styles = StyleSheet.create({
     container: {
@@ -15,7 +16,7 @@ const Styles = StyleSheet.create({
         marginTop:10,
         marginBottom:5,
         fontWeight:'600',
-        color:colors.lightBlack
+        color:colors.lightBlack,
       },
 
 });

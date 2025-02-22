@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
     //   marginHorizontal: 5, // Add spacing between fields
     },
     button: {
-      marginTop:hp(5)
+      marginTop:hp(10)
     },
     buttonText: {
       color: colors.white,

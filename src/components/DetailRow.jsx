@@ -4,6 +4,7 @@ import fontsFamily from '../assets/fontsFamily';
 import { heightPercentageToDP as hp, widthPercentageToDP as wp } from 'react-native-responsive-screen';
 import { RFValue } from 'react-native-responsive-fontsize';
 import colors from '../assets/colors';
+import { SmallText } from './Typography';
 
 const DetailRow = ({ label, value, Icon }) => (
     <View style={styles.detailRow}>
@@ -11,7 +12,7 @@ const DetailRow = ({ label, value, Icon }) => (
             <Icon/>
             <Text style={styles.detailLabel}>{label}</Text>
         </View>
-        <Text style={styles.detailValue}>{value}</Text>
+        <SmallText style={styles.detailValue} text={value}/>
     </View>
 );
 
@@ -29,9 +30,7 @@ const styles = StyleSheet.create({
         marginLeft: 5,
     },
     detailValue: {
-        fontSize: RFValue(12),
         color:colors.appBlack,
-        fontWeight:'500',
         fontFamily: fontsFamily.regular,
         width: wp(40),
         textAlign: 'right',

@@ -7,6 +7,7 @@ import colors from '../../assets/colors';
 import fontsFamily from '../../assets/fontsFamily';
 import { AppButton } from '../../components/appButton';
 import TextField from '../../components/textField/textField';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import { Checkbox } from 'react-native-paper';
 import { RFValue } from 'react-native-responsive-fontsize';
 import Header from '../../components/appHeader';
@@ -75,12 +76,11 @@ const SignUp = ({ navigation, route }) => {
           style={styles.inputFields}
         />
 
-        <View style={styles.checkboxContainer}>
-          <Checkbox
-            status={isChecked ? 'checked' : 'unchecked'}
-            onPress={() => setChecked(!isChecked)}
-            color={colors.primary}
-          />
+        <Pressable onPress={() => setChecked(!isChecked)}
+        style={styles.checkboxContainer}>
+          <View style={{alignSelf:'flex-start'}}>
+          <MaterialIcons name={isChecked? "check-box":'check-box-outline-blank'} size={25} color={isChecked? colors.primary : colors.lightBlack} />
+          </View>
           <View style={styles.termViews}>
             <Text style={styles.termsText}>
               I agree to the anaqq{" "}
@@ -88,13 +88,13 @@ const SignUp = ({ navigation, route }) => {
                 Terms of Service
               </Text>{" "}
               and{" "}
-              <Text style={styles.privacyPolicyText}>
+            </Text>
+            <Text style={styles.privacyPolicyText}>
                 Privacy Policy
               </Text>
-            </Text>
           </View>
 
-        </View>
+        </Pressable>
 
         <AppButton
           title={'Sign Up'}
