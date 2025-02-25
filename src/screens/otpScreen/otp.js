@@ -83,6 +83,7 @@ const styles = StyleSheet.create({
   subHeading: {
     color: colors.lightBlack,
     fontFamily: fontsFamily.regular,
+    marginTop:hp(1),
   },
   otpContainer: {
     width: '72%',
