@@ -76,6 +76,7 @@ const styles = StyleSheet.create({
     fontSize: RFValue(12),
     fontFamily: fontsFamily.regular,
     color: colors.lightBlack,
+    lineHeight:24,
   },
 });
 

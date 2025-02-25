@@ -76,8 +76,6 @@ const styles = StyleSheet.create({
   signUpButton: {
     backgroundColor: colors.primary,
     marginVertical: 10,
-    fontSize: RFValue(12),
-    fontFamily: fontsFamily.semiBold,
   },
   signUpText: {
     fontSize: RFValue(13),
